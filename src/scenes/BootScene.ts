@@ -37,6 +37,12 @@ export class BootScene extends Phaser.Scene {
       frameHeight: 128
     });
 
+    // Fire Battlemancer — uses rina sprite as placeholder until dedicated spritesheet exists
+    this.load.spritesheet('fire_battlemancer', 'assets/sprites/rina.png', {
+      frameWidth: 128,
+      frameHeight: 128
+    });
+
     // Skill effects (2x scale, will be displayed at 0.5x)
     this.load.spritesheet('fx_void_kunai', 'assets/sprites/effects/void_kunai.png', {
       frameWidth: 64, frameHeight: 64
@@ -62,6 +68,6 @@ export class BootScene extends Phaser.Scene {
   }
 
   create(): void {
-    this.scene.start('BattleScene');
+    this.scene.start('CharacterSelectScene');
   }
 }

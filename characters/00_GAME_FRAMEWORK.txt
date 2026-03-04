@@ -1,0 +1,271 @@
+================================================================================
+  GAME FRAMEWORK: SUPER BATTLEMANCERS
+  Character System Bible
+================================================================================
+  This document defines the rules that ALL characters must follow.
+  Every character spec (01_CHARACTER_DESCRIPTION.txt) must reference this file.
+================================================================================
+
+
+OVERVIEW
+================================================================================
+Super Battlemancers is a fast-paced 2D arena brawler where magic-wielding
+fighters clash in combat. Every character is defined by three tags:
+
+  ORIGIN  /  POWER TYPE  /  CLASS
+
+  Example: Rina = Pact-Bound / Void-Shadow / Assassin
+  Example: Mortis = Cursed / Void-Death / Slayer
+
+No two characters should share ALL three tags. Each fighter must feel unique.
+
+
+================================================================================
+  1. ARCANA ORIGINS (Lore + Stat Bonus)
+================================================================================
+
+Origin defines HOW a character obtained their magic. It provides lore identity
+and a small flat stat bonus on top of class base stats.
+
+  Final Stats = Class Base Stats + Origin Bonus
+
+ORIGIN            BONUS           LORE DESCRIPTION
+------            -----           ----------------
+Innate            +10 HP          Born with magic in their blood. Natural
+                                  prodigies, bloodline heirs, or mutations.
+                                  They didn't choose power — it chose them.
+                                  The magic is part of their body, granting
+                                  natural resilience.
+
+Pact-Bound        +10 Speed       Made a deal with an entity — spirit, demon,
+                                  ancient god, or cosmic force. Power comes
+                                  with a price or condition. The entity
+                                  enhances their physical form as part of
+                                  the bargain.
+
+Forged            +5 HP           Created their own magic through science,
+                  +5 Speed        alchemy, runecraft, or engineering. Self-made
+                                  battlemancers. Their power is precisely
+                                  engineered for balanced augmentation.
+
+Cursed            +15 HP          Power was forced on them — a curse, corruption,
+                                  failed ritual, or death itself. They didn't
+                                  ask for this. The curse sustains them beyond
+                                  normal limits, making them hard to put down.
+
+Stolen            +15 Speed       Took power from another source — consumed it,
+                                  drained it, or ripped it away. Hunters of
+                                  magic. The stolen power fuels raw aggression
+                                  and predatory speed.
+
+
+================================================================================
+  2. POWER TYPES (Element / Magic Theme)
+================================================================================
+
+Power Type defines WHAT a character's magic does. It determines visual identity,
+ability themes, color palette direction, and matchup flavor.
+
+CATEGORY          ELEMENTS                    COLOR DIRECTION
+--------          --------                    ---------------
+Primal            Fire                        Reds, oranges, yellows
+                  Ice                         Blues, whites, light cyans
+                  Lightning                   Yellows, electric blues, whites
+                  Earth                       Browns, greens, stone grays
+                  Wind                        Light greens, whites, silvers
+
+Void              Shadow                      Darks + pink/purple accents
+                  Death                       Darks + cyan-green accents
+                  Gravity                     Darks + deep purple accents
+                  Darkness                    Pure blacks + muted accents
+
+Spirit            Psychic                     Purples, lavenders, soft pinks
+                  Light                       Golds, whites, warm yellows
+                  Beast                       Oranges, browns, ferals
+                  Nature                      Greens, earth tones, florals
+
+Arcane            Time                        Golds, sepias, clock aesthetics
+                  Crystal                     Prismatic, whites, translucent
+                  Alchemy                     Mixed/chaotic color combos
+                  Explosive                   Oranges, reds, blacks (industrial)
+                  Rune                        Blue-whites, geometric patterns
+
+A character's Power Type is flexible — these are guidelines, not strict rules.
+New elements can be added as long as they fit one of the four categories.
+
+
+================================================================================
+  3. CLASSES (Strict Base Stats)
+================================================================================
+
+Class defines a character's combat role and STRICT base stat template.
+These numbers are absolute — every character in a class has the same base
+stats before Origin bonuses are applied.
+
+CLASS         HP    SPEED   ATK SPEED   DAMAGE      JUMP FORCE   IDENTITY
+-----         --    -----   ---------   ------      ----------   --------
+Assassin      85    220     Fast        Low/hit     -420         Fast, fragile, combo-based.
+                                                                 Gets in close, overwhelms
+                                                                 with speed and pressure.
+                                                                 Glass cannon with mobility.
+
+Warrior       100   200     Medium      Medium      -400         Balanced all-rounder.
+                                                                 No major weaknesses, no
+                                                                 extreme strengths. Reliable
+                                                                 and versatile in all
+                                                                 situations.
+
+Tank          120   170     Slow        Medium      -360         Tough, slow, punishing.
+                                                                 Absorbs damage and waits
+                                                                 for openings. High HP
+                                                                 compensates for low
+                                                                 mobility. Walls you out.
+
+Mage          90    200     Medium      High        -400         Ranged magic damage.
+                                                                 Keeps distance with strong
+                                                                 projectiles and area
+                                                                 control. Fragile up close
+                                                                 but dominant at range.
+
+Berserker     95    210     Fast        High        -400         High-risk high-reward
+                                                                 aggression. Fast AND
+                                                                 strong but lower HP.
+                                                                 All-in playstyle — win
+                                                                 fast or die trying.
+
+Slayer        90    180     Slow        Very High   -380         Slow, committal, massive
+                                                                 damage per hit. Longest
+                                                                 range or biggest burst.
+                                                                 Punishable if attacks
+                                                                 miss. Rewards patience
+                                                                 and reads.
+
+
+STAT DEFINITIONS:
+  HP          : Health points. Character dies at 0.
+  Speed       : Movement speed in pixels per second.
+  Atk Speed   : Relative attack animation speed (Fast/Medium/Slow).
+                Fast = 80ms per frame, Medium = 100ms, Slow = 120ms.
+  Damage      : Relative damage tier for basic attacks.
+                Low = 5/10/15, Medium = 8/14/20, High = 10/16/24, Very High = 7/14/22.
+                (3-hit combo: Hit1/Hit2/Hit3)
+  Jump Force  : Vertical launch velocity (negative = upward). Lower number = higher jump.
+
+
+FINAL STAT EXAMPLES:
+
+Character       Class           Origin          Final HP    Final Speed
+---------       -----           ------          --------    -----------
+Rina            Assassin        Pact-Bound      85          230
+                (85/220)        (+10 spd)
+
+Mortis          Slayer          Cursed          105         180
+                (90/180)        (+15 hp)
+
+
+================================================================================
+  4. UNIVERSAL ABILITY SLOTS
+================================================================================
+
+Every character has the same 5 ability slots. The abilities themselves are
+unique per character, but the STRUCTURE is always the same.
+
+SLOT              TYPE                NOTES
+----              ----                -----
+Basic Melee       3-hit combo         Always available. No cooldown between
+                                      hits (only between full combos).
+                                      Damage values follow class tier.
+
+Primary Power     Projectile OR       Main special move. 6-10s cooldown.
+                  Melee special       Can be ranged or close-range.
+
+Secondary         Utility             Defensive or utility ability.
+                  (shield/trap/       12-15s cooldown. Not primarily
+                  buff/mobility)      for damage.
+
+Dodge             Universal           1s invulnerability. 15s cooldown.
+                  invulnerability     Every character has this. Visual
+                                      style varies per character.
+
+Ultimate          Signature move      Charges through combat (deal/take
+                                      damage) + slow passive charge.
+                                      100% charge required. Most powerful
+                                      ability. Dramatic visual payoff.
+
+ULTIMATE CHARGE RATES (standardized):
+  Passive charge  : 0.3-0.5% per second (varies by character)
+  Deal damage     : 1% per 5-8 damage dealt (varies)
+  Take damage     : 1% per 8-12 damage taken (varies)
+  Characters with faster passive = slower combat charge, and vice versa.
+
+
+================================================================================
+  5. CHARACTER DESIGN RULES
+================================================================================
+
+VISUAL RULES:
+  - All characters use the same sprite sheet format (384x704, 6x11 grid, 64x64 frames)
+  - All characters face RIGHT in their sprite sheet (engine flips for left)
+  - Semi-chibi anime proportions (head ~1/3 of body height)
+  - Character height: 48-56px within the 64x64 frame
+  - Ground/feet line at y=58
+  - Centered at x=32
+  - 1px dark outline, 2-3 shading levels per color
+  - Each character needs a KEY identifying feature visible in every frame
+    (Rina = glasses, Mortis = cyan eye dots + scythe)
+
+ANIMATION ROWS (same for all characters):
+  Row 0  : Idle (4 frames, looping)
+  Row 1  : Run/Move (6 frames, looping)
+  Row 2  : Jump (3 frames, one-shot)
+  Row 3  : Attack 1 (3 frames, one-shot)
+  Row 4  : Attack 2 (3 frames, one-shot)
+  Row 5  : Attack 3 (3-4 frames, one-shot)
+  Row 6  : Cast / Primary Power (4 frames, one-shot)
+  Row 7  : Take Hit (2 frames, one-shot)
+  Row 8  : Dodge (2 frames, F1 held)
+  Row 9  : Ultimate (4 frames, one-shot)
+  Row 10 : Death (3 frames, one-shot)
+
+BALANCE RULES:
+  - Class stats are STRICT — no exceptions
+  - Origin bonuses are STRICT — no exceptions
+  - Uniqueness comes from ability design, NOT stat tweaking
+  - No two characters share the same Origin + Power Type + Class combo
+  - Every character must have clear counterplay (no unbeatable matchups)
+
+
+================================================================================
+  6. CURRENT ROSTER
+================================================================================
+
+#   Character               Origin       Power Type       Class      HP    Speed
+-   ---------               ------       ----------       -----      --    -----
+1   Rina, Phantom Blade     Pact-Bound   Void-Shadow      Assassin   85    230
+2   Mortis, Soul Reaper     Cursed       Void-Death       Slayer     105   180
+3   Hiro, Sun Dancer        Innate       Primal-Fire      Berserker  105   210
+
+
+================================================================================
+  7. ROSTER PLANNING
+================================================================================
+
+Target roster size: 12-14 characters
+
+Ideal distribution:
+  Origins   : 2-3 characters per origin (balanced across all 5)
+  Types     : At least 1 from each category (Primal, Void, Spirit, Arcane)
+              No more than 3 from any single category
+  Classes   : 2-3 characters per class (all 6 represented)
+
+Current gaps:
+  Origins   : Missing Innate, Forged, Stolen
+  Types     : Missing Primal, Spirit, Arcane entirely
+  Classes   : Missing Warrior, Tank, Mage, Berserker
+
+
+CONNECTIONS
+================================================================================
+-> characters/02_Rina_Shadow_Assassin/01_CHARACTER_DESCRIPTION.txt
+-> characters/03_Mortis_Death_Reaper/01_CHARACTER_DESCRIPTION.txt
+-> All future character 01_CHARACTER_DESCRIPTION.txt files must reference this doc

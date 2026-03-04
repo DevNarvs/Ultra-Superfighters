@@ -85,6 +85,16 @@ export interface SpawnPoint {
   y: number;
 }
 
+export interface HazardConfig {
+  type: 'falling_object';
+  spawnInterval: number;
+  damage: number;
+  knockback: number;
+  spawnArea: { xMin: number; xMax: number; y: number };
+  fallSpeed: number;
+  size: { width: number; height: number };
+}
+
 export interface ArenaData {
   id: string;
   name: string;
@@ -94,6 +104,7 @@ export interface ArenaData {
   ground: PlatformData[];
   platforms: PlatformData[];
   spawnPoints: SpawnPoint[];
+  hazards?: HazardConfig[];
 }
 
 export interface Arena {

@@ -1,0 +1,355 @@
+================================================================================
+  CHARACTER DESCRIPTION: KARASU — THE CRIMSON PHANTOM
+  Super Battlemancers
+================================================================================
+  Framework    : <- 00_GAME_FRAMEWORK.txt
+  Feeds into   : -> 02_CHARACTER_DESIGN.txt
+                 -> 03_CHARACTER_SKILLS_EFFECTS.txt
+================================================================================
+
+
+CHARACTER IDENTITY
+================================================================================
+Name              : Karasu
+Title / Alias     : The Crimson Phantom
+Origin            : Cursed (the eyes are a burden — immense power at terrible cost)
+Power Type        : Spirit — Hellfire (dark cursed flames + spectral warrior spirit)
+Class             : Slayer
+Personality       : Calm, calculating, tragic — fights with cold precision, not emotion
+
+Framework Tags    : Cursed / Spirit-Hellfire / Slayer
+
+
+STATS (from 00_GAME_FRAMEWORK.txt)
+================================================================================
+                    Class Base      Origin Bonus     Final
+                    ----------      ------------     -----
+HP                  90              +15 (Cursed)     105
+Speed               180             —                180
+Attack Speed        Slow (120ms)    —                Slow
+Damage              Very High       —                Very High
+Jump Force          -380            —                -380
+
+
+VISUAL IDENTITY
+================================================================================
+
+Appearance
+----------
+Hair              : Long straight jet black (#0A0A14) hair, tied in a low loose
+                    ponytail that hangs behind the back. Side-parted bangs frame
+                    the face — long enough to partially shadow one eye in some
+                    frames. Hair has a subtle dark violet (#2A1A3E) sheen in the
+                    highlights (not pure black — slightly purple-tinted).
+Eyes              : Crimson red (#CC0000) glowing eyes — the KEY IDENTIFYING
+                    FEATURE. The irises glow with a steady red light. In side
+                    view, one eye is fully visible, the second partially visible.
+                    During abilities, tiny spinning marks appear around the iris
+                    (3 small dots in a circular pattern — 1-2px each of bright
+                    crimson #FF0000). The eyes are calm, cold, and piercing —
+                    no anger, no emotion, just absolute focus.
+                    Eye glow INTENSIFIES during attacks and ultimate.
+                    Eye glow DIMS when taking damage or dying.
+Build             : Lean, tall, narrow frame. Slightly taller than average
+                    (~52-54px). Elegant and precise, not bulky. Moves with
+                    minimal wasted motion.
+Outfit            : Dark high-collared cloak (#0F0F1A near-black) over a fitted
+                    dark crimson (#4A0000) tunic. The cloak is long, reaching
+                    to mid-calf, with an open front showing the tunic beneath.
+                    The cloak has a high collar that frames the jaw and lower
+                    face. Dark charcoal (#2A2A2A) fitted pants. The cloak
+                    billows and flows during movement — it has volume and weight.
+                    Thin dark red (#660000) trim lines along the cloak's edges.
+Hands             : Pale skin (#F0DCC8) hands with dark fingerless gloves
+                    (#1A1018). Fingers are long, precise — a spellcaster's hands.
+Boots             : Dark (#1A1018) mid-calf boots, simple and functional. Thin
+                    dark red (#660000) accent line at the top edge.
+Extras            : SPECTRAL BLADE — NOT a physical weapon. Karasu fights by
+                    materializing a ghostly violet (#6B3FA0) energy blade from
+                    his cursed eye power. The blade appears during attack frames
+                    and dissolves after. During idle, NO weapon is visible — he
+                    stands with empty hands, calm and unarmed. The blade is
+                    straight, katana-length (~36px), semi-transparent with a
+                    bright violet (#9B59B6) edge glow and dark core (#2A1A3E).
+                    CROWS — 1-2 small black crows perch on or near the character
+                    during idle. They scatter during attacks. Each crow is tiny
+                    (~4-5px body, dark shape with a small red #CC0000 eye dot).
+                    Crows are a recurring motif — they appear in dodge, death,
+                    and several ability effects.
+
+Color Palette
+----------
+Primary 1         : Near-Black      #0F0F1A    (cloak base)
+Primary 2         : Void Black      #0A0A14    (cloak deepest shadows, hair)
+Accent 1          : Crimson Red     #CC0000    (eye glow, energy core, crow eyes)
+Accent 2          : Bright Crimson  #FF0000    (eye marks, maximum energy)
+Accent 3          : Dark Crimson    #660000    (cloak trim, dark accents)
+Dark / Shadow     : Deep Blood      #4A0000    (tunic base)
+Skin              : Pale Ivory      #F0DCC8    (skin — noticeably pale)
+Hair Main         : Jet Black       #0A0A14    (hair base)
+Hair Highlight    : Dark Violet     #2A1A3E    (hair sheen)
+Boots / Gloves    : Charcoal Black  #1A1018    (boots, gloves)
+Pants             : Dark Charcoal   #2A2A2A    (pants)
+
+Additional Palette:
+Spectral Blade    : Ghost Violet    #6B3FA0    (blade body)
+Blade Edge        : Bright Violet   #9B59B6    (blade glow edge)
+Blade Core        : Dark Violet     #2A1A3E    (blade inner)
+Susanoo Body      : Spectral Violet #7B4FBF    (Susanoo spirit body)
+Susanoo Glow      : Bright Lavender #B088D0    (Susanoo brightest)
+Susanoo Dark      : Deep Purple     #3D1F6D    (Susanoo shadows)
+Susanoo Fire      : Hellfire Red    #FF2200    (Susanoo fire energy)
+Black Flame Core  : Pure Black      #050505    (Amaterasu-style dark fire center)
+Black Flame Edge  : Dark Red Glow   #880000    (dark fire outer glow)
+Crow Body         : Crow Black      #0A0A14    (crow silhouette)
+Crow Eye          : Crimson         #CC0000    (tiny crow eye dot)
+Cloak Highlight   : Dark Slate      #1A1A2E    (cloak lighter folds)
+Outline           : True Black      #050510    (character outline — coldest dark)
+
+
+COMBAT IDENTITY
+================================================================================
+
+Playstyle Summary
+-----------------
+Cold, calculated Slayer who controls the fight at mid-range with a spectral
+blade and dark flame projectiles. Karasu is patient — he waits for the
+opponent to commit, then punishes with devastating single strikes. His
+spectral blade has excellent range (it materializes at distance), and his
+Black Flame projectile deals damage over time, adding pressure even when he
+doesn't land direct hits. The Crow Substitution decoy punishes aggressive
+opponents who rush in. When his ultimate is ready, the Susanoo Awakening
+transforms him into a spectral warrior for one overwhelming strike. Every
+ability rewards patience and reads. He doesn't chase — he waits and strikes
+with certainty.
+
+
+Abilities Overview
+------------------
+Slot                  Name                    Type              Short Description
+----                  ----                    ----              -----------------
+Basic Melee           Phantom Edge            Combo (3-hit)     Spectral blade slashes — slow, long range, devastating
+Primary Power         Black Flame             Projectile        Slow dark fire that burns over time (DOT)
+Secondary Ability     Crow Substitution       Decoy/Trap        Leaves a crow clone that explodes when hit
+Dodge                 Crow Scatter (Universal) Invulnerability  Body bursts into a murder of crows — 1s invuln
+Ultimate              Susanoo Awakening       Burst             Spectral fire warrior engulfs Karasu, massive single slash
+
+
+ABILITY DETAILS
+================================================================================
+
+Basic Melee: Phantom Edge (3-hit combo)
+---------------------------------------
+The spectral blade materializes from nothing for each strike — it appears
+at the moment of the slash and dissolves after. Each attack is a precise,
+calculated cut with minimal wasted movement.
+
+Hit 1             : 7 dmg — Shadow Cut: a clean horizontal spectral blade
+                    swipe. The blade materializes mid-swing at full extension.
+                    Long reach (~38px) but slow startup. The character barely
+                    moves — only the arm extends as the blade appears. Cold,
+                    efficient, surgical.
+Hit 2             : 14 dmg — Phantom Sweep: a wider diagonal downward slash.
+                    The blade is larger and brighter in this strike. Body
+                    steps forward slightly. Greater knockback. The sweep
+                    covers a wide arc.
+Hit 3             : 22 dmg — Crimson Severance: the most devastating basic
+                    strike. The eyes blaze maximum crimson as a massive
+                    spectral blade materializes — larger than the normal
+                    blade (~44px reach). A full-commitment overhead chop.
+                    Extremely slow recovery. If it hits, devastating. If it
+                    misses, punishable.
+Combo Window      : 500ms (slow, deliberate — like Mortis)
+Cooldown          : 600ms between combos
+Notes             : The spectral blade appearing and disappearing is the
+                    unique visual identity of this combo. Other characters
+                    hold physical weapons — Karasu's weapon MANIFESTS from
+                    his eye power for each individual strike.
+
+
+Primary Power: Black Flame
+--------------------------
+Damage            : 8 initial + 4 per tick x 3 ticks = 20 total
+Speed             : 280px/s (SLOW — menacing, not fast)
+Range             : Full arena width
+Cooldown          : 10s
+Knockback         : Low / 150 (the flame sticks, it doesn't launch)
+Special           : A dark flame projectile that moves slowly across the
+                    arena. On contact, it deals 8 initial damage and
+                    IGNITES the target — dealing 4 damage per second for
+                    3 seconds (12 DOT). The total damage (20) is high but
+                    spread over time. The slow speed makes it easy to jump
+                    over but hard to ignore — it forces movement. Cannot be
+                    cancelled by other projectiles (passes through them like
+                    Wraith Bolt). Destroyed on contact with a player.
+Visual            : A small sphere of BLACK fire — dark core (#050505) with
+                    a dim red (#880000) outer glow. The flames flicker with
+                    dark, unnatural movement. When it hits, dark flames
+                    briefly engulf the target (engine handles the DOT visual).
+
+
+Secondary Ability: Crow Substitution
+-------------------------------------
+Duration          : Decoy lasts 3s or until hit
+Cooldown          : 12s
+Damage            : 10 (explosion on contact)
+Special           : Karasu leaves a CROW CLONE at his current position and
+                    instantly shifts backward ~40px. The clone looks like a
+                    dark silhouette of Karasu made of clustered crows — a
+                    vaguely human shape composed of black birds. If an enemy
+                    attacks the clone, it EXPLODES into a burst of crows and
+                    dark energy, dealing 10 damage and briefly stunning.
+                    If not hit within 3 seconds, the clone dissolves into
+                    crows that fly away harmlessly.
+                    This is a COUNTER/TRAP — it punishes aggressive opponents
+                    who attack without thinking. Karasu bait → clone explodes
+                    → free punish with Phantom Edge.
+Visual            : Clone is a dark human silhouette made of clustered crow
+                    shapes. Red eye dots visible on the clone. On explosion:
+                    burst of crows scattering in all directions + dark
+                    energy flash.
+
+
+Dodge: Crow Scatter (Universal)
+-------------------------------
+Duration          : 1s invulnerability
+Cooldown          : 15s
+Visual            : Karasu's body BURSTS into a murder of crows. The solid
+                    form shatters into 8-12 individual small black crow
+                    silhouettes that scatter in all directions — some fly
+                    upward, some sideways, some in loops. During the 1s
+                    dodge, the scattered crows swirl and circle in the air
+                    where the character was. Then they converge back together,
+                    reforming into Karasu's solid body. Each crow is a tiny
+                    dark shape (~4-5px) with a single red eye dot.
+                    The most visually distinctive dodge in the game — the
+                    character literally becomes a flock of birds.
+
+
+Ultimate: Susanoo Awakening
+----------------------------
+Charge Source     : Dealing damage (1% per 7 dmg — slower, rewards patience),
+                    taking damage (1% per 8 dmg — faster on defense),
+                    passive (0.3%/s — slowest passive, must fight to charge)
+Startup Time      : 0.8s (slow, dramatic)
+Damage            : 45 (single devastating slash — highest single-hit in game)
+Knockback         : Massive / 500
+Duration          : ~2s total (0.8s startup + ~1.2s slash + aftermath)
+Counterplay       : Long, visible startup — the Susanoo forming around Karasu
+                    is a clear warning. Jumpable (the slash is a wide horizontal
+                    sweep). Dodgeable. But if it hits, it's the hardest single
+                    hit in the entire game (45 damage).
+Notes             : Karasu's eyes blaze maximum crimson. A massive spectral
+                    warrior — the Susanoo — forms around and above him. The
+                    Susanoo is a translucent violet-red spectral armored giant
+                    (~2x character height) that engulfs Karasu inside it. The
+                    Susanoo raises an enormous spectral fire blade overhead,
+                    then delivers one devastating downward slash that covers
+                    a massive area in front. The slash leaves a wave of dark
+                    fire on the ground that lingers briefly.
+                    This is the SINGLE BIGGEST HIT in the game — one strike,
+                    maximum damage. If it connects, the round is likely over.
+                    If it misses, the long recovery leaves Karasu completely
+                    vulnerable.
+Visual            : The Susanoo is a translucent spectral warrior outline —
+                    ghostly violet (#7B4FBF) body with bright lavender
+                    (#B088D0) edges and deep purple (#3D1F6D) shadows. Hellfire
+                    red (#FF2200) energy courses through it. The spectral
+                    blade it wields is enormous — wider than the character frame.
+                    Screen flash red-white on activation. Camera shake on impact.
+
+
+CHARACTER BALANCE NOTES
+================================================================================
+Strengths         : Highest single-hit damage in the game (Susanoo — 45 dmg).
+                    Black Flame DOT adds passive pressure. Crow Substitution
+                    punishes reckless aggression. Spectral blade range is
+                    excellent. Patient playstyle is oppressive once mastered.
+                    Every ability has a purpose in the spacing game.
+Weaknesses        : Slowest attack speed (120ms frames). Low mobility (180 spd).
+                    No gap closer — must wait for opponents to come to him.
+                    Extremely punishable on whiffed attacks. Ultimate is the
+                    most committal in the game (45 dmg but huge punish window
+                    on miss). Weak to fast rushdown (Rina, Hiro) who can
+                    bait and punish. Black Flame is easy to jump over.
+Matchup vs Rina   : Karasu struggles — Rina's speed overwhelms his slow attacks.
+                    Crow Substitution is his best tool (bait Rina's aggression
+                    → clone explodes → punish). If Rina respects the clone,
+                    Karasu can zone with Black Flame. But if Rina gets inside,
+                    Karasu can't keep up.
+Matchup vs Mortis : Battle of patience. Both are slow Slayers who wait for
+                    openings. Karasu's Black Flame passes through Wraith Bolt
+                    (both are intangible projectiles). Mortis has more HP but
+                    Karasu has higher burst. Comes down to who lands their
+                    ultimate first. Mortis's Death's Harvest vs Karasu's
+                    Susanoo — a clash of ultimate abilities.
+Matchup vs Hiro   : Karasu's worst matchup. Hiro's Blazing Dawn Slash closes
+                    distance instantly, and his fast attack speed overwhelms
+                    Karasu's slow recovery. Karasu must rely entirely on Crow
+                    Substitution reads and well-placed Black Flames to keep
+                    Hiro at bay. If Susanoo lands, Hiro dies. If it misses,
+                    Hiro kills Karasu during the recovery.
+
+
+AI PROMPT: CHARACTER CONCEPT
+================================================================================
+
+Pixel art character design sheet for a 2D side-scrolling fighting game.
+
+CHARACTER: "Karasu, the Crimson Phantom" — a mysterious illusionist with
+cursed crimson eyes that manifest spectral weapons and a ghostly warrior
+spirit. Dark, tragic, calculating character associated with crows.
+
+CAMERA / VIEW:
+- Strict side view (profile), facing RIGHT.
+- 90-degree side angle, classic 2D fighting game perspective.
+- NOT 3/4 view. NOT front-facing. NOT isometric. Pure flat side profile.
+
+PROPORTIONS & SIZE:
+- Semi-chibi anime proportions: head approximately 1/3 of total body height.
+- Total character height: approximately 52-54 pixels tall (slightly tall).
+- Must fit inside a 64x64 pixel cell with padding.
+- Feet at y=58 (6 pixels from the bottom of the 64px frame).
+
+APPEARANCE (DETAILED):
+- Long straight jet black (#0A0A14) hair in a low loose ponytail. Side-parted
+  bangs frame the face. Subtle dark violet (#2A1A3E) highlights.
+- Glowing crimson red (#CC0000) eyes — KEY IDENTIFYING FEATURE. Calm, cold,
+  piercing. One eye fully visible in side view.
+- Pale ivory (#F0DCC8) skin — noticeably pale.
+- Dark high-collared cloak (#0F0F1A) reaching mid-calf, open front. High collar
+  frames the jaw. Dark red (#660000) trim lines at edges. Cloak highlight
+  (#1A1A2E) on lighter folds.
+- Dark crimson (#4A0000) fitted tunic visible under the open cloak.
+- Dark charcoal (#2A2A2A) fitted pants.
+- Dark (#1A1018) mid-calf boots with dark red (#660000) accent.
+- Dark (#1A1018) fingerless gloves over pale hands.
+- NO visible weapon in idle — hands are empty. Spectral blade appears only
+  during attacks.
+- 1-2 small black crow silhouettes (~4-5px each) perched on or near shoulders.
+
+COLOR PALETTE (strict):
+- Near-Black #0F0F1A (cloak base)
+- Void Black #0A0A14 (hair, deepest shadow)
+- Dark Slate #1A1A2E (cloak highlights)
+- Crimson Red #CC0000 (eyes, energy)
+- Bright Crimson #FF0000 (max energy)
+- Dark Crimson #660000 (trim, accents)
+- Deep Blood #4A0000 (tunic)
+- Pale Ivory #F0DCC8 (skin)
+- Dark Violet #2A1A3E (hair highlights)
+- Charcoal #2A2A2A (pants)
+- Charcoal Black #1A1018 (boots, gloves)
+- Outline #050510 (true black)
+
+OUTPUT:
+- Single character in an idle standing pose, facing right.
+- No weapons visible — empty hands, calm posture.
+- 1-2 small crows near the character.
+- Transparent background.
+
+
+CONNECTIONS
+================================================================================
+-> 02_CHARACTER_DESIGN.txt    uses: Visual Identity, Color Palette, Spectral Blade, Crow Motif
+-> 03_CHARACTER_SKILLS_EFFECTS.txt  uses: Hellfire Element, Crimson-Violet Palette, Ability Details

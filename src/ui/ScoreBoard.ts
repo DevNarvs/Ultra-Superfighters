@@ -64,6 +64,10 @@ export class ScoreBoard {
     }
   }
 
+  getUIObjects(): Phaser.GameObjects.GameObject[] {
+    return [...this.elements.map(e => e.label), this.roundLabel];
+  }
+
   destroy(): void {
     EventBus.off(Events.ROUND_END, this.onRoundEnd, this);
     EventBus.off(Events.ROUND_START, this.onRoundStart, this);

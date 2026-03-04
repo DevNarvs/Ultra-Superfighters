@@ -1,0 +1,1353 @@
+================================================================================
+  AI GENERATION PROMPTS: HIRO — THE SUN DANCER
+  Super Battlemancers
+================================================================================
+  Ready-to-copy-paste AI prompts for EACH animation and skill effect.
+  INPUT:    <- 01_CHARACTER_DESCRIPTION.txt
+            <- 02_CHARACTER_DESIGN.txt
+            <- 03_CHARACTER_SKILLS_EFFECTS.txt
+  OUTPUT:   Individual sprite strips → stitch into full sprite sheet + effects
+================================================================================
+
+
+HOW TO USE
+================================================================================
+1. Copy ONE prompt at a time into your AI image generator.
+2. Generate, review, adjust if needed.
+3. After generating all 11 animation strips (A0-A10), stitch vertically:
+   - Row 0 at y=0, Row 1 at y=64, Row 2 at y=128, ... Row 10 at y=640
+   - Final sheet: 384 x 704 pixels (or 768 x 1408 at 2x scale)
+4. Skill effects (B1-B6) are separate individual files.
+5. Use Photopea.com (free) or Photoshop. "Nearest Neighbor" resampling.
+
+WARM PALETTE NOTE:
+Hiro is a WARM, BRIGHT character — the visual opposite of Mortis and Rina.
+The outline color is warm dark brown (#1A0F0A), NOT pure black. The energy
+is golden-orange solar fire, NOT blue or green. AI generators should produce
+warm, heroic-feeling sprites.
+
+
+CHARACTER REFERENCE
+================================================================================
+Name              : Hiro
+Title             : The Sun Dancer
+Element / Theme   : Primal — Fire (Solar / Sun)
+Role              : Berserker (aggressive, fast, dance-like combos)
+
+APPEARANCE BLOCK (included in every prompt):
+  A young swordsman with short messy dark reddish-brown (#8B2500) hair,
+  forward swept with a few strands falling across the forehead. A small
+  golden sun symbol (#FFD700) on the center of the forehead — circular dot
+  with 4-6 short radiating lines — KEY identifying feature, must be visible
+  in EVERY frame. Warm amber (#FF8C00) eyes with a determined expression.
+  Warm tan (#FFCC99) skin. Dark navy (#1A1A3E) short-sleeved kimono top
+  (uwagi) with golden (#FFD700) trim along collar and sleeve edges, navy
+  shadow (#0F0F2A) in deep folds, navy highlight (#2D2D55) on lighter areas.
+  Burnt orange (#CC5500) obi sash tied at the waist with short hanging tails.
+  Dark charcoal (#2A2A2A) wide-legged hakama pants tucked into boots.
+  Simple dark (#1A1018) ankle boots with thin golden (#FFD700) accent line.
+  Cloth-wrapped (#E8D5B8) hands. KATANA in right hand: dark wrapped (#2A2A2A)
+  handle, golden (#FFD700) circular sun-shaped tsuba (guard), polished steel
+  (#C0C8D0) blade with faint orange-gold (#FF8C00) shimmer on the cutting
+  edge. Small golden (#FFD700) sun-shaped earring on visible ear. Semi-chibi
+  anime proportions (head ~1/3 of body height). Athletic, lean build.
+
+COLOR PALETTE:
+  Kimono Base     : #1A1A3E (dark navy)
+  Kimono Shadow   : #0F0F2A (navy shadow)
+  Kimono Highlight: #2D2D55 (navy highlight)
+  Solar Gold      : #FFD700 (sun mark, trim, tsuba, earring)
+  Flame Orange    : #FF8C00 (eyes, blade shimmer, energy)
+  Burnt Orange    : #CC5500 (obi sash)
+  Obi Shadow      : #993D00 (sash shadows)
+  Charcoal        : #2A2A2A (hakama, handle)
+  Warm Tan        : #FFCC99 (skin)
+  Dark Auburn     : #8B2500 (hair)
+  Fire Tips       : #FF6B00 (hair tips during attacks)
+  Polished Steel  : #C0C8D0 (katana blade)
+  Warm Linen      : #E8D5B8 (hand wraps)
+  Near Black      : #1A1018 (boots)
+  Outline         : #1A0F0A (warm dark brown)
+
+
+================================================================================
+================================================================================
+  PART A: CHARACTER ANIMATION PROMPTS (11 rows)
+================================================================================
+================================================================================
+
+
+================================================================================
+PROMPT A0 — ROW 0: IDLE (4 frames)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+At 2x scale: 512 x 128 pixels (4 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A young swordsman with short messy dark reddish-brown (#8B2500) hair,
+forward swept. A small golden sun symbol (#FFD700) on the center of the
+forehead — circular dot with short radiating lines — KEY identifying
+feature. Warm amber (#FF8C00) eyes, determined expression. Warm tan
+(#FFCC99) skin. Dark navy (#1A1A3E) short-sleeved kimono top with golden
+(#FFD700) trim on collar and sleeves, navy shadow (#0F0F2A) in folds.
+Burnt orange (#CC5500) obi sash at the waist with short hanging tails.
+Dark charcoal (#2A2A2A) wide-legged hakama pants tucked into dark (#1A1018)
+ankle boots with golden (#FFD700) accent line. Cloth-wrapped (#E8D5B8)
+hands. KATANA: dark wrapped (#2A2A2A) handle, golden (#FFD700) circular
+sun-shaped tsuba, polished steel (#C0C8D0) blade with faint orange-gold
+(#FF8C00) shimmer. Small golden sun earring on visible ear. Semi-chibi
+anime proportions. Athletic, lean build. ~50-52px tall.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. The character is seen from a
+  perfect side angle like classic 2D fighting game sprites (Street Fighter,
+  Metal Slug perspective).
+- NOT 3/4 view. NOT front-facing. NOT isometric. NOT top-down. Pure flat
+  side profile.
+- Character always faces RIGHT.
+- Semi-chibi anime proportions: head is approximately 1/3 of total body height.
+- Character height: approximately 50-52 pixels tall within each 64x64 cell.
+- Feet planted at y=58 (6 pixels from the bottom of each 64x64 frame).
+- Character body centered horizontally at x=32 in each cell.
+- Clean 1-pixel WARM DARK BROWN outline (#1A0F0A) — NOT pure black.
+- 2-3 shading levels per color area (highlight, base, shadow).
+- No anti-aliasing. Hard pixel edges. No dithering. No sub-pixel detail.
+- Warm, bright, heroic mood — this character radiates confidence and warmth.
+
+IMAGE LAYOUT:
+- 4 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+- Frames read left to right: Frame 1, Frame 2, Frame 3, Frame 4.
+
+ANIMATION: IDLE (standing, breathing, looping)
+
+Frame 1 (NEUTRAL):
+Relaxed swordsman stance. Weight slightly on the back foot (left). Katana
+held in the right hand at the right side — blade angled upward and slightly
+forward, the sun-shaped tsuba clearly visible. Left hand hangs relaxed at
+the side near the obi sash, fingers slightly open. Hakama drapes naturally
+with wide-legged silhouette. Sun mark on forehead clearly visible with
+steady golden glow. Obi sash tails hang still. Earring visible on the ear.
+Calm, confident, composed expression. Feet at y=58.
+
+Frame 2 (INHALE):
+Subtle inhale — body rises 1-2 pixels. Obi sash tails shift slightly from
+the body movement. Left hand moves 1px upward as if ready to grip the
+katana. Hakama settles with the rise. Sun mark maintains steady glow.
+Keep feet at y=58.
+
+Frame 3 (PEAK):
+Peak of breath. Faint warm glow hint on the katana blade — 1-2 extra pixels
+of #FF8C00 along the cutting edge (solar energy ready). Obi sash tails
+sway 1-2 pixels to the right. Hair shifts slightly. Sun mark at its
+brightest idle glow — add 1 pixel of #FFE44D around it.
+
+Frame 4 (EXHALE):
+Exhale — body lowers back to Frame 1 position. Blade glow fades. Obi tails
+settle. Smooth return for seamless loop. Must align perfectly with Frame 1
+when the animation loops.
+
+IMPORTANT:
+- The golden SUN MARK on the forehead must be clearly visible in every frame
+  — it is the character's KEY identifying feature (like Rina's glasses or
+  Mortis's eye dots).
+- The golden SUN-SHAPED TSUBA on the katana must also be visible — it's the
+  second identifying detail.
+- Do NOT draw fire, energy aura, slash trails, or any magical effects. Only
+  the character's body, clothing, and katana.
+- All 4 frames must have consistent proportions and positioning.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A1 — ROW 1: RUN (6 frames)
+================================================================================
+Output: 384 x 64 pixels (6 frames of 64x64)
+At 2x scale: 768 x 128 pixels (6 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A young swordsman with short messy dark reddish-brown (#8B2500) hair. Golden
+sun symbol (#FFD700) on the forehead — KEY feature. Warm amber (#FF8C00)
+eyes. Warm tan (#FFCC99) skin. Dark navy (#1A1A3E) kimono top with golden
+(#FFD700) trim. Burnt orange (#CC5500) obi sash with hanging tails. Dark
+charcoal (#2A2A2A) hakama pants. Dark (#1A1018) boots with golden accent.
+Cloth-wrapped (#E8D5B8) hands. KATANA: dark handle, golden sun tsuba,
+steel (#C0C8D0) blade. Sun earring. Semi-chibi anime proportions. ~50-52px.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game
+  perspective (Street Fighter, Metal Slug).
+- NOT 3/4 view. NOT front-facing. NOT isometric. Pure flat side profile.
+- Character always faces RIGHT (running to the right).
+- Semi-chibi anime proportions: head ~1/3 of body height.
+- Character height: ~50-52px within each 64x64 cell.
+- Feet at y=58 (6px from bottom). Center at x=32.
+- 1-pixel warm dark brown outline (#1A0F0A). 2-3 shading levels per color.
+- No anti-aliasing. Hard pixel edges. No dithering.
+
+IMAGE LAYOUT:
+- 6 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 384 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: RUN CYCLE (aggressive sprint, looping)
+
+Frame 1 (RIGHT CONTACT):
+Right foot strikes ground ahead, left arm swings forward with a loose fist,
+right arm back holding the katana — blade trails BEHIND the body, angled
+backward and upward (classic anime running-with-sword pose). Body leans
+forward aggressively ~8 degrees — this is a fast Berserker character.
+Hair pushed back by the wind of the sprint. Obi sash tails stream behind.
+Hakama billow with the leg movement. Sun mark visible.
+
+Frame 2 (RIGHT DOWN):
+Right foot planted, body lowers to the lowest point of the cycle. Arms
+mid-swing. Hakama compress slightly from the low position. Obi tails
+follow momentum, slightly higher from the bob. Katana still trailing behind.
+
+Frame 3 (RIGHT PASSING):
+Right foot pushes off, body rises. Legs cross underneath the body (visible
+through the hakama split). Arms passing center. Hair catches up to body.
+Transitional frame.
+
+Frame 4 (LEFT CONTACT):
+Left foot strikes ground ahead (mirror of Frame 1). Right arm with katana
+swings forward — blade still angled back. Left arm back. Obi tails still
+streaming behind.
+
+Frame 5 (LEFT DOWN):
+Left foot planted, body lowers (mirror of Frame 2). Lowest point. Hakama
+compress.
+
+Frame 6 (LEFT PASSING):
+Left foot pushes off, legs cross (mirror of Frame 3). This frame loops
+seamlessly back to Frame 1.
+
+IMPORTANT:
+- The katana trails BEHIND during the run — blade angled backward, like a
+  classic anime swordsman sprinting (Rurouni Kenshin, Demon Slayer style).
+- Obi sash tails and hakama MUST trail and billow behind — they lag 1-2
+  frames from body position (natural cloth physics).
+- The run is AGGRESSIVE — body leans forward significantly. This is a
+  Berserker built for closing distance fast.
+- Sun mark visible in every frame.
+- Do NOT draw fire trails, speed lines, or any effects. Body and clothing.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A2 — ROW 2: JUMP (3 frames)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+At 2x scale: 384 x 128 pixels (3 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A young swordsman with short messy dark reddish-brown (#8B2500) hair. Golden
+sun symbol (#FFD700) on the forehead. Warm amber (#FF8C00) eyes. Warm tan
+(#FFCC99) skin. Dark navy (#1A1A3E) kimono top with golden trim. Burnt
+orange (#CC5500) obi sash. Charcoal (#2A2A2A) hakama pants. Dark (#1A1018)
+boots. Cloth-wrapped (#E8D5B8) hands. KATANA: dark handle, golden sun
+tsuba, steel blade. Semi-chibi. ~50-52px.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~50-52px. Feet at y=58. Center at x=32.
+- 1-pixel warm dark brown outline (#1A0F0A). 2-3 shading levels.
+- No anti-aliasing.
+
+IMAGE LAYOUT:
+- 3 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: JUMP (launch → peak → fall, one-shot)
+
+Frame 1 (LAUNCH):
+Crouching low, legs bent, about to spring upward. Katana pulled close to
+the body in the right hand, blade pointed upward. Left arm pulls down for
+momentum. Hakama bunch at the knees from the crouch. Obi sash tails hang
+down. Body compressed and coiled, ready to explode upward. Sun mark visible.
+
+Frame 2 (PEAK):
+Body fully extended at the apex of the jump. Katana held out to the right
+side with a slight upward angle — a clean, controlled aerial pose. Left
+arm extended for balance. Legs together and slightly tucked. Hakama billow
+outward and downward from the upward momentum — creating a flowing
+silhouette. Obi tails float upward (trailing the jump). Hair pushed down
+slightly. Sun mark visible. Confident, composed mid-air pose — a warrior
+completely in control of his body.
+
+Frame 3 (FALL):
+Body angling downward, preparing to land. Katana pointed downward and
+forward — ready to strike on landing. Left arm tucked in. Legs extend
+below, feet reaching for the ground. Hakama stream upward (trailing the
+fall). Obi tails rise. Hair pushed up slightly from the descent. Sun mark
+visible. Aggressive descending pose — coming down with intent.
+
+IMPORTANT:
+- The jump should feel CONTROLLED and purposeful — this is a trained
+  swordsman, not flailing. Clean, martial arts poses.
+- Hakama flow OPPOSITE to movement direction (up during jump, down during
+  fall) — natural cloth physics.
+- Sun mark visible in all 3 frames.
+- Do NOT draw fire, energy, or any effects. Body and clothing only.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A3 — ROW 3: ATTACK 1 — Dawn Strike (3 frames)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+At 2x scale: 384 x 128 pixels (3 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A young swordsman with short messy dark reddish-brown (#8B2500) hair. Golden
+sun symbol (#FFD700) on the forehead. Warm amber (#FF8C00) eyes. Warm tan
+(#FFCC99) skin. Dark navy (#1A1A3E) kimono top with golden trim. Burnt
+orange (#CC5500) obi sash. Charcoal (#2A2A2A) hakama pants. Dark (#1A1018)
+boots. Cloth-wrapped (#E8D5B8) hands. KATANA: dark handle, golden sun
+tsuba, steel blade. Semi-chibi. ~50-52px.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~50-52px. Feet at y=58. Center at x=32.
+- 1-pixel warm dark brown outline (#1A0F0A). 2-3 shading levels.
+- No anti-aliasing.
+
+IMAGE LAYOUT:
+- 3 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: ATTACK 1 — Dawn Strike (quick horizontal katana slash, one-shot)
+This is the FIRST form of the Solar Kagura dance combo — a clean, fast
+opening slash.
+
+Frame 1 (WINDUP):
+Katana pulled back behind the body to the left. Both cloth-wrapped hands
+grip the handle — right hand on top, left hand below (two-handed kendo
+grip). Body coils to the left, hips and shoulders twist away from the
+attack direction. Right foot steps slightly forward for stability. Hakama
+shift with the twist. Sun mark glows steadily. The blade is behind the
+character, horizontal, ready to sweep forward. A brief pause of focused
+tension — the first step of the dance.
+
+Frame 2 (STRIKE):
+Fast horizontal slash from LEFT to RIGHT at chest height. The katana sweeps
+in a clean horizontal arc. Both hands drive the blade through — full
+two-handed kendo swing. Body snaps to the right with the rotation. Hakama
+whip with the body twist. The blade reaches approximately 38-40px from the
+left edge of the frame (extended reach from the two-handed grip). Sun mark
+flares slightly brighter (#FFE44D). Hair tips glow faintly orange (#FF6B00)
+from the solar energy channeled through the strike. The pose should convey
+speed and precision — a clean, surgical cut.
+
+Frame 3 (RECOVERY):
+Katana follows through past the strike point to the right side. Body
+untwists smoothly — NOT a jarring stop, but a flowing deceleration that
+looks like the beginning of the next dance step. Hakama settle. Sun mark
+dims back to normal. Hair tips return to normal color. Hands adjust grip
+on the handle. This recovery flows naturally toward either idle OR the
+next attack in the combo — it should look like a dance transition, not a
+hard stop.
+
+IMPORTANT:
+- This is a DANCE-LIKE combo attack — the recovery should flow smoothly,
+  suggesting the next move is already being prepared. It should NOT look
+  like the character is resetting to idle.
+- Two-handed katana grip (kendo style) in all frames.
+- Do NOT draw slash trails or fire arcs — the engine adds those.
+- Sun mark visible in every frame. Hair tips glow orange during the strike.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A4 — ROW 4: ATTACK 2 — Rising Sun (3 frames)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+At 2x scale: 384 x 128 pixels (3 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A young swordsman with short messy dark reddish-brown (#8B2500) hair. Golden
+sun symbol (#FFD700) on the forehead. Warm amber (#FF8C00) eyes. Warm tan
+(#FFCC99) skin. Dark navy (#1A1A3E) kimono top with golden trim. Burnt
+orange (#CC5500) obi sash. Charcoal (#2A2A2A) hakama pants. Dark (#1A1018)
+boots. Cloth-wrapped (#E8D5B8) hands. KATANA: dark handle, golden sun
+tsuba, steel blade. Semi-chibi. ~50-52px.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~50-52px. Feet at y=58. Center at x=32.
+- 1-pixel warm dark brown outline (#1A0F0A). 2-3 shading levels.
+- No anti-aliasing.
+
+IMAGE LAYOUT:
+- 3 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: ATTACK 2 — Rising Sun (upward diagonal slash, one-shot)
+This is the SECOND form of the Solar Kagura — the ascending step. The body
+rises with the blade in a flowing upward cut.
+
+Frame 1 (WINDUP):
+Katana drops LOW to the right side — blade tip near the character's knee
+level, angled downward and to the right. Both hands grip the handle in a
+two-handed hold. Body crouches slightly, weight shifting onto the front
+(right) foot. This is the transition from Attack 1's follow-through — the
+blade naturally drops from the horizontal sweep into this low position.
+Hakama compress from the crouch. Sun mark steady. The character is loading
+the upward slash.
+
+Frame 2 (STRIKE):
+Powerful upward diagonal slash from LOWER-RIGHT to UPPER-LEFT. The katana
+sweeps in a wide rising arc. Body rises with the cut — feet lift 2-3px
+off y=58, the entire body elevating with the slash's momentum. Both arms
+drive upward, the blade reaching the upper portion of the frame. Hakama
+billow outward from the explosive upward motion. Sun mark blazes (#FFE44D).
+Hair tips glow bright orange (#FF6B00). Obi sash tails flip upward. The
+pose conveys ascending force — body and blade rising together. This is the
+widest arc of the combo — maximum coverage.
+
+Frame 3 (RECOVERY):
+Body settles back down from the rising motion, feet returning toward y=58.
+Katana ends at the upper-left position above and behind the head — the
+natural end of the upward arc. Arms begin to pull the blade back. Hakama
+float and settle from the upward burst. Sun mark dims. Hair tips return to
+normal. The pose transitions naturally toward the next dance step — the
+blade overhead position is a natural windup for Attack 3's downward slam.
+
+IMPORTANT:
+- The body RISES with the slash — feet lift off the ground during Frame 2.
+  The ascending motion is integral to the Rising Sun form.
+- The upward diagonal arc should be clearly conveyed by the blade positions
+  across all 3 frames: low-right → upper-left → settling.
+- This is a DANCE TRANSITION — Frame 3's overhead blade position naturally
+  leads into Attack 3's windup. The combo flows like choreography.
+- Do NOT draw slash trails or fire arcs — engine adds those.
+- Sun mark and hair tip glow visible during strike.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A5 — ROW 5: ATTACK 3 — Setting Blaze (4 frames)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+At 2x scale: 512 x 128 pixels (4 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A young swordsman with short messy dark reddish-brown (#8B2500) hair. Golden
+sun symbol (#FFD700) on the forehead. Warm amber (#FF8C00) eyes. Warm tan
+(#FFCC99) skin. Dark navy (#1A1A3E) kimono top with golden trim. Burnt
+orange (#CC5500) obi sash. Charcoal (#2A2A2A) hakama pants. Dark (#1A1018)
+boots. Cloth-wrapped (#E8D5B8) hands. KATANA: dark handle, golden sun
+tsuba, steel blade. Semi-chibi. ~50-52px.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~50-52px. Feet at y=58. Center at x=32.
+- 1-pixel warm dark brown outline (#1A0F0A). 2-3 shading levels.
+- No anti-aliasing.
+
+IMAGE LAYOUT:
+- 4 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: ATTACK 3 — Setting Blaze (spinning overhead downward slash, one-shot)
+This is the THIRD and FINAL form of the Solar Kagura — the finishing step.
+A powerful spinning overhead slash that drives the blade downward with the
+full weight of the body's rotation. The most dramatic and damaging basic
+attack.
+
+Frame 1 (WINDUP — SPIN START):
+Body begins rotating — shoulders twist to the LEFT as the character starts
+a full-body pivot. Katana raised above and behind the head with both hands,
+blade pointing backward (carrying over from Attack 2's ending position).
+Right foot lifts off the ground as the spin begins. Hakama start to swirl
+with the rotation. Sun mark BLAZES at maximum brightness (#FFE44D). Hair
+tips glow intensely orange (#FF6B00). Obi sash tails begin to whip outward.
+The character is winding up the final, most powerful step of the dance.
+
+Frame 2 (SPIN MID):
+Full rotation in progress. Body has pivoted ~180 degrees — the character's
+back is partially visible as they spin through. Katana arcs through the air
+above the head in a circular path. Hakama billow dramatically outward from
+the centrifugal force — widest hakama silhouette. Obi tails fly outward.
+Hair swept by the rotation. Both feet off the ground (1-2px above y=58) —
+spinning in the air. This is the most DYNAMIC frame — frozen mid-spin,
+full martial arts rotation.
+
+Frame 3 (IMPACT):
+Spin complete — body faces RIGHT again. Katana SLAMS downward at full
+extension. The blade reaches maximum forward reach — approximately 42-44px
+from the left edge. Both hands drive the katana down in a powerful overhead
+chop. Body lunges forward with the strike, weight fully committed. Front
+foot slams down at y=58. Hakama snap forward from the sudden stop. Sun
+mark blazes. Hair tips at maximum orange glow. This is the HARDEST hitting
+frame — 24 damage, the full force of the dance's finale.
+
+Frame 4 (RECOVERY — DANCE COMPLETE):
+The dance is finished. Body settles from the impact. Katana held low and
+forward from the downward slash's follow-through. The character
+straightens slowly — deliberately, not rushed. Hakama settle. Sun mark
+dims back to resting gold. Hair tips return to normal. Obi tails hang.
+A moment of stillness after the explosive dance. The expression shifts from
+fierce intensity to calm composure — the kata is complete.
+
+IMPORTANT:
+- This is a SPINNING attack — the mid-rotation frame (Frame 2) must clearly
+  show the body pivoting. The spin adds dramatic power to the final slash.
+- The three attacks together form a DANCE: horizontal sweep (A3) → rising
+  diagonal (A4) → spinning overhead slam (A5). Each flows from the last.
+- Frame 3 has the highest damage and most forward reach of any basic attack.
+- Do NOT draw fire arcs, impact effects, or ground cracks — engine adds.
+- Sun mark at maximum glow during the strike frames (2, 3).
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A6 — ROW 6: CAST — Blazing Dawn Slash (4 frames)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+At 2x scale: 512 x 128 pixels (4 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A young swordsman with short messy dark reddish-brown (#8B2500) hair. Golden
+sun symbol (#FFD700) on the forehead. Warm amber (#FF8C00) eyes. Warm tan
+(#FFCC99) skin. Dark navy (#1A1A3E) kimono top with golden trim. Burnt
+orange (#CC5500) obi sash. Charcoal (#2A2A2A) hakama pants. Dark (#1A1018)
+boots. Cloth-wrapped (#E8D5B8) hands. KATANA: dark handle, golden sun
+tsuba, steel blade. Semi-chibi. ~50-52px.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~50-52px. Feet at y=58. Center at x=32.
+- 1-pixel warm dark brown outline (#1A0F0A). 2-3 shading levels.
+- No anti-aliasing.
+
+IMAGE LAYOUT:
+- 4 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: CAST — Blazing Dawn Slash (forward dash attack, one-shot)
+This is Hiro's primary ability — a lunging dash slash that covers ~80px of
+ground. The engine handles the forward movement; these frames show the body
+poses during the dash.
+
+Frame 1 (PREPARE — IAIDO STANCE):
+Katana SHEATHED at the left hip — the character grips the handle with the
+right hand, thumb on the tsuba ready to draw. Left hand rests on the
+scabbard. Body turns slightly sideways, presenting a narrow profile. Feet
+wide apart in a low iaido stance. Head bowed slightly, eyes focused forward
+with intense concentration. Sun mark glows steadily. This is the calm
+before the storm — a classic iaido draw-strike preparation. The scabbard
+is a simple dark (#2A2A2A) sheath at the left hip.
+
+Frame 2 (DRAW — BATTOJUTSU):
+The explosive draw. Katana rips from the sheath in a flash — the blade is
+mid-draw, partially emerged, catching light along its edge (#FF8C00 shimmer
+intensified). Body explodes forward from the iaido stance — right arm pulls
+the blade out and forward. Left hand pushes the scabbard backward. Legs
+drive forward. Sun mark BLAZES (#FFE44D). Hair tips glow bright orange.
+The character is mid-lunge, frozen in the moment the blade leaves the
+sheath. Maximum tension and explosive speed.
+
+Frame 3 (SLASH — FULL EXTENSION):
+The dash slash at maximum extension. Katana fully drawn and extended to the
+right at full arm's length — the blade reaches approximately 44-46px from
+the left edge. Body fully committed to the forward lunge — front leg bent
+deep, back leg extended behind. Both arms drive the blade forward. The
+scabbard is now at the left hip, empty. Sun mark at maximum blaze. Hair
+tips bright orange. This is the frame where the engine spawns the fire
+arc effect at the blade position. Maximum forward reach and commitment.
+
+Frame 4 (FINISH — LOW STANCE):
+The dash is complete. Hiro ends in a low finishing stance — one knee nearly
+touching the ground, katana held horizontally to the right at hip level
+(the blade has completed its arc). Body low and forward, weight settled.
+Left hand rests on the forward knee. Sun mark begins dimming. Hair tips
+fade. A brief moment of stillness — the slash has been delivered. Composed,
+cool aftermath pose.
+
+IMPORTANT:
+- Frame 1 shows a SHEATHED katana (iaido stance) — this is the only animation
+  where the katana starts in a sheath. The sheath is a simple dark rectangle
+  at the left hip.
+- The draw-slash sequence (Frames 2-3) is the battojutsu technique — drawing
+  and cutting in one motion. It should look EXPLOSIVE and fast.
+- Do NOT draw the fire arc trail — the engine adds that during Frame 3.
+- The engine moves the character forward ~80px during this animation — the
+  frames only show the body poses, not the travel distance.
+- Sun mark visible in all frames, blazing during Frames 2-3.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A7 — ROW 7: TAKE HIT (2 frames)
+================================================================================
+Output: 128 x 64 pixels (2 frames of 64x64)
+At 2x scale: 256 x 128 pixels (2 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A young swordsman with short messy dark reddish-brown (#8B2500) hair. Golden
+sun symbol (#FFD700) on the forehead. Warm amber (#FF8C00) eyes. Warm tan
+(#FFCC99) skin. Dark navy (#1A1A3E) kimono top with golden trim. Burnt
+orange (#CC5500) obi sash. Charcoal (#2A2A2A) hakama pants. Dark (#1A1018)
+boots. Cloth-wrapped (#E8D5B8) hands. KATANA: dark handle, golden sun
+tsuba, steel blade. Semi-chibi. ~50-52px.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~50-52px. Feet at y=58. Center at x=32.
+- 1-pixel warm dark brown outline (#1A0F0A). 2-3 shading levels.
+- No anti-aliasing.
+
+IMAGE LAYOUT:
+- 2 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 128 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: TAKE HIT (damage reaction, one-shot)
+
+Frame 1 (IMPACT):
+Body jerked backward from being hit. Head snaps back — hair whips forward
+from the sudden backward motion. Sun mark FLICKERS — the golden glow
+dims momentarily (reduce to #CC9900 dull gold). Pain expression: eyes
+wince shut or squint, teeth gritted. One hand (left) reaches toward the
+point of impact on the torso. Katana grip loosens in the right hand —
+blade drops to an awkward angle. Obi sash whips forward from the backward
+body momentum.
+
+Frame 2 (RECOIL):
+Body leans further backward in an exaggerated stagger. Front foot lifts
+slightly off the ground. Arms flung outward — katana dangles loosely in
+the right hand. Sun mark dims further — almost invisible, barely a faint
+gold shimmer (the solar power wavers when hurt). Expression: gritted
+teeth, enduring the pain with determination (NOT giving up, just hurt).
+Hakama whip forward. Nearly losing balance but still fighting.
+
+IMPORTANT:
+- The SUN MARK dimming/flickering is the key character-specific hit reaction
+  — like Mortis's eye dimming or Rina's glasses shifting. The solar power
+  wavers when Hiro takes damage.
+- Pain expression shows DETERMINATION through pain, not defeat — this
+  character endures and pushes through.
+- Do NOT draw hit sparks, damage numbers, or effects.
+- Sun mark visible but dimmed in both frames.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A8 — ROW 8: DODGE — Ember Step (2 frames)
+================================================================================
+Output: 128 x 64 pixels (2 frames of 64x64)
+At 2x scale: 256 x 128 pixels (2 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A young swordsman with short messy dark reddish-brown (#8B2500) hair. Golden
+sun symbol (#FFD700) on the forehead. Warm amber (#FF8C00) eyes. Warm tan
+(#FFCC99) skin. Dark navy (#1A1A3E) kimono top with golden trim. Burnt
+orange (#CC5500) obi sash. Charcoal (#2A2A2A) hakama pants. Dark (#1A1018)
+boots. Cloth-wrapped (#E8D5B8) hands. KATANA: dark handle, golden sun
+tsuba, steel blade. Semi-chibi. ~50-52px.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~50-52px. Center at x=32.
+- 1-pixel warm dark brown outline (#1A0F0A). 2-3 shading levels.
+- No anti-aliasing.
+
+IMAGE LAYOUT:
+- 2 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 128 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: DODGE — Ember Step (dissolve into embers, one-shot, Frame 2 held)
+
+Frame 1 (ENTER — EMBER BURST):
+Body tenses and compresses — crouching slightly with arms pulling inward.
+Katana held vertically close to the chest, blade up. Eyes shut in
+concentration. Sun mark BLAZES at maximum brightness (#FFE44D) — the solar
+energy activates. Obi sash pulls tight. Hakama tense. The character is
+about to dissolve into embers. A split second of total focus before the
+body breaks apart.
+
+Frame 2 (ACTIVE — EMBER FORM, held for 1 full second):
+The character's solid form has partially dissolved into a scatter of embers
+and warm light. The overall SILHOUETTE is still recognizable — you can tell
+it's a human figure holding a sword — but the edges break apart into
+scattered orange-gold (#FF8C00, #FFD700) ember pixels. The body is rendered
+in softer, warmer tones — the navy kimono shifts toward warmer dark tones.
+The sun mark is the BRIGHTEST point — a blazing golden beacon in the
+dissolving form. Scattered ember pixels (#FF8C00, #FF6B00, #FFD700) float
+outward from the silhouette edges, especially around the feet, hands, and
+hair. The katana blade glows warm orange along its length.
+
+IMPORTANT:
+- Frame 2 should look like the character is MADE OF EMBERS — a human shape
+  composed of warm glowing particles, not a solid person. But the silhouette
+  must still be recognizable as Hiro (sword shape, sun mark position).
+- Draw Frame 2 at FULL OPACITY with normal detail — the engine makes it
+  semi-transparent and adds additional floating ember particles at runtime.
+- Frame 2 is held for 1 full second, so it must look good as a static image.
+- The sun mark is the BRIGHTEST POINT in Frame 2 — the anchor of the
+  dissolving form.
+- Do NOT draw fire trails or particle effects beyond the body's edge —
+  the engine adds those.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A9 — ROW 9: ULTIMATE — Hinokami: Burning Sun (4 frames)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+At 2x scale: 512 x 128 pixels (4 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A young swordsman with short messy dark reddish-brown (#8B2500) hair. Golden
+sun symbol (#FFD700) on the forehead. Warm amber (#FF8C00) eyes. Warm tan
+(#FFCC99) skin. Dark navy (#1A1A3E) kimono top with golden trim. Burnt
+orange (#CC5500) obi sash. Charcoal (#2A2A2A) hakama pants. Dark (#1A1018)
+boots. Cloth-wrapped (#E8D5B8) hands. KATANA: dark handle, golden sun
+tsuba, steel blade. Semi-chibi. ~50-52px.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~50-52px. Feet at y=58. Center at x=32.
+- 1-pixel warm dark brown outline (#1A0F0A). 2-3 shading levels.
+- No anti-aliasing.
+
+IMAGE LAYOUT:
+- 4 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: ULTIMATE — Hinokami: Burning Sun (close-range multi-slash, one-shot)
+This is the character's ULTIMATE — the Kagura dance at its absolute peak.
+The most dramatic and powerful sequence in the entire sprite sheet. A rapid
+series of circular fire slashes performed as a ritual dance.
+
+Frame 1 (CHARGE — MEDITATION):
+Kneeling on one knee with katana planted vertically in front, both hands on
+the pommel, blade pointing straight up. Head bowed deeply — chin to chest.
+Eyes closed in intense meditation. Sun mark BLAZES at its absolute brightest
+— brighter than any other frame in the entire sheet. Use extra #FFE44D and
+even 1-2 pixels of #FFF5CC (solar white) around the mark. Hair tips glow
+intensely (#FF6B00). The golden trim on the kimono seems to glow warmer.
+Hakama spread on the ground from the kneeling pose. This is the most
+SACRED and INTENSE pose — the dancer entering the trance state. Stillness
+before explosive movement.
+
+Frame 2 (RISE — AWAKENING):
+Exploding upward from the kneeling position. Body rising with explosive
+force — both feet leaving the ground (2-3px above y=58). Katana pulled
+from the ground and swept to the right side. Arms spreading outward. Eyes
+snap OPEN — amber irises burning with intensity. Sun mark blazing. Hair
+swept upward from the explosive rise. Hakama billow dramatically from the
+sudden upward burst. Obi tails fly outward. The character is ASCENDING —
+the dance has begun. Pure explosive power erupting from stillness.
+
+Frame 3 (DANCE — THE MOST DYNAMIC FRAME):
+Full dance combat pose — the most dynamic and dramatic frame in the entire
+sprite sheet. Body mid-spin with katana extended at full reach to the right.
+The pose captures frozen motion mid-slash — body twisted in a powerful
+circular cut, one foot planted, the other trailing the spin. Hakama whip
+outward in a dramatic spiral. Obi tails arc through the air. Hair swept by
+the rotational force. Sun mark blazing. Hair tips at maximum orange glow.
+Every cloth element (hakama, obi, kimono) is caught in dynamic motion. The
+blade reaches maximum extension — the widest, most aggressive pose. This
+frame represents the PEAK of the Hinokami Kagura — the dancer at the height
+of his art.
+
+Frame 4 (FINISH — CALM AFTER THE STORM):
+The dance is complete. Hiro stands in a serene finishing pose — body upright,
+katana held horizontally at his side with both hands, blade pointing right.
+One foot slightly forward. Head tilted slightly down with a calm, composed
+expression — the storm has passed. Sun mark dims back to a warm, steady
+glow. Hair tips return to normal auburn. Hakama settle and drape naturally.
+Obi tails hang still. A moment of absolute stillness and peace after the
+explosive barrage. The contrast between Frame 3's explosive energy and
+Frame 4's serene calm is the emotional climax of the animation.
+
+IMPORTANT:
+- This is the MOST DRAMATIC sequence in the entire sprite sheet. Each frame
+  must be visually striking.
+- Frame 1 (kneeling meditation) → Frame 2 (explosive rise) creates the
+  most dramatic transition: stillness to explosion.
+- Frame 3 must be the single most DYNAMIC pose on the entire sheet — frozen
+  mid-dance, maximum motion captured in a still frame.
+- Frame 4's calm is ESSENTIAL — it contrasts with Frame 3 to create
+  emotional impact. "The battle is already over."
+- Do NOT draw fire aura, circular slash arcs, energy effects, or particles.
+  The engine adds screen flash, fire dome, and slash effects at runtime.
+  Only draw the CHARACTER'S BODY POSES.
+- Sun mark at MAXIMUM BLAZE in Frames 1-3, calm steady in Frame 4.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A10 — ROW 10: DEATH (3 frames)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+At 2x scale: 384 x 128 pixels (3 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A young swordsman with short messy dark reddish-brown (#8B2500) hair. Golden
+sun symbol (#FFD700) on the forehead. Warm amber (#FF8C00) eyes. Warm tan
+(#FFCC99) skin. Dark navy (#1A1A3E) kimono top with golden trim. Burnt
+orange (#CC5500) obi sash. Charcoal (#2A2A2A) hakama pants. Dark (#1A1018)
+boots. Cloth-wrapped (#E8D5B8) hands. KATANA: dark handle, golden sun
+tsuba, steel blade. Semi-chibi. ~50-52px.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~50-52px. Center at x=32.
+- 1-pixel warm dark brown outline (#1A0F0A). 2-3 shading levels.
+- No anti-aliasing.
+
+IMAGE LAYOUT:
+- 3 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: DEATH (defeated, one-shot, does not loop)
+
+Frame 1 (STAGGER):
+Stumbling forward, one hand clutches the chest/stomach. Katana grip weakens
+— the blade drops to a low angle, nearly dragging. Sun mark FLICKERS and
+DIMS — the golden glow gutters like a candle in wind (reduced to #CC9900,
+intermittent). Expression: gritted teeth, fighting to stay upright — this
+character doesn't go down easily. Knees buckling. Hakama crumple. Obi
+sash hangs limp. The fire is going out.
+
+Frame 2 (FALLING):
+Body tilts sideways to the right, legs giving out. Katana slips from the
+grip — the sword falls separately from the body, tumbling away. Arms go
+limp. Sun mark nearly extinguished — only the faintest dull amber (#996600)
+remains, barely visible. Eyes closing or half-shut. Hair falls across the
+face. Hakama trail the fall direction. Earring catches a last glint of
+light. The warmth is leaving — the colors on the character seem to cool
+and dull slightly.
+
+Frame 3 (DOWN):
+Lying on the ground. Body rotated approximately 80 degrees clockwise — head
+on the right, feet on the left, fitting within the 64x64 frame. Katana
+lies on the ground nearby — separated from the character, blade pointing
+right, the golden sun tsuba clearly visible (the weapon outlasts the
+wielder). Sun mark is EXTINGUISHED — no glow, just a faint golden mark
+(#B8960F dull). Eyes closed peacefully — not pain, but rest. Hair spread
+on the ground. Hakama draped around the legs. A fallen warrior at rest —
+dignified, not grotesque.
+
+IMPORTANT:
+- The SUN MARK going out is the signature death detail for Hiro — like
+  Mortis's eyes extinguishing or Rina's glasses falling off. The solar
+  fire within him dies: blazing → flickering → dim → extinguished.
+- The KATANA separating from the body is important — it falls away in
+  Frame 2 and lies nearby in Frame 3. The warrior is separated from
+  his weapon.
+- Frame 3 must be DIGNIFIED — peaceful rest, not cartoonish death.
+- Do NOT draw blood, X-eyes, stars, or any effects.
+- The body must fit within the 64x64 frame when rotated.
+
+--- END COPY ---
+
+
+================================================================================
+================================================================================
+  PART B: SKILL EFFECT PROMPTS
+================================================================================
+================================================================================
+
+
+================================================================================
+PROMPT B1 — SOLAR SLASH ARC (Melee Fire Trail)
+================================================================================
+Output: 192 x 32 pixels (3 frames of 64x32)
+At 2x scale: 384 x 64 pixels (3 frames of 128x64)
+File: solar_slash.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a fiery slash arc trail for a 2D fighting game.
+
+RENDERING RULES:
+- Flat 2D view.
+- Each frame is exactly 64 pixels wide and 32 pixels tall.
+- 3 frames in a single horizontal row.
+- Total image: 192 pixels wide x 32 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+A sweeping curved slash arc of golden-orange solar fire. This is the trail
+left by a sun-powered katana cutting through the air. The slash is a thin
+curved arc approximately 50px long, sweeping diagonally from upper-left to
+lower-right. NOT a straight line — it has a natural curved blade-sweep shape.
+
+Colors: bright solar white (#FFF5CC) center line, golden (#FFD700) glow on
+each side, flame orange (#FF8C00) outer glow, and fading to burnt orange
+(#CC5500) at the edges. The fire arc looks like a trail of captured sunlight
+— warm, bright, and clean. NOT smoky or dark.
+
+FRAMES (one-shot, very fast — 40ms per frame):
+Frame 1 (SLASH): Sharp bright arc at full brightness. Solar white center
+  line (2-3px wide at thickest, tapering to 1px at tips). Golden glow
+  border. Clean, bright, fiery speed-line.
+
+Frame 2 (GLOW): Arc widens slightly to 3-4px. White center fades to golden
+  (#FFD700). Orange glow border expands. Small warm ember pixels (#FF6B00)
+  scatter along the slash path. Maximum warmth and brightness.
+
+Frame 3 (FADE): Arc thins to 1px, mostly transparent. Colors shift to faint
+  burnt orange. Ember pixels scatter outward and fade. Nearly invisible.
+
+STYLE:
+Clean pixel art, 1px outline. WARM solar fire — golden-orange-white palette.
+NOT red fire. NOT dark. Bright, clean, heroic energy. Retro 2D game slash.
+Do NOT draw trailing particles — engine adds those.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B2 — DAWN SLASH IMPACT (Dash Attack Hit Effect)
+================================================================================
+Output: 320 x 64 pixels (5 frames of 64x64)
+At 2x scale: 640 x 128 pixels (5 frames of 128x128)
+File: dawn_slash_impact.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a solar fire impact burst for a 2D fighting game.
+
+RENDERING RULES:
+- Flat 2D view, centered in each frame.
+- Each frame is exactly 64x64 pixels.
+- 5 frames in a single horizontal row.
+- Total image: 320 pixels wide x 64 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+A burst of golden-orange solar fire energy on impact. This is a WARM, BRIGHT
+explosion — like a small sun flaring. NOT dark, NOT void, NOT smoky. Clean,
+radiant solar energy bursting outward. The burst has a circular, radiating
+starburst pattern — warm sun rays spreading from the center.
+
+Colors: solar white (#FFF5CC) center, bright gold (#FFD700) rays, flame
+orange (#FF8C00) mid, warm amber (#FFAA33) outer, burnt orange (#CC5500)
+fading edges, deep flame (#CC3300) darkest accents.
+
+FRAMES (one-shot, fast — 50ms per frame):
+Frame 1 (FLASH): Small bright solar white (#FFF5CC) starburst at center,
+  ~12-16px diameter. Pure bright gold center with short radiating rays.
+  Maximum brightness — like a tiny sun igniting.
+
+Frame 2 (EXPAND): Burst blooms outward to ~28-32px. Center shifts from
+  white to bright gold (#FFD700). Golden rays extend outward. Flame orange
+  (#FF8C00) appears at the edges. Ember particles begin scattering.
+
+Frame 3 (FULL SIZE): Maximum expansion ~40-48px. Radiating sun-ray pattern
+  at full spread. Golden center, orange rays, warm amber outer ring. Small
+  ember particles (#FF6B00) scatter outward from the burst. Most dramatic
+  and radiant frame — a miniature solar flare.
+
+Frame 4 (FADE): Burst collapses. Rays shorten and thin. Colors shift to
+  warm amber and burnt orange. Ember particles scatter further outward and
+  dim. Center darkens. Warmth fading.
+
+Frame 5 (DISSIPATE): Nearly gone. A few faint orange pixels and scattered
+  ember dots. Very transparent. Vanishing into warm air.
+
+STYLE:
+Clean pixel art. WARM and BRIGHT — this is solar/sun energy, not fire or
+explosion. Radiating starburst pattern like a sun flare. Golden-orange
+palette. Heroic and clean, not chaotic. Retro 2D game impact effect.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B3 — SUN'S EMBER AURA (Self-Buff Visual)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+At 2x scale: 512 x 128 pixels (4 frames of 128x128)
+File: suns_ember_aura.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a golden solar fire aura for a 2D fighting game.
+
+RENDERING RULES:
+- Strict side view (profile).
+- Each frame is exactly 64x64 pixels.
+- 4 frames in a single horizontal row.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+A warm golden-orange aura that surrounds a character's silhouette. This is
+a BUFF EFFECT — it overlays on top of the character sprite during the Sun's
+Ember ability (4 second damage boost). The aura should be a soft, semi-
+transparent golden glow around a human-shaped empty space (~50px tall figure
+centered in the frame). The center of the frame is EMPTY (the character
+sprite goes there) — the aura forms only at the EDGES around where the
+character would be.
+
+The aura is ~4-6px of golden glow extending outward from the character
+silhouette edges. Small ember particles (#FF8C00, #FF6B00) float upward
+from the bottom and sides.
+
+Colors: solar white (#FFF5CC) inner edge (closest to character), bright
+gold (#FFD700) main glow, flame orange (#FF8C00) outer glow, scattered
+ember particles (#FF6B00).
+
+FRAMES (looping, 100ms per frame):
+Frame 1 (STEADY): Soft golden glow aura around an empty human-shaped space.
+  Inner edge bright (#FFF5CC), fading to gold (#FFD700) then orange (#FF8C00)
+  at the outer edge. A few small ember particles floating upward at various
+  heights. Steady, warm, radiant.
+
+Frame 2 (PULSE): Aura expands 1-2px outward. Brightness increases slightly.
+  More ember particles visible. The glow pulses warmer — a breathing effect.
+
+Frame 3 (PEAK): Maximum aura size. Brightest frame. Ember particles at
+  their highest positions. Extra #FFF5CC solar white pixels at the inner
+  edge. The character would look like they're radiating sunlight.
+
+Frame 4 (CONTRACT): Aura contracts back toward Frame 1 size. Brightness
+  dims slightly. Ember particles settle. Returns seamlessly to Frame 1.
+
+STYLE:
+Clean pixel art. Warm, golden, radiant aura — like standing in sunlight.
+The center MUST be empty/transparent — this overlays on the character.
+The aura is soft and glowing, not hard-edged. Floating upward ember
+particles add life and motion. Heroic and empowering visual.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B4 — EMBER STEP FLASH (Dodge Enter Effect)
+================================================================================
+Output: 128 x 64 pixels (2 frames of 64x64)
+At 2x scale: 256 x 128 pixels (2 frames of 128x128)
+File: ember_step_flash.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of an ember burst flash for a 2D fighting game.
+
+RENDERING RULES:
+- Flat 2D view, centered in each frame.
+- Each frame is exactly 64x64 pixels.
+- 2 frames in a single horizontal row.
+- Total image: 128 pixels wide x 64 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+A burst of golden-orange embers and sparks where a character just was. This
+plays at the character's STARTING position when they activate Ember Step
+(dodge). It's a "poof" of embers and warm light left behind as the character
+dissolves.
+
+Colors: solar white (#FFF5CC) flash center, bright gold (#FFD700) sparks,
+flame orange (#FF8C00) embers, burnt orange (#CC5500) fading embers.
+
+FRAMES (one-shot, fast):
+Frame 1 (BURST): A bright golden-white flash at center (~20px) surrounded
+  by a cloud of scattered ember particles. The flash is shaped vaguely like
+  a human silhouette dissolving — wider at the top (head area) and bottom
+  (legs). 15-20 ember pixels (#FFD700, #FF8C00, #FF6B00) scattered outward
+  from the center in all directions, concentrated upward. Bright and warm.
+
+Frame 2 (SCATTER): Flash has faded. Only scattered ember particles remain,
+  drifting outward and upward. The particles are more spread out and dimmer
+  — shifting from gold to orange to burnt orange. Some particles are very
+  faint (nearly transparent). The silhouette shape is gone — just floating
+  embers dispersing in warm air.
+
+STYLE:
+Clean pixel art. A warm, bright "poof" of embers — NOT a dark or smoky
+effect. The embers float UPWARD (like real embers from a fire). Golden-
+orange palette. Quick, clean, satisfying dissolution effect.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B5 — BURNING SUN DOME (Ultimate Fire Effect)
+================================================================================
+Output: 512 x 64 pixels (4 frames of 128x64)
+At 2x scale: 1024 x 128 pixels (4 frames of 256x128)
+File: burning_sun_dome.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a solar fire slash dome for a 2D fighting game
+ultimate attack.
+
+RENDERING RULES:
+- Flat 2D side view.
+- Each frame is exactly 128 pixels wide and 64 pixels tall.
+- 4 frames in a single horizontal row.
+- Total image: 512 pixels wide x 64 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+A dome of intersecting golden-orange fire slash arcs — multiple curved
+slash trails overlapping in a dome/sphere shape around a central point.
+This is the visual effect for Hiro's ultimate: Hinokami — Burning Sun. It
+represents the rapid multi-directional dance slashes creating a sphere of
+fire arcs.
+
+The dome is approximately 100-110px wide and 55-60px tall, centered in the
+128x64 frame. It's composed of 6-8 overlapping curved slash arcs at
+different angles (horizontal, diagonal, vertical), all intersecting at the
+center. Each arc is a thin curved line of solar fire (like the B1 slash
+trail but multiple copies at different angles).
+
+A bright golden core (#FFD700, #FFF5CC) at the center where all arcs
+intersect. The arcs radiate outward from this core. The overall shape
+suggests a sun — a circular pattern of radiating fire lines.
+
+Colors: solar white (#FFF5CC) center intersection, bright gold (#FFD700)
+arc cores, flame orange (#FF8C00) arc glow, warm amber (#FFAA33) outer
+arcs, burnt orange (#CC5500) fading edges, deep flame (#CC3300) accents.
+
+FRAMES (looping, 100ms per frame):
+Frame 1 (FORM): The dome of fire arcs begins forming — 4-5 slash arcs
+  visible at different angles, intersecting at the bright center point.
+  Golden core glowing. Arcs are clean and sharp. Some ember particles at
+  the intersections. The dome is roughly 80% of full size.
+
+Frame 2 (FULL): Complete dome — all 6-8 fire arcs visible at full brightness.
+  Maximum size (100-110px wide). Golden core at maximum brightness (#FFF5CC).
+  Every arc clearly visible with golden-orange fire glow. Small ember
+  particles (#FF6B00) float along the arc paths. The most dramatic frame —
+  a blazing sun-pattern of intersecting katana fire slashes.
+
+Frame 3 (PULSE): The arcs pulse — some brighten while others dim, creating
+  a rotating shimmer effect. The center core pulses brighter momentarily.
+  1-2 arcs shift angle slightly (the slashes are still ongoing). Ember
+  particles change positions. Dynamic, living fire dome.
+
+Frame 4 (SETTLE): Arcs begin thinning. Some outer arcs fade. Center core
+  dims slightly. Returns toward Frame 1 for the loop. Still clearly a
+  fire dome, but cycling back to the base state.
+
+STYLE:
+Dark gothic anime pixel art — but WARM. This is the MOST dramatic and
+visually intense effect for Hiro. It should look like a miniature sun made
+of overlapping sword slashes. Bright, radiant, overwhelming golden-orange
+energy. The intersecting arc pattern is key — it's NOT a generic fire ball.
+It's clearly made of SLASH TRAILS overlapping into a dome shape.
+Clean pixel art, no anti-aliasing.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B6 — SOLAR HIT SPARK (Melee Impact)
+================================================================================
+Output: 96 x 32 pixels (3 frames of 32x32)
+At 2x scale: 192 x 64 pixels (3 frames of 64x64)
+File: solar_spark.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a solar fire hit spark for a 2D fighting game.
+
+RENDERING RULES:
+- Flat 2D view, centered in each frame.
+- Each frame is exactly 32x32 pixels.
+- 3 frames in a single horizontal row.
+- Total image: 96 pixels wide x 32 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+A bright, warm golden-orange hit impact spark. Unlike the dark void sparks
+of shadow characters, this is a BRIGHT, RADIANT spark — like a tiny solar
+flare on impact. The spark radiates warmth and light.
+
+Colors: solar white (#FFF5CC) center, bright gold (#FFD700) rays, flame
+orange (#FF8C00) outer, warm amber (#FFAA33) fading.
+
+FRAMES (one-shot, 50ms per frame — very fast):
+Frame 1 (FLASH): Bright golden-white (#FFF5CC, #FFD700) starburst at
+  center, ~16px diameter. 4-6 sharp radiating rays. A warm, clean flash
+  of solar impact — all brightness, no darkness at the center (opposite
+  of Mortis's void spark). Maximum radiance.
+
+Frame 2 (EXPAND): Starburst rays extend outward into short slash marks.
+  Golden (#FFD700) and flame orange (#FF8C00) lines radiate from center,
+  ~24px reach. Tips glow bright gold. Small ember pixels scatter from the
+  intersection points. The warmth spreads.
+
+Frame 3 (FADE): Rays and starburst dissolve into fading warm light. Colors
+  shift to faint amber and burnt orange. Ember pixels drift outward and
+  vanish. Nearly fully transparent.
+
+STYLE:
+Clean pixel art, 1px outline. BRIGHT and WARM — the opposite of a dark
+impact. Solar fire: golden-orange-white palette. Radiating sun-flare
+starburst pattern. Fast, punchy, satisfying hit feedback. Heroic energy.
+
+--- END COPY ---
+
+
+================================================================================
+================================================================================
+  ASSEMBLY CHECKLIST
+================================================================================
+================================================================================
+
+CHARACTER SPRITE SHEET:
+[ ] A0 — Idle (4 frames)        → Row 0: y=0
+[ ] A1 — Run (6 frames)         → Row 1: y=64
+[ ] A2 — Jump (3 frames)        → Row 2: y=128
+[ ] A3 — Attack 1 (3 frames)    → Row 3: y=192
+[ ] A4 — Attack 2 (3 frames)    → Row 4: y=256
+[ ] A5 — Attack 3 (4 frames)    → Row 5: y=320
+[ ] A6 — Cast (4 frames)        → Row 6: y=384
+[ ] A7 — Take Hit (2 frames)    → Row 7: y=448
+[ ] A8 — Dodge (2 frames)       → Row 8: y=512
+[ ] A9 — Ultimate (4 frames)    → Row 9: y=576
+[ ] A10 — Death (3 frames)      → Row 10: y=640
+
+STITCH: Stack all 11 rows vertically.
+Final sheet: 384 x 704 pixels (or 768 x 1408 at 2x scale).
+Unused cells (rows with fewer than 6 frames) = fully transparent.
+
+SKILL EFFECT FILES (separate PNGs):
+[ ] B1 — solar_slash.png              192 x 32    (3 frames)   MUST
+[ ] B2 — dawn_slash_impact.png        320 x 64    (5 frames)   MUST
+[ ] B3 — suns_ember_aura.png          256 x 64    (4 frames)   SHOULD
+[ ] B4 — ember_step_flash.png         128 x 64    (2 frames)   SHOULD
+[ ] B5 — burning_sun_dome.png         512 x 64    (4 frames)   SHOULD
+[ ] B6 — solar_spark.png               96 x 32    (3 frames)   NICE
+
+POST-GENERATION CHECKS:
+[ ] Transparent background — no solid color behind any sprite
+[ ] Correct total dimensions — resized to exact pixel sizes listed
+[ ] Frames evenly spaced — equal width per frame in each strip
+[ ] Consistent warm heroic style — matches Hiro's bright aesthetic
+[ ] All facing RIGHT — engine flips for left
+[ ] Golden SUN MARK on forehead visible in every character frame (except Death F3)
+[ ] SUN-SHAPED TSUBA on katana visible when katana is in hand
+[ ] Katana visible in every character frame (except Death F2-F3 where it falls)
+[ ] Warm dark brown outline (#1A0F0A) — NOT pure black
+[ ] Run animation shows katana trailing BEHIND (classic anime sword run)
+[ ] Attack combo flows like a DANCE — recovery poses transition into next attack
+[ ] Cast animation starts with SHEATHED katana (iaido stance)
+[ ] Dodge Frame 2 is EMBER FORM — dissolving silhouette, not solid character
+[ ] Color palette matches — golden-orange solar fire, NOT red fire or blue
+[ ] No gaps between frames — tightly aligned
+[ ] Hair tips glow orange (#FF6B00) during attack/ultimate frames
+
+WARM PALETTE REMINDER:
+Hiro is a WARM character. If the AI generator produces results that look
+too cool/blue or too dark, adjust in post-processing:
+- Increase warmth/color temperature
+- Brighten the golden and orange tones
+- Ensure the sun mark is clearly golden, not white or gray
+- The overall character should feel like SUNLIGHT — warm, bright, heroic
+
+
+CONNECTIONS
+================================================================================
+<- 01_CHARACTER_DESCRIPTION.txt    (character identity, palette, abilities)
+<- 02_CHARACTER_DESIGN.txt         (frame-by-frame pose reference)
+<- 03_CHARACTER_SKILLS_EFFECTS.txt (effect specifications)
+-> Sprites/hiro_sun_dancer.png     (assembled character sheet)
+-> Sprites/solar_slash.png         (melee slash trail)
+-> Sprites/dawn_slash_impact.png   (dash attack impact)
+-> Sprites/suns_ember_aura.png     (self-buff aura)
+-> Sprites/ember_step_flash.png    (dodge enter flash)
+-> Sprites/burning_sun_dome.png    (ultimate fire dome)
+-> Sprites/solar_spark.png         (hit spark)

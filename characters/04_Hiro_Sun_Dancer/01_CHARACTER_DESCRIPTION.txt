@@ -1,0 +1,352 @@
+================================================================================
+  CHARACTER DESCRIPTION: HIRO — THE SUN DANCER
+  Super Battlemancers
+================================================================================
+  Framework    : <- 00_GAME_FRAMEWORK.txt
+  Feeds into   : -> 02_CHARACTER_DESIGN.txt
+                 -> 03_CHARACTER_SKILLS_EFFECTS.txt
+================================================================================
+
+
+CHARACTER IDENTITY
+================================================================================
+Name              : Hiro
+Title / Alias     : The Sun Dancer
+Origin            : Innate (bloodline — the Kagura dance passed through generations)
+Power Type        : Primal — Fire (Solar)
+Class             : Berserker
+Personality       : Determined, compassionate, relentless — fights with heart, not hate
+
+Framework Tags    : Innate / Primal-Fire / Berserker
+
+
+STATS (from 00_GAME_FRAMEWORK.txt)
+================================================================================
+                    Class Base      Origin Bonus     Final
+                    ----------      ------------     -----
+HP                  95              +10 (Innate)     105
+Speed               210             —                210
+Attack Speed        Fast (80ms)     —                Fast
+Damage              High            —                High
+Jump Force          -400            —                -400
+
+
+VISUAL IDENTITY
+================================================================================
+
+Appearance
+----------
+Hair              : Dark reddish-brown (#8B2500) — short and slightly messy with a
+                    forward swept style. Tips glow faintly orange (#FF6B00) during
+                    attacks as if singed by inner fire. A few strands fall across
+                    the forehead near the sun mark.
+Sun Mark          : Small golden sun symbol (#FFD700) on the center of the forehead
+                    — a circular mark with 4-6 short radiating lines. This is the
+                    KEY IDENTIFYING FEATURE. It glows brighter during attacks and
+                    ultimate. Must be visible in EVERY frame.
+Eyes              : Warm amber (#FF8C00) eyes. Intense, focused gaze. In side view,
+                    one eye fully visible with determined expression.
+Build             : Athletic, lean but muscular. Standard semi-chibi proportions.
+                    Medium height (~50-52px). Built for speed and explosive power.
+Outfit            : Dark navy (#1A1A3E) short-sleeved kimono top (uwagi) with golden
+                    (#FFD700) trim along the collar and sleeve edges. The top is
+                    slightly open at the chest showing a simple dark undershirt.
+                    A burnt orange (#CC5500) obi sash tied at the waist with the
+                    knot on the left side — tails hang down and sway during movement.
+                    Dark charcoal (#2A2A2A) hakama pants — wide-legged traditional
+                    style, tucked into boots at the ankle. The hakama ripple and
+                    flow during dance-like movements.
+Boots             : Simple dark (#1A1018) ankle-wrapped boots with thin golden
+                    (#FFD700) accent line. Functional, built for footwork.
+Hands             : Cloth-wrapped hands (#E8D5B8 warm tan wrappings over skin).
+                    Both hands grip the katana during attacks. Wrappings have a
+                    slight frayed texture at the wrists.
+Extras            : KATANA — the defining weapon. Dark wrapped (#2A2A2A) handle with
+                    a golden (#FFD700) circular tsuba (guard) shaped like a small sun.
+                    The blade is polished steel (#C0C8D0) with a faint orange-gold
+                    (#FF8C00) shimmer along the cutting edge — the blade absorbs
+                    the dancer's solar energy. Blade length ~36-40px. Carried in the
+                    right hand or sheathed at the left hip. The katana IS this
+                    character's silhouette alongside the sun mark.
+                    Small golden sun-shaped earring (#FFD700) on the visible ear —
+                    a family heirloom, catches light during movement.
+
+Color Palette
+----------
+Primary 1         : Dark Navy       #1A1A3E    (kimono top base)
+Primary 2         : Navy Shadow     #0F0F2A    (kimono deepest folds)
+Accent 1          : Solar Gold      #FFD700    (sun mark, trim, tsuba, earring)
+Accent 2          : Flame Orange    #FF8C00    (eye color, blade shimmer, energy)
+Accent 3          : Burnt Orange    #CC5500    (obi sash, warm accents)
+Dark / Shadow     : Charcoal        #2A2A2A    (hakama, handle wrap)
+Skin              : Warm Tan        #FFCC99    (skin tone)
+Hair Main         : Dark Auburn     #8B2500    (hair base)
+Hair Tips         : Fire Tips       #FF6B00    (glowing tips during attacks)
+Boots / Dark      : Near Black      #1A1018    (boots, darkest details)
+Blade             : Polished Steel  #C0C8D0    (katana blade)
+Hand Wraps        : Warm Linen      #E8D5B8    (cloth wrappings)
+
+Additional Palette:
+Sun Mark Glow     : Bright Gold     #FFE44D    (mark at maximum glow)
+Energy Core       : Solar White     #FFF5CC    (brightest energy, slash cores)
+Energy Mid        : Warm Amber      #FFAA33    (mid-level fire energy)
+Flame Edge        : Deep Flame      #CC3300    (darkest fire accents)
+Kimono Highlight  : Navy Highlight  #2D2D55    (lighter kimono folds)
+Obi Shadow        : Dark Rust       #993D00    (obi sash shadows)
+Outline           : Dark Brown      #1A0F0A    (character outline — warm dark)
+
+
+COMBAT IDENTITY
+================================================================================
+
+Playstyle Summary
+-----------------
+Relentless Berserker who chains flowing, dance-like katana slashes with solar
+fire enhancement. Every attack flows into the next like a ritual dance — each
+"form" of the Kagura builds momentum. Hiro gets STRONGER the longer a combo
+or exchange goes on, rewarding aggressive, unrelenting pressure. His attacks
+leave lingering fire arcs that briefly deny space. High damage, high speed,
+but below-average HP — he must keep the pressure on or get punished. The
+fight is a dance, and Hiro leads.
+
+
+Abilities Overview
+------------------
+Slot                  Name                    Type              Short Description
+----                  ----                    ----              -----------------
+Basic Melee           Solar Kagura            Combo (3-hit)     Flowing dance-like katana slashes with fire arcs
+Primary Power         Blazing Dawn Slash      Dash attack       Forward lunging fire slash, leaves burning arc
+Secondary Ability     Sun's Ember             Self-buff         Brief attack damage boost + fire aura
+Dodge                 Ember Step (Universal)  Invulnerability   Bursts into embers — 1s invuln, 15s cooldown
+Ultimate              Hinokami — Burning Sun  Multi-slash       Rapid multi-directional dance of fire slashes
+
+
+ABILITY DETAILS
+================================================================================
+
+Basic Melee: Solar Kagura (3-hit combo)
+---------------------------------------
+The combo flows like a traditional dance — each slash transitions smoothly
+into the next with no wasted movement. Fire trails follow the blade.
+
+Hit 1             : 10 dmg — First Form: Dawn Strike. A quick horizontal
+                    slash from left to right at chest height. The blade
+                    sweeps cleanly with a brief orange fire trail. Fast
+                    startup, low commitment. The opening step of the dance.
+Hit 2             : 16 dmg — Second Form: Rising Sun. An upward diagonal
+                    slash from low-right to upper-left. Hiro's body rises
+                    with the cut, feet lifting slightly. Wider arc than
+                    Hit 1 with stronger knockback. The ascending step.
+Hit 3             : 24 dmg — Third Form: Setting Blaze. A powerful spinning
+                    overhead downward slash. Hiro pivots with the blade
+                    coming down in a fiery arc. Highest damage, widest fire
+                    trail. The finishing step — the dance complete.
+Combo Window      : 400ms (tight — rewards commitment and rhythm)
+Cooldown          : 500ms between combos
+Notes             : Each hit in the combo has a brief fire arc trail added
+                    by the engine. The combo flows like a choreographed
+                    dance — each pose transitions into the next with fluid
+                    body rotation. Damage is HIGH tier (Berserker class).
+
+
+Primary Power: Blazing Dawn Slash
+---------------------------------
+Damage            : 18
+Speed             : Instant (dash attack, not projectile)
+Range             : ~80px forward dash
+Cooldown          : 8s
+Knockback         : Medium / 300
+Special           : Hiro dashes forward with a powerful lunging slash. During
+                    the dash, a fire arc trails behind the blade. The slash
+                    covers ~80px of horizontal distance very quickly. Enemies
+                    hit are launched upward slightly (-150 kbY). After the
+                    slash, Hiro ends in a low finishing pose ~80px ahead of
+                    where he started.
+                    This is a GAP CLOSER — it gets Hiro into melee range
+                    instantly. High commitment (can dash off platforms or
+                    into danger). If it whiffs, Hiro is stuck in the ending
+                    pose briefly (punish window).
+Visual            : Hiro lunges forward trailing a wide golden-orange fire
+                    arc. The arc lingers for ~0.3s after the dash. Impact
+                    creates a burst of solar sparks.
+
+
+Secondary Ability: Sun's Ember
+------------------------------
+Duration          : 4s
+Cooldown          : 14s
+Special           : Hiro sheathes his katana briefly (iaido stance), then
+                    draws it with a flash. For 4 seconds, all melee attacks
+                    deal +5 bonus damage and leave larger fire trails. The
+                    sun mark on his forehead blazes at maximum brightness.
+                    A faint solar aura surrounds him during the buff.
+                    Does NOT stack — reactivating refreshes the duration.
+                    This is a DAMAGE WINDOW — Hiro pops this before going
+                    all-in for maximum combo damage.
+Visual            : Brief iaido draw flash, then golden-orange aura around
+                    the character for the duration. Sun mark glow intensifies.
+                    Fire trails on attacks become brighter and wider.
+
+
+Dodge: Ember Step (Universal)
+-----------------------------
+Duration          : 1s invulnerability
+Cooldown          : 15s
+Visual            : Hiro's body bursts into a cloud of floating embers and
+                    sparks. His silhouette briefly dissolves into scattered
+                    orange-gold particles before reforming. During the dodge,
+                    a faint afterimage of embers remains where he was.
+
+
+Ultimate: Hinokami — Burning Sun
+--------------------------------
+Charge Source     : Dealing damage (1% per 5 dmg — fast, rewards aggression),
+                    taking damage (1% per 10 dmg), passive (0.4%/s)
+Startup Time      : 0.6s (fast startup — he's a Berserker, not a slow caster)
+Damage            : 35 (total across all slashes hitting same target)
+Knockback         : High / 400 (final slash)
+Duration          : ~1.5s of rapid slashing, then finishing pose
+Counterplay       : Dodgeable during the startup. Once the slashing begins,
+                    each individual slash can be dodged but they come very
+                    fast. Can be blocked (if blocking is added later). The
+                    short range means Hiro must be CLOSE to land it.
+Notes             : Hiro enters a trance-like state — the Hinokami Kagura
+                    dance at its peak. He performs a rapid sequence of
+                    circular fire slashes around himself, each leaving burning
+                    arcs. The final slash is a massive horizontal sweep that
+                    launches the target. The entire sequence is enclosed in
+                    a brief dome of intersecting fire arcs.
+                    This is a CLOSE-RANGE ultimate — Hiro must be right next
+                    to the target. It does NOT send a projectile across the
+                    arena. It rewards the aggressive Berserker playstyle of
+                    getting in and staying in. If no one is nearby, it whiffs
+                    and the charge is wasted.
+Visual            : Hiro's sun mark blazes blinding gold. Camera flash golden-
+                    white. Rapid circular fire slashes create a dome of
+                    intersecting arcs around him. The final slash leaves
+                    a massive sun-shaped fire pattern that lingers for ~1s.
+                    Most visually intense effect of any Berserker character.
+
+
+CHARACTER BALANCE NOTES
+================================================================================
+Strengths         : Highest combo damage when all 3 hits land + Sun's Ember
+                    buff active. Blazing Dawn Slash is an excellent gap closer.
+                    Fast attack speed (Berserker class). Strong pressure game —
+                    once Hiro is in, he's hard to shake off. Ultimate is
+                    devastating at close range. Dance-like flow makes combos
+                    feel natural and rhythmic.
+Weaknesses        : Below-average HP (105 with Innate bonus). No ranged
+                    attacks — must close distance. Blazing Dawn Slash is
+                    punishable on whiff. Ultimate requires close range — can
+                    whiff entirely if the opponent dodges at startup. No
+                    defensive utility — Sun's Ember is offensive, not
+                    protective. Weak to zoners who keep distance (Mortis,
+                    mages). Must stay aggressive or loses neutral.
+Matchup vs Rina   : Mirror-like aggression matchup. Both are fast and fragile.
+                    Hiro has higher HP (105 vs 85) and more damage per hit.
+                    Rina has higher speed (230 vs 210) and better evasion
+                    (blink). Comes down to who lands their combo first. Hiro
+                    wins extended exchanges, Rina wins hit-and-run.
+Matchup vs Mortis : Hiro wants to get inside Mortis's scythe range with
+                    Blazing Dawn Slash. If he gets in, Mortis can't handle
+                    the pressure — Hiro's fast attacks overwhelm Mortis's
+                    slow recovery. But getting in is the problem — Wraith
+                    Bolt and Soul Drain keep Hiro at bay. Mortis punishes
+                    any whiffed Blazing Dawn Slash with Grave Cleave.
+
+
+AI PROMPT: CHARACTER CONCEPT
+================================================================================
+
+Pixel art character design sheet for a 2D side-scrolling fighting game.
+
+CHARACTER: "Hiro, the Sun Dancer" — a solar fire swordsman inspired by
+traditional Japanese sun dance rituals. Determined, compassionate warrior
+who fights with flowing, dance-like katana techniques enhanced by solar fire.
+
+CAMERA / VIEW:
+- Strict side view (profile), facing RIGHT.
+- 90-degree side angle, classic 2D fighting game perspective.
+- NOT 3/4 view. NOT front-facing. NOT isometric. Pure flat side profile.
+
+PROPORTIONS & SIZE:
+- Semi-chibi anime proportions: head approximately 1/3 of total body height.
+- Total character height: approximately 50-52 pixels tall.
+- Character width: approximately 20-28 pixels at widest point.
+- Must fit inside a 64x64 pixel cell with padding.
+- Feet at y=58 (6 pixels from the bottom of the 64px frame).
+
+APPEARANCE (DETAILED):
+- HAIR: Dark reddish-brown (#8B2500), short and slightly messy, forward swept.
+  A few strands fall across the forehead near the sun mark. In side view,
+  the hair has a natural, slightly windswept look. Tips may glow faintly
+  orange (#FF6B00) during attacks.
+- SUN MARK: Small golden sun symbol (#FFD700) on the CENTER OF THE FOREHEAD.
+  A circular dot with 4-6 short radiating lines — like a tiny stylized sun.
+  This is the KEY IDENTIFYING FEATURE and must be clearly visible in every
+  frame. In side view, it sits on the forehead just below the hairline.
+- EYES: Warm amber (#FF8C00). Determined, focused expression. One eye fully
+  visible in side view.
+- FACE: Warm tan (#FFCC99) skin. Young, determined expression. Clean features.
+- KIMONO TOP: Dark navy (#1A1A3E) short-sleeved uwagi (kimono top) with
+  golden (#FFD700) trim along the collar edge and sleeve hems. Slightly open
+  at the chest showing a dark undershirt beneath. In side view, the collar
+  creates a clean V-line. Near-black (#0F0F2A) in the deepest folds. Navy
+  highlight (#2D2D55) on lighter areas.
+- OBI SASH: Burnt orange (#CC5500) obi sash tied at the waist. The knot is
+  on the left side with 2 short tails hanging down (~6-8px). Dark rust
+  (#993D00) shadows. The sash tails sway during movement.
+- HAKAMA PANTS: Dark charcoal (#2A2A2A) wide-legged hakama. They billow and
+  flow with movement. Tucked into the boots at the ankle. In side view, the
+  wide leg is clearly visible, creating a flowing silhouette.
+- BOOTS: Simple dark (#1A1018) ankle boots with thin golden (#FFD700) accent
+  line. Functional footwork boots.
+- HANDS: Cloth-wrapped (#E8D5B8 warm linen) hands. Both hands visible gripping
+  the katana during combat. Wrappings slightly frayed at the wrists.
+- KATANA: The defining weapon. Dark wrapped (#2A2A2A) handle, ~10px. Golden
+  (#FFD700) circular tsuba (guard) shaped like a small sun — 3-4px diameter.
+  Polished steel (#C0C8D0) blade with faint orange-gold (#FF8C00) shimmer
+  along the cutting edge. Blade length ~36-40px. In idle, held at the right
+  side with the blade angled slightly upward. The katana and sun mark
+  together define this character's silhouette.
+- EARRING: Small golden (#FFD700) sun-shaped earring on the visible ear.
+  ~2px. Family heirloom detail.
+
+COLOR PALETTE (strict):
+- Dark Navy #1A1A3E (kimono base)
+- Navy Shadow #0F0F2A (kimono shadows)
+- Navy Highlight #2D2D55 (kimono light folds)
+- Solar Gold #FFD700 (sun mark, trim, tsuba, earring)
+- Flame Orange #FF8C00 (eyes, blade shimmer, energy)
+- Burnt Orange #CC5500 (obi sash)
+- Obi Shadow #993D00 (sash shadows)
+- Charcoal #2A2A2A (hakama, handle)
+- Warm Tan #FFCC99 (skin)
+- Dark Auburn #8B2500 (hair)
+- Fire Tips #FF6B00 (hair tips during attacks)
+- Polished Steel #C0C8D0 (blade)
+- Warm Linen #E8D5B8 (hand wraps)
+- Near Black #1A1018 (boots)
+- Outline #1A0F0A (warm dark outline)
+
+PIXEL ART STYLE:
+- Clean 1-pixel dark outline (#1A0F0A) — warm dark brown, NOT pure black
+  (warmer character than the dark fighters).
+- 2-3 shading levels per color area.
+- No anti-aliasing — hard pixel edges.
+- Semi-chibi anime proportions.
+- Warm, bright, heroic mood — contrasts with the darker characters in the
+  roster. This character should feel like sunlight in human form.
+
+OUTPUT:
+- Single character in an idle standing pose, facing right.
+- Katana held at the right side, blade angled slightly upward.
+- Transparent background.
+- Clean, final pixel art ready for sprite sheet.
+
+
+CONNECTIONS
+================================================================================
+-> 02_CHARACTER_DESIGN.txt    uses: Visual Identity, Color Palette, Katana Poses, Dance Forms
+-> 03_CHARACTER_SKILLS_EFFECTS.txt  uses: Solar/Fire Element, Gold-Orange Palette, Ability Details

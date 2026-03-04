@@ -11,5 +11,8 @@ export const Events = {
   COUNTDOWN_TICK: 'countdownTick',
   FIGHT: 'fight',
   ABILITY_USED: 'abilityUsed',
-  ULTIMATE_READY: 'ultimateReady'
+  ULTIMATE_READY: 'ultimateReady',
+  HIT_LANDED: 'hitLanded',
+  COMBO_HIT: 'comboHit',
+  COMBO_RESET: 'comboReset'
 } as const;

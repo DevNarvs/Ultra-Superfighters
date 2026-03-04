@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { Projectile } from '../entities/Projectile';
 import { Fighter, State } from '../entities/Fighter';
+import { EventBus, Events } from './EventBus';
 import type { AbilityState } from '../types';
 
 export class AbilitySystem {
@@ -96,8 +97,9 @@ export class AbilitySystem {
       if (!fighter.active) return;
 
       const dir = fighter.facingRight ? 1 : -1;
+      const rageMult = fighter.isRaging ? fighter.rageDamageMultiplier : 1;
       const proj = new Projectile(this.scene, fighter.x + dir * 20, fighter.y, {
-        damage: ability.damage,
+        damage: Math.floor(ability.damage * rageMult),
         speed: ability.speed,
         knockback: ability.knockback || 300,
         direction: dir,
@@ -105,6 +107,7 @@ export class AbilitySystem {
         size: ability.size || { width: 24, height: 24 }
       });
 
+      this.ignoreOnUI(proj);
       this.projectiles.push(proj);
 
       for (const target of this.fighters) {
@@ -134,6 +137,7 @@ export class AbilitySystem {
       afterimage.setDepth(80);
       afterimage.setAlpha(0.6);
       afterimage.play('fx_afterimage');
+      this.ignoreOnUI(afterimage);
       afterimage.on('animationcomplete', () => {
         if (state.shieldActive) afterimage.play('fx_afterimage');
       });
@@ -196,6 +200,7 @@ export class AbilitySystem {
     flash.setScale(0.5);
     flash.setDepth(85);
     flash.play('fx_blink_flash');
+    this.ignoreOnUI(flash);
     flash.once('animationcomplete', () => flash.destroy());
 
     this.scene.time.delayedCall(ability.duration, () => {
@@ -231,16 +236,24 @@ export class AbilitySystem {
       waveBody.setAllowGravity(false);
       waveBody.setVelocityX(dir * 400);
       waveBody.setSize(100, 60);
+      this.ignoreOnUI(wave);
       wave.play('fx_phantom_slash');
 
       const hitTargets = new Set<number>();
+      const ultRageMult = fighter.isRaging ? fighter.rageDamageMultiplier : 1;
+      const ultDamage = Math.floor(ability.damage * ultRageMult);
 
       for (const target of this.fighters) {
         if (target.playerIndex === fighter.playerIndex) continue;
         this.scene.physics.add.overlap(wave, target, () => {
           if (hitTargets.has(target.playerIndex)) return;
           hitTargets.add(target.playerIndex);
-          target.takeDamage(ability.damage, dir * ability.knockback, -200);
+          target.takeDamage(ultDamage, dir * ability.knockback, -200);
+          EventBus.emit(Events.HIT_LANDED, {
+            attackerIndex: fighter.playerIndex,
+            targetIndex: target.playerIndex,
+            damage: ultDamage
+          });
         });
       }
 
@@ -253,6 +266,11 @@ export class AbilitySystem {
       fighter.attackLocked = false;
       fighter.state = State.IDLE;
     });
+  }
+
+  private ignoreOnUI(obj: Phaser.GameObjects.GameObject): void {
+    const uiCam = this.scene.cameras.getCamera('ui');
+    if (uiCam) uiCam.ignore(obj);
   }
 
   addCharge(fighterIndex: number, type: 'deal' | 'take', amount: number): void {

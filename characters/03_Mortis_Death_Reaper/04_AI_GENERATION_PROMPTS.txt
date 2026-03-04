@@ -1,0 +1,1399 @@
+================================================================================
+  AI GENERATION PROMPTS: MORTIS — THE SOUL REAPER
+  Super Battlemancers
+================================================================================
+  Ready-to-copy-paste AI prompts for EACH animation and skill effect.
+  INPUT:    <- 01_CHARACTER_DESCRIPTION.txt
+            <- 02_CHARACTER_DESIGN.txt
+            <- 03_CHARACTER_SKILLS_EFFECTS.txt
+  OUTPUT:   Individual sprite strips → stitch into full sprite sheet + effects
+================================================================================
+
+
+HOW TO USE
+================================================================================
+1. Copy ONE prompt at a time into your AI image generator.
+2. Generate, review, adjust if needed.
+3. After generating all 11 animation strips (A0-A10), stitch vertically:
+   - Row 0 at y=0, Row 1 at y=64, Row 2 at y=128, ... Row 10 at y=640
+   - Final sheet: 384 x 704 pixels (or 768 x 1408 at 2x scale)
+4. Skill effects (B1-B6) are separate individual files.
+5. Use Photopea.com (free) or Photoshop. "Nearest Neighbor" resampling.
+
+DARK PALETTE WARNING:
+AI generators tend to make things brighter than requested. You may need to
+darken the results in post-processing. The void areas should be VERY dark
+(#050510, #0F0F1A) — almost black. The only bright elements are the cyan-green
+edges, eye glow, and scythe blade glow.
+
+
+CHARACTER REFERENCE
+================================================================================
+Name              : Mortis
+Title             : The Soul Reaper
+Element / Theme   : Shadow / Death (cyan-green spectral energy)
+Role              : Zoner (scythe range, keep-away)
+
+APPEARANCE BLOCK (included in every prompt):
+  A Grim Reaper inspired shadow battlemancer. Deep pointed hood covering the
+  entire head — interior is pure black (#050510) void. Two small glowing
+  cyan-green (#00FFAA) dots for eyes floating in the darkness under the hood
+  — the ONLY facial feature, KEY identifying trait. Tall gaunt skeletal
+  silhouette under a long flowing deep charcoal (#1A1A2E) tattered robe with
+  near-black blue (#0F0F1A) shadows and dark slate (#2D2D44) highlight edges.
+  The robe extends to the ground with TORN and TATTERED bottom hem fraying
+  into wispy tendrils (#221133 dark purple-gray). NO visible feet — the
+  character FLOATS/HOVERS. Angular dark iron (#333344) shoulder pauldrons
+  with faint dim green (#228866) rune etchings. Thin gunmetal (#444455)
+  chain belt with a small glowing cyan-green (#00FFAA) gem pendant. Skeletal
+  bone-white (#D4C8A8) hands with dusty tan (#A89878) shadows — bony,
+  elongated, claw-like fingers. SCYTHE in right hand: dark iron (#333344)
+  shaft ~40-45px long, curved silver (#AABBCC) blade with faint cyan-green
+  (#00CC88) edge glow. Semi-chibi anime proportions (head ~1/3 of body).
+  Taller than average character (~52-56px).
+
+COLOR PALETTE:
+  Robe Base       : #1A1A2E (deep charcoal)
+  Robe Shadow     : #0F0F1A (near-black blue)
+  Robe Highlight  : #2D2D44 (dark slate)
+  Hood Interior   : #050510 (void black)
+  Energy/Eyes     : #00FFAA (spectral cyan-green)
+  Energy Bright   : #66FFCC (bright mint)
+  Hands (Bone)    : #D4C8A8 (pale bone)
+  Bone Shadow     : #A89878 (dusty tan)
+  Scythe Shaft    : #333344 (dark iron)
+  Scythe Blade    : #AABBCC (silver edge)
+  Blade Glow      : #00CC88 (ghost green)
+  Rune Accents    : #228866 (dim green)
+  Robe Wisps      : #221133 (dark purple-gray)
+  Chain Belt      : #444455 (gunmetal)
+  Darkest/Outline : #0A0A14
+
+
+================================================================================
+================================================================================
+  PART A: CHARACTER ANIMATION PROMPTS (11 rows)
+================================================================================
+================================================================================
+
+
+================================================================================
+PROMPT A0 — ROW 0: IDLE (4 frames)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+At 2x scale: 512 x 128 pixels (4 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A Grim Reaper inspired shadow battlemancer. Deep pointed hood covering the
+entire head — interior is pure black (#050510) void. Two small glowing
+cyan-green (#00FFAA) dots for eyes floating in the darkness under the hood
+— the ONLY facial feature. Tall gaunt skeletal silhouette under a long
+flowing deep charcoal (#1A1A2E) tattered robe with near-black blue (#0F0F1A)
+shadows and dark slate (#2D2D44) highlight edges. Robe extends to the ground
+with TORN and TATTERED bottom hem fraying into wispy tendrils (#221133).
+NO visible feet — the character FLOATS. Angular dark iron (#333344) shoulder
+pauldrons with faint dim green (#228866) rune etchings. Thin gunmetal
+(#444455) chain belt with a glowing cyan-green (#00FFAA) gem pendant.
+Skeletal bone-white (#D4C8A8) hands — bony, claw-like fingers. SCYTHE in
+right hand: dark iron (#333344) shaft, curved silver (#AABBCC) blade with
+cyan-green (#00CC88) edge glow. Semi-chibi anime proportions. Taller than
+average (~52-56px tall).
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. The character is seen from a
+  perfect side angle like classic 2D fighting game sprites (Street Fighter,
+  Metal Slug perspective).
+- NOT 3/4 view. NOT front-facing. NOT isometric. NOT top-down. Pure flat
+  side profile.
+- Character always faces RIGHT.
+- Semi-chibi anime proportions: head is approximately 1/3 of total body height.
+- Character height: approximately 52-56 pixels tall within each 64x64 cell.
+- Robe bottom at y=58 (6 pixels from the bottom of each 64x64 frame).
+- Character body centered horizontally at x=32 in each cell.
+- Clean 1-pixel dark outline (#0A0A14) around the entire character.
+- 2-3 shading levels per color area (highlight, base, shadow).
+- No anti-aliasing. Hard pixel edges. No dithering. No sub-pixel detail.
+- Dark, gothic, ominous mood — this character should feel supernatural.
+
+IMAGE LAYOUT:
+- 4 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+- Frames read left to right: Frame 1, Frame 2, Frame 3, Frame 4.
+
+ANIMATION: IDLE (hovering stance, looping)
+
+Frame 1 (NEUTRAL):
+Neutral hovering stance. Body upright, very slight forward lean. Scythe held
+vertically in the right hand at the character's side — shaft runs along the
+body, blade curves upward and to the right above the shoulder. Left arm hangs
+at the side, skeletal hand with fingers slightly curled. Robe drapes naturally,
+tattered bottom edges hang near y=58 with a 1-2px gap underneath suggesting
+the character FLOATS above the ground. Hood points upward, interior pure
+black with two glowing cyan-green eye dots clearly visible. Shoulder pauldrons
+visible. Chain belt with gem at the waist. Calm, ominous, supernatural pose.
+
+Frame 2 (RISE):
+Body drifts UPWARD 1-2 pixels. Robe tendrils begin to sway gently to the
+left (as if moved by an unseen wind). Eye glow pulses slightly brighter —
+add 1 extra pixel of #66FFCC around each eye dot. Scythe tilts very slightly.
+The gap under the robe hem increases by 1px (floating higher). Chain gem
+sways slightly.
+
+Frame 3 (PEAK):
+Peak of float. Body at highest position (2px above Frame 1). Robe tendrils
+drift further to the left, spread slightly more. Eyes at maximum glow
+brightness — the brightest they get during idle. Scythe tilts a fraction
+more. A sense of weightless, ethereal hovering. The most supernatural frame
+of the idle loop.
+
+Frame 4 (DESCEND):
+Body descends back toward Frame 1 position. Robe tendrils begin settling
+back. Eye glow dims back to base #00FFAA. Gap under hem shrinks. Everything
+returns smoothly to Frame 1 for a seamless loop. The motion should feel like
+slow, ghostly breathing — a figure that pulses with dark energy.
+
+IMPORTANT:
+- The idle animation must convey that this character is HOVERING, not standing.
+  The up-down float, swaying tendrils, and eye pulsing create an unsettling,
+  supernatural presence.
+- Cyan-green eye dots (#00FFAA) MUST be clearly visible in every frame — they
+  are the KEY identifying feature.
+- The scythe must be clearly recognizable in every frame — it defines this
+  character's silhouette.
+- NO visible legs or feet at any time — robe conceals everything below waist.
+- Do NOT draw any skill effects, energy aura, or particles. Only the
+  character's body, robe, and scythe.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A1 — ROW 1: GLIDE (6 frames)
+================================================================================
+Output: 384 x 64 pixels (6 frames of 64x64)
+At 2x scale: 768 x 128 pixels (6 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A Grim Reaper inspired shadow battlemancer. Deep pointed hood covering the
+entire head — interior is pure black (#050510) void. Two small glowing
+cyan-green (#00FFAA) dots for eyes floating in the darkness under the hood.
+Tall gaunt silhouette under a long flowing deep charcoal (#1A1A2E) tattered
+robe with near-black blue (#0F0F1A) shadows and dark slate (#2D2D44) edges.
+Torn tattered bottom hem with wispy tendrils (#221133). NO visible feet —
+the character FLOATS. Dark iron (#333344) shoulder pauldrons with dim green
+(#228866) runes. Gunmetal (#444455) chain belt with cyan-green (#00FFAA) gem.
+Skeletal bone-white (#D4C8A8) hands. SCYTHE: dark iron shaft, curved silver
+(#AABBCC) blade with cyan-green (#00CC88) edge glow. Semi-chibi anime
+proportions. ~52-56px tall.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game
+  perspective (Street Fighter, Metal Slug).
+- NOT 3/4 view. NOT front-facing. NOT isometric. Pure flat side profile.
+- Character always faces RIGHT (gliding to the right).
+- Semi-chibi anime proportions: head ~1/3 of body height.
+- Character height: ~52-56px within each 64x64 cell.
+- Robe bottom at y=58 (6px from bottom). Center at x=32.
+- 1-pixel dark outline (#0A0A14). 2-3 shading levels per color.
+- No anti-aliasing. Hard pixel edges. No dithering.
+
+IMAGE LAYOUT:
+- 6 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 384 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: GLIDE (forward floating movement, looping)
+This character does NOT run with legs. The "run" animation is a forward
+GLIDE/FLOAT. No leg movement is visible — the robe conceals everything
+below the waist. Movement is conveyed through body lean, robe billowing,
+and scythe positioning.
+
+Frame 1 (GLIDE FORWARD):
+Body leans forward ~8 degrees into the direction of movement. Scythe held
+back in the right hand, shaft trailing behind at ~45 degrees, blade pointing
+back and up. Left arm extended slightly forward, skeletal hand reaching
+ahead. Robe streams behind the body — the tattered tendrils stretch out to
+the left, trailing like ghostly ribbons. Hood leans forward with the body.
+Eyes glow steadily. The character looks like a dark specter gliding forward.
+
+Frame 2 (DIP):
+Body dips slightly lower (1-2px down). The forward lean deepens a fraction.
+Robe billows more — the fabric creates a wave shape behind, like cloth
+caught in wind. Tendrils stretch further back. Left arm position shifts
+slightly. This is the lowest point of the glide bob.
+
+Frame 3 (RISE):
+Body rises back up 1px. Robe ripples — the wave shape shifts along the
+trailing fabric. The body is in the passing/transition position. Scythe
+shaft angle adjusts slightly with the body motion. Tendrils begin to settle.
+
+Frame 4 (LEAN):
+Mirror lean of Frame 1 with subtle differences. The forward lean continues
+but the body has shifted — left arm pulls back slightly, right arm (with
+scythe) adjusts. Robe billows in a slightly different pattern from Frame 1
+to prevent the glide from looking too mechanical.
+
+Frame 5 (DIP):
+Body dips again (mirror of Frame 2). Different robe billow pattern. The
+tendrils stretch in a slightly different configuration. Creates natural
+variation in the floating motion.
+
+Frame 6 (RISE):
+Body rises (mirror of Frame 3). Robe settles slightly. Loops seamlessly
+back to Frame 1.
+
+IMPORTANT:
+- NO visible leg movement at any point. The robe bottom maintains a consistent
+  shape — it does NOT open to reveal legs. The entire movement impression
+  comes from the upper body lean, arm positions, robe flow, and tendril
+  trailing. This character GLIDES like a ghost, not runs like a human.
+- Robe tendrils MUST trail BEHIND the direction of movement in every frame
+  (natural ghostly cloth physics).
+- The glide cycle must loop seamlessly (Frame 6 → Frame 1).
+- Eyes must remain visible in every frame.
+- Do NOT draw any effects, energy trails, or particles. Body and robe only.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A2 — ROW 2: JUMP (3 frames)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+At 2x scale: 384 x 128 pixels (3 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A Grim Reaper inspired shadow battlemancer. Deep pointed hood — interior
+pure black (#050510). Two glowing cyan-green (#00FFAA) eye dots under the
+hood. Tall gaunt silhouette, long deep charcoal (#1A1A2E) tattered robe,
+near-black blue (#0F0F1A) shadows, dark slate (#2D2D44) edges. Torn hem
+with tendrils (#221133). NO visible feet. Dark iron (#333344) shoulder
+pauldrons with dim green (#228866) runes. Gunmetal (#444455) chain belt
+with cyan-green (#00FFAA) gem. Skeletal bone-white (#D4C8A8) hands.
+SCYTHE: dark iron shaft, silver (#AABBCC) blade, cyan-green (#00CC88)
+edge glow. Semi-chibi anime proportions. ~52-56px tall.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~52-56px. Robe bottom at y=58. Center at x=32.
+- 1-pixel dark outline (#0A0A14). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 3 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: JUMP (launch → peak → fall, one-shot)
+
+Frame 1 (LAUNCH):
+Body compresses downward. Robe crumples and bunches at the bottom. Scythe
+pulls in close to the body, held vertically against the right side. Left
+arm pulls down. The robe hem drops to touch y=58 fully (no floating gap).
+Hood dips slightly. Eyes maintain glow. The character is gathering upward
+force — even a floating entity needs to coil before launching higher.
+
+Frame 2 (PEAK — THE MOST DRAMATIC FRAME):
+Body fully stretched upward, at the highest point. Robe SPREADS outward on
+both sides like DARK WINGS or a cape billowing in the wind. The tattered
+tendrils fan out dramatically — widest silhouette in the entire sheet.
+Scythe raised diagonally upward in the right hand, blade pointing up and
+to the right. Left arm extended out to the side. Eyes blaze at maximum
+brightness (#66FFCC). Hood points sharply upward. This should be a dramatic,
+imposing silhouette — a DARK ANGEL ascending. Character centered in frame,
+robe edges can approach frame boundaries.
+
+Frame 3 (FALL):
+Body curls inward slightly. Robe wraps around the body like a descending
+shroud — tendrils pull in and stream upward (trailing from the downward
+fall). Scythe points downward, blade aimed at the ground. Left arm pulls
+in close. Eyes dim slightly. Hood tilts forward and down. The character
+descends like a dark omen coming to earth.
+
+IMPORTANT:
+- Frame 2 must be the widest, most dramatic silhouette — robe spread like
+  dark wings creates the "angel of death" effect.
+- NO visible legs or feet at any point — robe always conceals lower body.
+- Eye dots visible in all 3 frames.
+- Do NOT draw any energy effects, particles, or aura. Body and robe only.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A3 — ROW 3: ATTACK 1 — Crypt Slash (3 frames)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+At 2x scale: 384 x 128 pixels (3 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A Grim Reaper inspired shadow battlemancer. Deep pointed hood — interior
+pure black (#050510). Two glowing cyan-green (#00FFAA) eye dots under the
+hood. Tall gaunt silhouette, long deep charcoal (#1A1A2E) tattered robe,
+near-black blue (#0F0F1A) shadows, dark slate (#2D2D44) edges. Torn hem
+with tendrils (#221133). NO visible feet. Dark iron (#333344) shoulder
+pauldrons with dim green (#228866) runes. Gunmetal (#444455) chain belt
+with cyan-green (#00FFAA) gem. Skeletal bone-white (#D4C8A8) hands.
+SCYTHE: dark iron shaft, silver (#AABBCC) blade, cyan-green (#00CC88)
+edge glow. Semi-chibi anime proportions. ~52-56px tall.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~52-56px. Robe bottom at y=58. Center at x=32.
+- 1-pixel dark outline (#0A0A14). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 3 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: ATTACK 1 — Crypt Slash (quick horizontal scythe swipe, one-shot)
+
+Frame 1 (WINDUP):
+Scythe pulls back behind the body to the left. Both skeletal hands grip the
+shaft — right hand high, left hand low. Body coils to the left, twisting
+away from the attack direction. Robe follows the twist, fabric pulling to
+the left. Hood turns slightly with the body. Eyes glow steadily. Robe
+bottom remains at y=58. The scythe blade is behind the character, ready to
+sweep forward.
+
+Frame 2 (STRIKE):
+Fast horizontal scythe swipe from left to right at chest height. The scythe
+sweeps in a horizontal arc. Blade passes through the space in front of the
+character, reaching approximately 36-38px from the left edge of the frame
+(long reach). Body snaps to the right with the swing. Robe whips with the
+motion. Both hands visible on the shaft mid-swing. Eyes flare brighter
+during the strike. This is the fastest scythe attack — a quick reaping slash.
+
+Frame 3 (RECOVERY):
+Scythe continues past the strike point, momentum carrying it to the right
+side. Body begins to untwist. Robe settles from the motion. Hands shift on
+the shaft as Mortis pulls the scythe back to neutral. Eyes return to normal
+glow. Return toward idle stance.
+
+IMPORTANT:
+- The scythe blade creates a visible arc/sweep across the frame. The blade
+  itself should be clearly drawn in each position along the swing path.
+- Do NOT draw a slash trail — the engine adds that. Only the physical scythe
+  in its current position.
+- Eyes visible in every frame.
+- No energy effects or particles — body, robe, and scythe only.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A4 — ROW 4: ATTACK 2 — Reaping Arc (3 frames)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+At 2x scale: 384 x 128 pixels (3 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A Grim Reaper inspired shadow battlemancer. Deep pointed hood — interior
+pure black (#050510). Two glowing cyan-green (#00FFAA) eye dots under the
+hood. Tall gaunt silhouette, long deep charcoal (#1A1A2E) tattered robe,
+near-black blue (#0F0F1A) shadows, dark slate (#2D2D44) edges. Torn hem
+with tendrils (#221133). NO visible feet. Dark iron (#333344) shoulder
+pauldrons with dim green (#228866) runes. Gunmetal (#444455) chain belt
+with cyan-green (#00FFAA) gem. Skeletal bone-white (#D4C8A8) hands.
+SCYTHE: dark iron shaft, silver (#AABBCC) blade, cyan-green (#00CC88)
+edge glow. Semi-chibi anime proportions. ~52-56px tall.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~52-56px. Robe bottom at y=58. Center at x=32.
+- 1-pixel dark outline (#0A0A14). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 3 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: ATTACK 2 — Reaping Arc (overhead downward scythe swing, one-shot)
+
+Frame 1 (WINDUP):
+Scythe raised HIGH overhead with both skeletal hands gripping the shaft.
+Body leans back slightly to counterbalance the raised weapon. Robe flares
+outward at the bottom from the backward lean. Hood tilts back. The scythe
+blade is at the top of the frame, curving to the right, poised for a
+massive downward sweep. Eyes glow intensely — this is a power attack. Arms
+fully extended upward, bone-white hands visible gripping the dark shaft.
+
+Frame 2 (STRIKE):
+Scythe sweeps in a massive downward arc from top-right to bottom-left. The
+blade passes through a wide arc covering most of the frame's right half.
+Body lunges forward into the swing, adding weight. Robe whips dramatically
+with the lunging motion. Maximum reach — the blade tip at approximately
+44px from the left edge and about 40px from the top (low sweep). Eyes
+blaze. The pose conveys tremendous sweeping force — the entire body commits
+to this swing.
+
+Frame 3 (RECOVERY):
+Scythe ends its arc at the lower left of the character. Body is hunched
+forward from the lunge. Robe wraps and settles. Mortis begins pulling
+upright, dragging the scythe back. This recovery is noticeably slower than
+Attack 1 — the pose should look like the character needs a moment to pull
+back from such a heavy swing.
+
+IMPORTANT:
+- The overhead-to-ground arc must be clearly conveyed through the scythe
+  positions across all 3 frames.
+- Do NOT draw slash trails — the engine adds those. Only the physical scythe.
+- This is a powerful attack — the poses should convey heavy, committed force.
+- Eyes visible in every frame.
+- No energy effects or particles.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A5 — ROW 5: ATTACK 3 — Grave Cleave (4 frames)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+At 2x scale: 512 x 128 pixels (4 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A Grim Reaper inspired shadow battlemancer. Deep pointed hood — interior
+pure black (#050510). Two glowing cyan-green (#00FFAA) eye dots under the
+hood. Tall gaunt silhouette, long deep charcoal (#1A1A2E) tattered robe,
+near-black blue (#0F0F1A) shadows, dark slate (#2D2D44) edges. Torn hem
+with tendrils (#221133). NO visible feet. Dark iron (#333344) shoulder
+pauldrons with dim green (#228866) runes. Gunmetal (#444455) chain belt
+with cyan-green (#00FFAA) gem. Skeletal bone-white (#D4C8A8) hands.
+SCYTHE: dark iron shaft, silver (#AABBCC) blade, cyan-green (#00CC88)
+edge glow. Semi-chibi anime proportions. ~52-56px tall.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~52-56px. Robe bottom at y=58. Center at x=32.
+- 1-pixel dark outline (#0A0A14). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 4 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: ATTACK 3 — Grave Cleave (devastating overhead slam, one-shot)
+This is the MOST POWERFUL basic attack — slow but devastating.
+
+Frame 1 (WINDUP):
+Body rises HIGHER than normal (2-3px above usual position). Scythe raised
+above and behind the head with both hands, blade pointing backward and up —
+the highest the scythe ever goes. Body leans back dramatically. Robe lifts
+and billows as if caught in an updraft. Eyes blaze maximum bright (#66FFCC).
+This is the most dramatic windup in the sheet — the character is channeling
+everything into one strike. A momentary pause at the apex.
+
+Frame 2 (DESCEND):
+Body plunges forward and downward. Scythe begins its massive overhead-to-
+ground swing. The blade sweeps from behind the head in a vertical arc
+coming down toward the ground. Mid-swing frame — scythe at roughly 45
+degrees, sweeping through. Body weight shifts entirely forward. Robe
+streams upward and behind from the sudden downward plunge. Hood dips.
+
+Frame 3 (IMPACT):
+Scythe SLAMS into the ground at maximum forward reach. The blade tip
+touches near the bottom of the frame at full extension — approximately
+46-48px from the left edge. This is the LONGEST reach of any attack in the
+game. Body is crouched over the planted scythe, hunched forward. Robe
+splays outward dramatically from the impact force. Eyes blaze. Both hands
+white-knuckle the shaft. The pose conveys earth-shaking impact.
+
+Frame 4 (RECOVERY — SLOW):
+The slowest recovery of any attack. Scythe is still partially in the ground
+position. Mortis slowly drags it back, body rising sluggishly. One hand
+releases the shaft to help push upright. Robe is still settling from the
+impact. Eyes dim slightly. This is the PUNISH WINDOW — the character is
+clearly vulnerable. The pose should look heavy, committed, and slow.
+
+IMPORTANT:
+- This is the most committal and dangerous attack. The windup is telegraphed,
+  the impact is devastating, and the recovery is punishable. The poses should
+  sell ALL of that — dramatic power AND visible vulnerability.
+- Frame 3 has the LONGEST reach of any attack — the scythe extends to its
+  absolute maximum.
+- Do NOT draw impact effects or ground cracks — the engine adds those.
+- Eyes visible in every frame.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A6 — ROW 6: CAST — Wraith Bolt (4 frames)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+At 2x scale: 512 x 128 pixels (4 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A Grim Reaper inspired shadow battlemancer. Deep pointed hood — interior
+pure black (#050510). Two glowing cyan-green (#00FFAA) eye dots under the
+hood. Tall gaunt silhouette, long deep charcoal (#1A1A2E) tattered robe,
+near-black blue (#0F0F1A) shadows, dark slate (#2D2D44) edges. Torn hem
+with tendrils (#221133). NO visible feet. Dark iron (#333344) shoulder
+pauldrons with dim green (#228866) runes. Gunmetal (#444455) chain belt
+with cyan-green (#00FFAA) gem. Skeletal bone-white (#D4C8A8) hands.
+SCYTHE: dark iron shaft, silver (#AABBCC) blade, cyan-green (#00CC88)
+edge glow. Semi-chibi anime proportions. ~52-56px tall.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~52-56px. Robe bottom at y=58. Center at x=32.
+- 1-pixel dark outline (#0A0A14). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 4 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: CAST — Wraith Bolt (spectral projectile launch, one-shot)
+
+Frame 1 (PREPARE):
+Scythe is PLANTED in the ground to the right of the character — right hand
+releases the shaft (it stands upright on its own). Both skeletal hands raise
+to chest level, palms facing forward, bony fingers spread. The character
+shifts focus from weapon to magic. Robe settles into a more vertical drape.
+Eyes begin to glow brighter. The chain gem at the waist also glows slightly.
+
+Frame 2 (CHARGE):
+Hands pull apart to shoulder width. Between the skeletal palms, a space
+forms where the spectral skull will manifest (the skull itself is NOT drawn
+— the engine spawns it). Eyes blaze at maximum brightness. Fingers curl
+inward slightly as if containing energy. Cyan-green glow appears on the
+fingertips and palm areas (2-3 pixels of #00FFAA on each hand). Body
+straightens tall. Robe hangs still — the air is heavy with dark magic.
+
+Frame 3 (RELEASE):
+Left hand thrusts forward toward the right side of the frame, palm open,
+fingers extended. This is the launch point — the engine spawns the Wraith
+Bolt projectile at the left hand position. Right hand pulls back. Body
+twists slightly with the thrust. Robe ripples from the energy release. Eyes
+maintain bright glow. The glow on the extended hand intensifies (more
+#66FFCC pixels on the fingers).
+
+Frame 4 (FOLLOW-THROUGH):
+Left arm still extended but relaxing. Right hand reaches back to grab the
+planted scythe. Body begins to settle. Eye glow dims back to normal. Hand
+glow fades. Wisps of shadow (#221133) trail from the extended fingers (2-3
+tiny pixels suggesting residual energy). Scythe being retrieved from ground.
+
+IMPORTANT:
+- Do NOT draw the Wraith Bolt skull projectile in any frame. Only draw the
+  character's body, hands, and the energy glow on the hands. The spectral
+  skull is a separate sprite spawned by the game engine at the hand position
+  during Frame 3.
+- The scythe is PLANTED in the ground during this animation — it stands
+  upright beside the character while the hands perform the magic gesture.
+- Eyes visible in every frame.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A7 — ROW 7: TAKE HIT (2 frames)
+================================================================================
+Output: 128 x 64 pixels (2 frames of 64x64)
+At 2x scale: 256 x 128 pixels (2 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A Grim Reaper inspired shadow battlemancer. Deep pointed hood — interior
+pure black (#050510). Two glowing cyan-green (#00FFAA) eye dots under the
+hood. Tall gaunt silhouette, long deep charcoal (#1A1A2E) tattered robe,
+near-black blue (#0F0F1A) shadows, dark slate (#2D2D44) edges. Torn hem
+with tendrils (#221133). NO visible feet. Dark iron (#333344) shoulder
+pauldrons with dim green (#228866) runes. Gunmetal (#444455) chain belt
+with cyan-green (#00FFAA) gem. Skeletal bone-white (#D4C8A8) hands.
+SCYTHE: dark iron shaft, silver (#AABBCC) blade, cyan-green (#00CC88)
+edge glow. Semi-chibi anime proportions. ~52-56px tall.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~52-56px. Robe bottom at y=58. Center at x=32.
+- 1-pixel dark outline (#0A0A14). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 2 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 128 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: TAKE HIT (damage reaction, one-shot)
+
+Frame 1 (IMPACT):
+Body jerked backward sharply. Hood flips back slightly from the force,
+briefly revealing more of the black void underneath — the shadow under the
+hood is still pure black, but the hood opening is wider, showing there
+truly is NOTHING under there except darkness and eye dots. Eyes FLICKER —
+one eye dims to 1px while the other stays lit (asymmetric flicker suggests
+disruption). Scythe knocked to an awkward angle, grip loosening. Robe whips
+forward from the backward momentum. Skeletal hands flinch. Chain gem swings.
+Pain is conveyed not through facial expression (there is no face) but
+through the body jerk, eye flicker, and hood displacement.
+
+Frame 2 (RECOIL):
+Body leans further backward. Hood settles back slightly but still more open
+than normal. Both eyes dim to a lower glow (#228866 instead of #00FFAA —
+sickly, weakened green). One skeletal hand rises to clutch the chest area.
+Scythe droops in the loosened grip. Robe continues whipping forward. Robe
+bottom lifts slightly off the ground from the backward lean. The character
+looks destabilized — a being of shadow momentarily disrupted.
+
+IMPORTANT:
+- This character has NO face — pain is conveyed through body language, eye
+  flicker/dimming, and hood displacement, NOT through facial expression.
+- The eye glow changes are critical: bright → asymmetric flicker → both
+  dim to sickly green. This is how this character shows damage.
+- Do NOT draw hit sparks, damage numbers, or any visual effects.
+- Eyes visible (but altered) in both frames.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A8 — ROW 8: SHADOW STEP / DODGE (2 frames)
+================================================================================
+Output: 128 x 64 pixels (2 frames of 64x64)
+At 2x scale: 256 x 128 pixels (2 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A Grim Reaper inspired shadow battlemancer. Deep pointed hood — interior
+pure black (#050510). Two glowing cyan-green (#00FFAA) eye dots under the
+hood. Tall gaunt silhouette, long deep charcoal (#1A1A2E) tattered robe,
+near-black blue (#0F0F1A) shadows, dark slate (#2D2D44) edges. Torn hem
+with tendrils (#221133). NO visible feet. Dark iron (#333344) shoulder
+pauldrons with dim green (#228866) runes. Gunmetal (#444455) chain belt
+with cyan-green (#00FFAA) gem. Skeletal bone-white (#D4C8A8) hands.
+SCYTHE: dark iron shaft, silver (#AABBCC) blade, cyan-green (#00CC88)
+edge glow. Semi-chibi anime proportions. ~52-56px tall.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~52-56px. Center at x=32.
+- 1-pixel dark outline (#0A0A14). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 2 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 128 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: SHADOW STEP / DODGE (dissolve into shadow, one-shot, Frame 2 held)
+
+Frame 1 (ENTER — dissolving into shadow):
+Body wraps the robe tightly around itself like a cocoon or funeral shroud.
+Arms cross against the chest, pulling the robe inward. Scythe is pulled
+close against the body vertically. Hood dips forward, concealing the eyes
+almost entirely — just the faintest cyan-green glimmer at the hood opening.
+The tattered tendrils at the robe bottom curl inward and upward, wrapping
+around the body. The entire silhouette narrows and compresses. The character
+is dissolving into shadow.
+
+Frame 2 (ACTIVE — AMORPHOUS SHADOW FORM, held for 1 full second):
+The character has become an amorphous dark shadow form. The shape is a
+vaguely humanoid blob of darkness (#0F0F1A, #050510) — roughly the same
+height and width as the character but with undefined edges that blur and
+wisp outward. No scythe visible, no hands, no robe details — just a dark
+mass. The two cyan-green eye dots (#00FFAA) float in the upper portion of
+the shadow, still visible — the ONLY recognizable feature. The edges of the
+shadow form have wispy tendrils that fade to transparency.
+
+IMPORTANT:
+- Frame 2 should NOT look like the character wrapped in a cloak. It should
+  look like the character has literally BECOME SHADOW — an indistinct dark
+  mass with floating eyes. Only the eyes connect it to Mortis.
+- Draw Frame 2 at FULL OPACITY — the game engine makes this frame semi-
+  transparent and adds a dark purple tint at runtime. You draw the shadow
+  form solidly.
+- Frame 2 is held for 1 full second during gameplay, so it must look good
+  as a static image.
+- The eye dots in Frame 2 are the ONLY detail — everything else is formless
+  dark mass.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A9 — ROW 9: ULTIMATE — Death's Harvest (4 frames)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+At 2x scale: 512 x 128 pixels (4 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A Grim Reaper inspired shadow battlemancer. Deep pointed hood — interior
+pure black (#050510). Two glowing cyan-green (#00FFAA) eye dots under the
+hood. Tall gaunt silhouette, long deep charcoal (#1A1A2E) tattered robe,
+near-black blue (#0F0F1A) shadows, dark slate (#2D2D44) edges. Torn hem
+with tendrils (#221133). NO visible feet. Dark iron (#333344) shoulder
+pauldrons with dim green (#228866) runes. Gunmetal (#444455) chain belt
+with cyan-green (#00FFAA) gem. Skeletal bone-white (#D4C8A8) hands.
+SCYTHE: dark iron shaft, silver (#AABBCC) blade, cyan-green (#00CC88)
+edge glow. Semi-chibi anime proportions. ~52-56px tall.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~52-56px. Robe bottom at y=58. Center at x=32.
+- 1-pixel dark outline (#0A0A14). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 4 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: ULTIMATE — Death's Harvest (most powerful attack, one-shot)
+This is the character's ULTIMATE ability — the most cinematic and dramatic
+4 frames on the entire sprite sheet. Each frame is a key moment in a death
+god's awakening: CROUCH → RISE → ASCEND → REAP.
+
+Frame 1 (CHARGE):
+Body hunches low, almost crouching. Scythe is planted firmly in the ground
+in front with both hands gripping the shaft tightly. Head bowed, hood tilted
+forward. Eyes glow at their MOST INTENSE — even brighter than any other
+frame, using extra #66FFCC pixels around the eye dots. The chain gem blazes
+with energy. Robe whips and lashes as if caught in a violent wind — tendrils
+streaming outward in all directions. The pose radiates "power building" —
+something terrible is about to happen. The most tense frame in the sheet.
+
+Frame 2 (RISE):
+Body straightens and RISES to maximum height, taller than any other frame.
+Standing at full imposing height. Scythe lifts from the ground, rising with
+the body. Arms beginning to spread. Hood pulls back slightly revealing the
+eyes blazing at full power. Robe billows outward dramatically. Shoulder
+pauldrons' rune markings glow brighter (#00FFAA instead of the usual dim
+#228866). The character is ascending — dark power fully charged and rising
+from the earth. Chain gem glows maximum.
+
+Frame 3 (PEAK — MOST DRAMATIC POSE IN THE ENTIRE SHEET):
+Scythe raised above the head with both hands, blade pointing to the right.
+Body at absolute maximum height. Robe SPREADS WIDE on both sides like
+massive dark wings — filling nearly the full 64px frame width. Hood pulled
+back, eyes blazing twin beacons of cyan-green light. Pauldron runes glowing.
+Arms extended upward and outward, skeletal hands gripping the scythe
+overhead. This is the "ANGEL OF DEATH" moment — the apex of power before
+the devastating release. Every visual element at its most extreme — widest
+robe, brightest eyes, highest scythe, tallest stance.
+
+Frame 4 (REAP — RELEASE):
+Scythe sweeps in a massive horizontal arc from left to right. Body twists
+powerfully with the swing — the full-body rotation drives the scythe. The
+blade reaches maximum extension to the right. Robe whips violently with the
+rotation, tendrils lashing outward. Eyes maintain bright glow. This is the
+frame where the spectral wave is launched — the engine spawns the Death's
+Harvest wave projectile at the scythe blade position. The pose conveys
+absolute release of all accumulated dark energy in one devastating sweep.
+
+IMPORTANT:
+- This is the single MOST DRAMATIC sequence in the entire sprite sheet.
+  Each frame should be visually striking and convey immense supernatural power.
+- Frame 3 must be the most dramatic pose — robe spread like dark wings,
+  scythe overhead, eyes blazing. The "angel of death" silhouette.
+- Do NOT draw energy aura, swirling particles, dark energy, or the spectral
+  wave projectile. The engine adds dramatic effects at runtime. Only draw
+  the CHARACTER'S BODY POSES with the scythe.
+- Pauldron runes glow brighter during the ultimate sequence (#00FFAA instead
+  of #228866) — this is the only time the runes are bright.
+- Eye dots visible and BLAZING in all 4 frames.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A10 — ROW 10: DEATH (3 frames)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+At 2x scale: 384 x 128 pixels (3 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A Grim Reaper inspired shadow battlemancer. Deep pointed hood — interior
+pure black (#050510). Two glowing cyan-green (#00FFAA) eye dots under the
+hood. Tall gaunt silhouette, long deep charcoal (#1A1A2E) tattered robe,
+near-black blue (#0F0F1A) shadows, dark slate (#2D2D44) edges. Torn hem
+with tendrils (#221133). NO visible feet. Dark iron (#333344) shoulder
+pauldrons with dim green (#228866) runes. Gunmetal (#444455) chain belt
+with cyan-green (#00FFAA) gem. Skeletal bone-white (#D4C8A8) hands.
+SCYTHE: dark iron shaft, silver (#AABBCC) blade, cyan-green (#00CC88)
+edge glow. Semi-chibi anime proportions. ~52-56px tall.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~52-56px. Center at x=32.
+- 1-pixel dark outline (#0A0A14). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 3 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: DEATH (defeated, one-shot, does not loop)
+
+Frame 1 (STAGGER):
+Body stumbles forward, listing to the right. Scythe slips from the grip,
+right hand opening — the scythe begins to fall away from the body. Left
+skeletal hand reaches out in front as if grasping for something. Eyes
+FLICKER rapidly — one on, one off, unstable. Hood shifts askew. Robe
+tendrils droop and hang limply (no longer animated by supernatural energy).
+Chain gem's glow gutters. The dark power sustaining this being is failing.
+The robe silhouette shows the body lowering and leaning.
+
+Frame 2 (FALLING):
+Body tilts sideways to the right, collapsing. Scythe is now clearly
+separated from the body, falling beside or behind the character. Arms go
+limp, skeletal hands hanging. Eyes dim to a faint, sickly glow (#228866 —
+barely visible). Hood falls back, revealing more of the void underneath —
+the darkness under the hood is dissolving, becoming less solid. Robe begins
+to fragment at the edges — tendrils break apart into disconnected wisps.
+The being is literally coming undone — the dark magic holding it together
+is dissipating.
+
+Frame 3 (DOWN):
+A collapsed pile of tattered robe and the scythe on the ground. The body
+(rotated ~80 degrees clockwise) has lost most of its form — what remains is
+mostly just the robe draped over a vaguely body-shaped mound. The scythe
+lies beside or across the robe pile, blade pointing right. The hood has
+collapsed flat. The eyes are either completely gone (extinguished — no glow)
+OR the faintest single pixel of dim cyan (#228866) remains as the last
+spark. Skeletal hand bones may be partially visible poking from a sleeve.
+Must fit within the 64x64 frame. The overall impression: a dark spirit has
+been vanquished, leaving behind only empty robes and a weapon.
+
+IMPORTANT:
+- Frame 3 is the FINAL resting state. The character must be rotated to fit
+  horizontally within the 64x64 frame.
+- The key detail for Mortis's death: the robe collapses as if there was
+  nothing solid inside it — because there WASN'T. Only dark magic was
+  holding this form together. The death reveals that Mortis was never truly
+  a physical being.
+- Eye glow progresses: flickering → dim sickly green → extinguished/barely
+  visible. The eyes going dark is the most significant death detail.
+- Do NOT draw blood, X-eyes, or cartoon death symbols.
+- Do NOT draw any energy effects or particles.
+
+--- END COPY ---
+
+
+================================================================================
+================================================================================
+  PART B: SKILL EFFECT PROMPTS
+================================================================================
+================================================================================
+
+
+================================================================================
+PROMPT B1 — WRAITH BOLT (Primary Projectile)
+================================================================================
+Output: 128 x 32 pixels (4 frames of 32x32)
+At 2x scale: 256 x 64 pixels (4 frames of 64x64)
+File: wraith_bolt.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a spectral skull projectile for a 2D fighting game.
+
+RENDERING RULES:
+- Strict side view, 90-degree angle, like a classic 2D game projectile.
+- NOT 3/4 view. NOT perspective. Flat 2D side profile.
+- Each frame is exactly 32x32 pixels.
+- 4 frames in a single horizontal row.
+- Total image: 128 pixels wide x 32 pixels tall.
+- Transparent background.
+- The skull points and travels to the RIGHT. Engine flips for left.
+
+APPEARANCE:
+A ghostly floating skull facing RIGHT, made of glowing cyan-green spectral
+energy. NOT a solid bone skull — a translucent, ethereal ghost skull made
+of luminous smoke. Approximately 20-24px diameter, centered in the 32x32
+frame. Hollow dark void-black (#050510) eye sockets. Open mouth in a silent
+scream — jaw slightly dropped. The skull shape is semi-transparent and
+ethereal — edges wisp and blur slightly like glowing smoke. Core brightness
+at the forehead/crown area (#CCFFEE white-mint). Outer edges darker
+(#00CC88, #008866). Faint vapor wisps trail from the back of the skull
+(left side — 2-3 pixels of #004433).
+
+Colors: white-mint (#CCFFEE) core, bright mint (#66FFCC) highlights,
+spectral cyan (#00FFAA) body, ghost green (#00CC88) mid-tones, teal
+(#008866) edges, deep teal (#004433) wisps, void black (#050510) eye
+sockets, dark purple-gray (#221133) vapor.
+
+FRAMES (looping animation):
+Frame 1: Solid ghostly skull shape, steady glow. Clean ethereal form.
+  Hollow void-black eye sockets. Open mouth. Brightest at the crown.
+
+Frame 2: Skull flickers — edges waver like smoke disturbed by wind. Jaw
+  shifts 1px. Vapor wisps from the back change direction. Core brightness
+  shifts slightly (pulsing). Eye sockets remain stable.
+
+Frame 3: Skull distorts aggressively — stretches slightly FORWARD (right)
+  as if lunging. Mouth opens wider. Eyes flare — a pixel of #66FFCC at the
+  edge of each socket. Diameter increases 2-3px. Most aggressive frame —
+  the skull looks like it's REACHING for the target.
+
+Frame 4: Skull contracts back toward Frame 1 shape. Mouth closes slightly.
+  Eyes return to void. Edges smooth out, wisps settle. Returns seamlessly
+  to Frame 1 for the loop.
+
+STYLE:
+Dark gothic anime pixel art, 1px dark outline, no anti-aliasing.
+Ghostly ethereal glow — NOT a solid bone skull. Haunting cyan-green spectral
+energy. Do NOT draw trailing particles or motion blur — engine adds those.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B2 — WRAITH BOLT IMPACT (Projectile Explosion)
+================================================================================
+Output: 320 x 64 pixels (5 frames of 64x64)
+At 2x scale: 640 x 128 pixels (5 frames of 128x128)
+File: wraith_bolt_explosion.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a spectral explosion for a 2D fighting game.
+
+RENDERING RULES:
+- Flat 2D view, centered in each frame.
+- Each frame is exactly 64x64 pixels.
+- 5 frames in a single horizontal row.
+- Total image: 320 pixels wide x 64 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+A ghostly skull projectile shattering on impact — spectral SHADOW/DEATH
+energy explosion. This is NOT a fire explosion. Think "spectral energy
+dispersing into darkness." Colors progress from bright cyan-white to dark
+teal to near-invisible. The explosion FADES INTO DARKNESS, not into smoke.
+Faint ghost-face shapes (just hints — 1-2px void-black dots suggesting
+eyes/mouths) swirl briefly in the expanding energy.
+
+Colors: white (#FFFFFF) flash, white-mint (#CCFFEE), bright mint (#66FFCC),
+spectral cyan (#00FFAA), ghost green (#00CC88), teal (#008866), deep teal
+(#004433), dark purple-gray (#221133), near-black (#0F0F1A), void (#050510).
+
+FRAMES (one-shot, very fast — 60ms per frame):
+Frame 1 (FLASH): Bright cyan-white (#CCFFEE, #FFFFFF) burst at center,
+  ~16px diameter. Skull fragments flying outward at the edges. Mostly white
+  and white-mint — maximum brightness.
+
+Frame 2 (EXPAND): Ghostly energy blooms outward to ~32px. Skull fragments
+  more dispersed. Center transitions to bright cyan (#66FFCC, #00FFAA).
+  Wisps of ghostly smoke radiate outward. Faint spectral shapes — 1-2px
+  void-black dots suggesting screaming face shapes in the cyan cloud.
+
+Frame 3 (FULL SIZE): Maximum expansion ~48px. Most dramatic frame. Dark
+  green and cyan wisps swirl in chaotic pattern. Spectral face suggestions
+  most visible here — the explosion briefly looks like multiple dissolving
+  ghost faces. Center at #00CC88. Outer edges #008866, #004433. Darkest
+  accents in #221133.
+
+Frame 4 (FADE): Energy dissipates rapidly. Ghost-face shapes dissolve.
+  Wisps thin, becoming transparent. Colors shift darker — mostly #004433
+  and #221133. Shape loses cohesion into scattered wisps.
+
+Frame 5 (GONE): Nearly fully transparent. Only the faintest dark mist
+  traces remain — 3-5 pixels of #221133 and #0F0F1A. Almost entirely empty.
+
+STYLE:
+Dark gothic anime pixel art, 1px dark outline. GHOSTLY, not fiery. Spectral
+energy dispersing into darkness. Cyan-green energy palette. The screaming
+face shapes in Frames 2-3 are VERY SUBTLE — just hints, not detailed faces.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B3 — SOUL DRAIN CIRCLE (Secondary Ability — Ground Trap)
+================================================================================
+Output: 384 x 96 pixels (4 frames of 96x96)
+At 2x scale: 768 x 192 pixels (4 frames of 192x192)
+File: soul_drain.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a dark magic circle ground trap for a 2D
+fighting game.
+
+RENDERING RULES:
+- Flat 2D side view perspective.
+- Each frame is exactly 96x96 pixels.
+- 4 frames in a single horizontal row.
+- Total image: 384 pixels wide x 96 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+A necromantic runic circle placed ON THE GROUND, viewed from the game's
+SIDE-VIEW camera perspective. This means the magic circle appears as a
+perspective ELLIPSE (wider than tall) — approximately 80px wide x 24px
+tall. Similar to how a manhole cover looks from the side. NOT a perfect
+circle.
+
+The circle sits in the LOWER HALF of the 96x96 frame. The upper half
+contains floating rune symbols and wisps that rise from the circle.
+
+Structure: Outer ring of connected runic symbols and arcane markings in
+spectral cyan (#00FFAA). Inner area is dark void (#0F0F1A, #050510) with
+pulsing energy. Ground beneath has a faint green underglow (#004433).
+Small floating rune symbols (3-4px tall) drift above the circle.
+
+Colors: spectral cyan (#00FFAA) runes, bright mint (#66FFCC) highlights,
+white-mint (#CCFFEE) peak glow, ghost green (#00CC88) energy ripple, teal
+(#008866) dim runes, deep teal (#004433) underglow, near-black (#0F0F1A)
+inner area, void black (#050510) darkest.
+
+FRAMES (looping, 150ms per frame):
+Frame 1 (STEADY): Dark magic circle ellipse on the ground. Outer ring of
+  angular, geometric runic symbols in spectral cyan (#00FFAA). Dark void
+  inner area. Faint green underglow beneath. Above the circle, 2-3 small
+  floating rune symbols drift upward. Steady state — the trap is active.
+
+Frame 2 (PULSE): Runes pulse BRIGHTER — #66FFCC highlights appear on
+  markings. A ripple of energy (#00CC88) expanding from center within the
+  dark inner area. Floating rune symbols above drift slightly higher.
+  Ground underglow intensifies. The circle is drawing energy.
+
+Frame 3 (PEAK — MOST UNSETTLING FRAME): Runes at maximum brightness. From
+  the edges of the outer ring, faint spectral hands (#00FFAA, #008866)
+  reach UPWARD — 3-4 ghostly skeletal fingers rising from the circle rim,
+  ~8-12px tall. These represent souls being pulled from the ground. Maximum
+  energy ripple. Floating runes at highest position. Ground underglow at
+  maximum. The circle is actively draining.
+
+Frame 4 (DIM): Glow dims back toward Frame 1 levels. Spectral hands recede
+  — shrinking back into the circle edge. Energy ripple fades. Floating
+  runes drift back down. Ground underglow dims. Smooth return to Frame 1.
+
+STYLE:
+Dark gothic anime pixel art. Necromantic trap, eerie cyan-green runes on
+dark void background. Occult magic circle. The perspective ELLIPSE shape is
+critical — a perfect circle would look wrong in side-view. The spectral
+hands in Frame 3 are subtle and small — ghostly finger shapes suggesting
+"something reaching from below." Dark, ominous mood.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B4 — SOUL WISP (Ground Hazard — Ultimate Aftermath)
+================================================================================
+Output: 192 x 32 pixels (3 frames of 64x32)
+At 2x scale: 384 x 64 pixels (3 frames of 128x64)
+File: soul_wisp.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of ghostly soul wisps for a 2D fighting game.
+
+RENDERING RULES:
+- Flat 2D view.
+- Each frame is exactly 64 pixels wide and 32 pixels tall.
+- 3 frames in a single horizontal row.
+- Total image: 192 pixels wide x 32 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+Small floating ghostly orbs hovering just above the ground line (bottom
+edge of the frame). 3-4 small cyan-green glowing orbs, each about 4-6
+pixels in diameter, scattered across the 64px width at varying heights
+(6-12px above the bottom edge). Each orb has a bright center pixel
+(#CCFFEE or #66FFCC) surrounded by #00FFAA, fading to #008866 at the
+outer edge. Faint downward vapor tails (2-3px of #004433) trailing below
+each orb toward the ground. Dim ground glow spot (#004433) beneath each.
+They look like tiny trapped soul fragments.
+
+Colors: white-mint (#CCFFEE) orb core brightest, bright mint (#66FFCC)
+inner, spectral cyan (#00FFAA) body, teal (#008866) edges, deep teal
+(#004433) vapor tails and ground glow, dark purple-gray (#221133) faint.
+
+FRAMES (looping, 150ms per frame):
+Frame 1: 3-4 orbs floating at various heights and horizontal positions.
+  Each has a bright core, dim edges, and downward vapor tail. Ground glow
+  beneath each orb. Gentle, ghostly floating.
+
+Frame 2: Orbs drift gently — some shift 2-3px left or right, some rise
+  2px, some sink 1px. Vapor tails change direction following drift. One
+  orb dims while another brightens. Ground glow follows respective orbs.
+  Natural, gentle ghostly drifting.
+
+Frame 3: Orbs rearrange into a different configuration — different pattern
+  of heights and horizontal positions. Two orbs may briefly drift close
+  together before separating in Frame 1. Creates variety so the wisps
+  don't look mechanical. Vapor tails in new directions.
+
+STYLE:
+Dark gothic anime pixel art. Ghostly soul fragments with eerie cyan-green
+glow. Gentle floating motion — these are subtle lingering hazards, NOT
+dramatic active attacks. 1px dark outline, no anti-aliasing.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B5 — DEATH'S HARVEST WAVE (Ultimate Projectile)
+================================================================================
+Output: 512 x 64 pixels (4 frames of 128x64)
+At 2x scale: 1024 x 128 pixels (4 frames of 256x128)
+File: harvest_wave.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a massive spectral scythe-blade wave for a 2D
+fighting game ultimate attack.
+
+RENDERING RULES:
+- Flat 2D side view.
+- Each frame is exactly 128 pixels wide and 64 pixels tall.
+- 4 frames in a single horizontal row.
+- Total image: 512 pixels wide x 64 pixels tall.
+- Transparent background.
+- The wave travels to the RIGHT. Engine flips for left.
+
+APPEARANCE:
+A MASSIVE crescent-shaped wall of ghostly energy shaped like an enormous
+curved SCYTHE BLADE sweeping across the arena. This is a death/shadow
+ultimate attack — the most powerful and dramatic effect in the game.
+
+The wave is crescent / scythe-blade shaped — NOT a wall or rectangle.
+Approximately 120px wide and 50px tall, centered in the 128x64 frame.
+The OUTER EDGE (blade edge) glows brightest — white-mint (#CCFFEE) and
+bright mint (#66FFCC) along the curved cutting edge. The INNER area is
+dark void (#050510, #0F0F1A) with swirling spectral cyan energy. The
+LEADING EDGE (right side) is sharp, pointed, aggressive. The TRAILING
+EDGE (left side) is diffuse — wisps dissolving and trailing off. Faint
+spectral shapes (suggestion of screaming faces — tiny void-black dots
+hinting at eyes/mouths) are barely visible in the swirling energy.
+
+Colors: pure white (#FFFFFF) tip accent, white-mint (#CCFFEE) blade edge,
+bright mint (#66FFCC) inner edge, spectral cyan (#00FFAA) body, ghost
+green (#00CC88) deep energy, teal (#008866) darker, deep teal (#004433)
+shadows, near-black (#0F0F1A) void, void black (#050510) center, dark
+purple-gray (#221133) trailing wisps, deep charcoal (#1A1A2E).
+
+FRAMES (looping, 100ms per frame):
+Frame 1 (FULL WAVE): Full spectral scythe-blade crescent shape. Outer
+  cutting edge glows white-mint and bright mint. Inner area is dark void
+  with layers of spectral cyan and ghost green energy swirling between
+  the edge and the center. Leading edge (right) sharp and pointed.
+  Trailing edge (left) diffuse with wisps. Faint spectral face shapes
+  (1-2px void-black dots) in the swirling energy — extremely subtle.
+
+Frame 2 (CHURN): Energy within the crescent shifts and rotates. Spectral
+  face suggestions move and dissolve, new ones form. Blade edge ripples —
+  some sections pulse brighter, others dim. Leading edge stretches 1-2px
+  forward. Shadow tendrils (#221133) trail from the trailing edge. Dark
+  void center shifts and writhes. Violent, contained supernatural energy.
+
+Frame 3 (SHARPEN — PEAK INTENSITY): Leading edge SHARPENS and stretches
+  forward aggressively 3-4px further than Frame 1. Brightness at leading
+  edge intensifies (more #CCFFEE white-mint pixels). Most defined scythe-
+  blade shape — clearly recognizable as a curved blade. Spectral faces
+  most visible. Shadow tendrils longest. Peak intensity.
+
+Frame 4 (SETTLE): Wave softens from Frame 3. Leading edge retracts. Energy
+  ripples settle. Brightness equalizes. Spectral faces dissolve. Tendrils
+  shorten. Smooth transition back to Frame 1 for the loop. Still massive
+  and threatening but cycling back to base state.
+
+STYLE:
+Dark gothic anime pixel art. EXTREMELY dramatic and terrifying. The largest
+projectile in the game — must feel overwhelming. The scythe-blade shape is
+critical — NOT a generic energy wave. Sharp leading edge, curved crescent,
+pointed tip — all should evoke a reaper's scythe. Ghostly cyan-green and
+deep void-black. The spectral faces are VERY SUBTLE — do NOT draw detailed
+faces. Just hints from tiny void-black dots. This should LOOK like it deals
+40 damage.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B6 — SHADOW HIT SPARK (Melee Impact)
+================================================================================
+Output: 96 x 32 pixels (3 frames of 32x32)
+At 2x scale: 192 x 64 pixels (3 frames of 64x64)
+File: shadow_spark.png
+NOTE: This is Mortis-specific. If a shared hit_spark.png already exists,
+this is an OPTIONAL alternative for Mortis's scythe hits specifically.
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a shadow hit impact spark for a 2D fighting game.
+
+RENDERING RULES:
+- Flat 2D view, centered in each frame.
+- Each frame is exactly 32x32 pixels.
+- 3 frames in a single horizontal row.
+- Total image: 96 pixels wide x 32 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+A dark ghostly scythe-hit impact flash — NOT a bright spark. This is a
+VOID-CUT: the impact reveals darkness rather than creating light. A cyan-
+green starburst with a dark void-black center, suggesting the scythe cuts
+INTO shadow/void rather than creating light.
+
+Colors: bright mint (#66FFCC), spectral cyan (#00FFAA), void black (#050510),
+deep teal (#004433), dark purple-gray (#221133), near-black (#0F0F1A).
+
+FRAMES (one-shot, 50ms per frame — very fast):
+Frame 1 (FLASH): Bright cyan-green (#00FFAA, #66FFCC) starburst flash with
+  a dark void-black (#050510) center. ~16px diameter, centered. 4-6 sharp
+  points radiating outward from the void center. Unlike a normal bright
+  spark, this one has DARKNESS at its center.
+
+Frame 2 (EXPAND): Starburst points stretch into slash marks. Dark purple-
+  green (#221133, #004433) slash lines radiate from center, ~24px reach.
+  The void center fades. Slash marks have a scythe-cut quality — slightly
+  curved rather than straight. Tips glow cyan (#00FFAA), inner parts dark.
+  Looks like a scythe cut through reality.
+
+Frame 3 (FADE): Slash marks and starburst dissolve into dark wisps. Cyan
+  glow dims rapidly. Only faint traces of #004433 and #221133 remain.
+  Nearly fully transparent. Dark wisps disperse outward and vanish.
+
+STYLE:
+Dark gothic anime pixel art. A DARK impact spark — the opposite of a bright
+fire spark. The void-dark center is key: scythe cuts don't create light,
+they cut INTO darkness. Brief brightness at edges, void at center. Fast and
+punchy despite being dark-themed. 1px dark outline, no anti-aliasing.
+
+--- END COPY ---
+
+
+================================================================================
+================================================================================
+  ASSEMBLY CHECKLIST
+================================================================================
+================================================================================
+
+CHARACTER SPRITE SHEET:
+[ ] A0 — Idle (4 frames)        → Row 0: y=0
+[ ] A1 — Glide (6 frames)       → Row 1: y=64
+[ ] A2 — Jump (3 frames)        → Row 2: y=128
+[ ] A3 — Attack 1 (3 frames)    → Row 3: y=192
+[ ] A4 — Attack 2 (3 frames)    → Row 4: y=256
+[ ] A5 — Attack 3 (4 frames)    → Row 5: y=320
+[ ] A6 — Cast (4 frames)        → Row 6: y=384
+[ ] A7 — Take Hit (2 frames)    → Row 7: y=448
+[ ] A8 — Dodge (2 frames)       → Row 8: y=512
+[ ] A9 — Ultimate (4 frames)    → Row 9: y=576
+[ ] A10 — Death (3 frames)      → Row 10: y=640
+
+STITCH: Stack all 11 rows vertically.
+Final sheet: 384 x 704 pixels (or 768 x 1408 at 2x scale).
+Unused cells (rows with fewer than 6 frames) = fully transparent.
+
+SKILL EFFECT FILES (separate PNGs):
+[ ] B1 — wraith_bolt.png              128 x 32    (4 frames)   MUST
+[ ] B2 — wraith_bolt_explosion.png    320 x 64    (5 frames)   MUST
+[ ] B3 — soul_drain.png               384 x 96    (4 frames)   SHOULD
+[ ] B4 — soul_wisp.png                192 x 32    (3 frames)   SHOULD
+[ ] B5 — harvest_wave.png             512 x 64    (4 frames)   SHOULD
+[ ] B6 — shadow_spark.png              96 x 32    (3 frames)   NICE
+
+POST-GENERATION CHECKS:
+[ ] Transparent background — no solid color behind any sprite
+[ ] Correct total dimensions — resized to exact pixel sizes listed
+[ ] Frames evenly spaced — equal width per frame in each strip
+[ ] Consistent dark gothic style — matches Mortis's ominous aesthetic
+[ ] All facing RIGHT — engine flips for left
+[ ] Cyan-green eye dots visible in every character frame (except Death F3)
+[ ] Scythe visible in every character frame (except Dodge F1 and Death F2-F3)
+[ ] NO visible legs or feet — robe conceals lower body in all frames
+[ ] Glide animation has NO leg movement — upper body and robe flow only
+[ ] Dodge Frame 2 is amorphous shadow blob, NOT character in a cloak
+[ ] Color palette matches — cyan-green energy, NOT fire/blue/purple
+[ ] No gaps between frames — tightly aligned
+[ ] Spectral faces in effects are SUBTLE — tiny hints only, not detailed
+[ ] Dark areas are truly dark (#050510, #0F0F1A) — not medium gray
+
+TIPS FOR AI GENERATION:
+1. AI generators tend to make dark characters TOO BRIGHT. You may need to
+   darken results in post-processing.
+2. If AI gives individual images, stitch side-by-side in Photopea.com
+3. Use "Nearest Neighbor" resampling to preserve pixel art
+4. Upload the character sprite as a style reference if your AI tool
+   supports reference images
+5. The void areas (#050510, #0F0F1A) should be almost black — only the
+   cyan-green edges and glows provide brightness
+
+
+CONNECTIONS
+================================================================================
+<- 01_CHARACTER_DESCRIPTION.txt    (character identity, palette, abilities)
+<- 02_CHARACTER_DESIGN.txt         (frame-by-frame pose reference)
+<- 03_CHARACTER_SKILLS_EFFECTS.txt (effect specifications)
+-> Sprites/mortis_death_reaper.png (assembled character sheet)
+-> Sprites/wraith_bolt.png         (projectile effect)
+-> Sprites/wraith_bolt_explosion.png (impact effect)
+-> Sprites/soul_drain.png          (ground trap effect)
+-> Sprites/soul_wisp.png           (ground hazard effect)
+-> Sprites/harvest_wave.png        (ultimate wave effect)
+-> Sprites/shadow_spark.png        (hit spark effect)

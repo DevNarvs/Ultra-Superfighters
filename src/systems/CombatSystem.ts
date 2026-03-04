@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import type { Fighter } from '../entities/Fighter';
+import { EventBus, Events } from './EventBus';
 
 interface Hitbox extends Phaser.GameObjects.Rectangle {
   attackerIndex: number;
@@ -42,6 +43,7 @@ export class CombatSystem {
     hitbox.hasHit = new Set();
 
     this.activeHitboxes.push(hitbox);
+    this.ignoreOnUI(hitbox);
 
     // Slash trail visual
     const trail = this.scene.add.sprite(hbX, hbY, 'fx_slash_trail');
@@ -49,6 +51,7 @@ export class CombatSystem {
     trail.setDepth(85);
     trail.setFlipX(direction < 0);
     trail.play('fx_slash_trail');
+    this.ignoreOnUI(trail);
     trail.once('animationcomplete', () => trail.destroy());
 
     for (const target of this.fighters) {
@@ -69,10 +72,24 @@ export class CombatSystem {
     if (hitbox.hasHit.has(fighter.playerIndex)) return;
     hitbox.hasHit.add(fighter.playerIndex);
 
+    // Rage mode damage boost
+    const attacker = this.fighters.find(f => f.playerIndex === hitbox.attackerIndex);
+    let finalDamage = hitbox.damage;
+    if (attacker && attacker.isRaging) {
+      finalDamage = Math.floor(hitbox.damage * attacker.rageDamageMultiplier);
+    }
+
     const kbX = hitbox.direction * hitbox.knockback;
     const kbY = hitbox.knockback > 100 ? -150 : -30;
-    fighter.takeDamage(hitbox.damage, kbX, kbY);
+    fighter.takeDamage(finalDamage, kbX, kbY);
     this.spawnHitSpark(fighter.x, fighter.y - 10);
+
+    // Emit hit event for combo tracking
+    EventBus.emit(Events.HIT_LANDED, {
+      attackerIndex: hitbox.attackerIndex,
+      targetIndex: fighter.playerIndex,
+      damage: finalDamage
+    });
 
     // Screen shake
     const isHeavy = hitbox.knockback > 100;
@@ -94,7 +111,8 @@ export class CombatSystem {
     }
 
     // Damage number
-    this.spawnDamageNumber(fighter.x, fighter.y - 30, hitbox.damage, isHeavy);
+    const isRageHit = attacker?.isRaging ?? false;
+    this.spawnDamageNumber(fighter.x, fighter.y - 30, finalDamage, isHeavy || isRageHit);
   }
 
   private spawnHitSpark(x: number, y: number): void {
@@ -102,6 +120,7 @@ export class CombatSystem {
     spark.setScale(0.5);
     spark.setDepth(90);
     spark.play('fx_hit_spark');
+    this.ignoreOnUI(spark);
     spark.once('animationcomplete', () => spark.destroy());
   }
 
@@ -117,6 +136,7 @@ export class CombatSystem {
     });
     text.setOrigin(0.5);
     text.setDepth(95);
+    this.ignoreOnUI(text);
     this.scene.tweens.add({
       targets: text,
       y: y - 40,
@@ -125,6 +145,11 @@ export class CombatSystem {
       ease: 'Power2',
       onComplete: () => text.destroy()
     });
+  }
+
+  private ignoreOnUI(obj: Phaser.GameObjects.GameObject): void {
+    const uiCam = this.scene.cameras.getCamera('ui');
+    if (uiCam) uiCam.ignore(obj);
   }
 
   private destroyHitbox(hitbox: Hitbox): void {

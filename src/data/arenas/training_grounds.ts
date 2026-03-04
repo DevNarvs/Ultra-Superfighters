@@ -27,5 +27,17 @@ export const TRAINING_GROUNDS: ArenaData = {
     { x: 150, y: 220 },
     { x: 850, y: 220 },
     { x: 500, y: 120 }
+  ],
+
+  hazards: [
+    {
+      type: 'falling_object',
+      spawnInterval: 5000,
+      damage: 10,
+      knockback: 150,
+      spawnArea: { xMin: 100, xMax: 900, y: -20 },
+      fallSpeed: 300,
+      size: { width: 24, height: 24 }
+    }
   ]
 };

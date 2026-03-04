@@ -35,7 +35,12 @@ export class Fighter extends Phaser.Physics.Arcade.Sprite {
   public attackLocked: boolean;
   public isInvulnerable: boolean;
   public isDead: boolean;
+  public isWallBouncing: boolean;
+  public isRaging: boolean;
+  public rageDamageMultiplier: number = 1.5;
 
+  private rageThreshold: number = 0.25;
+  private rageAura: Phaser.GameObjects.Arc | null = null;
   private dropThroughTimer: number;
 
   constructor(
@@ -59,6 +64,8 @@ export class Fighter extends Phaser.Physics.Arcade.Sprite {
     this.body.setSize(48, 96);
     this.body.setOffset(40, 28);
     this.body.setMaxVelocityY(600);
+    this.body.setCollideWorldBounds(true);
+    this.body.onWorldBounds = true;
 
     this.maxHealth = characterData.health;
     this.health = this.maxHealth;
@@ -76,6 +83,8 @@ export class Fighter extends Phaser.Physics.Arcade.Sprite {
     this.attackLocked = false;
     this.isInvulnerable = false;
     this.isDead = false;
+    this.isWallBouncing = false;
+    this.isRaging = false;
 
     this.play(`${characterData.texture}_idle`);
   }
@@ -87,6 +96,7 @@ export class Fighter extends Phaser.Physics.Arcade.Sprite {
   update(time: number, delta: number): void {
     if (this.isDead) return;
 
+    this.updateRageState();
     this.isOnGround = this.body.blocked.down || this.body.touching.down;
 
     if (this.dropThroughTimer > 0) {
@@ -204,6 +214,35 @@ export class Fighter extends Phaser.Physics.Arcade.Sprite {
     }
   }
 
+  private updateRageState(): void {
+    const shouldRage = this.health > 0 && this.health <= this.maxHealth * this.rageThreshold;
+
+    if (shouldRage && !this.isRaging) {
+      this.isRaging = true;
+      this.setTint(0xff4444);
+      // Pulsing red aura behind fighter
+      this.rageAura = this.scene.add.circle(this.x, this.y, 40, 0xff0000, 0.15);
+      this.rageAura.setDepth(this.depth - 1);
+      const uiCam = this.scene.cameras.getCamera('ui');
+      if (uiCam) uiCam.ignore(this.rageAura);
+      this.scene.tweens.add({
+        targets: this.rageAura,
+        scaleX: 1.3, scaleY: 1.3,
+        alpha: 0.05,
+        duration: 600,
+        yoyo: true,
+        repeat: -1
+      });
+    } else if (!shouldRage && this.isRaging) {
+      this.isRaging = false;
+      this.clearTint();
+      if (this.rageAura) { this.rageAura.destroy(); this.rageAura = null; }
+    }
+
+    // Keep aura positioned on fighter
+    if (this.rageAura) this.rageAura.setPosition(this.x, this.y);
+  }
+
   takeDamage(amount: number, knockbackX: number, knockbackY?: number): void {
     if (this.isInvulnerable || this.isDead) return;
 
@@ -243,6 +282,7 @@ export class Fighter extends Phaser.Physics.Arcade.Sprite {
     this.body.setVelocity(0, 0);
     this.body.setAllowGravity(false);
     this.play(`${this.prefix}_death`, true);
+    this.emit('fighter-ko', this);
   }
 
   reset(x: number, y: number): void {
@@ -256,6 +296,10 @@ export class Fighter extends Phaser.Physics.Arcade.Sprite {
     this.attackLocked = false;
     this.comboStep = 0;
     this.comboTimer = 0;
+    this.isWallBouncing = false;
+    this.isRaging = false;
+    this.clearTint();
+    if (this.rageAura) { this.rageAura.destroy(); this.rageAura = null; }
     this.state = State.IDLE;
     this.setAlpha(1);
     this.setActive(true);

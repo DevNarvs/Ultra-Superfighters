@@ -95,6 +95,16 @@ export class AbilityHUD {
     }
   }
 
+  getUIObjects(): Phaser.GameObjects.GameObject[] {
+    const objs: Phaser.GameObjects.GameObject[] = [];
+    for (const hud of this.huds) {
+      for (const slot of [hud.primary, hud.secondary, hud.dodge, hud.ult]) {
+        objs.push(slot.border, slot.bg, slot.fill, slot.label);
+      }
+    }
+    return objs;
+  }
+
   private updateSlot(slot: AbilitySlot, remaining: number, maxCooldown: number, readyColor: number): void {
     if (remaining > 0) {
       const pct = 1 - (remaining / maxCooldown);

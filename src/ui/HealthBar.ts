@@ -118,6 +118,16 @@ export class HealthBar {
     this.tag.setVisible(!f.isDead);
   }
 
+  /** HUD objects for UI camera (screen-fixed) */
+  getUIObjects(): Phaser.GameObjects.GameObject[] {
+    return [this.border, this.bg, this.damageFill, this.fill, this.nameLabel, this.hpText];
+  }
+
+  /** World objects for game camera (follows fighter) */
+  getWorldObjects(): Phaser.GameObjects.GameObject[] {
+    return [this.tag];
+  }
+
   destroy(): void {
     this.border.destroy();
     this.bg.destroy();

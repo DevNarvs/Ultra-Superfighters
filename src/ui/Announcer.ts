@@ -108,6 +108,10 @@ export class Announcer {
     this.show(`P${data.winner + 1} WINS THE MATCH!`, 'Press F5 to restart', 5000, color);
   }
 
+  getUIObjects(): Phaser.GameObjects.GameObject[] {
+    return [this.mainText, this.subText];
+  }
+
   destroy(): void {
     EventBus.off(Events.ROUND_START, this.onRoundStart, this);
     EventBus.off(Events.COUNTDOWN_TICK, this.onCountdownTick, this);

@@ -6,7 +6,7 @@ export const RINA_SHADOW_ASSASSIN: CharacterData = {
   texture: 'rina',
   element: 'shadow',
 
-  health: 85,
+  health: 150,
   moveSpeed: 240,
   jumpForce: -420,
   gravity: 800,
