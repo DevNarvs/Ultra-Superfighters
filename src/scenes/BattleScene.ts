@@ -84,7 +84,14 @@ export class BattleScene extends Phaser.Scene {
 
     this.debugText = this.add.text(10, 10, '', {
       fontSize: '11px', color: '#ffffff', fontFamily: 'monospace'
-    }).setScrollFactor(0).setDepth(100);
+    }).setScrollFactor(0).setDepth(100).setVisible(false);
+
+    // Toggle debug with backtick key
+    if (this.input.keyboard) {
+      this.input.keyboard.on('keydown-BACKTICK', () => {
+        this.debugText.setVisible(!this.debugText.visible);
+      });
+    }
 
     this.matchManager.start();
   }

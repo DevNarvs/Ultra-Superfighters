@@ -2,115 +2,109 @@ import Phaser from 'phaser';
 import type { AbilitySystem } from '../systems/AbilitySystem';
 import type { Fighter } from '../entities/Fighter';
 
-interface HUDElement {
-  playerIndex: number;
+const SLOT_W = 44;
+const SLOT_H = 8;
+const ULT_W = 80;
+const ULT_H = 10;
+const GAP = 4;
+
+interface AbilitySlot {
+  border: Phaser.GameObjects.Rectangle;
+  bg: Phaser.GameObjects.Rectangle;
+  fill: Phaser.GameObjects.Rectangle;
   label: Phaser.GameObjects.Text;
-  qText: Phaser.GameObjects.Text;
-  eText: Phaser.GameObjects.Text;
-  dodgeText: Phaser.GameObjects.Text;
-  ultBg: Phaser.GameObjects.Rectangle;
-  ultFill: Phaser.GameObjects.Rectangle;
-  ultLabel: Phaser.GameObjects.Text;
+  maxWidth: number;
+}
+
+interface PlayerHUD {
+  playerIndex: number;
+  primary: AbilitySlot;
+  secondary: AbilitySlot;
+  dodge: AbilitySlot;
+  ult: AbilitySlot;
 }
 
 export class AbilityHUD {
   private scene: Phaser.Scene;
   private abilitySystem: AbilitySystem;
   private fighters: Fighter[];
-  private elements: HUDElement[];
+  private huds: PlayerHUD[];
 
   constructor(scene: Phaser.Scene, abilitySystem: AbilitySystem, fighters: Fighter[]) {
     this.scene = scene;
     this.abilitySystem = abilitySystem;
     this.fighters = fighters;
-    this.elements = [];
+    this.huds = [];
     this.createHUD();
   }
 
+  private createSlot(x: number, y: number, w: number, h: number, label: string, color: number): AbilitySlot {
+    const border = this.scene.add.rectangle(x - 1, y - 1, w + 2, h + 2, 0x111111)
+      .setOrigin(0, 0).setScrollFactor(0).setDepth(140);
+    const bg = this.scene.add.rectangle(x, y, w, h, 0x1a1a1a)
+      .setOrigin(0, 0).setScrollFactor(0).setDepth(141);
+    const fill = this.scene.add.rectangle(x, y, w, h, color)
+      .setOrigin(0, 0).setScrollFactor(0).setDepth(142);
+    const labelText = this.scene.add.text(x + w / 2, y - 2, label, {
+      fontSize: '7px',
+      color: '#cccccc',
+      fontFamily: 'monospace',
+      stroke: '#000000',
+      strokeThickness: 1
+    }).setOrigin(0.5, 1).setScrollFactor(0).setDepth(143);
+
+    return { border, bg, fill, label: labelText, maxWidth: w };
+  }
+
   private createHUD(): void {
-    const colors = ['#ff6b35', '#35b5ff'];
-
     for (let i = 0; i < this.fighters.length; i++) {
-      const x = i === 0 ? 10 : 550;
-      const y = 560;
-      const color = colors[i];
+      const baseX = i === 0 ? 20 : 555;
+      const y = 575;
 
-      const label = this.scene.add.text(x, y, `P${i + 1}`, {
-        fontSize: '11px', color, fontFamily: 'monospace', fontStyle: 'bold'
-      }).setScrollFactor(0).setDepth(100);
+      const primary = this.createSlot(baseX, y, SLOT_W, SLOT_H, 'Q', 0x44aaff);
+      const secondary = this.createSlot(baseX + SLOT_W + GAP, y, SLOT_W, SLOT_H, 'E', 0x44ff88);
+      const dodge = this.createSlot(baseX + (SLOT_W + GAP) * 2, y, SLOT_W, SLOT_H, 'SPC', 0xaa88ff);
+      const ultX = baseX + (SLOT_W + GAP) * 3 + 6;
+      const ult = this.createSlot(ultX, y - 1, ULT_W, ULT_H, 'ULT', 0xffcc00);
 
-      const qText = this.scene.add.text(x + 30, y, '[Q] Fireball', {
-        fontSize: '9px', color: '#aaaaaa', fontFamily: 'monospace'
-      }).setScrollFactor(0).setDepth(100);
-
-      const eText = this.scene.add.text(x + 120, y, '[E] Shield', {
-        fontSize: '9px', color: '#aaaaaa', fontFamily: 'monospace'
-      }).setScrollFactor(0).setDepth(100);
-
-      const dodgeText = this.scene.add.text(x + 30, y + 14, '[Spc] Dodge', {
-        fontSize: '9px', color: '#aaaaaa', fontFamily: 'monospace'
-      }).setScrollFactor(0).setDepth(100);
-
-      const ultBg = this.scene.add.rectangle(x + 130, y + 18, 100, 8, 0x333333);
-      ultBg.setOrigin(0, 0.5).setScrollFactor(0).setDepth(100);
-
-      const ultFill = this.scene.add.rectangle(x + 130, y + 18, 0, 8, 0xffcc00);
-      ultFill.setOrigin(0, 0.5).setScrollFactor(0).setDepth(101);
-
-      const ultLabel = this.scene.add.text(x + 130, y + 7, '[R] ULT', {
-        fontSize: '9px', color: '#aaaaaa', fontFamily: 'monospace'
-      }).setScrollFactor(0).setDepth(100);
-
-      this.elements.push({ playerIndex: i, label, qText, eText, dodgeText, ultBg, ultFill, ultLabel });
+      this.huds.push({ playerIndex: i, primary, secondary, dodge, ult });
     }
   }
 
   update(): void {
-    for (const el of this.elements) {
-      const state = this.abilitySystem.getState(el.playerIndex);
+    for (const hud of this.huds) {
+      const state = this.abilitySystem.getState(hud.playerIndex);
       if (!state) continue;
 
-      const fighter = this.fighters[el.playerIndex];
-      const abilities = fighter.charData.abilities;
+      const abilities = this.fighters[hud.playerIndex].charData.abilities;
 
-      if (state.primaryCooldown > 0) {
-        const secs = (state.primaryCooldown / 1000).toFixed(1);
-        el.qText.setStyle({ color: '#666666' });
-        el.qText.setText(`[Q] ${abilities.primary.name} ${secs}s`);
+      this.updateSlot(hud.primary, state.primaryCooldown, abilities.primary.cooldown, 0x44aaff);
+      this.updateSlot(hud.secondary, state.secondaryCooldown, abilities.secondary.cooldown, 0x44ff88);
+      this.updateSlot(hud.dodge, state.dodgeCooldown, abilities.dodge.cooldown, 0xaa88ff);
+
+      // Ultimate charge
+      const ultPct = Math.min(100, state.ultimateCharge) / 100;
+      hud.ult.fill.width = ULT_W * ultPct;
+      if (ultPct >= 1) {
+        hud.ult.fill.setFillStyle(0xffcc00);
+        hud.ult.label.setStyle({ color: '#ffcc00' });
       } else {
-        el.qText.setStyle({ color: '#44ff44' });
-        el.qText.setText(`[Q] ${abilities.primary.name} RDY`);
+        hud.ult.fill.setFillStyle(0x666633);
+        hud.ult.label.setStyle({ color: '#aaaaaa' });
       }
+    }
+  }
 
-      if (state.secondaryCooldown > 0) {
-        const secs = (state.secondaryCooldown / 1000).toFixed(1);
-        el.eText.setStyle({ color: '#666666' });
-        el.eText.setText(`[E] ${abilities.secondary.name} ${secs}s`);
-      } else {
-        el.eText.setStyle({ color: '#44ff44' });
-        el.eText.setText(`[E] ${abilities.secondary.name} RDY`);
-      }
-
-      if (state.dodgeCooldown > 0) {
-        const secs = (state.dodgeCooldown / 1000).toFixed(1);
-        el.dodgeText.setStyle({ color: '#666666' });
-        el.dodgeText.setText(`[Spc] Dodge ${secs}s`);
-      } else {
-        el.dodgeText.setStyle({ color: '#44ff44' });
-        el.dodgeText.setText(`[Spc] Dodge RDY`);
-      }
-
-      const pct = Math.min(100, state.ultimateCharge);
-      el.ultFill.width = pct;
-      el.ultFill.setFillStyle(pct >= 100 ? 0xffcc00 : 0x888844);
-
-      if (pct >= 100) {
-        el.ultLabel.setStyle({ color: '#ffcc00' });
-        el.ultLabel.setText('[R] ULT READY!');
-      } else {
-        el.ultLabel.setStyle({ color: '#aaaaaa' });
-        el.ultLabel.setText(`[R] ULT ${Math.floor(pct)}%`);
-      }
+  private updateSlot(slot: AbilitySlot, remaining: number, maxCooldown: number, readyColor: number): void {
+    if (remaining > 0) {
+      const pct = 1 - (remaining / maxCooldown);
+      slot.fill.width = slot.maxWidth * pct;
+      slot.fill.setFillStyle(0x444444);
+      slot.label.setStyle({ color: '#666666' });
+    } else {
+      slot.fill.width = slot.maxWidth;
+      slot.fill.setFillStyle(readyColor);
+      slot.label.setStyle({ color: '#ffffff' });
     }
   }
 }

@@ -22,14 +22,15 @@ export class ScoreBoard {
 
     const colors = ['#ff6b35', '#35b5ff', '#44ff44', '#ffcc00'];
     const width = scene.scale.width;
-    const spacing = width / (playerCount + 1);
 
+    // Position scores below each health bar
+    const scoreXs = [160, 640];
     for (let i = 0; i < playerCount; i++) {
-      const x = spacing * (i + 1);
-      const y = 80;
+      const x = scoreXs[i] || width / 2;
+      const y = 44;
 
-      const label = scene.add.text(x, y, `P${i + 1}: 0/${roundsToWin}`, {
-        fontSize: '16px',
+      const label = scene.add.text(x, y, `0/${roundsToWin}`, {
+        fontSize: '10px',
         color: colors[i],
         fontFamily: 'monospace',
         fontStyle: 'bold',
@@ -40,9 +41,9 @@ export class ScoreBoard {
       this.elements.push({ label, playerIndex: i });
     }
 
-    this.roundLabel = scene.add.text(width / 2, 58, 'ROUND 1', {
-      fontSize: '12px',
-      color: '#888888',
+    this.roundLabel = scene.add.text(width / 2, 16, 'ROUND 1', {
+      fontSize: '10px',
+      color: '#666666',
       fontFamily: 'monospace',
       stroke: '#000000',
       strokeThickness: 1
@@ -59,7 +60,7 @@ export class ScoreBoard {
   private onRoundEnd(data: RoundEndData): void {
     for (const el of this.elements) {
       const wins = data.scores[el.playerIndex] || 0;
-      el.label.setText(`P${el.playerIndex + 1}: ${wins}/${this.roundsToWin}`);
+      el.label.setText(`${wins}/${this.roundsToWin}`);
     }
   }
 
