@@ -1,0 +1,698 @@
+================================================================================
+  CHARACTER SKILL EFFECTS SPRITES: MORTIS — THE SOUL REAPER
+  Super Battlemancers
+================================================================================
+  INPUT:    <- 01_CHARACTER_DESCRIPTION.txt
+  OUTPUT:   Skill effect sprite sheet PNGs for the game engine
+================================================================================
+
+
+CHARACTER REFERENCE (from 01_CHARACTER_DESCRIPTION)
+================================================================================
+Name              : Mortis
+Element / Theme   : Shadow / Death (cyan-green spectral energy)
+Primary Power     : Wraith Bolt (spectral skull projectile)
+Secondary Ability : Soul Drain (cursed ground circle, DOT + slow)
+Ultimate          : Death's Harvest (spectral scythe wave + soul wisps)
+Palette           : #00FFAA (spectral cyan) #66FFCC (bright mint) #0A0A14 (void)
+
+
+HOW HYBRID EFFECTS WORK
+================================================================================
+
+  Your Sprite Art    +    Engine Particles    =    Final In-Game Look
+  (shape & style)         (glow, trail, sparks)    (polished & dynamic)
+
+You draw the CORE shape. The engine adds glow, trails, sparks at runtime.
+Your sprites do NOT need trailing particles or ambient glow — just the main shape.
+
+
+EFFECTS OVERVIEW TABLE
+================================================================================
+
+#   Effect                File                       Frame Size   Frames   Sheet Size    Priority
+-   ------                ----                       ----------   ------   ----------    --------
+1   Wraith Bolt           wraith_bolt.png            32 x 32      4       128 x 32      MUST
+2   Wraith Bolt Impact    wraith_bolt_explosion.png  64 x 64      5       320 x 64      MUST
+3   Soul Drain Circle     soul_drain.png             96 x 96      4       384 x 96      SHOULD
+4   Soul Wisp (Ground)    soul_wisp.png              64 x 32      3       192 x 32      SHOULD
+5   Death's Harvest Wave  harvest_wave.png           128 x 64     4       512 x 64      SHOULD
+6   Hit Impact Spark      hit_spark.png              32 x 32      3        96 x 32      NICE
+
+Any effect you skip = engine uses PARTICLE-ONLY fallback (still works, less polished).
+
+NOTE: Effect 6 (Hit Impact Spark) is SHARED across all characters. If it was
+already created for the Fire Battlemancer, it does NOT need to be created again.
+
+
+GENERAL RULES (ALL EFFECTS)
+================================================================================
+Layout            : Horizontal strip — all frames in a single row, left to right
+Background        : Transparent (PNG-24 with alpha)
+Art style         : Must match the character sprite style (anime pixel art)
+Outline           : 1px dark outline
+Shading           : 2-3 levels per color
+Direction         : Projectiles face RIGHT (engine flips for left)
+Centering         : Effect centered within each frame
+No extras         : No trailing particles or glow — engine adds those
+
+COLOR PALETTE FOR ALL EFFECTS:
+  Core (brightest) : #CCFFEE (white-mint), #66FFCC (bright mint)
+  Energy mid       : #00FFAA (spectral cyan), #00CC88 (ghost green)
+  Energy dark      : #008866 (teal), #004433 (deep teal)
+  Void / darkest   : #0F0F1A (near-black), #050510 (void), #0A0A14 (darkest)
+  Accents          : #221133 (dark purple-gray), #1A1A2E (deep charcoal)
+  Bone (skull)     : #D4C8A8 (pale bone), #A89878 (dusty tan)
+
+
+================================================================================
+EFFECT 1: WRAITH BOLT                                              [MUST HAVE]
+================================================================================
+
+File              : wraith_bolt.png
+Frame size        : 32 x 32 pixels
+Frames            : 4
+Total sheet size  : 128 x 32 pixels
+Animation         : Looping, 80ms per frame
+Direction         : Facing right (engine flips for left)
+Engine adds       : Shadow vapor trail behind, ghostly cyan additive glow
+
+Layout:
+  [ F0 ][ F1 ][ F2 ][ F3 ]
+  32x32  32x32  32x32  32x32
+
+Frame Guide:
+  F0: Spectral floating skull shape facing RIGHT. The skull is made of ghostly
+      cyan-green energy, ~20-24px diameter, centered in the 32x32 frame.
+      Hollow dark eye sockets (#050510 void inside). Open mouth in a silent
+      scream — jaw slightly dropped. Skull shape is semi-transparent and
+      ethereal — not a solid bone skull but a GHOSTLY skull made of energy.
+      The edges of the skull wisp and blur slightly, like it's made of
+      glowing smoke. Core brightness at the forehead/crown area (#CCFFEE).
+      Outer edges darker (#00CC88, #008866). Faint vapor wisps trail from
+      the back of the skull (left side — 2-3 pixels of #004433).
+
+  F1: Skull flickers — edges waver like smoke disturbed by wind. Jaw shifts
+      slightly (opens 1px more or closes 1px). The vapor wisps from the back
+      change direction or length. Core brightness shifts position slightly
+      (pulsing). Eye socket voids remain stable — they are the anchors of
+      the shape. Overall shape is recognizably the same skull, just unsettled.
+
+  F2: Skull distorts aggressively — stretches slightly FORWARD (to the right)
+      as if lunging. The mouth opens wider. Eyes flare — a pixel of #66FFCC
+      appears at the edge of each socket. The front edge of the skull sharpens
+      while the back edge dissolves more into smoke. Overall diameter
+      increases 2-3px. This is the most aggressive frame — the skull looks
+      like it's REACHING for the target.
+
+  F3: Skull contracts back toward F0 shape. Mouth closes slightly. Eyes
+      return to void. Edges smooth out, wisps settle. Diameter shrinks back.
+      Returns seamlessly to F0 for the loop.
+
+Color Palette:
+  Core (brightest)  : #CCFFEE (white-mint), #66FFCC (bright mint)
+  Skull body        : #00FFAA (spectral cyan), #00CC88 (ghost green)
+  Skull edges       : #008866 (teal), #004433 (deep teal)
+  Eye sockets       : #050510 (void black)
+  Vapor wisps       : #004433 (deep teal), #221133 (dark purple-gray)
+
+Design Notes:
+  - This is a GHOSTLY skull, not a realistic bone skull. Think "spectral
+    energy that has taken the shape of a screaming skull."
+  - The skull should glow — brightest at the crown/forehead, dimming toward
+    the edges and jaw.
+  - Leave 4-5px padding around the skull for the flickering edges.
+  - Eye sockets are DARK VOIDS in a glowing shape — strong contrast.
+  - The engine adds a shadow vapor trail behind, so only draw small wisps
+    at the back edge of the skull itself.
+  - Passes through enemy projectiles in-game — it is spectral, intangible
+    to other energy but solid to players.
+
+AI Prompt:
+  Pixel art sprite sheet of a spectral skull projectile for a 2D fighting game.
+  4 animation frames in a single horizontal row, each frame 32x32 pixels.
+  Total image: 128x32 pixels.
+  A ghostly floating skull facing right, made of glowing cyan-green spectral
+  energy. NOT a solid bone skull — a translucent, ethereal ghost skull made
+  of luminous smoke. Hollow void-black eye sockets. Open mouth in a silent
+  scream. Brightest glow at the crown/forehead (white-mint), dimming to
+  teal-green at the edges. Faint vapor wisps trail from the back.
+  Frame 1: solid ghostly skull shape, steady glow.
+  Frame 2: edges waver like disturbed smoke, jaw shifts.
+  Frame 3: skull stretches forward aggressively, mouth opens wider, eyes flare.
+  Frame 4: skull contracts back to frame 1 shape for seamless loop.
+  Transparent background, dark pixel outline, side view facing right.
+  Color palette: white-mint #CCFFEE, bright mint #66FFCC, spectral cyan
+  #00FFAA, ghost green #00CC88, teal #008866, void black #050510.
+  Style: dark gothic anime pixel art, ghostly ethereal, haunting glow.
+
+
+================================================================================
+EFFECT 2: WRAITH BOLT IMPACT / EXPLOSION                           [MUST HAVE]
+================================================================================
+
+File              : wraith_bolt_explosion.png
+Frame size        : 64 x 64 pixels
+Frames            : 5
+Total sheet size  : 320 x 64 pixels
+Animation         : One-shot, 60ms per frame (very fast)
+Engine adds       : Small soul fragments flying outward, brief screen darken
+
+Layout:
+  [  F0  ][  F1  ][  F2  ][  F3  ][  F4  ]
+   64x64   64x64   64x64   64x64   64x64
+
+Frame Guide:
+  F0: INITIAL FLASH — the Wraith Bolt skull shatters on impact. A bright
+      cyan-white (#CCFFEE, #FFFFFF) burst at the center, ~16px diameter.
+      The skull shape is breaking apart — 2-3 skull fragment shapes visible
+      at the edges of the flash, flying outward. The flash is the brightest
+      frame — mostly white and white-mint.
+
+  F1: EXPANDING — ghostly energy blooms outward to ~32px diameter. The skull
+      fragments are more dispersed, tumbling outward. The center transitions
+      from white to bright cyan (#66FFCC, #00FFAA). Wisps of ghostly smoke
+      radiate outward in all directions. Faint spectral shapes swirl in the
+      expanding cloud — suggestion of screaming faces in the smoke (1-2 pixels
+      of #050510 void forming brief eye/mouth shapes in the cyan cloud).
+
+  F2: FULL SIZE — maximum expansion at ~48px diameter. The most dramatic
+      frame. Dark green and cyan wisps swirl in a chaotic pattern. The void-
+      black skull fragments have dissolved into the energy. The spectral
+      face suggestions are most visible here — the explosion briefly looks
+      like multiple screaming ghost faces dissolving. Center has shifted to
+      #00CC88 (ghost green). Outer edges are #008866 (teal) and #004433
+      (deep teal). Darkest accents in #221133 (purple-gray).
+
+  F3: FADING — energy dissipates rapidly. The ghost-face shapes dissolve.
+      Wisps thin out, becoming more transparent. Fragments of energy float
+      outward and shrink. Colors shift darker — mostly #004433 (deep teal)
+      and #221133 (purple-gray). Some patches of fading #008866. The shape
+      loses cohesion, becoming scattered wisps rather than a solid cloud.
+
+  F4: GONE — nearly fully transparent. Only the faintest dark mist traces
+      remain — 3-5 pixels of very faint #221133 and #0F0F1A scattered in
+      the frame. A final wisp or two of #004433. The effect is essentially
+      over. Almost entirely transparent.
+
+Color Progression:
+  F0:    White (#FFFFFF), white-mint (#CCFFEE) — maximum brightness
+  F1:    Bright mint (#66FFCC), spectral cyan (#00FFAA)
+  F2:    Ghost green (#00CC88), teal (#008866), void accents (#050510)
+  F3:    Deep teal (#004433), purple-gray (#221133)
+  F4:    Near-black (#0F0F1A), faint purple-gray (#221133) — nearly invisible
+
+Design Notes:
+  - The explosion is GHOSTLY, not fiery. Think "spectral energy dispersing"
+    rather than "fire and smoke."
+  - The screaming face shapes in F1-F2 are very subtle — just 1-2 pixel
+    void-black dots suggesting eyes/mouths in the swirling cyan energy.
+    Do NOT draw detailed faces. Just hints.
+  - Plays every time a Wraith Bolt hits a player or wall.
+  - Colors go from bright to dark (opposite of fire which goes from bright
+    to smoky-gray). Shadow energy FADES INTO DARKNESS, not into smoke.
+
+AI Prompt:
+  Pixel art sprite sheet of a spectral explosion for a 2D fighting game.
+  5 animation frames in a single horizontal row, each frame 64x64 pixels.
+  Total image: 320x64 pixels.
+  A ghostly skull projectile shattering on impact — spectral energy explosion:
+  Frame 1: bright cyan-white flash at center, 16px, skull fragments flying.
+  Frame 2: ghostly green energy expanding to 32px, wisps radiating, faint
+  ghost-face shapes in the swirling energy.
+  Frame 3: full 48px expansion, dark green swirling wisps, subtle screaming
+  face shapes dissolving, most dramatic frame.
+  Frame 4: energy rapidly fading, wisps thinning, shifting to dark teal.
+  Frame 5: nearly gone, faint dark mist traces only.
+  Colors progress from bright white-cyan to dark teal to near-invisible.
+  Transparent background, dark pixel outline.
+  Style: dark gothic anime pixel art, ghostly spectral, haunting explosion,
+  cyan-green energy palette. NOT fire — this is shadow/death energy dispersing.
+
+
+================================================================================
+EFFECT 3: SOUL DRAIN CIRCLE                                        [SHOULD]
+================================================================================
+
+File              : soul_drain.png
+Frame size        : 96 x 96 pixels
+Frames            : 4
+Total sheet size  : 384 x 96 pixels
+Animation         : Looping, 150ms per frame
+Alignment         : Centered on ground position where ability was cast
+Engine adds       : Rising soul wisps, slow pulsing green light on ground
+
+Layout:
+  [   F0   ][   F1   ][   F2   ][   F3   ]
+    96x96     96x96     96x96     96x96
+
+>>> THIS IS A GROUND-PLACED EFFECT — NOT A SHIELD/AURA <<<
+
+This is NOT centered on the player. It is placed ON THE GROUND at the cast
+position and stays there for 3 seconds. It does NOT have an empty center
+for the player to show through. The entire 96x96 frame can contain art.
+
+The circle is viewed from the game's SIDE-VIEW camera perspective. This means
+the magic circle on the ground appears as a perspective ELLIPSE (wider than
+tall) — similar to how a manhole cover looks from the side. It is NOT a
+perfect circle.
+
+Structure (side view perspective):
+  +----------------------------+
+  |                            |
+  |     . .  rune  . .         |    <- Faint floating rune symbols above
+  |    .    glow    .          |       the circle (spectral, 3-4px tall)
+  |   ╔══════════════╗         |
+  |   ║  RUNE  RING  ║         |    <- Outer runic ring (ellipse ~80x24px)
+  |   ║ ╔══════════╗ ║         |       Glowing cyan-green rune markings
+  |   ║ ║  INNER   ║ ║         |    <- Inner circle area (darker, pulsing)
+  |   ║ ╚══════════╝ ║         |
+  |   ╚══════════════╝         |
+  |  ~ ~ ~ ground glow ~ ~ ~  |    <- Ground-level glow beneath the circle
+  +----------------------------+
+       y=96 (ground line)
+
+The circle sits in the LOWER HALF of the 96x96 frame. The upper half
+contains floating rune symbols and wisps that rise from the circle.
+
+Frame Guide:
+  F0: Dark magic circle on the ground — viewed in side perspective as a
+      horizontal ellipse. Outer ring (~80px wide, ~24px tall) made of
+      connected runic symbols and arcane markings in spectral cyan (#00FFAA).
+      Inner area is darker (#0F0F1A, #050510) with a faint pulsing glow.
+      The runes are angular, geometric, occult-looking symbols — NOT
+      readable text. Ground beneath the circle has a faint green underglow
+      (#004433, semi-transparent). Above the circle, 2-3 small floating
+      rune symbols drift upward (3-4px tall, in #008866 dim green).
+      Steady state — the trap is active and waiting.
+
+  F1: Runes pulse BRIGHTER — the outer ring glows more intensely (#66FFCC
+      highlights appear on the rune markings). The inner circle area shows
+      a ripple of energy moving from center outward (a ring of #00CC88
+      expanding within the dark inner area). Floating rune symbols above
+      drift slightly higher and rotate. Ground underglow intensifies
+      slightly. The circle is pulsing — drawing energy.
+
+  F2: PEAK GLOW — runes at maximum brightness. From the edges of the outer
+      ring, faint spectral hands (#00FFAA, #008866) reach UPWARD — 3-4
+      ghostly skeletal fingers rising from the circle rim, ~8-12px tall.
+      These represent souls being pulled from the ground. The inner circle
+      shows maximum energy ripple. Floating rune symbols are at their
+      highest position. Ground underglow at maximum. This is the most
+      dramatic and unsettling frame — the circle is actively draining.
+
+  F3: Glow dims back toward F0 levels. Spectral hands recede — shrinking
+      back down into the circle edge, dissolving. Energy ripple in the inner
+      circle fades. Floating runes drift back down. Ground underglow dims.
+      Smooth return to F0 for seamless loop.
+
+Color Palette:
+  Rune ring (base)    : #00FFAA (spectral cyan)
+  Rune ring (bright)  : #66FFCC (bright mint), #CCFFEE (white-mint on peak)
+  Rune ring (dim)     : #00CC88 (ghost green), #008866 (teal)
+  Inner circle        : #0F0F1A (near-black), #050510 (void)
+  Energy ripple       : #00CC88 (ghost green)
+  Spectral hands      : #00FFAA (cyan), #008866 (teal), #004433 (deep teal)
+  Ground underglow    : #004433 (deep teal, semi-transparent)
+  Floating runes      : #008866 (teal), #228866 (dim green)
+
+Design Notes:
+  - The circle is a TRAP — it should look dangerous and ominous on the ground.
+  - The perspective ellipse shape is critical — a perfect circle would look
+    wrong in a side-view game. Width should be ~3x the height.
+  - The spectral hands in F2 are subtle and small — they suggest "something
+    reaching from below" without being too literal. Just ghostly finger shapes.
+  - The floating rune symbols above add vertical interest and show that
+    the circle has an active magical field extending upward.
+  - Enemies standing in this circle take 5 dmg/second and are slowed 30%.
+
+AI Prompt:
+  Pixel art sprite sheet of a dark magic circle ground trap for a 2D
+  fighting game. 4 animation frames in a single horizontal row, each
+  frame 96x96 pixels. Total image: 384x96 pixels.
+  A necromantic runic circle placed on the ground, viewed from a side
+  perspective — the circle appears as a horizontal ELLIPSE (wider than
+  tall, approximately 80x24 pixels). The circle sits in the lower half
+  of the frame. Glowing cyan-green (#00FFAA) runic markings form the
+  outer ring. Dark void interior.
+  Above the circle, small floating rune symbols drift upward.
+  Frame 1: steady runic circle with faint glow, dark interior.
+  Frame 2: runes pulse brighter, energy ripple in the interior.
+  Frame 3: peak glow, faint spectral hands reaching up from the circle
+  edges, floating runes at highest point — most unsettling frame.
+  Frame 4: glow dims, hands recede, returns to frame 1 for loop.
+  Ground beneath has a faint green underglow.
+  Transparent background. Dark gothic mood.
+  Style: dark gothic anime pixel art, necromantic trap, eerie cyan-green
+  runes on dark void background, occult magic circle.
+
+
+================================================================================
+EFFECT 4: SOUL WISP — GROUND HAZARD                                [SHOULD]
+================================================================================
+
+File              : soul_wisp.png
+Frame size        : 64 x 32 pixels (wide, short — sits on ground)
+Frames            : 3
+Total sheet size  : 192 x 32 pixels
+Animation         : Looping, 150ms per frame
+Alignment         : Bottom edge sits on platform surface
+Engine adds       : Faint dark shadow on ground, subtle drifting motion
+
+Layout:
+  [   F0   ][   F1   ][   F2   ]
+    64x32     64x32     64x32
+
+Structure (side view):
+  +--------------------+
+  |  o    o      o     |  <- Wisp orbs floating (cyan-green, 4-6px each)
+  |   \  / \    /      |  <- Faint vapor tails trailing downward
+  |    ..   ..  .      |  <- Ground-level dim glow / shadow residue
+  +====================+  <- y=32 ground line
+
+These are the lingering soul wisps left behind by the Death's Harvest
+ultimate. They float just above the ground (4-12px above the bottom edge)
+and deal 3 dmg on contact. They last 4 seconds.
+
+Frame Guide:
+  F0: Three to four small ghostly orbs scattered across the 64px width.
+      Each orb is ~4-6px diameter, made of spectral cyan-green energy
+      (#00FFAA core, #008866 outer glow). The orbs float at varying heights
+      above the bottom edge — some at 8px, some at 12px, some at 6px.
+      Each orb has a faint downward vapor tail (2-3px of #004433 trailing
+      below it toward the ground). The ground directly below each orb has
+      a 1-2px dim glow spot (#004433, semi-transparent).
+      The orbs have a subtle inner structure — the very center pixel is
+      brighter (#66FFCC or #CCFFEE), surrounded by #00FFAA, fading to
+      #008866 at the outer edge. They look like tiny trapped souls.
+
+  F1: Orbs drift and shift positions — some move 2-3px left, some right,
+      some rise 2px higher, some sink 1px lower. Vapor tails change
+      direction to follow the orb movement (trailing behind the direction
+      of drift). One orb may dim slightly while another brightens. Ground
+      glow spots shift to follow their respective orbs. Natural, gentle,
+      ghostly drifting motion.
+
+  F2: Orbs rearrange into a different configuration from F0 and F1. A
+      different pattern of heights and horizontal positions. One orb may
+      briefly merge close to another (2 orbs within 4px of each other)
+      before they separate in F0. Creates variety in the loop so the
+      wisps don't look mechanical. Vapor tails in new directions.
+
+Color Palette:
+  Orb core (bright)   : #CCFFEE (white-mint), #66FFCC (bright mint)
+  Orb body            : #00FFAA (spectral cyan)
+  Orb edge            : #008866 (teal)
+  Vapor tails         : #004433 (deep teal), #221133 (purple-gray)
+  Ground glow         : #004433 (deep teal, semi-transparent)
+
+Design Notes:
+  - These are small, subtle effects — NOT dramatic. They are lingering
+    hazards, not active attacks.
+  - Each orb should look like a tiny soul fragment — a small glowing
+    ghostly sphere with a bright core and dim edges.
+  - The drifting motion should be gentle and ghostly, not erratic.
+  - 3-4 orbs per frame is ideal. More than 5 becomes cluttered at 64x32.
+  - These are spawned after the Death's Harvest ultimate — 3 sets placed
+    across the arena floor, lasting 4 seconds each.
+
+AI Prompt:
+  Pixel art sprite sheet of ghostly soul wisps for a 2D fighting game.
+  3 animation frames in a single horizontal row, each frame 64 pixels
+  wide and 32 pixels tall. Total image: 192x32 pixels.
+  Small floating ghostly orbs hovering just above the ground line.
+  3-4 small cyan-green (#00FFAA) glowing orbs, each about 4-6 pixels
+  in diameter, scattered across the 64px width at varying heights
+  (6-12px above bottom edge). Each orb has a bright center pixel and
+  dimmer edges. Faint vapor tails trail downward from each orb. Dim
+  ground glow beneath each orb.
+  Frame 1: orbs floating at various heights and positions.
+  Frame 2: orbs drift gently — some shift left/right, some rise/fall.
+  Frame 3: orbs rearrange into a different configuration.
+  Transparent background, dark pixel outline.
+  Style: dark gothic anime pixel art, ghostly soul fragments, eerie
+  cyan-green glow, gentle floating motion, haunting and subtle.
+
+
+================================================================================
+EFFECT 5: DEATH'S HARVEST WAVE — ULTIMATE PROJECTILE               [SHOULD]
+================================================================================
+
+File              : harvest_wave.png
+Frame size        : 128 x 64 pixels (large!)
+Frames            : 4
+Total sheet size  : 512 x 64 pixels
+Animation         : Looping, 100ms per frame
+Direction         : Traveling right (engine flips for left)
+Engine adds       : Heavy shadow trail behind, screen shake, brief screen darken,
+                    dark particle burst on hit
+
+Layout:
+  [     F0     ][     F1     ][     F2     ][     F3     ]
+     128x64       128x64       128x64       128x64
+
+This is the MOST DRAMATIC and POWERFUL effect for Mortis. It is a massive
+spectral scythe blade wave — a crescent-shaped wall of ghostly energy
+shaped like an enormous curved scythe blade sweeping across the arena.
+
+Structure (side view):
+  128px wide
+  +----------------------------------------------------------------+
+  |                    . . . .                                      |
+  |              . .          . .         <- Blade tip (brightest)  |
+  |          . .     VOID        . .                                |
+  |        .        CENTER          .     <- Blade body (mid glow)  |
+  |      .       (dark void)          .                             |
+  |     .      spectral faces           .  <- Inner void (darkest)  |
+  |      .        swirl here          .                             |
+  |        .                        .     <- Blade edge (glowing)   |
+  |          . . .            . . .                                 |
+  |              trailing  leading edge                             |
+  |              (diffuse)  (sharp)       <- RIGHT side = aggressive|
+  +----------------------------------------------------------------+
+
+The wave is CRESCENT / SCYTHE-BLADE shaped — curved like a massive scythe
+blade made of spectral energy. NOT a wall or rectangle. The shape should be
+recognizably scythe-like.
+
+Frame Guide:
+  F0: Full spectral scythe-blade wave shape. The overall shape is a large
+      crescent/arc approximately 120px wide and 50px tall, centered in the
+      128x64 frame. The OUTER EDGE (the blade edge) glows brightest —
+      white-mint (#CCFFEE) and bright mint (#66FFCC) along the curved cutting
+      edge. The INNER area is a dark void (#050510, #0F0F1A) — the hollow
+      center of the crescent. Between the bright edge and the dark center,
+      layers of spectral cyan (#00FFAA) and ghost green (#00CC88) energy
+      swirl. The LEADING EDGE (right side) is sharp and pointed — aggressive,
+      cutting. The TRAILING EDGE (left side) is more diffuse — wisps of
+      energy dissolving and trailing off. Faint spectral shapes (suggestion
+      of screaming faces, skull outlines) are visible in the swirling energy
+      between the edge and the void — extremely subtle, just 1-2px void-black
+      dots hinting at eyes/mouths in the cyan energy.
+
+  F1: The wave churns — energy swirls within the crescent shape shift and
+      rotate. The spectral face suggestions move and dissolve, new ones form.
+      The blade edge ripples — some sections pulse brighter, others dim
+      momentarily. The leading edge stretches very slightly forward (1-2px).
+      Shadow tendrils (#221133) trail from the trailing (left) edge, longer
+      than in F0. The dark void center shifts and writhes. The overall
+      impression is of violent, contained supernatural energy traveling
+      forward.
+
+  F2: Leading edge (right side) SHARPENS and stretches forward aggressively
+      — the most pointed and dangerous-looking frame. The blade tip on the
+      right extends 3-4px further than F0. The brightness at the leading
+      edge intensifies (more #CCFFEE white-mint pixels). The scythe-blade
+      shape is most defined in this frame — clearly recognizable as a curved
+      blade. Spectral face suggestions are at their most visible. Shadow
+      tendrils from the trailing edge are longest. Peak intensity.
+
+  F3: Wave softens slightly from F2. Leading edge retracts back toward F0
+      length. Energy ripples settle. Brightness equalizes along the edge.
+      Spectral faces dissolve. Shadow tendrils shorten. Smooth transition
+      back to F0 for the loop. The wave is still massive and threatening
+      but cycling back to its base state.
+
+Color Palette (brightest to darkest):
+  Blade edge (cut)    : #CCFFEE (white-mint), #66FFCC (bright mint)
+  Inner energy        : #00FFAA (spectral cyan), #00CC88 (ghost green)
+  Deep energy         : #008866 (teal), #004433 (deep teal)
+  Void center         : #0F0F1A (near-black blue), #050510 (void)
+  Spectral faces      : #050510 (void dots in cyan energy)
+  Trailing wisps      : #221133 (dark purple-gray), #1A1A2E (deep charcoal)
+  Leading tip accent  : #FFFFFF (pure white, 1-2px at the very tip)
+
+Design Notes:
+  - This is the BIGGEST, MOST DRAMATIC effect for Mortis — his signature
+    ultimate. It must feel overwhelming and terrifying.
+  - The SCYTHE-BLADE SHAPE is critical. This is not a generic energy wave —
+    it is specifically shaped like a massive crescent scythe blade. The
+    curve, the sharp leading edge, the pointed tip — all should evoke a
+    reaper's scythe.
+  - 128px wide makes this the largest projectile in the game. It should
+    feel like it fills the arena.
+  - Leading edge (RIGHT) = sharp, bright, aggressive, coming for you.
+  - Trailing edge (LEFT) = diffuse, dissolving, wisps trailing behind.
+  - The spectral faces are VERY SUBTLE. Do NOT draw detailed faces. Just
+    hint at screaming forms with tiny void-black dots arranged loosely
+    like eyes and mouths in the swirling cyan energy. Think "pareidolia" —
+    the viewer's brain fills in the faces from minimal suggestion.
+  - Deals 40 damage on contact. This should LOOK like 40 damage.
+
+AI Prompt:
+  Pixel art sprite sheet of a massive spectral scythe-blade wave for a
+  2D fighting game ultimate attack. 4 animation frames in a single
+  horizontal row, each frame 128 pixels wide and 64 pixels tall.
+  Total image: 512x64 pixels.
+  A huge crescent-shaped wave of ghostly energy, shaped like an enormous
+  curved scythe blade, traveling to the right. This is a death/shadow
+  ultimate attack — the most powerful and dramatic effect in the game.
+  The wave is crescent/arc shaped, approximately 120x50 pixels.
+  The outer cutting edge glows brightest — white-mint and bright cyan-green.
+  The inner area is a dark void with swirling spectral energy.
+  Faint ghostly face shapes are barely visible in the swirling energy.
+  Leading edge (right side) is sharp and pointed. Trailing edge (left)
+  is diffuse with dark wisps trailing behind.
+  Frame 1: full spectral scythe-blade wave, bright glowing edge, dark center.
+  Frame 2: energy churns, spectral shapes swirl, shadow tendrils trail.
+  Frame 3: leading edge sharpens and stretches forward, peak intensity.
+  Frame 4: wave settles slightly, loops back to frame 1.
+  Transparent background, facing right, side view.
+  Color palette: white-mint #CCFFEE, bright mint #66FFCC, spectral cyan
+  #00FFAA, ghost green #00CC88, teal #008866, void black #050510,
+  dark purple #221133.
+  Style: dark gothic anime pixel art, extremely dramatic, terrifying reaper
+  energy, ghostly cyan-green and deep void-black, haunting and powerful.
+
+
+================================================================================
+EFFECT 6: SHADOW HIT SPARK                                        [NICE]
+================================================================================
+
+File              : shadow_spark.png
+Frame size        : 32 x 32 pixels
+Frames            : 3
+Total sheet size  : 96 x 32 pixels
+Animation         : One-shot, 50ms per frame (very fast)
+Engine adds       : Small dark particles
+NOTE              : This is character-specific. If a shared hit_spark.png
+                    already exists, this is an OPTIONAL alternative for
+                    Mortis's melee hits specifically. The engine can use
+                    either the shared spark or this shadow version.
+
+Layout:
+  [ F0 ][ F1 ][ F2 ]
+  32x32  32x32  32x32
+
+Frame Guide:
+  F0: FLASH — a bright cyan-green (#00FFAA, #66FFCC) starburst flash with
+      a dark void center (#050510). Small, ~16px diameter, centered in
+      the 32x32 frame. The starburst has 4-6 sharp points radiating
+      outward from the void center. Unlike a normal hit spark (which is
+      white-yellow), this one is cyan-green with DARKNESS at its center —
+      suggesting the impact cuts into shadow/void rather than creating light.
+
+  F1: EXPAND — the starburst points stretch outward into slash marks. Dark
+      purple-green (#221133, #004433) slash lines radiate from center,
+      ~24px reach. The void center fades. The slash marks have a scythe-cut
+      quality — slightly curved rather than perfectly straight. Tips of the
+      slash marks glow cyan (#00FFAA) while the inner parts are dark.
+      This is the most visually distinctive frame — it should look like
+      a scythe cut through reality.
+
+  F2: FADE — slash marks and starburst dissolve into dark wisps. The cyan
+      glow dims rapidly. Only faint traces of #004433 and #221133 remain.
+      Nearly fully transparent. The dark wisps disperse outward and vanish.
+
+Color Palette:
+  Flash core          : #66FFCC (bright mint), #00FFAA (spectral cyan)
+  Void center         : #050510 (void black)
+  Slash marks         : #004433 (deep teal), #221133 (dark purple-gray)
+  Slash mark tips     : #00FFAA (spectral cyan)
+  Fading wisps        : #221133 (dark purple-gray), #0F0F1A (near-black)
+
+Design Notes:
+  - This is a DARK impact spark — the opposite of a bright fire spark.
+  - The void-dark center is key: the scythe cuts don't create light, they
+    cut INTO darkness. Brief brightness at the edges, void at the center.
+  - Plays on every melee scythe hit. Must be fast and punchy despite being
+    dark-themed.
+  - If this sprite is skipped, the game uses the shared hit_spark.png or
+    a particle-only fallback. Still works fine.
+
+AI Prompt:
+  Pixel art sprite sheet of a shadow hit impact spark for a 2D fighting game.
+  3 animation frames in a single horizontal row, each frame 32x32 pixels.
+  Total image: 96x32 pixels.
+  Dark ghostly scythe-hit impact flash — NOT a bright spark, but a void-cut:
+  Frame 1: cyan-green starburst flash with a dark void-black center, 16px.
+  The impact reveals darkness, not light. Sharp points radiate outward.
+  Frame 2: dark purple-green curved slash marks radiating outward from
+  center, scythe-cut style, tips glow cyan-green, inner parts dark.
+  Frame 3: slash marks fading into dark wisps, dissolving, nearly transparent.
+  Transparent background.
+  Color palette: bright mint #66FFCC, spectral cyan #00FFAA, void black
+  #050510, deep teal #004433, dark purple-gray #221133.
+  Style: dark gothic anime pixel art, ghostly scythe impact, the hit
+  reveals void/darkness rather than creating light, haunting and fast.
+
+
+POST-GENERATION CHECKLIST
+================================================================================
+[ ] Transparent background — no solid color behind any effect
+[ ] Correct total dimensions — resized to exact pixel sizes listed above
+[ ] Frames evenly spaced — equal width per frame in each strip
+[ ] Consistent style — matches Mortis's dark gothic aesthetic
+[ ] Wraith Bolt faces right — engine flips for left
+[ ] Harvest Wave faces right — leading edge on the right side
+[ ] Soul Drain is perspective ellipse — NOT a perfect circle
+[ ] Soul Drain has NO empty center — it is a ground-placed effect
+[ ] Color palette matches — cyan-green energy, not fire/blue/purple
+[ ] No gaps between frames — tightly aligned
+[ ] Spectral faces in effects are SUBTLE — hints only, not detailed
+
+
+TIPS FOR AI IMAGE GENERATION
+================================================================================
+
+1. If AI gives individual images instead of a sprite sheet:
+   Generate each frame separately, then stitch side-by-side in
+   Photopea.com (free browser Photoshop) or even MS Paint.
+
+2. To remove backgrounds:
+   Use remove.bg, or Photopea "Magic Wand + Delete",
+   or GIMP "Color to Alpha".
+
+3. To resize to exact dimensions:
+   Photopea -> Image -> Canvas Size -> set exact pixels.
+   Use "Nearest Neighbor" resampling to preserve pixel art.
+
+4. To keep style consistent:
+   Upload your Mortis character sprite as a style reference
+   (if your AI tool supports reference images).
+
+5. Frame alignment:
+   If frames are different sizes, create new canvas at total size,
+   paste each frame at correct X position:
+   Frame 0 at x=0, Frame 1 at x=frameWidth, Frame 2 at x=frameWidth*2...
+
+6. DARK PALETTE WARNING:
+   AI generators tend to make things brighter than requested. You may
+   need to darken the results in post-processing. The void areas should
+   be VERY dark (#050510, #0F0F1A) — almost black. The only bright
+   elements are the cyan-green edges and glows.
+
+
+FILE DELIVERY SUMMARY
+================================================================================
+
+Place all files in the Sprites/ folder:
+
+  Sprites/
+  +-- mortis_death_reaper.png          <- Character (from 02 template)
+  +-- wraith_bolt.png                  <- 128x32   (4 frames)   MUST
+  +-- wraith_bolt_explosion.png        <- 320x64   (5 frames)   MUST
+  +-- soul_drain.png                   <- 384x96   (4 frames)   SHOULD
+  +-- soul_wisp.png                    <- 192x32   (3 frames)   SHOULD
+  +-- harvest_wave.png                 <- 512x64   (4 frames)   SHOULD
+  +-- shadow_spark.png                 <- 96x32    (3 frames)   NICE

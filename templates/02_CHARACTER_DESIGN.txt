@@ -1,0 +1,200 @@
+================================================================================
+  TEMPLATE 02: CHARACTER SPRITE DESIGN
+  Super Battlemancers
+================================================================================
+  PURPOSE:  Define HOW to create the character sprite sheet (all poses)
+  INPUT:    ← 01_CHARACTER_DESCRIPTION.txt (Visual Identity, Color Palette)
+  OUTPUT:   Character sprite sheet PNG for the game engine
+================================================================================
+
+
+CHARACTER REFERENCE (copy from 01_CHARACTER_DESCRIPTION)
+================================================================================
+Name              : [Character Name]
+Element / Theme   : [Element]
+Palette           : [List primary, accent, dark, skin, hair colors + hex codes]
+
+
+TECHNICAL SPECIFICATIONS
+================================================================================
+Frame size        : 64 x 64 pixels
+Sheet layout      : 6 columns x 11 rows
+Total sheet size  : 384 x 704 pixels
+Background        : Transparent (PNG-24 with alpha)
+Character height  : ~48-56px within the 64px frame
+Ground line       : Feet at y=58 (6px from bottom edge)
+Center X          : Character centered at x=32
+Outline           : 1px dark outline around character
+Shading           : 2-3 levels per color (base, shadow, highlight)
+View              : Side view, facing RIGHT always
+Art style         : Anime pixel art, semi-chibi proportions
+
+
+SPRITESHEET GRID LAYOUT
+================================================================================
+
+         Col 0    Col 1    Col 2    Col 3    Col 4    Col 5
+         64px     64px     64px     64px     64px     64px
+Row  0:  IDLE_0   IDLE_1   IDLE_2   IDLE_3   ------   ------    Idle (4 frames)
+Row  1:  RUN_0    RUN_1    RUN_2    RUN_3    RUN_4    RUN_5     Run (6 frames)
+Row  2:  JUMP_0   JUMP_1   JUMP_2   ------   ------   ------    Jump (3 frames)
+Row  3:  ATK1_0   ATK1_1   ATK1_2   ------   ------   ------    Attack 1 (3 frames)
+Row  4:  ATK2_0   ATK2_1   ATK2_2   ------   ------   ------    Attack 2 (3 frames)
+Row  5:  ATK3_0   ATK3_1   ATK3_2   ATK3_3   ------   ------    Attack 3 (4 frames)
+Row  6:  CAST_0   CAST_1   CAST_2   CAST_3   ------   ------    Cast (4 frames)
+Row  7:  HIT_0    HIT_1    ------   ------   ------   ------    Hit (2 frames)
+Row  8:  DODGE_0  DODGE_1  ------   ------   ------   ------    Dodge (2 frames)
+Row  9:  ULT_0    ULT_1    ULT_2    ULT_3    ------   ------    Ultimate (4 frames)
+Row 10:  DIE_0    DIE_1    DIE_2    ------   ------   ------    Death (3 frames)
+
+"------" = empty cell, fully transparent
+Total used frames: 38 out of 66 cells
+
+
+ANIMATION TABLE
+================================================================================
+
+Row   Animation          Frames   Speed    Loop   Description
+---   ---------          ------   -----    ----   -----------
+ 0    Idle               4        150ms    Yes    Breathing / standing
+ 1    Run                6        100ms    Yes    Full run cycle
+ 2    Jump               3        120ms    No     Launch, peak, fall
+ 3    Attack 1           3        80ms     No     [Name from 01, e.g. Jab]
+ 4    Attack 2           3        80ms     No     [Name from 01, e.g. Cross]
+ 5    Attack 3           4        100ms    No     [Name from 01, e.g. Kick]
+ 6    Cast Ability       4        120ms    No     Ability casting
+ 7    Take Hit           2        150ms    No     Damage reaction
+ 8    Dodge              2        holds    No     Phase Shift
+ 9    Ultimate           4        200ms    No     [Name from 01]
+10    Death              3        200ms    No     Knocked out
+
+
+FRAME-BY-FRAME POSE GUIDE
+================================================================================
+
+ROW 0 — IDLE (4 frames, looping)
+---------------------------------
+F0: Neutral standing pose, relaxed, weight centered.
+    Base pose — all other animations reference this.
+F1: Slight inhale — body rises 1-2px, chest expands subtly.
+    Keep feet at y=58.
+F2: Peak of breath — [element-specific idle trait].
+    Fire=hand glow. Lightning=small sparks. Wind=hair floats.
+F3: Exhale — body lowers back to F0.
+    Smooth return for seamless loop.
+
+ROW 1 — RUN (6 frames, looping)
+---------------------------------
+F0: Right foot contact, left arm forward, right arm back.
+F1: Right foot down, body lowers (lowest point).
+F2: Right foot passing, body centered, legs cross.
+F3: Left foot contact, right arm forward (mirror of F0).
+F4: Left foot down, body lowers (mirror of F1).
+F5: Left foot passing, body rises (mirror of F2, loops to F0).
+
+ROW 2 — JUMP (3 frames, one-shot)
+---------------------------------
+F0: LAUNCH — legs bent, pushing off ground, arms pull down.
+F1: PEAK — legs tucked slightly, arms out for balance.
+F2: FALL — legs extend downward, arms up, looking down.
+
+ROW 3 — ATTACK 1: [Name] (3 frames, one-shot)
+---------------------------------
+F0: WINDUP — [describe: e.g., "pull lead fist back, body coils"]
+F1: STRIKE — [describe: e.g., "arm fully extended, fist at max reach"]
+F2: RECOVERY — [describe: e.g., "arm retracting, returning to stance"]
+
+ROW 4 — ATTACK 2: [Name] (3 frames, one-shot)
+---------------------------------
+F0: WINDUP — [describe: e.g., "rear arm back, body twists away"]
+F1: STRIKE — [describe: e.g., "powerful forward punch, body rotated"]
+F2: RECOVERY — [describe: e.g., "body untwisting, arm pulling back"]
+
+ROW 5 — ATTACK 3: [Name] (4 frames, one-shot)
+---------------------------------
+F0: WINDUP — [describe: e.g., "leg lifts, body leans back"]
+F1: EXTEND — [describe: e.g., "leg extending forward, knee straightening"]
+F2: IMPACT — [describe: e.g., "leg fully extended, max reach ~40px from center"]
+F3: RECOVERY — [describe: e.g., "leg returning, slight stumble back"]
+
+ROW 6 — CAST ABILITY (4 frames, one-shot)
+---------------------------------
+F0: PREPARE — hands raise to chest level, energy starts gathering.
+F1: CHARGE — hands pull back, [element] energy forms between palms.
+F2: RELEASE — arms thrust forward, energy launches outward.
+F3: FOLLOW-THROUGH — arms extended, slight backward recoil.
+
+ROW 7 — TAKE HIT (2 frames, one-shot)
+---------------------------------
+F0: IMPACT — body jerked backward, pain expression, eyes squint.
+F1: RECOIL — leaning further back, one foot lifts off ground.
+
+ROW 8 — DODGE / PHASE SHIFT (2 frames, holds F1)
+---------------------------------
+F0: ENTER — arms crossed in front of body, bracing/focusing.
+F1: ACTIVE — ghostly relaxed pose, arms slightly spread.
+    (Engine makes this frame semi-transparent + color tint at runtime)
+    This frame is HELD for 1 full second during dodge.
+
+ROW 9 — ULTIMATE: [Name] (4 frames, one-shot)
+---------------------------------
+F0: CHARGE — crouching, fists clenched at sides, power building.
+F1: RISE — standing up, arms rising, energy aura intensifying.
+F2: PEAK — arms raised above head, maximum energy, dramatic pose.
+F3: RELEASE — arms thrust forward/outward, energy exploding away.
+
+ROW 10 — DEATH (3 frames, one-shot)
+---------------------------------
+F0: STAGGER — stumbling, one hand clutches chest/wound.
+F1: FALLING — body tilting sideways, legs giving out, arms limp.
+F2: DOWN — lying on ground (body rotated ~80 degrees, fits in 64x64).
+
+
+RULES CHECKLIST
+================================================================================
+[ ] Always facing RIGHT (engine flips for left)
+[ ] Character centered at x=32 in every frame
+[ ] Feet at y=58 consistently across ALL frames
+[ ] Attacks can extend but stay within 64px frame
+[ ] NO skill effects in spritesheet (added at runtime by engine)
+[ ] Both players use same sheet (P2 tinted by engine)
+[ ] Unused cells are fully transparent
+[ ] Dark 1px outline around character
+[ ] 2-3 shade levels per color
+
+
+AI GENERATION PROMPT
+================================================================================
+[Copy-paste into your AI image generator, fill in brackets]
+
+Pixel art sprite sheet for a 2D fighting game character.
+Character: [Name], a [Element]-themed [Role] fighter.
+[Hair description]. [Eye description]. [Build description].
+Wearing [outfit]. [Belt/accessory]. [Boots]. [Extras].
+
+Layout: 6 columns x 11 rows grid. Each cell is 64x64 pixels.
+Total image: 384 x 704 pixels.
+Side view, facing right, transparent background, 1px dark outline.
+
+Row 0 (4 frames): Idle — standing, subtle breathing, [element idle trait].
+Row 1 (6 frames): Run — full run cycle, arms swinging, legs alternating.
+Row 2 (3 frames): Jump — crouch launch, peak, falling.
+Row 3 (3 frames): [Attack 1 name] — [windup], [strike], [recovery].
+Row 4 (3 frames): [Attack 2 name] — [windup], [strike], [recovery].
+Row 5 (4 frames): [Attack 3 name] — [windup], [extend], [impact], [recovery].
+Row 6 (4 frames): Cast ability — prepare, charge [element], release, follow-through.
+Row 7 (2 frames): Take hit — jerked back, recoil stagger.
+Row 8 (2 frames): Dodge — arms crossed, ghostly pose.
+Row 9 (4 frames): Ultimate [name] — crouch, rise, peak, release.
+Row 10 (3 frames): Death — stagger, falling, lying down.
+
+Unused cells empty/transparent.
+Style: anime pixel art, semi-chibi, vibrant colors, retro 2D game.
+
+
+FILE DELIVERY
+================================================================================
+Filename          : [character_name_lowercase].png
+Size              : 384 x 704 pixels
+Format            : PNG-24 with transparency
+Location          : Sprites/ folder

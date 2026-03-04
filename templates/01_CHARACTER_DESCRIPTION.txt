@@ -1,0 +1,125 @@
+================================================================================
+  TEMPLATE 01: CHARACTER DESCRIPTION
+  Super Battlemancers
+================================================================================
+  PURPOSE:  Define WHO the character is (identity, look, abilities)
+  OUTPUTS:  Feeds into → 02_CHARACTER_DESIGN.txt (sprite sheet poses)
+                       → 03_CHARACTER_SKILLS_EFFECTS.txt (skill effect sprites)
+================================================================================
+
+
+CHARACTER IDENTITY
+================================================================================
+Name              : [Character Name]
+Title / Alias     : [e.g., "The Inferno Mage"]
+Element / Theme   : [e.g., Fire, Lightning, Wind, Telekinesis]
+Role              : [e.g., Brawler, Zoner, Rush-down, All-rounder]
+Personality       : [2-3 words, e.g., "Fierce, determined, reckless"]
+
+
+VISUAL IDENTITY
+================================================================================
+
+Appearance
+----------
+Hair              : [Style, color, traits. e.g., "Spiky flame-shaped, orange-red, flows upward"]
+Eyes              : [Color, expression. e.g., "Red-orange, fierce, determined"]
+Build             : [Body type. e.g., "Slim/athletic, semi-chibi proportions"]
+Outfit            : [Clothing. e.g., "Dark crimson battle robe with black trim"]
+Belt / Accessory  : [e.g., "Black belt with gold buckle"]
+Hands             : [e.g., "Bare hands, one glows with fire energy"]
+Feet / Boots      : [e.g., "Dark brown combat boots"]
+Extras            : [Unique features: scars, tattoos, cape, weapon, etc.]
+
+Color Palette
+----------
+Primary 1         : [Color name]    [#HexCode]    (main outfit color)
+Primary 2         : [Color name]    [#HexCode]    (outfit secondary)
+Accent 1          : [Color name]    [#HexCode]    (element glow/energy)
+Accent 2          : [Color name]    [#HexCode]    (highlight/brightest)
+Dark / Shadow     : [Color name]    [#HexCode]    (darkest shade)
+Skin              : [Color name]    [#HexCode]
+Hair              : [Color name]    [#HexCode]
+Boots / Dark      : [Color name]    [#HexCode]
+
+
+COMBAT IDENTITY
+================================================================================
+
+Playstyle Summary
+-----------------
+[1-2 sentences. e.g., "Aggressive close-to-mid range fighter who controls space
+with fireballs and punishes opponents with powerful melee combos. Rewards bold,
+in-your-face playstyle."]
+
+
+Abilities Overview
+------------------
+Slot                  Name                    Type              Short Description
+----                  ----                    ----              -----------------
+Basic Melee           [e.g., "Inferno Fists"] [Combo/Single]    [e.g., "3-hit punch-punch-kick combo"]
+Primary Power         [e.g., "Fireball"]      [Projectile/etc]  [e.g., "Fast fire projectile, horizontal"]
+Secondary Ability     [e.g., "Flame Shield"]  [Shield/Buff/etc] [e.g., "Fire ring, damages nearby, blocks projectiles"]
+Dodge                 Phase Shift (Universal) Invulnerability   1s invulnerability, 15s cooldown
+Ultimate              [e.g., "Inferno Cataclysm"] [Wave/Area]   [e.g., "Massive flame wave + fire patches"]
+
+
+ABILITY DETAILS
+================================================================================
+
+Basic Melee: [Name]
+-------------------
+Hit 1             : [damage] dmg — [description, e.g., "quick jab, short range"]
+Hit 2             : [damage] dmg — [description, e.g., "cross punch, body twist"]
+Hit 3             : [damage] dmg — [description, e.g., "heavy kick, strong knockback"]
+Combo Window      : [ms, e.g., 400ms]
+Cooldown          : [ms, e.g., 400ms between combos]
+
+Primary Power: [Name]
+---------------------
+Damage            : [e.g., 15]
+Speed             : [e.g., 500px/s]
+Range             : [e.g., "Full arena width" or "300px"]
+Cooldown          : [e.g., 1.5s]
+Knockback         : [e.g., Moderate / 350]
+Special           : [e.g., "Destroyed on contact with player or platform"]
+
+Secondary Ability: [Name]
+-------------------------
+Duration          : [e.g., 2s]
+Damage            : [e.g., 20 DPS on contact]
+Cooldown          : [e.g., 8s]
+Special           : [e.g., "Blocks projectiles, can move but can't attack"]
+
+Ultimate: [Name]
+----------------
+Charge Source     : [e.g., "Dealing damage, taking damage, passive over time"]
+Startup Time      : [e.g., 0.5s]
+Damage            : [e.g., 40 direct hit]
+Knockback         : [e.g., Massive / 600]
+Duration          : [e.g., "Wave travels ~2s, fire patches last 5s"]
+Counterplay       : [e.g., "Dodgeable with Phase Shift, jumpable, visible startup"]
+Aftermath         : [e.g., "Leaves 3-4 fire patches, 10 DPS, 5s duration"]
+
+
+AI PROMPT: CHARACTER CONCEPT
+================================================================================
+[Copy-paste this into your AI image generator, fill in the brackets]
+
+Pixel art character concept for a 2D fighting game.
+Name: [Character Name], the [Title].
+[Element] themed fighter.
+[Hair description]. [Eye description]. [Build description].
+Wearing [outfit description] with [belt/accessory].
+[Boots description]. [Extras description].
+Color palette: [list main hex colors].
+Personality: [traits] — reflected in pose and expression.
+Style: anime pixel art, semi-chibi proportions, side view facing right,
+dark pixel outline, vibrant colors, retro 2D game character.
+Transparent background.
+
+
+CONNECTIONS
+================================================================================
+→ 02_CHARACTER_DESIGN.txt    uses: Visual Identity, Color Palette
+→ 03_CHARACTER_SKILLS_EFFECTS.txt  uses: Element/Theme, Color Palette, Ability Details

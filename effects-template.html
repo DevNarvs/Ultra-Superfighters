@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Super Battlemancers - Effects Sprite Template</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #fff; font-family: 'Segoe UI', Consolas, monospace; padding: 20px; }
+  h1 { color: #ff6600; font-size: 20px; margin-bottom: 3px; }
+  .sub { color: #888; font-size: 12px; margin-bottom: 20px; }
+
+  .effect-card {
+    background: #16213e; border-radius: 10px; padding: 20px; margin-bottom: 20px;
+    border-left: 4px solid #ff6600;
+  }
+  .effect-card.should { border-left-color: #ffaa00; }
+  .effect-card.nice { border-left-color: #44aa44; }
+
+  .effect-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .effect-header h2 { font-size: 16px; color: #ff9900; }
+  .priority { font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: bold; }
+  .priority.must { background: #ff3333; color: #fff; }
+  .priority.should { background: #ffaa00; color: #000; }
+  .priority.nice { background: #44aa44; color: #fff; }
+
+  .effect-body { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start; }
+  .effect-canvas-wrap { text-align: center; }
+  .effect-canvas-wrap canvas {
+    border: 1px solid #333; border-radius: 4px; display: block; margin-bottom: 5px;
+    background: repeating-conic-gradient(#2a2a3e 0% 25%, #222238 0% 50%) 50% / 8px 8px;
+    image-rendering: pixelated;
+  }
+  .frame-label { font-size: 9px; color: #666; }
+
+  .effect-specs { flex: 1; min-width: 280px; }
+  .spec-table { width: 100%; font-size: 12px; }
+  .spec-table td { padding: 3px 0; vertical-align: top; }
+  .spec-table .key { color: #888; width: 130px; }
+  .spec-table .val { color: #ddd; }
+  .spec-table .val strong { color: #ff9900; }
+
+  .frame-desc { margin-top: 10px; font-size: 11px; line-height: 1.6; }
+  .frame-desc strong { color: #66ccff; }
+
+  .note { background: #1a1a2e; border: 1px solid #ff660044; border-radius: 6px; padding: 10px; margin-top: 10px; font-size: 11px; color: #ffaa88; }
+
+  .download-bar { margin: 15px 0; display: flex; gap: 10px; flex-wrap: wrap; }
+  .download-bar button { background: #ff6600; color: #fff; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; }
+  .download-bar button:hover { background: #ff8800; }
+  .download-bar button.sec { background: #333; }
+  .download-bar button.sec:hover { background: #555; }
+
+  .summary-table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 15px 0; }
+  .summary-table th { text-align: left; color: #888; padding: 6px 10px; border-bottom: 1px solid #333; }
+  .summary-table td { padding: 6px 10px; border-bottom: 1px solid #222; }
+  .summary-table .file { color: #66ccff; }
+  .summary-table .size { color: #ff9900; }
+
+  .section-title { color: #ff6600; font-size: 16px; margin: 30px 0 15px 0; border-bottom: 1px solid #333; padding-bottom: 5px; }
+
+  .how-it-works { display: flex; gap: 15px; margin: 15px 0; flex-wrap: wrap; }
+  .how-step { background: #0f0f23; border-radius: 8px; padding: 12px; flex: 1; min-width: 200px; text-align: center; }
+  .how-step .num { color: #ff6600; font-size: 24px; font-weight: bold; }
+  .how-step .desc { font-size: 11px; color: #aaa; margin-top: 5px; }
+  .plus { font-size: 24px; color: #444; align-self: center; }
+</style>
+</head>
+<body>
+
+<h1>EFFECTS SPRITE SHEETS — Specification & Templates</h1>
+<div class="sub">All effects are horizontal strips. Each frame same size. Transparent PNG background. Art style must match Fire Battlemancer.</div>
+
+<div class="download-bar">
+  <button onclick="downloadAllTemplates()">Download All Templates (ZIP-like)</button>
+  <button class="sec" onclick="downloadSummaryGuide()">Download Summary Guide PNG</button>
+</div>
+
+<!-- SUMMARY TABLE -->
+<table class="summary-table">
+  <tr><th>File</th><th>Frame Size</th><th>Frames</th><th>Sheet Size</th><th>Priority</th></tr>
+  <tr><td class="file">fireball.png</td><td>32 x 32</td><td>4</td><td class="size">128 x 32</td><td>🔴 Must</td></tr>
+  <tr><td class="file">fireball_explosion.png</td><td>64 x 64</td><td>5</td><td class="size">320 x 64</td><td>🔴 Must</td></tr>
+  <tr><td class="file">flame_shield.png</td><td>96 x 96</td><td>4</td><td class="size">384 x 96</td><td>🟡 Should</td></tr>
+  <tr><td class="file">fire_patch.png</td><td>64 x 32</td><td>3</td><td class="size">192 x 32</td><td>🟡 Should</td></tr>
+  <tr><td class="file">ultimate_wave.png</td><td>128 x 64</td><td>4</td><td class="size">512 x 64</td><td>🟡 Should</td></tr>
+  <tr><td class="file">hit_spark.png</td><td>32 x 32</td><td>3</td><td class="size">96 x 32</td><td>🟢 Nice</td></tr>
+</table>
+
+<!-- HOW HYBRID WORKS -->
+<div class="section-title">How Hybrid Effects Work</div>
+<div class="how-it-works">
+  <div class="how-step">
+    <div class="num">1</div>
+    <canvas id="hybridSprite" width="64" height="64" style="margin:8px auto;display:block;width:64px;height:64px;background:#0a0a1a;border-radius:4px;image-rendering:pixelated;"></canvas>
+    <div class="desc">Your sprite (drawn art)<br>Provides the SHAPE and STYLE</div>
+  </div>
+  <div class="plus">+</div>
+  <div class="how-step">
+    <div class="num">2</div>
+    <canvas id="hybridParticle" width="64" height="64" style="margin:8px auto;display:block;width:64px;height:64px;background:#0a0a1a;border-radius:4px;"></canvas>
+    <div class="desc">Engine particles (auto-generated)<br>Adds GLOW, TRAIL, SPARKS</div>
+  </div>
+  <div class="plus">=</div>
+  <div class="how-step">
+    <div class="num">3</div>
+    <canvas id="hybridResult" width="64" height="64" style="margin:8px auto;display:block;width:64px;height:64px;background:#0a0a1a;border-radius:4px;"></canvas>
+    <div class="desc">Final in-game look<br>Polished, matching your art style</div>
+  </div>
+</div>
+
+<!-- ========== EFFECT 1: FIREBALL ========== -->
+<div class="effect-card">
+  <div class="effect-header">
+    <span class="priority must">MUST HAVE</span>
+    <h2>1. Fireball Projectile — fireball.png</h2>
+  </div>
+  <div class="effect-body">
+    <div class="effect-canvas-wrap">
+      <canvas id="fireballTemplate" width="512" height="128"></canvas>
+      <div class="frame-label">Template at 4x zoom (actual: 128 x 32px)</div>
+      <button class="sec" style="margin-top:8px;font-size:10px;padding:4px 10px;background:#333;color:#fff;border:none;border-radius:3px;cursor:pointer;" onclick="downloadOne('fireball', 128, 32)">Download Template</button>
+    </div>
+    <div class="effect-specs">
+      <table class="spec-table">
+        <tr><td class="key">File name:</td><td class="val"><strong>fireball.png</strong></td></tr>
+        <tr><td class="key">Frame size:</td><td class="val"><strong>32 x 32 px</strong></td></tr>
+        <tr><td class="key">Frames:</td><td class="val"><strong>4</strong> (horizontal strip)</td></tr>
+        <tr><td class="key">Total sheet:</td><td class="val"><strong>128 x 32 px</strong></td></tr>
+        <tr><td class="key">Animation:</td><td class="val">Looping, 80ms per frame</td></tr>
+        <tr><td class="key">Direction:</td><td class="val">Facing RIGHT (engine flips)</td></tr>
+        <tr><td class="key">View:</td><td class="val">Side view</td></tr>
+        <tr><td class="key">Engine adds:</td><td class="val">Fire particle trail behind it, additive glow</td></tr>
+      </table>
+      <div class="frame-desc">
+        <strong>F0:</strong> Fireball shape, bright orange/yellow core, darker red edges<br>
+        <strong>F1:</strong> Slight flicker — flames shift outward, core wobbles<br>
+        <strong>F2:</strong> Flames stretch more, slight size variation<br>
+        <strong>F3:</strong> Flames contract, return toward F0 shape<br>
+      </div>
+      <div class="note">
+        <strong>Tips:</strong> Draw a circular fireball ~20-24px diameter, centered in the 32x32 frame.
+        Use 3-4 shades: bright yellow core (#facc22) → orange mid (#ff8c00) → dark red outer (#cc3300) → darkest edge (#661100).
+        The engine adds a glowing particle trail behind it automatically.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== EFFECT 2: FIREBALL EXPLOSION ========== -->
+<div class="effect-card">
+  <div class="effect-header">
+    <span class="priority must">MUST HAVE</span>
+    <h2>2. Fireball Explosion — fireball_explosion.png</h2>
+  </div>
+  <div class="effect-body">
+    <div class="effect-canvas-wrap">
+      <canvas id="explosionTemplate" width="640" height="128"></canvas>
+      <div class="frame-label">Template at 2x zoom (actual: 320 x 64px)</div>
+      <button class="sec" style="margin-top:8px;font-size:10px;padding:4px 10px;background:#333;color:#fff;border:none;border-radius:3px;cursor:pointer;" onclick="downloadOne('fireball_explosion', 320, 64)">Download Template</button>
+    </div>
+    <div class="effect-specs">
+      <table class="spec-table">
+        <tr><td class="key">File name:</td><td class="val"><strong>fireball_explosion.png</strong></td></tr>
+        <tr><td class="key">Frame size:</td><td class="val"><strong>64 x 64 px</strong></td></tr>
+        <tr><td class="key">Frames:</td><td class="val"><strong>5</strong> (horizontal strip)</td></tr>
+        <tr><td class="key">Total sheet:</td><td class="val"><strong>320 x 64 px</strong></td></tr>
+        <tr><td class="key">Animation:</td><td class="val">One-shot, 60ms per frame (fast!)</td></tr>
+        <tr><td class="key">Engine adds:</td><td class="val">Small spark particles flying outward, screen shake on heavy hits</td></tr>
+      </table>
+      <div class="frame-desc">
+        <strong>F0:</strong> Initial burst — small bright flash at center (16px diameter)<br>
+        <strong>F1:</strong> Expanding — fire blooms outward (~32px), bright yellow core<br>
+        <strong>F2:</strong> Full size — maximum expansion (~48px), orange with red edges<br>
+        <strong>F3:</strong> Fading — fire breaks apart into embers, becoming transparent<br>
+        <strong>F4:</strong> Dissipating — faint smoke wisps, nearly transparent<br>
+      </div>
+      <div class="note">
+        <strong>Tips:</strong> Center the explosion in each 64x64 frame.
+        F0-F1 should be very bright (whites and yellows). F2-F3 shift to oranges and reds. F4 is dark smoke with low opacity.
+        This plays when a fireball hits a player or wall.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== EFFECT 3: FLAME SHIELD ========== -->
+<div class="effect-card should">
+  <div class="effect-header">
+    <span class="priority should">SHOULD HAVE</span>
+    <h2>3. Flame Shield Ring — flame_shield.png</h2>
+  </div>
+  <div class="effect-body">
+    <div class="effect-canvas-wrap">
+      <canvas id="shieldTemplate" width="768" height="192"></canvas>
+      <div class="frame-label">Template at 2x zoom (actual: 384 x 96px)</div>
+      <button class="sec" style="margin-top:8px;font-size:10px;padding:4px 10px;background:#333;color:#fff;border:none;border-radius:3px;cursor:pointer;" onclick="downloadOne('flame_shield', 384, 96)">Download Template</button>
+    </div>
+    <div class="effect-specs">
+      <table class="spec-table">
+        <tr><td class="key">File name:</td><td class="val"><strong>flame_shield.png</strong></td></tr>
+        <tr><td class="key">Frame size:</td><td class="val"><strong>96 x 96 px</strong> (larger — surrounds player)</td></tr>
+        <tr><td class="key">Frames:</td><td class="val"><strong>4</strong> (horizontal strip)</td></tr>
+        <tr><td class="key">Total sheet:</td><td class="val"><strong>384 x 96 px</strong></td></tr>
+        <tr><td class="key">Animation:</td><td class="val">Looping, 120ms per frame</td></tr>
+        <tr><td class="key">Alignment:</td><td class="val">Centered on the player sprite</td></tr>
+        <tr><td class="key">Engine adds:</td><td class="val">Additional ember particles, slight screen tint</td></tr>
+      </table>
+      <div class="frame-desc">
+        <strong>F0:</strong> Ring of flames around center area. Leave center empty/transparent (player shows through)<br>
+        <strong>F1:</strong> Flames rotate/shift clockwise slightly, some flames taller<br>
+        <strong>F2:</strong> Flames shift more, some contract while others expand<br>
+        <strong>F3:</strong> Flames return toward F0 position for seamless loop<br>
+      </div>
+      <div class="note">
+        <strong>Tips:</strong> The CENTER ~40x56px area should be EMPTY (transparent) — the player character renders behind this sprite.
+        Draw flames around the edges forming a protective ring/aura. Use semi-transparent pixels for the inner glow.
+        96x96 is bigger than the player (64x64) so the shield visibly extends beyond the character.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== EFFECT 4: FIRE PATCH ========== -->
+<div class="effect-card should">
+  <div class="effect-header">
+    <span class="priority should">SHOULD HAVE</span>
+    <h2>4. Fire Patch (Ground) — fire_patch.png</h2>
+  </div>
+  <div class="effect-body">
+    <div class="effect-canvas-wrap">
+      <canvas id="patchTemplate" width="576" height="96"></canvas>
+      <div class="frame-label">Template at 3x zoom (actual: 192 x 32px)</div>
+      <button class="sec" style="margin-top:8px;font-size:10px;padding:4px 10px;background:#333;color:#fff;border:none;border-radius:3px;cursor:pointer;" onclick="downloadOne('fire_patch', 192, 32)">Download Template</button>
+    </div>
+    <div class="effect-specs">
+      <table class="spec-table">
+        <tr><td class="key">File name:</td><td class="val"><strong>fire_patch.png</strong></td></tr>
+        <tr><td class="key">Frame size:</td><td class="val"><strong>64 x 32 px</strong> (wide, short — sits on ground)</td></tr>
+        <tr><td class="key">Frames:</td><td class="val"><strong>3</strong> (horizontal strip)</td></tr>
+        <tr><td class="key">Total sheet:</td><td class="val"><strong>192 x 32 px</strong></td></tr>
+        <tr><td class="key">Animation:</td><td class="val">Looping, 150ms per frame</td></tr>
+        <tr><td class="key">Alignment:</td><td class="val">Bottom edge sits on platform surface</td></tr>
+        <tr><td class="key">Engine adds:</td><td class="val">Rising smoke particles, flickering light effect</td></tr>
+      </table>
+      <div class="frame-desc">
+        <strong>F0:</strong> Low flames flickering across 64px width, mostly at bottom half<br>
+        <strong>F1:</strong> Flames shift, some taller, some shorter — natural fire movement<br>
+        <strong>F2:</strong> Flames shift again, variation from F0 and F1<br>
+      </div>
+      <div class="note">
+        <strong>Tips:</strong> Flames grow upward from the bottom edge. Keep them short (16-24px tall).
+        The bottom row of pixels should be the base/embers (dark red/orange).
+        These are left on the ground by the Ultimate ability and last 5 seconds.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== EFFECT 5: ULTIMATE WAVE ========== -->
+<div class="effect-card should">
+  <div class="effect-header">
+    <span class="priority should">SHOULD HAVE</span>
+    <h2>5. Ultimate Flame Wave — ultimate_wave.png</h2>
+  </div>
+  <div class="effect-body">
+    <div class="effect-canvas-wrap">
+      <canvas id="waveTemplate" width="512" height="64"></canvas>
+      <div class="frame-label">Template at 1x zoom (actual: 512 x 64px)</div>
+      <button class="sec" style="margin-top:8px;font-size:10px;padding:4px 10px;background:#333;color:#fff;border:none;border-radius:3px;cursor:pointer;" onclick="downloadOne('ultimate_wave', 512, 64)">Download Template</button>
+    </div>
+    <div class="effect-specs">
+      <table class="spec-table">
+        <tr><td class="key">File name:</td><td class="val"><strong>ultimate_wave.png</strong></td></tr>
+        <tr><td class="key">Frame size:</td><td class="val"><strong>128 x 64 px</strong> (large projectile)</td></tr>
+        <tr><td class="key">Frames:</td><td class="val"><strong>4</strong> (horizontal strip)</td></tr>
+        <tr><td class="key">Total sheet:</td><td class="val"><strong>512 x 64 px</strong></td></tr>
+        <tr><td class="key">Animation:</td><td class="val">Looping, 100ms per frame</td></tr>
+        <tr><td class="key">Direction:</td><td class="val">Traveling RIGHT (engine flips)</td></tr>
+        <tr><td class="key">Engine adds:</td><td class="val">Intense particle trail, screen shake, camera flash</td></tr>
+      </table>
+      <div class="frame-desc">
+        <strong>F0:</strong> Massive wall of flame, bright core, ~128px wide x 50px tall<br>
+        <strong>F1:</strong> Flames churn, shape shifts, intense heat distortion look<br>
+        <strong>F2:</strong> Flames stretch forward, leading edge sharp<br>
+        <strong>F3:</strong> Flames pull back slightly, cycle back toward F0<br>
+      </div>
+      <div class="note">
+        <strong>Tips:</strong> This is the BIG MOMENT — the Inferno Cataclysm wave. Make it dramatic!
+        It should look like a wall of fire sweeping across the arena.
+        128px wide so it's clearly the most powerful attack in the game.
+        Use the brightest colors here — white-hot center fading to deep crimson edges.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== EFFECT 6: HIT SPARK ========== -->
+<div class="effect-card nice">
+  <div class="effect-header">
+    <span class="priority nice">NICE TO HAVE</span>
+    <h2>6. Hit Impact Spark — hit_spark.png</h2>
+  </div>
+  <div class="effect-body">
+    <div class="effect-canvas-wrap">
+      <canvas id="sparkTemplate" width="384" height="128"></canvas>
+      <div class="frame-label">Template at 4x zoom (actual: 96 x 32px)</div>
+      <button class="sec" style="margin-top:8px;font-size:10px;padding:4px 10px;background:#333;color:#fff;border:none;border-radius:3px;cursor:pointer;" onclick="downloadOne('hit_spark', 96, 32)">Download Template</button>
+    </div>
+    <div class="effect-specs">
+      <table class="spec-table">
+        <tr><td class="key">File name:</td><td class="val"><strong>hit_spark.png</strong></td></tr>
+        <tr><td class="key">Frame size:</td><td class="val"><strong>32 x 32 px</strong></td></tr>
+        <tr><td class="key">Frames:</td><td class="val"><strong>3</strong> (horizontal strip)</td></tr>
+        <tr><td class="key">Total sheet:</td><td class="val"><strong>96 x 32 px</strong></td></tr>
+        <tr><td class="key">Animation:</td><td class="val">One-shot, 50ms per frame (very fast)</td></tr>
+        <tr><td class="key">Engine adds:</td><td class="val">Additional tiny spark particles</td></tr>
+      </table>
+      <div class="frame-desc">
+        <strong>F0:</strong> Bright white/yellow flash, small starburst shape (16px)<br>
+        <strong>F1:</strong> Expanding sparks flying outward, lines radiating from center<br>
+        <strong>F2:</strong> Sparks fading, nearly transparent<br>
+      </div>
+      <div class="note">
+        <strong>Tips:</strong> This plays on every melee hit. Keep it simple — a classic fighting game impact flash.
+        Bright white center → yellow rays → fades fast. If you skip this one, the engine will use particle-only sparks which still look decent.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">File Delivery Summary</div>
+<div class="note" style="font-size:13px; padding: 15px;">
+  Place all files in: <strong style="color:#66ccff;">Sprites/</strong> folder<br><br>
+  <strong>Required files (for best quality):</strong><br>
+  <code style="color:#ff9900;">Sprites/fireball.png</code> — 128 x 32px (4 frames of 32x32)<br>
+  <code style="color:#ff9900;">Sprites/fireball_explosion.png</code> — 320 x 64px (5 frames of 64x64)<br>
+  <code style="color:#ffaa00;">Sprites/flame_shield.png</code> — 384 x 96px (4 frames of 96x96)<br>
+  <code style="color:#ffaa00;">Sprites/fire_patch.png</code> — 192 x 32px (3 frames of 64x32)<br>
+  <code style="color:#ffaa00;">Sprites/ultimate_wave.png</code> — 512 x 64px (4 frames of 128x64)<br>
+  <code style="color:#44aa44;">Sprites/hit_spark.png</code> — 96 x 32px (3 frames of 32x32)<br>
+  <br>
+  <strong>Any files you skip will use particle-only fallback (still looks OK, just less polished).</strong>
+</div>
+
+<script>
+// Utility to draw frame grid template on a canvas
+function drawEffectTemplate(canvasId, frameW, frameH, numFrames, zoom, color, labels) {
+  const c = document.getElementById(canvasId);
+  const ctx = c.getContext('2d');
+  const w = c.width;
+  const h = c.height;
+
+  ctx.clearRect(0, 0, w, h);
+
+  for (let i = 0; i < numFrames; i++) {
+    const x = i * frameW * zoom;
+    const y = 0;
+    const fw = frameW * zoom;
+    const fh = frameH * zoom;
+
+    // Cell background
+    ctx.fillStyle = color + '12';
+    ctx.fillRect(x, y, fw, fh);
+
+    // Center crosshair
+    ctx.strokeStyle = '#ffffff15';
+    ctx.setLineDash([3, 3]);
+    ctx.beginPath();
+    ctx.moveTo(x + fw/2, y);
+    ctx.lineTo(x + fw/2, y + fh);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x, y + fh/2);
+    ctx.lineTo(x + fw, y + fh/2);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Grid border
+    ctx.strokeStyle = '#ffffff33';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(x + 0.5, y + 0.5, fw - 1, fh - 1);
+
+    // Frame number
+    ctx.fillStyle = color + '88';
+    ctx.font = `bold ${Math.max(10, 6*zoom)}px Consolas, monospace`;
+    ctx.fillText(`F${i}`, x + 3*zoom, y + 8*zoom);
+
+    // Size label
+    ctx.fillStyle = '#ffffff33';
+    ctx.font = `${Math.max(8, 4*zoom)}px Consolas, monospace`;
+    ctx.fillText(`${frameW}x${frameH}`, x + 3*zoom, y + fh - 3*zoom);
+
+    // Label
+    if (labels && labels[i]) {
+      ctx.fillStyle = '#ffffff44';
+      ctx.font = `${Math.max(8, 4*zoom)}px Consolas, monospace`;
+      const maxW = fw - 6*zoom;
+      const words = labels[i].split(' ');
+      let line = '';
+      let ly = y + 14*zoom;
+      words.forEach(word => {
+        const test = line + word + ' ';
+        if (ctx.measureText(test).width > maxW && line) {
+          ctx.fillText(line.trim(), x + 3*zoom, ly);
+          line = word + ' ';
+          ly += 5*zoom;
+        } else {
+          line = test;
+        }
+      });
+      if (line) ctx.fillText(line.trim(), x + 3*zoom, ly);
+    }
+
+    // Draw placeholder shape
+    drawPlaceholderShape(ctx, x, y, fw, fh, canvasId, i, color);
+  }
+
+  // Fill remaining space if canvas is wider
+  const usedW = numFrames * frameW * zoom;
+  if (usedW < w) {
+    ctx.fillStyle = '#0a0a1a';
+    ctx.fillRect(usedW, 0, w - usedW, h);
+  }
+}
+
+function drawPlaceholderShape(ctx, x, y, fw, fh, type, frame, color) {
+  ctx.save();
+  ctx.globalAlpha = 0.15;
+  ctx.fillStyle = color;
+
+  const cx = x + fw/2;
+  const cy = y + fh/2;
+
+  if (type === 'fireballTemplate') {
+    // Fireball - circle with flame wisps
+    const r = fw * 0.3 + frame * fw * 0.02;
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+    ctx.fill();
+    // Flame wisps
+    ctx.beginPath();
+    ctx.arc(cx - r*0.5, cy - r*0.3, r*0.4, 0, Math.PI*2);
+    ctx.fill();
+  } else if (type === 'explosionTemplate') {
+    // Explosion - expanding burst
+    const scale = 0.2 + frame * 0.18;
+    const r = fw * scale;
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+    ctx.fill();
+    // Rays
+    for (let a = 0; a < 8; a++) {
+      const angle = (a/8) * Math.PI * 2 + frame * 0.3;
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(cx + Math.cos(angle) * r * 1.3, cy + Math.sin(angle) * r * 1.3);
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = color;
+      ctx.globalAlpha = 0.1;
+      ctx.stroke();
+    }
+  } else if (type === 'shieldTemplate') {
+    // Shield ring - donut shape
+    ctx.beginPath();
+    ctx.arc(cx, cy, fw * 0.4, 0, Math.PI * 2);
+    ctx.fill();
+    // Clear center
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.beginPath();
+    ctx.arc(cx, cy, fw * 0.22, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.globalCompositeOperation = 'source-over';
+  } else if (type === 'patchTemplate') {
+    // Fire patch - flames from bottom
+    for (let i = 0; i < 5; i++) {
+      const fx = x + fw * 0.15 + (i/5) * fw * 0.7;
+      const flameH = fh * (0.3 + Math.sin(i + frame) * 0.15);
+      ctx.beginPath();
+      ctx.moveTo(fx - fw*0.06, y + fh);
+      ctx.lineTo(fx, y + fh - flameH);
+      ctx.lineTo(fx + fw*0.06, y + fh);
+      ctx.fill();
+    }
+  } else if (type === 'waveTemplate') {
+    // Wave - wall of fire
+    ctx.beginPath();
+    ctx.ellipse(cx, cy, fw * 0.45, fh * 0.38, 0, 0, Math.PI * 2);
+    ctx.fill();
+  } else if (type === 'sparkTemplate') {
+    // Spark - starburst
+    const r = fw * (0.2 + frame * 0.1);
+    for (let a = 0; a < 6; a++) {
+      const angle = (a/6) * Math.PI * 2;
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(cx + Math.cos(angle) * r, cy + Math.sin(angle) * r);
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = color;
+      ctx.stroke();
+    }
+    ctx.beginPath();
+    ctx.arc(cx, cy, fw * 0.1, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  ctx.restore();
+}
+
+// Download individual template
+function downloadOne(name, w, h) {
+  const c = document.createElement('canvas');
+  c.width = w;
+  c.height = h;
+  const ctx = c.getContext('2d');
+
+  // Just draw light grid lines
+  const frameW = name === 'fire_patch' ? 64 : name === 'ultimate_wave' ? 128 : name === 'flame_shield' ? 96 : name === 'fireball_explosion' ? 64 : 32;
+  const frameH = h;
+  const frames = Math.round(w / frameW);
+
+  for (let i = 0; i < frames; i++) {
+    const x = i * frameW;
+    // Center crosshair
+    ctx.strokeStyle = '#ffffff08';
+    ctx.setLineDash([2, 2]);
+    ctx.beginPath();
+    ctx.moveTo(x + frameW/2, 0);
+    ctx.lineTo(x + frameW/2, frameH);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x, frameH/2);
+    ctx.lineTo(x + frameW, frameH/2);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Border
+    ctx.strokeStyle = '#ffffff0d';
+    ctx.strokeRect(x + 0.5, 0.5, frameW - 1, frameH - 1);
+  }
+
+  const link = document.createElement('a');
+  link.download = name + '_template.png';
+  link.href = c.toDataURL('image/png');
+  link.click();
+}
+
+// Download all templates
+function downloadAllTemplates() {
+  const templates = [
+    { name: 'fireball', w: 128, h: 32 },
+    { name: 'fireball_explosion', w: 320, h: 64 },
+    { name: 'flame_shield', w: 384, h: 96 },
+    { name: 'fire_patch', w: 192, h: 32 },
+    { name: 'ultimate_wave', w: 512, h: 64 },
+    { name: 'hit_spark', w: 96, h: 32 },
+  ];
+
+  templates.forEach((t, i) => {
+    setTimeout(() => downloadOne(t.name, t.w, t.h), i * 300);
+  });
+}
+
+// Download summary guide
+function downloadSummaryGuide() {
+  const c = document.createElement('canvas');
+  c.width = 800;
+  c.height = 600;
+  const ctx = c.getContext('2d');
+
+  ctx.fillStyle = '#1a1a2e';
+  ctx.fillRect(0, 0, 800, 600);
+
+  ctx.fillStyle = '#ff6600';
+  ctx.font = 'bold 18px Consolas';
+  ctx.fillText('SUPER BATTLEMANCERS — Effects Sprite Summary', 20, 30);
+
+  ctx.fillStyle = '#888';
+  ctx.font = '11px Consolas';
+  ctx.fillText('All sheets: horizontal strip, transparent PNG, facing RIGHT', 20, 50);
+
+  const items = [
+    { name: 'fireball.png', size: '128x32', frames: '4 x 32x32', color: '#ff3333', pri: 'MUST' },
+    { name: 'fireball_explosion.png', size: '320x64', frames: '5 x 64x64', color: '#ff3333', pri: 'MUST' },
+    { name: 'flame_shield.png', size: '384x96', frames: '4 x 96x96', color: '#ffaa00', pri: 'SHOULD' },
+    { name: 'fire_patch.png', size: '192x32', frames: '3 x 64x32', color: '#ffaa00', pri: 'SHOULD' },
+    { name: 'ultimate_wave.png', size: '512x64', frames: '4 x 128x64', color: '#ffaa00', pri: 'SHOULD' },
+    { name: 'hit_spark.png', size: '96x32', frames: '3 x 32x32', color: '#44aa44', pri: 'NICE' },
+  ];
+
+  let y = 80;
+  items.forEach(item => {
+    ctx.fillStyle = item.color + '33';
+    ctx.fillRect(20, y, 760, 30);
+    ctx.fillStyle = item.color;
+    ctx.font = 'bold 12px Consolas';
+    ctx.fillText(`[${item.pri}]`, 30, y + 20);
+    ctx.fillStyle = '#fff';
+    ctx.fillText(item.name, 110, y + 20);
+    ctx.fillStyle = '#aaa';
+    ctx.font = '11px Consolas';
+    ctx.fillText(`Sheet: ${item.size}  |  ${item.frames}`, 380, y + 20);
+    y += 36;
+  });
+
+  const link = document.createElement('a');
+  link.download = 'effects_summary_guide.png';
+  link.href = c.toDataURL('image/png');
+  link.click();
+}
+
+// Draw hybrid illustration
+function drawHybridIllustration() {
+  // Sprite only
+  const c1 = document.getElementById('hybridSprite');
+  const ctx1 = c1.getContext('2d');
+  ctx1.fillStyle = '#ff6600';
+  ctx1.beginPath();
+  ctx1.arc(32, 32, 12, 0, Math.PI*2);
+  ctx1.fill();
+  ctx1.fillStyle = '#facc22';
+  ctx1.beginPath();
+  ctx1.arc(32, 32, 6, 0, Math.PI*2);
+  ctx1.fill();
+
+  // Particles only
+  const c2 = document.getElementById('hybridParticle');
+  const ctx2 = c2.getContext('2d');
+  for (let i = 0; i < 20; i++) {
+    ctx2.fillStyle = ['#ff6600', '#ff8c00', '#facc22', '#f83600'][i % 4];
+    ctx2.globalAlpha = 0.3 + Math.random() * 0.5;
+    ctx2.beginPath();
+    const px = 10 + Math.random() * 44;
+    const py = 20 + Math.random() * 24;
+    ctx2.arc(px, py, 1 + Math.random() * 3, 0, Math.PI * 2);
+    ctx2.fill();
+  }
+  ctx2.globalAlpha = 1;
+
+  // Combined
+  const c3 = document.getElementById('hybridResult');
+  const ctx3 = c3.getContext('2d');
+  // Glow
+  const grad = ctx3.createRadialGradient(32, 32, 0, 32, 32, 28);
+  grad.addColorStop(0, '#facc2244');
+  grad.addColorStop(1, '#ff660000');
+  ctx3.fillStyle = grad;
+  ctx3.fillRect(0, 0, 64, 64);
+  // Particles
+  for (let i = 0; i < 15; i++) {
+    ctx3.fillStyle = ['#ff6600', '#ff8c00', '#facc22'][i % 3];
+    ctx3.globalAlpha = 0.3 + Math.random() * 0.4;
+    ctx3.beginPath();
+    ctx3.arc(8 + Math.random() * 48, 20 + Math.random() * 24, 1.5 + Math.random() * 2, 0, Math.PI * 2);
+    ctx3.fill();
+  }
+  ctx3.globalAlpha = 1;
+  // Sprite
+  ctx3.fillStyle = '#ff6600';
+  ctx3.beginPath();
+  ctx3.arc(32, 32, 12, 0, Math.PI * 2);
+  ctx3.fill();
+  ctx3.fillStyle = '#facc22';
+  ctx3.beginPath();
+  ctx3.arc(32, 32, 6, 0, Math.PI * 2);
+  ctx3.fill();
+  ctx3.fillStyle = '#ffffcc';
+  ctx3.beginPath();
+  ctx3.arc(32, 32, 3, 0, Math.PI * 2);
+  ctx3.fill();
+}
+
+// Init all templates
+drawEffectTemplate('fireballTemplate', 32, 32, 4, 4, '#ff6600', ['Fireball core shape', 'Slight flicker outward', 'Flames stretch more', 'Contract, loop to F0']);
+drawEffectTemplate('explosionTemplate', 64, 64, 5, 2, '#ff3300', ['Initial flash (small)', 'Expanding burst', 'Full size bloom', 'Breaking into embers', 'Smoke dissipate']);
+drawEffectTemplate('shieldTemplate', 96, 96, 4, 2, '#ff8800', ['Flame ring (center empty)', 'Flames shift clockwise', 'More variation', 'Return toward F0']);
+drawEffectTemplate('patchTemplate', 64, 32, 3, 3, '#ff4400', ['Low flames flickering', 'Flames shift heights', 'Variation, loops to F0']);
+drawEffectTemplate('waveTemplate', 128, 64, 4, 1, '#ff2200', ['Wall of flame, bright core', 'Flames churn, shift', 'Leading edge stretches', 'Pull back, loop to F0']);
+drawEffectTemplate('sparkTemplate', 32, 32, 3, 4, '#ffcc00', ['White/yellow flash', 'Sparks fly outward', 'Fading sparks']);
+drawHybridIllustration();
+</script>
+
+</body>
+</html>

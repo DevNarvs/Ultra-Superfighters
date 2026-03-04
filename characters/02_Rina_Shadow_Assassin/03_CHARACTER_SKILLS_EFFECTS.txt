@@ -1,0 +1,476 @@
+================================================================================
+  CHARACTER SKILL EFFECTS: RINA — THE PHANTOM BLADE
+  Super Battlemancers
+================================================================================
+  INPUT:    <- 01_CHARACTER_DESCRIPTION.txt (Shadow/Void, Pink Palette)
+  OUTPUT:   Skill effect sprite sheet PNGs
+================================================================================
+
+
+CHARACTER REFERENCE
+================================================================================
+Name              : Rina
+Element / Theme   : Shadow / Void (pink energy)
+Primary Power     : Void Kunai (projectile)
+Secondary Ability : Shadow Blink (teleport + afterimage)
+Ultimate          : Phantom Barrage (multi-hit teleport slashes)
+
+Effect Palette:
+  Brightest       : #FFFFFF (white-hot center / flash)
+  Highlight       : #FFB6D9 (pastel pink — brightest energy)
+  Core            : #FF69B4 (hot pink — main energy color)
+  Mid             : #C44B99 (dark magenta — mid energy)
+  Shadow          : #8B1A6E (deep magenta — energy shadow)
+  Darkest         : #5C1158 (plum — energy edge)
+  Void Black      : #2A1028 (shadow/void darkness)
+
+
+EFFECTS OVERVIEW TABLE
+================================================================================
+
+#   Effect              File                      Frame Size   Frames   Sheet Size    Priority
+-   ------              ----                      ----------   ------   ----------    --------
+1   Void Kunai          void_kunai.png            32 x 32      4       128 x 32      MUST
+2   Kunai Impact        void_kunai_impact.png     64 x 64      5       320 x 64      MUST
+3   Shadow Afterimage   shadow_afterimage.png     64 x 64      4       256 x 64      SHOULD
+4   Slash Trail         slash_trail.png           64 x 32      3       192 x 32      SHOULD
+5   Phantom Slash       phantom_slash.png        128 x 64      4       512 x 64      SHOULD
+6   Hit Spark           hit_spark.png             32 x 32      3        96 x 32      NICE (shared)
+
+
+================================================================================
+EFFECT 1: VOID KUNAI (Projectile)                                   [MUST HAVE]
+================================================================================
+
+File              : void_kunai.png
+Frame size        : 32 x 32 pixels
+Frames            : 4
+Total sheet size  : 128 x 32 pixels
+Animation         : Looping, 80ms per frame
+Direction         : Traveling RIGHT (engine flips for left)
+Engine adds       : Pink particle trail behind, faint glow aura
+
+Layout:
+  [ F0 ][ F1 ][ F2 ][ F3 ]
+  32x32  32x32  32x32  32x32
+
+FRAME DESCRIPTIONS:
+  F0: A pink energy kunai shape, ~20px long x 8px wide, pointed toward the
+      right. The shape is a classic kunai/dagger: pointed narrow tip on the
+      right, wider at the base on the left with a small ring/loop at the tail.
+      Bright hot pink (#FF69B4) body with a white (#FFFFFF) edge highlight on
+      the blade. Darker magenta (#8B1A6E) shadow on the underside. Faint pink
+      glow around the edges (2-3 pixels of semi-transparent #FFB6D9).
+      Centered vertically in the 32x32 frame. Positioned slightly left of
+      center (tip at about x=26, tail at about x=6).
+
+  F1: Slight flicker — the energy kunai pulses. The glow around the edges
+      expands by 1-2 pixels. The white highlight shifts slightly. The overall
+      brightness increases subtly.
+
+  F2: Glow contracts back. Small void/shadow wisps appear at the tail end
+      (1-2 pixels of dark #2A1028 trailing behind). The kunai body remains
+      the same shape and position.
+
+  F3: Returns toward F0 appearance for seamless loop. Wisps fade.
+
+DESIGN NOTES:
+  - The kunai is an ENERGY construct, not a physical metal weapon. It should
+    look like it's made of solidified pink light/shadow energy.
+  - Semi-transparent pink glow around the edges is important for the energy feel.
+  - Keep the shape clean and recognizable even at small size.
+  - Tip points RIGHT. Engine flips the whole sprite for leftward travel.
+
+AI PROMPT:
+  Pixel art sprite sheet of a pink energy kunai projectile for a 2D
+  side-scrolling fighting game.
+
+  RENDERING RULES:
+  - Strict side view, 90-degree angle, like a classic 2D game projectile.
+  - NOT 3/4 view. NOT perspective. Flat 2D side profile.
+  - Each frame is exactly 32x32 pixels.
+  - 4 frames in a single horizontal row. Total image: 128x32 pixels.
+  - Transparent background.
+
+  APPEARANCE:
+  The kunai is made of glowing pink energy, not metal. It is a classic
+  kunai/dagger shape: narrow pointed tip on the right side, wider base
+  on the left with a small ring at the tail. Approximately 20 pixels
+  long and 8 pixels wide. Centered vertically in the frame.
+  Color: hot pink (#FF69B4) body, white (#FFFFFF) edge highlight on the
+  blade, darker magenta (#8B1A6E) shadow underneath, and a soft
+  semi-transparent pastel pink (#FFB6D9) glow halo around the edges.
+  The energy kunai looks like solidified pink light.
+
+  FRAMES:
+  Frame 1: Kunai shape with soft glow, steady state.
+  Frame 2: Glow pulses slightly brighter and wider.
+  Frame 3: Glow contracts, small dark shadow wisps at the tail.
+  Frame 4: Returns to frame 1 state for seamless loop.
+
+  STYLE: Clean pixel art, 1px dark outline, no anti-aliasing, no dithering.
+  Vibrant pink and magenta colors. Retro 2D game projectile.
+
+
+================================================================================
+EFFECT 2: KUNAI IMPACT (Explosion)                                  [MUST HAVE]
+================================================================================
+
+File              : void_kunai_impact.png
+Frame size        : 64 x 64 pixels
+Frames            : 5
+Total sheet size  : 320 x 64 pixels
+Animation         : One-shot, 50ms per frame (very fast)
+Engine adds       : Small pink spark particles flying outward
+
+Layout:
+  [  F0  ][  F1  ][  F2  ][  F3  ][  F4  ]
+   64x64   64x64   64x64   64x64   64x64
+
+FRAME DESCRIPTIONS:
+  F0: FLASH — a small bright white-pink flash at the center of the frame,
+      approximately 12-16 pixels diameter. Pure white (#FFFFFF) center with
+      a hot pink (#FF69B4) edge. Sharp starburst shape with 4-6 short rays.
+      This is the instant of impact.
+
+  F1: EXPAND — the flash blooms outward to approximately 28-32 pixels.
+      The center shifts from white to bright pastel pink (#FFB6D9). The
+      outer edge is hot pink (#FF69B4) breaking into angular shards/fragments.
+      Small void/shadow particles (#2A1028) begin appearing at the edges,
+      mixed with the pink — this is shadow energy, not pure fire.
+
+  F2: FULL SIZE — maximum expansion, approximately 40-48 pixels. A burst of
+      pink and dark void energy. The center is pastel pink. The outer ring
+      has alternating pink (#FF69B4) and shadow-dark (#2A1028) fragments,
+      creating a distinctive "void shatter" look. Angular, crystalline
+      break pattern (not round/smooth like fire — sharp like broken glass).
+
+  F3: FADING — the burst collapses inward. Fragments scatter outward and
+      become semi-transparent. The center darkens. Void-black (#2A1028)
+      wisps curl inward. Pink remnants fading.
+
+  F4: DISSIPATE — nearly gone. A few faint pink pixels and dark shadow
+      wisps at the center. Very transparent. Vanishing into nothing.
+
+COLOR PROGRESSION:
+  F0: White (#FFFFFF), bright pink (#FFB6D9)
+  F1: Pastel pink (#FFB6D9), hot pink (#FF69B4)
+  F2: Hot pink (#FF69B4), void black (#2A1028) — the mixed look
+  F3: Dark magenta (#8B1A6E), fading pink, shadow wisps
+  F4: Faint traces, mostly transparent
+
+DESIGN NOTES:
+  - This is a SHADOW/VOID impact, not a fire explosion. The visual should
+    feel like reality cracking/shattering with pink energy, not a round
+    fiery burst.
+  - Angular, crystalline fragments > smooth, round particles.
+  - The dark void black mixed with bright pink creates the signature look.
+
+AI PROMPT:
+  Pixel art sprite sheet of a pink void energy impact explosion for a 2D
+  side-scrolling fighting game.
+
+  RENDERING RULES:
+  - Strict 2D flat view, centered in each frame.
+  - Each frame is exactly 64x64 pixels.
+  - 5 frames in a single horizontal row. Total image: 320x64 pixels.
+  - Transparent background.
+
+  APPEARANCE:
+  This is a SHADOW/VOID energy impact, not a fire explosion. It looks like
+  reality shattering with pink energy mixed with dark void shadows.
+  The explosion pattern is angular and crystalline — sharp fragments
+  like broken glass, NOT smooth round fire bursts.
+  Colors: white (#FFFFFF) flash, hot pink (#FF69B4) energy, pastel pink
+  (#FFB6D9) highlights, and dark void black (#2A1028) shadow fragments
+  mixed together.
+
+  FRAMES:
+  Frame 1: Small white-pink flash at center, 12-16px, sharp starburst shape.
+  Frame 2: Expanding to 28-32px, pink energy with angular fragments appearing.
+  Frame 3: Full size 40-48px, pink and dark void shards mixed, crystalline
+           break pattern, most dramatic frame.
+  Frame 4: Collapsing inward, fragments scatter and fade, shadow wisps.
+  Frame 5: Nearly gone, faint pink traces and dark wisps, very transparent.
+
+  STYLE: Clean pixel art, 1px dark outline, angular/sharp fragment shapes,
+  vibrant pink with dark void accents. Retro 2D game impact effect.
+
+
+================================================================================
+EFFECT 3: SHADOW AFTERIMAGE (Shadow Blink ability)                  [SHOULD]
+================================================================================
+
+File              : shadow_afterimage.png
+Frame size        : 64 x 64 pixels
+Frames            : 4
+Total sheet size  : 256 x 64 pixels
+Animation         : One-shot, 120ms per frame (holds then fades)
+Alignment         : Placed at the position where Rina was BEFORE the blink
+Engine adds       : Pink particle dispersion, faint damage zone indicator
+
+Layout:
+  [  F0  ][  F1  ][  F2  ][  F3  ]
+   64x64   64x64   64x64   64x64
+
+FRAME DESCRIPTIONS:
+  F0: APPEAR — a semi-transparent copy/silhouette of Rina's idle pose.
+      NOT the full detailed character — this is a GHOST/SHADOW version.
+      Solid fill in dark magenta (#8B1A6E) with hot pink (#FF69B4) edges.
+      The silhouette should clearly read as "the assassin girl" (ponytail,
+      glasses shape, coat outline) but filled with a flat shadow color
+      instead of full detail. Approximately the same height as the character
+      (48-56px). Semi-transparent: about 70% opacity feel.
+
+  F1: FLICKER — the afterimage begins distorting. The silhouette splits
+      slightly — a 1-2 pixel horizontal offset creates a "glitch" effect,
+      like a digital ghost. Colors shift: the body becomes more transparent,
+      the edges glow brighter pink. Void-dark (#2A1028) fragments begin
+      separating from the silhouette.
+
+  F2: DISSOLVE — the silhouette is breaking apart. The top half begins to
+      dissolve into upward-floating pink and dark particles/fragments. The
+      bottom half is still partially visible but very transparent. The overall
+      shape is losing coherence — you can barely tell it was a person.
+
+  F3: VANISH — nearly gone. A few scattered pink (#FF69B4) and dark
+      (#2A1028) pixels/fragments floating where the afterimage was.
+      Very sparse. Almost fully transparent. Then gone.
+
+DESIGN NOTES:
+  - This is NOT a full detailed character copy. It's a flat shadow silhouette
+    with recognizable outline (ponytail, glasses, coat).
+  - The "glitch/split" effect in F1 is key to the shadow-tech aesthetic.
+  - It dissolves UPWARD into particles (not outward like an explosion).
+  - The afterimage faces RIGHT (same as the character's last facing direction).
+  - Character height in the silhouette: feet at y=58, same as the real sprite.
+
+AI PROMPT:
+  Pixel art sprite sheet of a shadow afterimage/ghost silhouette for a 2D
+  side-scrolling fighting game.
+
+  RENDERING RULES:
+  - Strict side view (profile), facing RIGHT.
+  - Each frame is exactly 64x64 pixels.
+  - 4 frames in a single horizontal row. Total image: 256x64 pixels.
+  - Transparent background.
+
+  APPEARANCE:
+  A semi-transparent ghost silhouette of an assassin girl character. NOT a
+  detailed character — a flat shadow fill with a recognizable outline. The
+  silhouette shows: ponytail behind the head, small rectangular glasses on
+  the face, fitted coat at the waist, thigh-high boots.
+  Filled with dark magenta (#8B1A6E) with bright hot pink (#FF69B4) glowing
+  edges. The character shape is approximately 48-56 pixels tall with feet
+  at y=58.
+
+  FRAMES (dissolution sequence):
+  Frame 1: Semi-transparent silhouette, clearly readable character shape.
+           Dark magenta fill, pink glowing edges. About 70% opacity feel.
+  Frame 2: Silhouette glitches — splits horizontally by 1-2 pixels like a
+           digital ghost. Edges glow brighter. Dark void fragments separating.
+  Frame 3: Dissolving — top half breaks into upward-floating pink and dark
+           particles. Bottom half fading. Shape losing coherence.
+  Frame 4: Nearly vanished — scattered pink and dark pixels floating where
+           the figure was. Very sparse, almost fully transparent.
+
+  STYLE: Clean pixel art, flat silhouette (not detailed), glitch/digital
+  aesthetic, pink and dark void colors. Retro 2D game ghost effect.
+
+
+================================================================================
+EFFECT 4: SLASH TRAIL (Melee hit visual)                            [SHOULD]
+================================================================================
+
+File              : slash_trail.png
+Frame size        : 64 x 32 pixels
+Frames            : 3
+Total sheet size  : 192 x 32 pixels
+Animation         : One-shot, 40ms per frame (extremely fast)
+Alignment         : Spawned at the impact point of melee attacks
+Engine adds       : Additional small spark particles
+
+Layout:
+  [   F0   ][   F1   ][   F2   ]
+    64x32     64x32     64x32
+
+FRAME DESCRIPTIONS:
+  F0: SLASH — a bright diagonal slash line from upper-left to lower-right
+      of the frame. The slash is a thin arc (2-3 pixels wide at the center,
+      tapering to 1 pixel at each end). Approximately 50 pixels long.
+      Color: white (#FFFFFF) center line with hot pink (#FF69B4) glow on
+      each side (1 pixel of pink bordering the white). The slash shape has
+      a slight curve/arc — it's a sweeping cut, not a straight line.
+      Bright and sharp. This represents the energy dagger's cut through the air.
+
+  F1: GLOW — the slash line widens slightly (3-4 pixels). The white center
+      fades to pastel pink (#FFB6D9). The pink glow border expands. Small
+      angular fragments appear along the slash path. The overall shape is
+      still clearly a diagonal slash arc.
+
+  F2: FADE — the slash line becomes very thin (1 pixel) and mostly
+      transparent. The fragments scatter slightly. Colors shift to faint
+      pink, nearly invisible. Vanishing.
+
+DESIGN NOTES:
+  - The slash goes from UPPER-LEFT to LOWER-RIGHT (a downward diagonal cut
+    for Attack 1/2). The engine can rotate/flip for different attack angles.
+  - It should look like a speed-line slash cut — sharp, clean, fast.
+  - The white-to-pink color makes it distinctive from fire effects.
+  - Very short animation (120ms total) — blink and you miss it.
+
+AI PROMPT:
+  Pixel art sprite sheet of an energy slash trail for a 2D side-scrolling
+  fighting game.
+
+  RENDERING RULES:
+  - Flat 2D view.
+  - Each frame is exactly 64 pixels wide and 32 pixels tall.
+  - 3 frames in a single horizontal row. Total image: 192x32 pixels.
+  - Transparent background.
+
+  APPEARANCE:
+  A sweeping diagonal slash arc from the upper-left to the lower-right of
+  the frame. This is the trail left by a pink energy dagger cutting through
+  the air. The slash is a thin curved arc approximately 50 pixels long.
+  Color: bright white (#FFFFFF) center line, with hot pink (#FF69B4) glow
+  on each side of the line.
+
+  FRAMES:
+  Frame 1: Sharp bright slash arc, white center with pink glow edges,
+           2-3 pixels wide, full brightness. Clean and crisp.
+  Frame 2: Slash widens slightly, white fades to pastel pink (#FFB6D9),
+           glow expands, small angular fragments along the path.
+  Frame 3: Slash thins to 1 pixel, mostly transparent, fragments scatter,
+           fading away.
+
+  STYLE: Clean pixel art, sharp speed-line aesthetic, pink energy colors.
+  Retro 2D fighting game slash effect. Very fast and clean.
+
+
+================================================================================
+EFFECT 5: PHANTOM SLASH (Ultimate visual)                           [SHOULD]
+================================================================================
+
+File              : phantom_slash.png
+Frame size        : 128 x 64 pixels
+Frames            : 4
+Total sheet size  : 512 x 64 pixels
+Animation         : Plays once per slash during the ultimate (5 times total)
+Direction         : Horizontal, facing right (engine flips)
+Engine adds       : Screen flash, shake, pink particle burst
+
+Layout:
+  [     F0     ][     F1     ][     F2     ][     F3     ]
+     128x64       128x64       128x64       128x64
+
+FRAME DESCRIPTIONS:
+  F0: FLASH — the frame is mostly empty except for a bright horizontal
+      line/streak cutting across the center. The streak is approximately
+      100 pixels long x 4 pixels tall. Pure white (#FFFFFF) center with
+      hot pink (#FF69B4) edges. This represents the instant a phantom slash
+      cuts through the space. The streak starts thin on the left and widens
+      toward the center, then thins again on the right (speed-line shape).
+      Two or three smaller parallel streaks (offset vertically by 8-12px)
+      create a multi-slash feel.
+
+  F1: EXPAND — the main streak widens to 6-8 pixels. The color shifts from
+      white to bright pastel pink (#FFB6D9). The secondary streaks also
+      widen. Dark void cracks (#2A1028) appear between the streaks — like
+      reality splitting open where Rina slashed. Angular, sharp.
+
+  F2: SHATTER — the streaks break apart into angular fragments. Pink and
+      void-dark shards fly outward from the slash lines. The center of each
+      streak darkens to void black. The overall pattern looks like a cracked
+      screen/mirror with pink energy leaking through the cracks.
+
+  F3: FADE — the fragments scatter and fade rapidly. The void cracks close.
+      A few lingering pink and dark pixels. Nearly transparent. Space heals.
+
+DESIGN NOTES:
+  - This is the ULTIMATE effect — most dramatic, largest sprites.
+  - The "reality cracking" aesthetic distinguishes this from simple slashes.
+  - Multiple parallel streaks make it feel like several rapid cuts at once.
+  - The combination of bright pink + void dark is the character's signature.
+  - Each play of this animation represents one of the 5 slashes in Phantom
+    Barrage. The engine plays it 5 times at different positions.
+
+AI PROMPT:
+  Pixel art sprite sheet of a phantom slash ultimate attack effect for a 2D
+  side-scrolling fighting game.
+
+  RENDERING RULES:
+  - Flat 2D view, horizontal orientation.
+  - Each frame is exactly 128 pixels wide and 64 pixels tall.
+  - 4 frames in a single horizontal row. Total image: 512x64 pixels.
+  - Transparent background.
+
+  APPEARANCE:
+  Multiple horizontal speed-line slashes cutting across the frame, representing
+  a phantom assassin cutting through space. Two or three parallel horizontal
+  streaks (offset vertically by about 10 pixels), each approximately 100
+  pixels long. The slashes are combined with dark void cracks between them —
+  like reality splitting open where the assassin cut.
+  Colors: white (#FFFFFF) and hot pink (#FF69B4) energy streaks, with
+  dark void (#2A1028) cracks/fractures between them.
+
+  FRAMES:
+  Frame 1: Bright horizontal speed-line streaks, white center with pink edges,
+           thin (3-4px), sharp and crisp. Multiple parallel slashes.
+  Frame 2: Streaks widen, shift from white to pastel pink, dark void cracks
+           appear between the streaks like shattered glass.
+  Frame 3: Streaks shatter into angular pink and dark fragments. Void cracks
+           prominent. Looks like a cracked screen with pink energy leaking out.
+  Frame 4: Fragments scatter and fade, cracks close, nearly transparent.
+
+  STYLE: Clean pixel art, dramatic speed-lines, reality-cracking aesthetic,
+  vibrant pink with dark void accents. Retro 2D fighting game ultimate effect.
+  This should be the most dramatic and visually impressive effect in the game.
+
+
+================================================================================
+EFFECT 6: HIT IMPACT SPARK                                         [NICE]
+================================================================================
+
+NOTE: This is a SHARED effect used by all characters. Only needs to be
+created once. See the Fire Battlemancer's skills effects file for the
+specification, or use the template:
+
+File              : hit_spark.png (same for all characters)
+Frame size        : 32 x 32 pixels
+Frames            : 3
+Total sheet size  : 96 x 32 pixels
+
+If already created for Fire Battlemancer, REUSE IT. No need to create
+a character-specific version.
+
+
+================================================================================
+POST-GENERATION CHECKLIST
+================================================================================
+[ ] Transparent background on all effect sprites
+[ ] Correct total dimensions per effect (see overview table)
+[ ] Frames evenly spaced in horizontal strip with no gaps
+[ ] Art style matches the character sprite (anime pixel art)
+[ ] Void Kunai points RIGHT (engine flips for left travel)
+[ ] Phantom Slash streaks are HORIZONTAL
+[ ] Shadow Afterimage has a recognizable character SILHOUETTE
+[ ] Slash trail is a DIAGONAL arc (not straight)
+[ ] Colors match the character palette (pinks + void dark)
+[ ] No anti-aliasing, no dithering — clean pixel edges
+
+
+================================================================================
+FILE DELIVERY SUMMARY
+================================================================================
+
+Place all files in the Sprites/ folder:
+
+  Sprites/
+  +-- rina_shadow_assassin.png        <-- Character (from 02)
+  +-- void_kunai.png                  <-- 128x32   (4 frames)   MUST
+  +-- void_kunai_impact.png           <-- 320x64   (5 frames)   MUST
+  +-- shadow_afterimage.png           <-- 256x64   (4 frames)   SHOULD
+  +-- slash_trail.png                 <-- 192x32   (3 frames)   SHOULD
+  +-- phantom_slash.png               <-- 512x64   (4 frames)   SHOULD
+  +-- hit_spark.png                   <-- 96x32    (3 frames)   NICE (shared)

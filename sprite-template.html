@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fire Battlemancer - Sprite Sheet Template</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #fff; font-family: 'Segoe UI', Consolas, monospace; padding: 20px; }
+  h1 { color: #ff6600; margin-bottom: 5px; font-size: 22px; }
+  .subtitle { color: #888; font-size: 13px; margin-bottom: 20px; }
+  .controls { margin-bottom: 15px; display: flex; gap: 15px; align-items: center; flex-wrap: wrap; }
+  .controls label { color: #aaa; font-size: 12px; }
+  .controls select, .controls input { background: #16213e; color: #fff; border: 1px solid #444; padding: 4px 8px; border-radius: 4px; font-size: 12px; }
+  .controls button { background: #ff6600; color: #fff; border: none; padding: 6px 14px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; }
+  .controls button:hover { background: #ff8800; }
+  .controls button.secondary { background: #333; }
+  .controls button.secondary:hover { background: #555; }
+
+  .sheet-container { position: relative; display: inline-block; background: repeating-conic-gradient(#2a2a3e 0% 25%, #222238 0% 50%) 50% / 16px 16px; border: 2px solid #444; }
+  canvas { display: block; image-rendering: pixelated; }
+
+  .info-panel { display: flex; gap: 30px; margin-top: 20px; flex-wrap: wrap; }
+  .info-section { background: #16213e; border-radius: 8px; padding: 15px; min-width: 300px; flex: 1; }
+  .info-section h3 { color: #ff9900; margin-bottom: 10px; font-size: 14px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  td, th { padding: 4px 8px; text-align: left; border-bottom: 1px solid #2a2a3e; }
+  th { color: #888; font-weight: normal; }
+  .frame-count { color: #ff6600; font-weight: bold; }
+  .row-label { color: #66ccff; }
+
+  .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; font-size: 12px; }
+  .spec-grid .key { color: #888; }
+  .spec-grid .val { color: #fff; }
+
+  .legend { display: flex; gap: 15px; margin-top: 10px; flex-wrap: wrap; font-size: 11px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; }
+  .legend-color { width: 12px; height: 12px; border-radius: 2px; }
+
+  .download-section { margin-top: 15px; }
+  .note { color: #ff6666; font-size: 11px; margin-top: 8px; }
+
+  .pose-ref { margin-top: 20px; background: #16213e; border-radius: 8px; padding: 15px; }
+  .pose-ref h3 { color: #ff9900; margin-bottom: 10px; font-size: 14px; }
+  .pose-row { display: flex; gap: 10px; margin-bottom: 15px; align-items: flex-start; }
+  .pose-row canvas { border: 1px solid #333; border-radius: 4px; background: repeating-conic-gradient(#2a2a3e 0% 25%, #222238 0% 50%) 50% / 8px 8px; }
+  .pose-desc { font-size: 11px; color: #ccc; line-height: 1.5; }
+  .pose-desc strong { color: #ff9900; }
+  .anim-name { color: #66ccff; font-weight: bold; font-size: 13px; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<h1>FIRE BATTLEMANCER — Sprite Sheet Template</h1>
+<div class="subtitle">64x64px per frame | 6 columns x 11 rows | 384 x 704px total | Side view facing RIGHT</div>
+
+<div class="controls">
+  <label>Zoom:</label>
+  <select id="zoomSelect">
+    <option value="1">1x (384x704)</option>
+    <option value="2" selected>2x (768x1408)</option>
+    <option value="3">3x (1152x2112)</option>
+    <option value="4">4x (1536x2816)</option>
+  </select>
+  <button onclick="downloadTemplate()">Download Template PNG</button>
+  <button class="secondary" onclick="downloadGuide()">Download Guide PNG (with labels)</button>
+  <button class="secondary" onclick="loadSpriteSheet()">Load Your Spritesheet</button>
+  <input type="file" id="fileInput" accept=".png" style="display:none" onchange="handleFile(event)">
+</div>
+
+<div class="sheet-container">
+  <canvas id="mainCanvas"></canvas>
+</div>
+
+<div class="info-panel">
+  <!-- Left: Animation Rows -->
+  <div class="info-section">
+    <h3>ANIMATION ROWS</h3>
+    <table>
+      <tr><th>Row</th><th>Animation</th><th>Frames</th><th>Speed</th><th>Loop</th></tr>
+      <tr><td class="row-label">0</td><td>Idle</td><td class="frame-count">4</td><td>150ms</td><td>Yes</td></tr>
+      <tr><td class="row-label">1</td><td>Run</td><td class="frame-count">6</td><td>100ms</td><td>Yes</td></tr>
+      <tr><td class="row-label">2</td><td>Jump</td><td class="frame-count">3</td><td>120ms</td><td>No</td></tr>
+      <tr><td class="row-label">3</td><td>Attack 1 (Jab)</td><td class="frame-count">3</td><td>80ms</td><td>No</td></tr>
+      <tr><td class="row-label">4</td><td>Attack 2 (Cross)</td><td class="frame-count">3</td><td>80ms</td><td>No</td></tr>
+      <tr><td class="row-label">5</td><td>Attack 3 (Kick)</td><td class="frame-count">4</td><td>100ms</td><td>No</td></tr>
+      <tr><td class="row-label">6</td><td>Cast Ability</td><td class="frame-count">4</td><td>120ms</td><td>No</td></tr>
+      <tr><td class="row-label">7</td><td>Take Hit</td><td class="frame-count">2</td><td>150ms</td><td>No</td></tr>
+      <tr><td class="row-label">8</td><td>Dodge (Phase Shift)</td><td class="frame-count">2</td><td>holds F1</td><td>No</td></tr>
+      <tr><td class="row-label">9</td><td>Ultimate</td><td class="frame-count">4</td><td>200ms</td><td>No</td></tr>
+      <tr><td class="row-label">10</td><td>Death</td><td class="frame-count">3</td><td>200ms</td><td>No</td></tr>
+    </table>
+  </div>
+
+  <!-- Right: Specs -->
+  <div class="info-section">
+    <h3>SPRITE SPECIFICATIONS</h3>
+    <div class="spec-grid">
+      <div class="key">Frame Size:</div><div class="val">64 x 64 px</div>
+      <div class="key">Sheet Size:</div><div class="val">384 x 704 px</div>
+      <div class="key">Columns:</div><div class="val">6</div>
+      <div class="key">Rows:</div><div class="val">11</div>
+      <div class="key">Total Frames:</div><div class="val">38 used / 66 cells</div>
+      <div class="key">View:</div><div class="val">Side view, facing RIGHT</div>
+      <div class="key">Format:</div><div class="val">PNG-24 with transparency</div>
+      <div class="key">Background:</div><div class="val">Transparent</div>
+      <div class="key">Character Height:</div><div class="val">~48-56px within frame</div>
+      <div class="key">Ground Line:</div><div class="val">y = 58 (6px from bottom)</div>
+      <div class="key">Center X:</div><div class="val">x = 32 (centered)</div>
+      <div class="key">Outline:</div><div class="val">1px dark outline</div>
+      <div class="key">Shading:</div><div class="val">2-3 levels per color</div>
+      <div class="key">Facing:</div><div class="val">Always RIGHT (engine flips for left)</div>
+    </div>
+
+    <div class="legend" style="margin-top: 15px;">
+      <div class="legend-item"><div class="legend-color" style="background:#ff660066;border:1px solid #ff6600;"></div> Used frame cell</div>
+      <div class="legend-item"><div class="legend-color" style="background:#ffffff11;border:1px solid #333;"></div> Empty cell (transparent)</div>
+      <div class="legend-item"><div class="legend-color" style="background:none;border:1px dashed #66ccff;"></div> Ground line (y=58)</div>
+      <div class="legend-item"><div class="legend-color" style="background:none;border:1px dashed #ff666666;"></div> Center line (x=32)</div>
+    </div>
+
+    <div class="note" style="margin-top: 15px;">
+      IMPORTANT RULES:<br>
+      - Always face RIGHT. Engine flips sprite for left.<br>
+      - Keep feet at y=58 consistently across all frames.<br>
+      - Center character at x=32 so flipping looks correct.<br>
+      - No fire effects/particles in sprite — added at runtime.<br>
+      - Unused cells must be fully transparent.<br>
+      - Both players use same sheet (P2 is tinted blue by engine).
+    </div>
+  </div>
+</div>
+
+<!-- Pose Reference -->
+<div class="pose-ref">
+  <h3>POSE REFERENCE GUIDE (per frame)</h3>
+  <div id="poseGuides"></div>
+</div>
+
+<script>
+const COLS = 6;
+const ROWS = 11;
+const FRAME_W = 64;
+const FRAME_H = 64;
+const SHEET_W = COLS * FRAME_W;
+const SHEET_H = ROWS * FRAME_H;
+const GROUND_Y = 58;
+const CENTER_X = 32;
+
+const ANIMS = [
+  { name: 'Idle', frames: 4, color: '#ff6600', descs: [
+    'Neutral standing pose, relaxed',
+    'Slight inhale, body rises 1-2px',
+    'Peak of breath, hand glows faintly',
+    'Exhale, body lowers back to neutral'
+  ]},
+  { name: 'Run', frames: 6, color: '#ffaa00', descs: [
+    'Right foot contact, left arm forward',
+    'Right foot down, body lowers',
+    'Right foot passing, body centered',
+    'Left foot contact, right arm forward',
+    'Left foot down, body lowers',
+    'Left foot passing, body centered'
+  ]},
+  { name: 'Jump', frames: 3, color: '#44cc44', descs: [
+    'Launch: legs compressed, pushing off',
+    'Peak: legs tucked, arms out for balance',
+    'Fall: legs extend down, arms up'
+  ]},
+  { name: 'Attack 1 (Jab)', frames: 3, color: '#ff3333', descs: [
+    'Windup: pull right fist back',
+    'Strike: arm fully extended forward',
+    'Recovery: arm retracting'
+  ]},
+  { name: 'Attack 2 (Cross)', frames: 3, color: '#ff4444', descs: [
+    'Windup: left arm back, body twists',
+    'Strike: powerful left punch, body rotated',
+    'Recovery: returning to neutral'
+  ]},
+  { name: 'Attack 3 (Heavy Kick)', frames: 4, color: '#ff5555', descs: [
+    'Windup: right leg lifts, lean back',
+    'Extend: leg extending forward',
+    'Impact: leg fully extended, max reach',
+    'Recovery: leg returning, slight stumble'
+  ]},
+  { name: 'Cast Ability', frames: 4, color: '#ff8800', descs: [
+    'Prepare: both hands raised, energy gathers',
+    'Charge: hands pull back, fire forming',
+    'Release: arms thrust forward, fire launches',
+    'Follow-through: arms extended, recoil'
+  ]},
+  { name: 'Take Hit', frames: 2, color: '#cc66ff', descs: [
+    'Impact: body jerked back, pain expression',
+    'Recoil: leaning further back, foot lifted'
+  ]},
+  { name: 'Dodge (Phase Shift)', frames: 2, color: '#66ccff', descs: [
+    'Enter: arms crossed, bracing',
+    'Active: ghostly pose, arms spread (engine makes semi-transparent)'
+  ]},
+  { name: 'Ultimate', frames: 4, color: '#ffdd00', descs: [
+    'Charge: crouching, fists clenched, fire aura',
+    'Rise: standing up, arms rising, intense fire',
+    'Peak: arms above head, max fire energy',
+    'Release: arms thrust outward, fire explodes'
+  ]},
+  { name: 'Death', frames: 3, color: '#888888', descs: [
+    'Stagger: stumbling, hand on chest',
+    'Falling: body tilting, legs give out',
+    'Down: lying on ground (~80 degrees)'
+  ]}
+];
+
+const mainCanvas = document.getElementById('mainCanvas');
+const mainCtx = mainCanvas.getContext('2d');
+let currentZoom = 2;
+let loadedImage = null;
+
+function drawTemplate(ctx, zoom, showLabels) {
+  const w = SHEET_W * zoom;
+  const h = SHEET_H * zoom;
+
+  ctx.clearRect(0, 0, w, h);
+
+  // Draw loaded spritesheet if available
+  if (loadedImage && !showLabels) {
+    ctx.imageSmoothingEnabled = false;
+    ctx.drawImage(loadedImage, 0, 0, w, h);
+  }
+
+  for (let row = 0; row < ROWS; row++) {
+    const anim = ANIMS[row];
+    for (let col = 0; col < COLS; col++) {
+      const x = col * FRAME_W * zoom;
+      const y = row * FRAME_H * zoom;
+      const fw = FRAME_W * zoom;
+      const fh = FRAME_H * zoom;
+
+      const isUsed = col < anim.frames;
+
+      // Cell background tint
+      if (isUsed) {
+        ctx.fillStyle = anim.color + '15';
+        ctx.fillRect(x, y, fw, fh);
+      }
+
+      // Grid lines
+      ctx.strokeStyle = isUsed ? '#ffffff33' : '#ffffff11';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(x + 0.5, y + 0.5, fw - 1, fh - 1);
+
+      if (isUsed) {
+        // Ground line
+        ctx.strokeStyle = '#66ccff44';
+        ctx.setLineDash([3, 3]);
+        ctx.beginPath();
+        ctx.moveTo(x, y + GROUND_Y * zoom);
+        ctx.lineTo(x + fw, y + GROUND_Y * zoom);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Center line
+        ctx.strokeStyle = '#ff666633';
+        ctx.setLineDash([3, 3]);
+        ctx.beginPath();
+        ctx.moveTo(x + CENTER_X * zoom, y);
+        ctx.lineTo(x + CENTER_X * zoom, y + fh);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+
+      if (showLabels) {
+        // Row label (left column only)
+        if (col === 0) {
+          ctx.fillStyle = anim.color;
+          ctx.font = `bold ${Math.max(10, 7 * zoom)}px Consolas, monospace`;
+          ctx.fillText(`R${row}: ${anim.name}`, x + 3 * zoom, y + 8 * zoom);
+        }
+
+        if (isUsed) {
+          // Frame number
+          ctx.fillStyle = '#ffffff88';
+          ctx.font = `${Math.max(8, 5 * zoom)}px Consolas, monospace`;
+          ctx.fillText(`F${col}`, x + 2 * zoom, y + fh - 3 * zoom);
+
+          // Brief pose description
+          if (anim.descs[col] && zoom >= 2) {
+            ctx.fillStyle = '#ffffff55';
+            ctx.font = `${Math.max(7, 4 * zoom)}px Consolas, monospace`;
+            const desc = anim.descs[col];
+            // Word wrap
+            const maxW = fw - 4 * zoom;
+            const words = desc.split(' ');
+            let line = '';
+            let ly = y + 14 * zoom;
+            words.forEach(word => {
+              const test = line + word + ' ';
+              if (ctx.measureText(test).width > maxW && line) {
+                ctx.fillText(line.trim(), x + 2 * zoom, ly);
+                line = word + ' ';
+                ly += 5 * zoom;
+              } else {
+                line = test;
+              }
+            });
+            if (line) ctx.fillText(line.trim(), x + 2 * zoom, ly);
+          }
+        }
+      }
+
+      // Draw silhouette placeholder in used frames (only if no loaded image)
+      if (isUsed && !loadedImage) {
+        drawStickFigure(ctx, x, y, zoom, row, col);
+      }
+    }
+  }
+
+  // Outer border
+  ctx.strokeStyle = '#ff660088';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(1, 1, w - 2, h - 2);
+}
+
+function drawStickFigure(ctx, cellX, cellY, zoom, row, col) {
+  const cx = cellX + CENTER_X * zoom;
+  const gy = cellY + GROUND_Y * zoom;
+  const s = zoom;
+
+  ctx.strokeStyle = '#ffffff22';
+  ctx.lineWidth = Math.max(1, zoom * 0.8);
+  ctx.lineCap = 'round';
+
+  // Base standing pose with variations per animation
+  let headY = gy - 44 * s;
+  let bodyTopY = gy - 36 * s;
+  let bodyBotY = gy - 18 * s;
+  let armAngle = 0;
+  let legSpread = 8 * s;
+  let lean = 0;
+
+  if (row === 1) { // Run
+    lean = (col % 2 === 0 ? 3 : -3) * s;
+    legSpread = (col % 3 === 0 ? 12 : 6) * s;
+  } else if (row === 2) { // Jump
+    if (col === 0) { headY += 6 * s; bodyTopY += 4 * s; }
+    if (col === 1) { headY -= 6 * s; bodyTopY -= 4 * s; bodyBotY -= 4 * s; }
+    if (col === 2) { headY -= 2 * s; }
+  } else if (row >= 3 && row <= 5) { // Attacks
+    if (col === 1) lean = 6 * s;
+  } else if (row === 7) { // Hit
+    lean = -6 * s;
+  } else if (row === 10 && col === 2) { // Death down
+    // Lying down
+    ctx.strokeStyle = '#ffffff15';
+    ctx.beginPath();
+    ctx.moveTo(cx - 20*s, gy - 4*s);
+    ctx.lineTo(cx + 20*s, gy - 4*s);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(cx - 20*s, gy - 8*s, 5*s, 0, Math.PI*2);
+    ctx.stroke();
+    return;
+  }
+
+  const px = cx + lean;
+
+  // Head
+  ctx.beginPath();
+  ctx.arc(px, headY, 6 * s, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // Body
+  ctx.beginPath();
+  ctx.moveTo(px, bodyTopY);
+  ctx.lineTo(px, bodyBotY);
+  ctx.stroke();
+
+  // Arms
+  ctx.beginPath();
+  ctx.moveTo(px, bodyTopY + 4*s);
+  ctx.lineTo(px - 10*s, bodyTopY + 14*s);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(px, bodyTopY + 4*s);
+  ctx.lineTo(px + 10*s + lean, bodyTopY + 14*s);
+  ctx.stroke();
+
+  // Legs
+  ctx.beginPath();
+  ctx.moveTo(px, bodyBotY);
+  ctx.lineTo(px - legSpread/2, gy);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(px, bodyBotY);
+  ctx.lineTo(px + legSpread/2, gy);
+  ctx.stroke();
+}
+
+function render() {
+  const zoom = currentZoom;
+  mainCanvas.width = SHEET_W * zoom;
+  mainCanvas.height = SHEET_H * zoom;
+  drawTemplate(mainCtx, zoom, true);
+}
+
+document.getElementById('zoomSelect').addEventListener('change', (e) => {
+  currentZoom = parseInt(e.target.value);
+  render();
+});
+
+function downloadTemplate() {
+  const c = document.createElement('canvas');
+  c.width = SHEET_W;
+  c.height = SHEET_H;
+  const ctx = c.getContext('2d');
+
+  // Draw clean grid at 1x (no labels, just guidelines)
+  for (let row = 0; row < ROWS; row++) {
+    const anim = ANIMS[row];
+    for (let col = 0; col < COLS; col++) {
+      const x = col * FRAME_W;
+      const y = row * FRAME_H;
+      const isUsed = col < anim.frames;
+
+      if (isUsed) {
+        // Very subtle cell tint
+        ctx.fillStyle = anim.color + '08';
+        ctx.fillRect(x, y, FRAME_W, FRAME_H);
+
+        // Ground line
+        ctx.strokeStyle = '#66ccff22';
+        ctx.setLineDash([2, 2]);
+        ctx.beginPath();
+        ctx.moveTo(x, y + GROUND_Y);
+        ctx.lineTo(x + FRAME_W, y + GROUND_Y);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Center line
+        ctx.strokeStyle = '#ff666616';
+        ctx.setLineDash([2, 2]);
+        ctx.beginPath();
+        ctx.moveTo(x + CENTER_X, y);
+        ctx.lineTo(x + CENTER_X, y + FRAME_H);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+
+      // Grid
+      ctx.strokeStyle = isUsed ? '#ffffff0d' : '#ffffff06';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([]);
+      ctx.strokeRect(x + 0.5, y + 0.5, FRAME_W - 1, FRAME_H - 1);
+    }
+  }
+
+  const link = document.createElement('a');
+  link.download = 'fire_battlemancer_template.png';
+  link.href = c.toDataURL('image/png');
+  link.click();
+}
+
+function downloadGuide() {
+  const zoom = 3;
+  const c = document.createElement('canvas');
+  c.width = SHEET_W * zoom;
+  c.height = SHEET_H * zoom;
+  const ctx = c.getContext('2d');
+  drawTemplate(ctx, zoom, true);
+
+  const link = document.createElement('a');
+  link.download = 'fire_battlemancer_guide.png';
+  link.href = c.toDataURL('image/png');
+  link.click();
+}
+
+function loadSpriteSheet() {
+  document.getElementById('fileInput').click();
+}
+
+function handleFile(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const img = new Image();
+  img.onload = () => {
+    loadedImage = img;
+    render();
+  };
+  img.src = URL.createObjectURL(file);
+}
+
+// Pose reference guide generation
+function generatePoseGuides() {
+  const container = document.getElementById('poseGuides');
+
+  ANIMS.forEach((anim, rowIdx) => {
+    const rowDiv = document.createElement('div');
+    rowDiv.className = 'pose-row';
+
+    // Small canvases showing each frame's expected pose
+    anim.descs.forEach((desc, frameIdx) => {
+      const wrapper = document.createElement('div');
+      wrapper.style.textAlign = 'center';
+      wrapper.style.minWidth = '80px';
+
+      const c = document.createElement('canvas');
+      c.width = 64;
+      c.height = 64;
+      c.style.width = '64px';
+      c.style.height = '64px';
+      const ctx = c.getContext('2d');
+
+      // Background
+      ctx.fillStyle = anim.color + '10';
+      ctx.fillRect(0, 0, 64, 64);
+
+      // Ground line
+      ctx.strokeStyle = '#66ccff33';
+      ctx.setLineDash([2, 2]);
+      ctx.beginPath();
+      ctx.moveTo(0, GROUND_Y);
+      ctx.lineTo(64, GROUND_Y);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Center line
+      ctx.strokeStyle = '#ff666622';
+      ctx.setLineDash([2, 2]);
+      ctx.beginPath();
+      ctx.moveTo(CENTER_X, 0);
+      ctx.lineTo(CENTER_X, 64);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Stick figure
+      drawStickFigure(ctx, 0, 0, 1, rowIdx, frameIdx);
+
+      wrapper.appendChild(c);
+
+      const label = document.createElement('div');
+      label.style.cssText = 'font-size:9px;color:#888;margin-top:3px;';
+      label.textContent = `F${frameIdx}`;
+      wrapper.appendChild(label);
+
+      rowDiv.appendChild(wrapper);
+    });
+
+    // Description
+    const descDiv = document.createElement('div');
+    descDiv.className = 'pose-desc';
+    descDiv.innerHTML = `<div class="anim-name" style="color:${anim.color}">Row ${rowIdx}: ${anim.name} (${anim.frames} frames)</div>`;
+    anim.descs.forEach((desc, i) => {
+      descDiv.innerHTML += `<strong>F${i}:</strong> ${desc}<br>`;
+    });
+    rowDiv.appendChild(descDiv);
+
+    container.appendChild(rowDiv);
+  });
+}
+
+// Init
+render();
+generatePoseGuides();
+</script>
+
+</body>
+</html>

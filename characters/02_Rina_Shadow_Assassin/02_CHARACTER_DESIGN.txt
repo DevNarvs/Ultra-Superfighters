@@ -1,0 +1,416 @@
+================================================================================
+  CHARACTER SPRITE DESIGN: RINA — THE PHANTOM BLADE
+  Super Battlemancers
+================================================================================
+  INPUT:    <- 01_CHARACTER_DESCRIPTION.txt
+  OUTPUT:   rina_shadow_assassin.png (sprite sheet)
+================================================================================
+
+
+CHARACTER REFERENCE
+================================================================================
+Name              : Rina
+Element / Theme   : Shadow / Void (pink energy)
+Role              : Rush-down / Assassin
+Key Visual Traits : Rectangular glasses, pastel pink ponytail, dark magenta coat,
+                    black boots with pink stripe, fingerless gloves, scarf ribbon
+
+Palette:
+  Coat            : #8B1A6E (base), #5C1158 (shadow)
+  Energy/Accent   : #FF69B4 (hot pink), #FFB6D9 (pastel pink)
+  Darkest         : #2A1028
+  Skin            : #FFE0CC
+  Hair            : #F4A6C8 (main), #C44B99 (tips)
+  Boots/Gloves    : #1A1018
+  Glasses         : #3A2838, glint #FFFFFF
+  Scarf           : #FFCCE0
+
+
+TECHNICAL SPECIFICATIONS
+================================================================================
+Frame size        : 64 x 64 pixels
+Sheet layout      : 6 columns x 11 rows
+Total sheet size  : 384 x 704 pixels
+Background        : Transparent (PNG-24 with alpha)
+Character height  : ~48-56px within the 64px frame
+Ground line       : Feet at y=58 (6px from bottom edge)
+Center X          : Character centered at x=32
+Outline           : 1px dark outline (#2A1028) around character
+Shading           : 2-3 levels per color (base, shadow, highlight)
+View              : Strict side view (profile), facing RIGHT always
+Art style         : Anime pixel art, semi-chibi proportions
+
+
+SPRITESHEET GRID LAYOUT
+================================================================================
+
+         Col 0    Col 1    Col 2    Col 3    Col 4    Col 5
+Row  0:  IDLE_0   IDLE_1   IDLE_2   IDLE_3   ------   ------    Idle (4)
+Row  1:  RUN_0    RUN_1    RUN_2    RUN_3    RUN_4    RUN_5     Run (6)
+Row  2:  JUMP_0   JUMP_1   JUMP_2   ------   ------   ------    Jump (3)
+Row  3:  ATK1_0   ATK1_1   ATK1_2   ------   ------   ------    Dagger Slash 1 (3)
+Row  4:  ATK2_0   ATK2_1   ATK2_2   ------   ------   ------    Backhand Slash (3)
+Row  5:  ATK3_0   ATK3_1   ATK3_2   ATK3_3   ------   ------    Spin Slash (4)
+Row  6:  CAST_0   CAST_1   CAST_2   CAST_3   ------   ------    Kunai Throw (4)
+Row  7:  HIT_0    HIT_1    ------   ------   ------   ------    Hit (2)
+Row  8:  DODGE_0  DODGE_1  ------   ------   ------   ------    Dodge (2)
+Row  9:  ULT_0    ULT_1    ULT_2    ULT_3    ------   ------    Phantom Barrage (4)
+Row 10:  DIE_0    DIE_1    DIE_2    ------   ------   ------    Death (3)
+
+Total used: 38 frames. "------" = fully transparent cell.
+
+
+ANIMATION TABLE
+================================================================================
+
+Row   Animation           Frames   Speed    Loop
+---   ---------           ------   -----    ----
+ 0    Idle                4        150ms    Yes
+ 1    Run                 6        100ms    Yes
+ 2    Jump                3        120ms    No
+ 3    Attack 1 (Slash)    3        70ms     No     (faster than Fire — assassin)
+ 4    Attack 2 (Back)     3        70ms     No
+ 5    Attack 3 (Spin)     4        90ms     No
+ 6    Cast (Kunai)        4        100ms    No
+ 7    Take Hit            2        150ms    No
+ 8    Dodge               2        holds    No
+ 9    Ultimate            4        180ms    No
+10    Death               3        200ms    No
+
+
+FRAME-BY-FRAME POSE GUIDE
+================================================================================
+
+ROW 0 — IDLE (4 frames, looping)
+---------------------------------
+F0: Relaxed assassin stance. Weight on back foot. Right hand at side, left hand
+    near hip (resting near belt/kunai pouch). Ponytail hangs naturally behind.
+    Glasses clearly visible on the face with white glint pixel. Scarf hangs still.
+    Expression: calm, composed. Feet at y=58.
+
+F1: Subtle inhale — body rises 1px. Ponytail shifts very slightly. Hand near hip
+    moves 1px upward as if ready to draw. Glasses glint stays in same position.
+
+F2: Peak of breath. Faint pink glow hint on the left hand near hip (shadow energy
+    ready). Ponytail sways 1-2px to the right. Scarf tails shift slightly.
+
+F3: Exhale — body lowers back to F0 position. Glow fades. Smooth return for
+    seamless loop. Must align perfectly with F0.
+
+
+ROW 1 — RUN (6 frames, looping)
+---------------------------------
+F0: Right foot strikes ground ahead, left arm swings forward with fist,
+    right arm back. Body leans forward ~5 degrees (assassin sprint, aggressive).
+    Ponytail streams behind. Scarf flutters back. Glasses visible.
+
+F1: Right foot planted, body lowers (lowest point). Arms mid-swing.
+    Ponytail follows momentum, slightly higher.
+
+F2: Right foot pushes off, body rises. Legs cross underneath. Arms passing
+    center. Ponytail catches up to body.
+
+F3: Left foot strikes ground (mirror of F0). Right arm forward, left arm back.
+
+F4: Left foot planted, body lowers (mirror of F1).
+
+F5: Left foot pushes off, legs cross (mirror of F2). Loops back to F0.
+
+IMPORTANT: Ponytail and scarf must trail BEHIND the direction of movement
+in every frame. They lag by 1-2 frames from body position (natural physics).
+
+
+ROW 2 — JUMP (3 frames, one-shot)
+---------------------------------
+F0: LAUNCH — legs compressed and bent, crouching low, arms pull downward.
+    Body coils. Ponytail compressed down. Feet still near y=58.
+
+F1: PEAK — body airborne, legs tucked up slightly, arms out at sides for
+    balance. Ponytail floats upward (weightless). Scarf floats up. Coat tails
+    lift slightly. Character centered vertically in the frame.
+
+F2: FALL — legs extend downward toward ground, arms rise up, head tilts
+    slightly down (looking where landing). Ponytail streams upward (trailing
+    from fall). Scarf above.
+
+
+ROW 3 — ATTACK 1: Dagger Slash (3 frames, one-shot, 70ms)
+---------------------------------
+F0: WINDUP — right hand sweeps back behind the body, holding an invisible
+    energy dagger (the blade is added by the engine as a pink glow). Body
+    coils slightly. Left arm guards in front. Quick, tight motion.
+
+F1: STRIKE — right arm slashes horizontally forward in a fast arc. Arm
+    fully extended with hand at ~45px from left edge of frame (reaching
+    forward). Body rotates into the slash. The slash trail will be added by
+    the engine — just show the arm extended with an open hand/claw pose.
+
+F2: RECOVERY — arm pulling back toward body. Body returning to neutral.
+    Very fast recovery (assassin). Left arm drops guard.
+
+IMPORTANT: The energy dagger blade is NOT drawn on the sprite. Only draw
+the character's body and arm positions. The pink slash effect is added by
+the game engine at runtime.
+
+
+ROW 4 — ATTACK 2: Backhand Slash (3 frames, one-shot, 70ms)
+---------------------------------
+F0: WINDUP — left arm crosses in front of body from right to left, winding
+    up for a backhand. Body twists slightly away from the target. Right arm
+    pulled back for balance.
+
+F1: STRIKE — left arm whips outward in a backhand slash from left to right.
+    Full extension. Body rotates into the hit. The reverse motion from Attack 1
+    makes the combo feel like alternating slashes.
+
+F2: RECOVERY — left arm returning. Body untwisting. Slightly faster recovery
+    than Attack 1 to maintain combo flow.
+
+
+ROW 5 — ATTACK 3: Spinning Downward Slash (4 frames, one-shot, 90ms)
+---------------------------------
+F0: WINDUP — body begins to pivot. Both arms pull up and back. Weight shifts
+    to front foot. Ponytail begins swinging.
+
+F1: SPIN — body rotating, mid-spin. Arms sweeping in an arc. Ponytail whips
+    around. This is a full-body spinning motion. Side view shows the torso
+    turned slightly (shoulders overlapping).
+
+F2: IMPACT — both arms slash downward diagonally. Maximum reach forward and
+    down. Body lunged forward. This is the heaviest hit — pose should look
+    powerful and committed. Ponytail fully extended from spin momentum.
+
+F3: RECOVERY — body stumbles forward slightly from the spin momentum.
+    Arms lowering. Longer recovery than other attacks (high risk/reward).
+    Ponytail settling.
+
+
+ROW 6 — CAST: Void Kunai Throw (4 frames, one-shot, 100ms)
+---------------------------------
+F0: PREPARE — right hand reaches behind to the belt pouch (kunai holster).
+    Body slightly turned. Left arm out front for balance.
+
+F1: DRAW — right hand pulls back past the ear in a throwing position.
+    Body coils. Weight shifts to back foot. The kunai is NOT drawn on the
+    sprite — only the hand position as if holding something small.
+
+F2: THROW — right arm whips forward in a throwing motion, releasing at
+    full extension. Body lunges forward. Arm at maximum forward reach.
+    Wrist flicks. The pink kunai projectile is spawned by the engine at
+    this frame.
+
+F3: FOLLOW-THROUGH — arm continues forward motion, then begins returning.
+    Body settles. Slight forward lean from the throw momentum.
+
+IMPORTANT: Do NOT draw the kunai in the sprite. The game engine spawns
+the Void Kunai projectile as a separate sprite at the hand position on F2.
+
+
+ROW 7 — TAKE HIT (2 frames, one-shot)
+---------------------------------
+F0: IMPACT — body jerked backward. Head snaps back, glasses shift slightly
+    on the face (pushed up by the impact). Pain expression — eyes squeeze,
+    mouth opens. Ponytail whips forward from the backward momentum.
+
+F1: RECOIL — body leans further back. One foot (front) lifts off ground.
+    Arms flung outward from the impact force. Glasses still shifted.
+    Ponytail still swinging forward. More exaggerated stagger.
+
+
+ROW 8 — DODGE / PHASE SHIFT (2 frames, holds F1)
+---------------------------------
+F0: ENTER — arms cross in front of chest in an X shape, body tenses,
+    crouching slightly. Glasses glint brighter (1-2 extra white pixels).
+    Scarf pulls tight. Concentrating expression.
+
+F1: ACTIVE — body relaxes into a ghostly pose. Arms slightly spread to
+    sides, palms open. Standing straight. Serene, ethereal expression.
+    Ponytail floats slightly (as if weightless/phasing). Scarf floats.
+    The engine makes this frame semi-transparent and adds a blue-pink tint
+    at runtime. Draw the character normally — engine handles the ghost effect.
+    This frame is HELD for 1 full second during the dodge.
+
+
+ROW 9 — ULTIMATE: Phantom Barrage (4 frames, one-shot, 180ms)
+---------------------------------
+F0: CHARGE — crouching low, one knee nearly touching ground. Both arms
+    pulled in tight, fists clenched. Head down, glasses glinting. Pink
+    shadow energy begins (engine adds the aura). Intense, focused expression.
+
+F1: RISE — pushing up from crouch to standing. Arms sweeping outward.
+    Ponytail rising with the motion. Body emanating power (engine adds
+    pink energy aura). Expression shifts to determined/fierce.
+
+F2: VANISH POSE — body in a dynamic forward-leaning sprint pose, as if
+    about to launch. One arm back holding an energy blade position, other
+    arm forward. Ponytail streams behind. This is the last visible frame
+    before Rina teleports — should look like frozen mid-dash. Most dynamic
+    and aggressive pose in the entire sheet.
+
+F3: REAPPEAR — landing pose after the barrage. One knee down, one arm
+    touching the ground (superhero landing style). Head slightly bowed.
+    Ponytail settling. Glasses visible. Cool, composed "it's already over"
+    expression. The engine returns to idle after this frame.
+
+
+ROW 10 — DEATH (3 frames, one-shot, 200ms)
+---------------------------------
+F0: STAGGER — stumbling forward, one hand clutches the stomach/chest.
+    Glasses slipping down the nose. Pain expression. Ponytail swings.
+    Knees buckling.
+
+F1: FALLING — body tilting sideways to the right, legs giving out. Arms
+    go limp. Glasses falling off or hanging at an angle. Ponytail trailing
+    the fall direction.
+
+F2: DOWN — lying on the ground (body rotated approximately 80 degrees
+    clockwise). Head on the right, feet on the left. Glasses on the ground
+    nearby or still barely on the face. Ponytail spread on the ground.
+    Must fit within the 64x64 frame. Peaceful/unconscious expression.
+
+
+RULES CHECKLIST
+================================================================================
+[ ] Always facing RIGHT (engine flips for left)
+[ ] Character centered at x=32 in every frame
+[ ] Feet at y=58 consistently across all standing frames
+[ ] Attacks can extend but stay within 64px frame
+[ ] NO skill effects in sprite (pink slashes, kunai, energy = added at runtime)
+[ ] Ponytail and scarf TRAIL BEHIND during movement (natural physics)
+[ ] Glasses visible in EVERY frame (key identifying trait)
+[ ] Both players use same sheet (P2 tinted differently by engine)
+[ ] Unused cells are fully transparent
+[ ] Dark 1px outline (#2A1028) around character
+[ ] 2-3 shade levels per color area
+
+
+================================================================================
+AI GENERATION PROMPT: FULL SPRITE SHEET
+================================================================================
+
+Create a pixel art sprite sheet for a 2D side-scrolling fighting game character.
+
+CHARACTER: "Rina" — a shadow assassin girl with pink energy powers.
+
+CRITICAL RENDERING RULES:
+- Strict SIDE VIEW (profile). The character is seen from a perfect 90-degree
+  side angle, like classic 2D fighting game sprites (Street Fighter, Metal
+  Slug pixel art perspective).
+- NOT 3/4 view. NOT front-facing. NOT isometric. NOT top-down.
+- Character always faces RIGHT. Right side of the character faces the viewer's
+  right. The character's front/chest faces right.
+- Every frame is exactly 64x64 pixels.
+- The character is approximately 48-56 pixels tall.
+- Feet touch y=58 (6 pixels from the bottom of each 64x64 cell).
+- Character body is horizontally centered at x=32 in each cell.
+
+SPRITE SHEET LAYOUT:
+- 6 columns and 11 rows of 64x64 pixel cells.
+- Total image dimensions: exactly 384 pixels wide x 704 pixels tall.
+- Frames read left to right within each row.
+- Unused cells (where a row has fewer than 6 frames) are completely
+  empty/transparent.
+
+CHARACTER APPEARANCE (side profile view):
+- HAIR: Long straight pastel pink (#F4A6C8) hair in a low ponytail behind
+  the head. Side-swept bangs visible on the forehead. Ponytail tips darken
+  to magenta (#C44B99). In side view the ponytail extends behind the head
+  and hangs down the back.
+- GLASSES: Small rectangular glasses on the face, dark gray frame (#3A2838).
+  One lens fully visible in side view. Small 1-2 pixel white glint on the lens.
+  This is the character's KEY feature — must be visible in every frame.
+- EYES: Sharp violet-pink (#FF69B4) behind the glasses. Anime style.
+- SKIN: Fair warm (#FFE0CC).
+- OUTFIT: Fitted dark magenta (#8B1A6E) assassin coat, cropped at the waist,
+  high collar behind the neck. Light pink shirt (#FFCCE0) visible at neckline.
+  Shadow areas use deep plum (#5C1158).
+- BELT: Black (#1A1018) utility belt at the waist with small pink gem buckle.
+  Small pouch visible on the back hip in side view.
+- GLOVES: Black fingerless gloves (#1A1018).
+- BOOTS: Black thigh-high boots (#1A1018) with a thin pink (#FF69B4) accent
+  stripe on the outer side. Flat soles, no heels.
+- SCARF: Small light pink (#FFCCE0) ribbon at the collar with short tails.
+
+PIXEL ART STYLE:
+- Clean 1-pixel dark outline (#2A1028) around the entire character.
+- 2-3 shading levels per color (highlight, base, shadow).
+- No anti-aliasing. Hard pixel edges. No dithering.
+- Semi-chibi anime proportions (head about 1/3 of body height).
+- Quality level similar to "Warrior Girls Pack" or "Street Fighter III" sprites.
+
+ANIMATIONS PER ROW (describe the character's body pose for each frame):
+
+Row 0 — IDLE (4 frames, columns 0-3):
+  Relaxed assassin stance. Weight on back foot. Right hand at side, left hand
+  near hip/belt. Subtle breathing motion — body rises 1-2px and lowers.
+  Ponytail hangs naturally. Glasses clearly visible with white glint.
+
+Row 1 — RUN (6 frames, columns 0-5):
+  Full sprint cycle. Body leans forward aggressively. Arms pump.
+  Legs alternate in a full run cycle. Ponytail and scarf stream behind.
+  6 frames: right contact, down, passing, left contact, down, passing.
+
+Row 2 — JUMP (3 frames, columns 0-2):
+  Frame 0: Crouch launch — legs bent, arms pull down.
+  Frame 1: Peak — legs tucked, arms out, ponytail floats upward.
+  Frame 2: Fall — legs extend down, arms up, ponytail streams upward.
+
+Row 3 — ATTACK 1: Quick Dagger Slash (3 frames, columns 0-2):
+  Frame 0: Right arm pulls back behind body, left arm guards front.
+  Frame 1: Right arm slashes forward horizontally, fully extended.
+  Frame 2: Arm retracting, returning to stance. Fast recovery.
+  NOTE: Do NOT draw a weapon or energy blade — only the arm/hand positions.
+
+Row 4 — ATTACK 2: Backhand Slash (3 frames, columns 0-2):
+  Frame 0: Left arm crosses in front of body, winding up backhand.
+  Frame 1: Left arm whips outward in a backhand motion, full extension.
+  Frame 2: Arm returning, body untwisting.
+  NOTE: Do NOT draw a weapon or energy blade.
+
+Row 5 — ATTACK 3: Spinning Downward Slash (4 frames, columns 0-3):
+  Frame 0: Both arms pull up and back, body begins to pivot.
+  Frame 1: Mid-spin, body rotating, arms sweeping, ponytail whipping.
+  Frame 2: Both arms slash downward diagonally, maximum reach, lunged forward.
+  Frame 3: Recovery from spin, body stumbling slightly forward.
+
+Row 6 — CAST: Kunai Throw (4 frames, columns 0-3):
+  Frame 0: Right hand reaches behind to belt pouch.
+  Frame 1: Right hand pulls back past ear in throwing position.
+  Frame 2: Right arm whips forward, full throwing extension, wrist flick.
+  Frame 3: Follow-through, arm continuing forward then settling.
+  NOTE: Do NOT draw a kunai in the hand — the projectile is separate.
+
+Row 7 — TAKE HIT (2 frames, columns 0-1):
+  Frame 0: Body jerked backward, head snaps back, pain expression, glasses shift.
+  Frame 1: Leaning further back, front foot lifts, arms flung out, staggering.
+
+Row 8 — DODGE (2 frames, columns 0-1):
+  Frame 0: Arms cross in front of chest in X shape, crouching, tense.
+  Frame 1: Relaxed ghostly pose, arms spread slightly, serene expression,
+  ponytail floats. Draw normally — engine adds transparency effect.
+
+Row 9 — ULTIMATE: Phantom Barrage (4 frames, columns 0-3):
+  Frame 0: Low crouch, fists clenched, head down, intense focus.
+  Frame 1: Rising from crouch, arms sweeping outward, power building.
+  Frame 2: Dynamic forward-leaning sprint/dash pose, most aggressive frame.
+  Frame 3: Superhero landing — one knee down, one hand on ground, head bowed.
+
+Row 10 — DEATH (3 frames, columns 0-2):
+  Frame 0: Stumbling, hand on chest, glasses slipping, knees buckling.
+  Frame 1: Body tilting sideways, legs giving out, arms limp.
+  Frame 2: Lying on the ground rotated ~80 degrees, fits in 64x64 frame.
+
+FINAL OUTPUT:
+- Single PNG image, exactly 384 x 704 pixels.
+- Transparent background throughout.
+- All 66 cells in the grid, with 38 cells containing character frames and
+  28 cells completely empty/transparent.
+
+
+================================================================================
+FILE DELIVERY
+================================================================================
+Filename          : rina_shadow_assassin.png
+Size              : 384 x 704 pixels
+Format            : PNG-24 with transparency
+Location          : Sprites/

@@ -1,0 +1,238 @@
+================================================================================
+  CHARACTER DESCRIPTION: RINA — THE PHANTOM BLADE
+  Super Battlemancers
+================================================================================
+  Feeds into → 02_CHARACTER_DESIGN.txt
+             → 03_CHARACTER_SKILLS_EFFECTS.txt
+================================================================================
+
+
+CHARACTER IDENTITY
+================================================================================
+Name              : Rina
+Title / Alias     : The Phantom Blade
+Element / Theme   : Shadow / Void (manifests as pink energy)
+Role              : Rush-down / Assassin
+Personality       : Calm, calculated, deadly
+
+
+VISUAL IDENTITY
+================================================================================
+
+Appearance
+----------
+Hair              : Long straight hair tied in a low ponytail, pastel pink with
+                    darker magenta tips. Side-swept bangs framing face. Hair flows
+                    slightly behind during movement.
+Eyes              : Sharp violet-pink eyes behind stylish rectangular glasses.
+                    Confident, analytical expression. Glasses reflect light (small
+                    white pixel glint on lens).
+Build             : Slim and agile, semi-chibi proportions. Slightly shorter/leaner
+                    than Fire Battlemancer — emphasizes speed over power.
+Outfit            : Fitted dark magenta assassin coat, cropped at the waist, with
+                    a high collar. Light pink inner shirt visible at the neckline.
+                    Coat has subtle diamond pattern trim on the edges.
+Belt / Accessory  : Black utility belt with small pink gem buckle. Two small
+                    pouches on the back hip (kunai holsters).
+Hands             : Black fingerless gloves. Hands glow with faint pink-violet
+                    shadow energy when casting abilities.
+Feet / Boots      : Sleek black thigh-high boots with pink accent stripes on the
+                    sides. Flat soles (assassin, not heels — needs to be fast).
+Extras            : Rectangular glasses (key visual trait — always visible).
+                    Faint pink shadow aura trails behind when moving fast.
+                    Small scarf/ribbon tied at the collar, flutters during movement.
+
+Color Palette
+----------
+Primary 1         : Dark Magenta     #8B1A6E    (coat main color)
+Primary 2         : Deep Plum        #5C1158    (coat shadows/trim)
+Accent 1          : Hot Pink         #FF69B4    (energy glow, ability effects)
+Accent 2          : Pastel Pink      #FFB6D9    (highlights, brightest energy)
+Dark / Shadow     : Shadow Black     #2A1028    (darkest shade, belt, boots)
+Skin              : Fair Warm        #FFE0CC
+Hair              : Pastel Pink      #F4A6C8    (main hair)
+Hair Tips         : Dark Magenta     #C44B99    (darker gradient at tips)
+Boots / Gloves    : Charcoal Black   #1A1018
+Glasses Frame     : Dark Gray        #3A2838
+Glasses Glint     : White            #FFFFFF    (1-2px reflection)
+Scarf             : Light Pink       #FFCCE0
+
+
+COMBAT IDENTITY
+================================================================================
+
+Playstyle Summary
+-----------------
+Lightning-fast close-range assassin who darts in with shadow blinks, shreds
+opponents with rapid dagger combos, and vanishes before they can retaliate.
+Low health pool but highest damage-per-second when in melee range. High skill
+ceiling — rewards precise timing and aggressive positioning. Glass cannon.
+
+
+Abilities Overview
+------------------
+Slot                  Name                    Type              Short Description
+----                  ----                    ----              -----------------
+Basic Melee           Shadow Fang Combo       Combo (3-hit)     Rapid dagger slashes — fast, precise, low recovery
+Primary Power         Void Kunai              Projectile        Pink energy kunai, fast travel, pierces on kill
+Secondary Ability     Shadow Blink            Teleport/Dash     Short-range teleport, leaves damaging afterimage
+Dodge                 Phase Shift (Universal) Invulnerability   1s invulnerability, 15s cooldown
+Ultimate              Phantom Barrage         Multi-hit Area    Teleports rapidly across arena slashing all enemies
+
+
+ABILITY DETAILS
+================================================================================
+
+Basic Melee: Shadow Fang Combo
+------------------------------
+Hit 1             : 6 dmg — quick horizontal dagger slash, very fast, short range
+Hit 2             : 6 dmg — reverse backhand slash, slightly wider arc
+Hit 3             : 10 dmg — spinning downward slash, launches opponent slightly
+Combo Window      : 350ms (tighter than Fire Battlemancer — rewards precision)
+Cooldown          : 300ms between combos
+Notes             : Fastest melee combo in the game. Low damage per hit but the
+                    speed makes DPS competitive. Hit 3 has a small popup for
+                    follow-up opportunities.
+
+Primary Power: Void Kunai
+-------------------------
+Damage            : 12
+Speed             : 600px/s (faster than fireball)
+Range             : Full arena width
+Cooldown          : 1.2s
+Knockback         : Light / 200 (doesn't push far — keeps enemies in range)
+Special           : Travels in a straight line. If it kills an enemy, it pierces
+                    through and continues (won't happen in 1v1 but matters in FFA).
+                    Smaller hitbox than fireball — harder to hit but faster.
+
+Secondary Ability: Shadow Blink
+-------------------------------
+Duration          : Instant teleport (0.15s animation)
+Damage            : 8 dmg from afterimage (at departure point, 0.5s duration)
+Cooldown          : 6s
+Range             : Teleports ~150px in the direction character is facing
+Special           : Leaves a pink shadow afterimage at the starting position that
+                    damages enemies who touch it for 0.5 seconds. Can be used in
+                    any direction (forward/backward). Can blink through enemies.
+                    Cannot blink through solid platforms (stops at platform edge).
+                    Can be used in the air.
+
+Ultimate: Phantom Barrage
+-------------------------
+Charge Source     : Dealing damage (1% per 8 dmg — rewards aggression),
+                    taking damage (1% per 15 dmg), passive (0.8%/s)
+Startup Time      : 0.4s (faster than Fire — assassin theme)
+Damage            : 5 hits x 8 dmg = 40 total (same total as Fire, but multi-hit)
+Knockback         : Final hit only — Strong / 500
+Duration          : 2 seconds of rapid teleport-slashes across arena
+Counterplay       : Each slash has a small gap — can be dodged with Phase Shift
+                    if timed between hits. Opponent can also jump to avoid ground
+                    slashes. Startup is visible (pink energy gathering).
+Aftermath         : Final slash leaves a large shadow explosion (purely visual,
+                    no lingering hazard — assassins don't leave evidence).
+Notes             : Rina vanishes and reappears rapidly across the arena,
+                    slashing through the target location 5 times. She's invulnerable
+                    during the teleport phases but each slash has a brief moment
+                    where she materializes. Most cinematic when it hits — rapid
+                    slash lines appear across the screen.
+
+
+CHARACTER BALANCE NOTES
+================================================================================
+Strengths         : Fastest melee, fastest projectile, has a teleport, high burst
+Weaknesses        : Lowest HP in the game (85 vs standard 100), no defensive
+                    ability (shield/armor), Shadow Blink afterimage is easy to
+                    avoid, ultimate can be partially dodged
+Matchup vs Fire   : Rina wants to blink past fireballs and combo up close.
+                    Fire Battlemancer wants to zone with fireballs and use Flame
+                    Shield to punish Rina's aggression. Skill-based matchup.
+
+
+AI PROMPT: CHARACTER CONCEPT
+================================================================================
+
+Pixel art character design sheet for a 2D side-scrolling fighting game.
+
+CHARACTER: "Rina, the Phantom Blade" — a shadow/void assassin girl with pink
+energy powers.
+
+CAMERA / VIEW:
+- Strict side view (profile), facing RIGHT.
+- The character is viewed from a 90-degree side angle, like a classic 2D
+  fighting game (Street Fighter, King of Fighters pixel art style).
+- NOT 3/4 view. NOT front-facing. NOT isometric. Pure flat side profile.
+
+PROPORTIONS & SIZE:
+- Semi-chibi anime proportions: head is approximately 1/3 of total body height.
+- Total character height: approximately 48-56 pixels tall.
+- Character width: approximately 24-32 pixels wide at widest point.
+- The character must fit inside a 64x64 pixel cell with padding above the
+  head and below the feet.
+- Feet planted at y=58 (6 pixels from the bottom of the 64px frame).
+
+APPEARANCE (DETAILED):
+- HAIR: Long straight pastel pink hair (#F4A6C8) tied in a low ponytail that
+  hangs behind. Side-swept bangs cover partially over the right side of the
+  forehead. Tips of the ponytail gradient to darker magenta (#C44B99). In side
+  view, the ponytail is visible extending behind the head/back. Bangs are
+  visible as a fringe in front of the forehead.
+- GLASSES: Stylish small rectangular glasses on the face. Dark gray frame
+  (#3A2838). A small 1-2 pixel white glint on the lens to show reflection.
+  The glasses are a KEY identifying feature — must be clearly visible in the
+  side profile. In side view, one lens is fully visible and the frame extends
+  to the ear.
+- EYES: Sharp violet-pink eyes (#FF69B4) visible behind the glasses. Confident,
+  calm, analytical expression. Anime-style with a small highlight dot.
+- FACE: Fair warm skin (#FFE0CC). Small nose, subtle calm mouth. Side profile
+  shows the jawline and chin clearly.
+- BODY: Slim and agile build. Slightly shorter and leaner than a standard
+  fighter character. Athletic but not bulky — assassin physique.
+- OUTFIT: Fitted dark magenta (#8B1A6E) assassin coat cropped at the waist
+  (ends at hip level). High collar that rises behind the neck. The coat is
+  form-fitting, not loose or flowing. Light pink inner shirt (#FFCCE0) visible
+  at the neckline between the collar. Coat has subtle diamond-pattern trim
+  along the front edge (1 pixel detail).
+- BELT: Black utility belt (#1A1018) worn at the waist over the coat. Small
+  pink gem buckle (#FF69B4) at the front. In side view, a small pouch is
+  visible on the back hip (kunai holster).
+- HANDS: Black fingerless gloves (#1A1018). Fingers/knuckles are visible (skin
+  color). In the idle pose, one hand hangs at the side and the other is
+  slightly raised near the hip (ready stance).
+- BOOTS: Sleek black thigh-high boots (#1A1018) with a thin pink accent stripe
+  (#FF69B4) running along the outer side. Flat soles — no heels. The boots
+  extend above the knee. In side view, the stripe is visible as a line on
+  the boot.
+- SCARF: Small light pink (#FFCCE0) ribbon/scarf tied at the high collar,
+  with short tails that flutter slightly behind. Adds movement and character.
+
+COLOR PALETTE (strict):
+- Dark Magenta #8B1A6E (coat)
+- Deep Plum #5C1158 (coat shadows)
+- Hot Pink #FF69B4 (energy, accents, eyes)
+- Pastel Pink #FFB6D9 (highlights)
+- Shadow Black #2A1028 (darkest)
+- Fair Skin #FFE0CC
+- Hair Pink #F4A6C8
+- Hair Tips #C44B99
+- Charcoal #1A1018 (boots, gloves, belt)
+- Glasses #3A2838
+- Scarf #FFCCE0
+
+PIXEL ART STYLE:
+- Clean 1-pixel dark outline around the entire character silhouette.
+- 2-3 shading levels per color area (base color, shadow, highlight).
+- No anti-aliasing — hard pixel edges only.
+- No sub-pixel detail or dithering.
+- Anime-style pixel art, similar to "Warrior Girls Pack" or "Street Fighter
+  III" pixel sprites in terms of quality and detail level.
+
+OUTPUT:
+- Single character in an idle standing pose, facing right.
+- Transparent background (no solid color behind character).
+- Clean, final pixel art ready to be placed into a sprite sheet.
+
+
+CONNECTIONS
+================================================================================
+-> 02_CHARACTER_DESIGN.txt    uses: Visual Identity, Color Palette
+-> 03_CHARACTER_SKILLS_EFFECTS.txt  uses: Shadow/Void Element, Pink Palette, Ability Details

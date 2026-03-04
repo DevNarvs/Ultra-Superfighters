@@ -1,0 +1,293 @@
+================================================================================
+  CHARACTER DESCRIPTION: MORTIS — THE SOUL REAPER
+  Super Battlemancers
+================================================================================
+  Feeds into → 02_CHARACTER_DESIGN.txt
+             → 03_CHARACTER_SKILLS_EFFECTS.txt
+================================================================================
+
+
+CHARACTER IDENTITY
+================================================================================
+Name              : Mortis
+Title / Alias     : The Soul Reaper
+Element / Theme   : Shadow / Death (manifests as cyan-green spectral energy)
+Role              : Zoner (scythe range, spectral projectiles, ground traps)
+Personality       : Silent, ominous, inevitable
+
+
+VISUAL IDENTITY
+================================================================================
+
+Appearance
+----------
+Hair              : None visible — head fully concealed under deep pointed hood.
+                    Only shadow and glowing eyes visible beneath.
+Eyes              : Two floating cyan-green glowing dots under the hood — eerie,
+                    piercing, no pupils. The ONLY facial feature. Eyes pulse
+                    brighter during attacks and dim when hit.
+Build             : Tall and gaunt, skeletal silhouette under flowing robes.
+                    Semi-chibi proportions but uses more vertical frame space
+                    (52-56px) than other fighters — imposing presence.
+Outfit            : Long tattered dark robe, torn edges that fray into wispy
+                    tendrils at the bottom hem. High collar that blends into
+                    the hood. Robe is layered — outer layer is darkest, inner
+                    layer slightly lighter where visible at the tears and openings.
+Belt / Accessory  : Thin chain belt at the waist with a small ghostly green
+                    gem/pendant hanging from the center. Bony angular shoulder
+                    pauldrons (dark iron) with faint green rune etchings.
+Hands             : Skeletal bone-white hands visible emerging from robe sleeves.
+                    Bony fingers, slightly elongated. No flesh — just pale bone.
+Feet / Boots      : NO visible feet. Robe extends all the way to ground line,
+                    tattered bottom edges touch y=58. Character appears to float
+                    or glide rather than walk. Slight 1-2px gap under robe in
+                    idle suggests hovering.
+Extras            : SCYTHE — the defining feature. Dark iron shaft, curved silver
+                    blade with faint cyan-green edge glow. Carried in the right
+                    hand. Visible in nearly every frame. The scythe IS this
+                    character's silhouette — must be recognizable at a glance.
+                    Robe tendrils sway and trail during movement (the robes
+                    behave like they have their own slow, ghostly physics).
+
+Color Palette
+----------
+Primary 1         : Deep Charcoal    #1A1A2E    (robe base color)
+Primary 2         : Near-Black Blue  #0F0F1A    (robe shadows, deepest folds)
+Accent 1          : Spectral Cyan    #00FFAA    (eye glow, energy, rune glow)
+Accent 2          : Bright Mint      #66FFCC    (brightest energy highlights)
+Dark / Shadow     : Void Black       #0A0A14    (darkest shade, hood interior)
+Skin              : Pale Bone        #D4C8A8    (skeletal hands)
+Hair              : N/A              (no hair — hood)
+Boots / Dark      : Dark Iron        #333344    (scythe shaft, pauldrons)
+
+Additional Palette:
+Hood Interior     : Pure Black       #050510    (deepest shadow under hood)
+Robe Highlight    : Dark Slate       #2D2D44    (lighter robe folds, edges)
+Bone Shadow       : Dusty Tan        #A89878    (hand/bone shadow)
+Scythe Blade      : Silver Edge      #AABBCC    (blade metal)
+Scythe Glow       : Ghost Green      #00CC88    (blade edge glow)
+Rune Accents      : Dim Green        #228866    (pauldron rune markings)
+Tattered Wisps    : Dark Purple-Gray #221133    (frayed robe edges)
+Chain Belt        : Gunmetal         #444455    (waist chain)
+Gem/Pendant       : Spectral Cyan    #00FFAA    (same as eye glow)
+
+
+COMBAT IDENTITY
+================================================================================
+
+Playstyle Summary
+-----------------
+Patient, oppressive zoner who controls space with long-range scythe swings
+and spectral projectiles. Places cursed ground traps to deny area and punishes
+aggressive opponents who rush in recklessly. Lower health and slower movement
+than average — compensated by superior range on ALL melee attacks (scythe)
+and strong keep-away tools. Rewards patient, defensive play and spacing mastery.
+Glass cannon with reach.
+
+
+Abilities Overview
+------------------
+Slot                  Name                    Type              Short Description
+----                  ----                    ----              -----------------
+Basic Melee           Reaper's Harvest        Combo (3-hit)     Scythe slashes — slow but long range
+Primary Power         Wraith Bolt             Projectile        Spectral skull, horizontal, passes through projectiles
+Secondary Ability     Soul Drain              Ground Trap       Cursed circle, DOT + slow to enemies standing in it
+Dodge                 Shadow Step (Universal) Invulnerability   Dissolves into shadow — 1s invuln, 15s cooldown
+Ultimate              Death's Harvest         Wave/Area         Massive spectral scythe wave + lingering soul wisps
+
+
+ABILITY DETAILS
+================================================================================
+
+Basic Melee: Reaper's Harvest
+-----------------------------
+Hit 1             : 7 dmg — Crypt Slash: quick horizontal scythe swipe at
+                    chest height. Shortest range of the three but still
+                    longer than most characters' melee (scythe advantage).
+Hit 2             : 14 dmg — Reaping Arc: wide overhead scythe swing, large
+                    sweeping downward arc. Good range (~40px reach), strong
+                    knockback.
+Hit 3             : 22 dmg — Grave Cleave: full-body overhead scythe slam
+                    into the ground. Massive arc (~44px reach), highest
+                    damage, but VERY slow recovery (punishable on whiff).
+Combo Window      : 500ms (wider window than most — slow but deliberate)
+Cooldown          : 600ms between combos
+Notes             : Slowest melee combo in the game but highest range and
+                    damage per hit. Each swing covers massive space. Hit 3
+                    is extremely committal — miss it and you're vulnerable
+                    for almost half a second.
+
+Primary Power: Wraith Bolt
+--------------------------
+Damage            : 12
+Speed             : 400px/s (slower than fireball — more menacing)
+Range             : Full arena width
+Cooldown          : 6s
+Knockback         : Moderate / 250
+Special           : Spectral skull projectile. PASSES THROUGH enemy projectiles
+                    (cannot be cancelled by other projectiles). Can only be
+                    avoided by jumping or dodging. Destroyed on contact with
+                    a player. Slightly larger hitbox than fireball (28x28)
+                    making it harder to jump over.
+Visual            : Ghostly cyan-green floating skull, hollow eye sockets,
+                    mouth open in silent scream. Wispy vapor trail behind.
+
+Secondary Ability: Soul Drain
+-----------------------------
+Duration          : 3s (circle persists on the ground)
+Damage            : 5 dmg per tick, 3 ticks over 3 seconds (15 total if
+                    opponent stands in it the entire time)
+Cooldown          : 14s
+Range             : Placed at Mortis's current position on the ground
+Special           : Creates a dark runic circle (~80px diameter) on the
+                    ground. Enemies standing in the circle take 5 damage
+                    every second AND are slowed by 30% movement speed.
+                    Mortis himself is NOT affected by his own circle.
+                    Circle disappears after 3 seconds.
+                    Excellent for area denial — force opponents to move
+                    where you want them, then punish with scythe.
+
+Ultimate: Death's Harvest
+-------------------------
+Charge Source     : Dealing damage (1% per 6 dmg), taking damage (1% per
+                    12 dmg), passive (0.5%/s — slower passive, rewards combat)
+Startup Time      : 0.8s (slowest startup — dramatic and cinematic)
+Damage            : 40 direct hit from the wave
+Knockback         : Massive / 500
+Duration          : Wave travels across arena in ~2s. Leaves 3 soul wisps
+                    on the ground that persist for 4 seconds.
+Counterplay       : Jumpable (wave is ground-level, ~50px tall). Dodgeable
+                    with Phase Shift. Long startup is visible — glowing eyes,
+                    rising energy, dramatic pose. Punishable if read correctly.
+Aftermath         : Leaves 3 soul wisps spread across the arena floor.
+                    Each wisp deals 3 dmg on contact (one-time, not DOT).
+                    Wisps float slightly and drift slowly. Last 4 seconds.
+Notes             : Mortis raises scythe overhead, dark energy swirls inward,
+                    then sweeps a massive spectral scythe-blade wave across
+                    the entire arena floor. Most dramatic ultimate in the game.
+                    The wave is shaped like an enormous curved scythe blade
+                    made of ghostly energy.
+
+
+CHARACTER BALANCE NOTES
+================================================================================
+Strengths         : Longest melee range in the game (scythe), projectile
+                    that passes through other projectiles, area denial with
+                    Soul Drain, massive damage on committed hits, oppressive
+                    zoning game, intimidating presence
+Weaknesses        : Lowest move speed (180 vs standard 200), below-average
+                    health (90 vs standard 100), slowest attack recovery,
+                    very punishable if attacks whiff, weak to rushdown
+                    characters who get inside scythe range, floaty jump
+                    (lower jump force)
+Matchup vs Fire   : Mortis wants to keep distance and zone with Wraith Bolt
+                    (which passes through fireballs). Fire Battlemancer wants
+                    to bait out scythe swings and punish the long recovery.
+                    Flame Shield blocks Wraith Bolt. Soul Drain forces Fire
+                    to move out of fireball zoning positions.
+Matchup vs Rina   : Mortis struggles against Rina's speed. Shadow Blink lets
+                    Rina teleport inside scythe range. Mortis relies on Soul
+                    Drain placement and reading Rina's blink timing. If Rina
+                    gets close, Mortis is in serious trouble. If Mortis keeps
+                    distance, the scythe range advantage is dominant.
+
+
+AI PROMPT: CHARACTER CONCEPT
+================================================================================
+
+Pixel art character design sheet for a 2D side-scrolling fighting game.
+
+CHARACTER: "Mortis, the Soul Reaper" — a Grim Reaper inspired shadow/death
+battlemancer with spectral cyan-green energy.
+
+CAMERA / VIEW:
+- Strict side view (profile), facing RIGHT.
+- The character is viewed from a 90-degree side angle, like a classic 2D
+  fighting game (Street Fighter, King of Fighters pixel art style).
+- NOT 3/4 view. NOT front-facing. NOT isometric. Pure flat side profile.
+
+PROPORTIONS & SIZE:
+- Semi-chibi anime proportions: head is approximately 1/3 of total body height.
+- Total character height: approximately 52-56 pixels tall (taller than average).
+- Character width: approximately 24-32 pixels wide at widest point.
+- The character must fit inside a 64x64 pixel cell with padding above the
+  head and below the feet.
+- Robe bottom touches ground line at y=58 (6 pixels from bottom of 64px frame).
+
+APPEARANCE (DETAILED):
+- HOOD: Deep pointed hood covering the entire head. The hood is part of the
+  robe — seamless transition. Interior of the hood is pure black (#050510),
+  creating a void-like shadow where the face should be. The hood's point
+  extends slightly upward. In side view, the hood profile shows the pointed
+  tip and the deep shadow underneath.
+- EYES: Two small glowing cyan-green (#00FFAA) dots floating in the darkness
+  under the hood. These are the ONLY facial feature. No nose, no mouth, no
+  skin — just two eerie floating eye-dots in blackness. They are the KEY
+  identifying feature and must be clearly visible in every frame. In side
+  view, one eye is fully visible, the second partially visible behind it.
+- BODY: Gaunt, tall, skeletal silhouette. The body shape is mostly defined by
+  the robe draping over a thin frame. Angular shoulders visible through the
+  fabric. No visible flesh except the hands.
+- ROBE: Long flowing robe in deep charcoal (#1A1A2E) with near-black blue
+  (#0F0F1A) in the deepest folds. The robe extends from the hood all the way
+  to the ground. The bottom hem is TORN and TATTERED — fraying into wispy
+  tendrils and ragged strips. The robe has some volume and layers — outer
+  layer is darkest, inner visible at tears. Highlight edges in dark slate
+  (#2D2D44). In side view, the robe creates a tall, narrow, flowing silhouette.
+- SHOULDER PAULDRONS: Small angular dark iron (#333344) shoulder guards on
+  both shoulders. They have faint green (#228866) runic etch marks — just
+  1-2 pixels of dim green to suggest magical runes. Bony and angular shape.
+- CHAIN BELT: Thin chain belt (#444455) at the waist with a small glowing
+  cyan-green (#00FFAA) gem pendant hanging from the center front.
+- HANDS: Skeletal bone-white (#D4C8A8) hands with darker shadows (#A89878).
+  Bony fingers, slightly elongated and claw-like. Clearly skeletal — no flesh,
+  just pale bone. Visible emerging from the wide robe sleeves.
+- SCYTHE: Held in the right hand. Dark iron (#333344) shaft, approximately
+  40-45px long (nearly the character's height). Curved blade at the top
+  with silver metal (#AABBCC) and a faint cyan-green (#00CC88) glow along
+  the cutting edge. The scythe is this character's DEFINING feature — its
+  silhouette should be instantly recognizable. In side view, the shaft is
+  mostly vertical with the blade curving forward (to the right).
+- FEET: NOT VISIBLE. The tattered robe extends to the ground line completely
+  concealing any feet. The ragged bottom edge of the robe touches y=58.
+  There should be a subtle 1-2px gap visible under parts of the tattered hem
+  suggesting the character hovers slightly off the ground.
+
+COLOR PALETTE (strict):
+- Deep Charcoal #1A1A2E (robe base)
+- Near-Black Blue #0F0F1A (robe shadows)
+- Dark Slate #2D2D44 (robe highlights)
+- Void Black #050510 (hood interior)
+- Spectral Cyan #00FFAA (eye glow, energy, gem)
+- Bright Mint #66FFCC (brightest energy)
+- Pale Bone #D4C8A8 (hands)
+- Dusty Tan #A89878 (hand shadows)
+- Dark Iron #333344 (scythe shaft, pauldrons)
+- Silver #AABBCC (scythe blade)
+- Ghost Green #00CC88 (blade glow)
+- Dim Green #228866 (rune accents)
+- Dark Purple-Gray #221133 (robe wisps)
+- Gunmetal #444455 (chain belt)
+- Darkest #0A0A14 (outline, deepest shadow)
+
+PIXEL ART STYLE:
+- Clean 1-pixel dark outline (#0A0A14) around the entire character silhouette.
+- 2-3 shading levels per color area (base color, shadow, highlight).
+- No anti-aliasing — hard pixel edges only.
+- No sub-pixel detail or dithering.
+- Anime-style pixel art, similar to "Warrior Girls Pack" or "Street Fighter
+  III" pixel sprites in terms of quality and detail level.
+- Dark, gothic, ethereal mood — this character should feel ominous and
+  otherworldly compared to the brighter fighters.
+
+OUTPUT:
+- Single character in an idle standing pose, facing right.
+- Scythe held at the right side, blade curving upward/forward.
+- Transparent background (no solid color behind character).
+- Clean, final pixel art ready to be placed into a sprite sheet.
+
+
+CONNECTIONS
+================================================================================
+-> 02_CHARACTER_DESIGN.txt    uses: Visual Identity, Color Palette, Scythe Poses
+-> 03_CHARACTER_SKILLS_EFFECTS.txt  uses: Shadow/Death Element, Cyan-Green Palette, Ability Details

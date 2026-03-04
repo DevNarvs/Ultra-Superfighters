@@ -1,0 +1,1236 @@
+================================================================================
+  AI GENERATION PROMPTS: RINA — THE PHANTOM BLADE
+  Super Battlemancers
+================================================================================
+  Ready-to-copy-paste AI prompts for EACH animation and skill effect.
+  INPUT:    <- 01_CHARACTER_DESCRIPTION.txt
+            <- 02_CHARACTER_DESIGN.txt
+            <- 03_CHARACTER_SKILLS_EFFECTS.txt
+  OUTPUT:   Individual sprite strips → stitch into full sprite sheet + effects
+================================================================================
+
+
+HOW TO USE
+================================================================================
+1. Copy ONE prompt at a time into your AI image generator.
+2. Generate, review, adjust if needed.
+3. After generating all 11 animation strips (A0-A10), stitch vertically:
+   - Row 0 at y=0, Row 1 at y=64, Row 2 at y=128, ... Row 10 at y=640
+   - Final sheet: 384 x 704 pixels (or 768 x 1408 at 2x scale)
+4. Skill effects (B1-B6) are separate individual files.
+5. Use Photopea.com (free) or Photoshop. "Nearest Neighbor" resampling.
+
+CHARACTER REFERENCE
+================================================================================
+Name              : Rina
+Title             : The Phantom Blade
+Element / Theme   : Shadow / Void (pink energy)
+Role              : Rush-down / Assassin
+
+APPEARANCE BLOCK (included in every prompt):
+  A shadow assassin girl with long straight pastel pink (#F4A6C8) hair tied
+  in a low ponytail that hangs behind (tips darken to magenta #C44B99).
+  Side-swept bangs on forehead. Small rectangular glasses (#3A2838 frame)
+  with 1-2 pixel white (#FFFFFF) lens glint — KEY identifying feature.
+  Sharp violet-pink (#FF69B4) eyes behind the glasses. Fair warm skin
+  (#FFE0CC). Fitted dark magenta (#8B1A6E) cropped assassin coat with high
+  collar, deep plum (#5C1158) shadows. Light pink (#FFCCE0) inner shirt at
+  neckline. Black (#1A1018) utility belt with small pink (#FF69B4) gem
+  buckle, small pouch on back hip. Black (#1A1018) fingerless gloves. Sleek
+  black (#1A1018) thigh-high boots with thin pink (#FF69B4) accent stripe.
+  Light pink (#FFCCE0) scarf ribbon at collar with short tails. Semi-chibi
+  anime proportions (head ~1/3 of body height). Slim, agile assassin build.
+
+COLOR PALETTE:
+  Coat Main       : #8B1A6E (dark magenta)
+  Coat Shadow     : #5C1158 (deep plum)
+  Energy/Accent   : #FF69B4 (hot pink)
+  Highlight       : #FFB6D9 (pastel pink)
+  Darkest         : #2A1028 (shadow black — outline color)
+  Skin            : #FFE0CC (fair warm)
+  Hair Main       : #F4A6C8 (pastel pink)
+  Hair Tips       : #C44B99 (dark magenta)
+  Boots/Gloves    : #1A1018 (charcoal black)
+  Glasses Frame   : #3A2838 (dark gray)
+  Glasses Glint   : #FFFFFF (white)
+  Scarf/Shirt     : #FFCCE0 (light pink)
+
+
+================================================================================
+================================================================================
+  PART A: CHARACTER ANIMATION PROMPTS (11 rows)
+================================================================================
+================================================================================
+
+
+================================================================================
+PROMPT A0 — ROW 0: IDLE (4 frames)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+At 2x scale: 512 x 128 pixels (4 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A shadow assassin girl with long straight pastel pink (#F4A6C8) hair tied
+in a low ponytail that hangs behind (tips darken to magenta #C44B99).
+Side-swept bangs on forehead. Small rectangular glasses (#3A2838 frame)
+with 1-2 pixel white (#FFFFFF) lens glint — KEY identifying feature.
+Sharp violet-pink (#FF69B4) eyes behind the glasses. Fair warm skin
+(#FFE0CC). Fitted dark magenta (#8B1A6E) cropped assassin coat with high
+collar, deep plum (#5C1158) shadows. Light pink (#FFCCE0) inner shirt at
+neckline. Black (#1A1018) utility belt with small pink (#FF69B4) gem
+buckle, small pouch on back hip. Black (#1A1018) fingerless gloves. Sleek
+black (#1A1018) thigh-high boots with thin pink (#FF69B4) accent stripe.
+Light pink (#FFCCE0) scarf ribbon at collar with short tails. Semi-chibi
+anime proportions (head ~1/3 of body height). Slim, agile assassin build.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. The character is seen from a
+  perfect side angle like classic 2D fighting game sprites (Street Fighter,
+  Metal Slug perspective).
+- NOT 3/4 view. NOT front-facing. NOT isometric. NOT top-down. Pure flat
+  side profile.
+- Character always faces RIGHT.
+- Semi-chibi anime proportions: head is approximately 1/3 of total body height.
+- Character height: approximately 48-56 pixels tall within each 64x64 cell.
+- Feet planted at y=58 (6 pixels from the bottom of each 64x64 frame).
+- Character body centered horizontally at x=32 in each cell.
+- Clean 1-pixel dark outline (#2A1028) around the entire character.
+- 2-3 shading levels per color area (highlight, base, shadow).
+- No anti-aliasing. Hard pixel edges. No dithering. No sub-pixel detail.
+
+IMAGE LAYOUT:
+- 4 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+- Frames read left to right: Frame 1, Frame 2, Frame 3, Frame 4.
+
+ANIMATION: IDLE (standing, breathing, looping)
+
+Frame 1 (NEUTRAL):
+Relaxed assassin stance. Weight on back foot. Right hand hanging at side,
+left hand near hip resting by belt pouch (near kunai holster). Ponytail
+hangs naturally behind the head and back. Glasses clearly visible on the
+face with white glint pixel on the lens. Scarf ribbon hangs still at the
+collar. Calm, composed, analytical expression. Feet at y=58.
+
+Frame 2 (INHALE):
+Subtle inhale — body rises 1-2 pixels. Ponytail shifts very slightly.
+Left hand near hip moves 1px upward as if ready to draw a weapon. Glasses
+glint stays in same position. Keep feet at y=58.
+
+Frame 3 (PEAK):
+Peak of breath. Faint pink glow hint on the left hand near hip (shadow
+energy ready — just 1-2 pixels of #FF69B4 near the fingers). Ponytail
+sways 1-2 pixels to the right. Scarf tails shift slightly in the breeze.
+
+Frame 4 (EXHALE):
+Exhale — body lowers back to Frame 1 position. Pink glow fades. Smooth
+return for seamless loop. Must align perfectly with Frame 1 when the
+animation loops.
+
+IMPORTANT:
+- Do NOT draw any weapons, daggers, energy blades, or magical aura. Only
+  the character's body and clothing.
+- Rectangular glasses must be clearly visible in every single frame — this
+  is the character's KEY identifying feature.
+- The ponytail hangs naturally behind the character in side view.
+- All 4 frames must have consistent character proportions and positioning.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A1 — ROW 1: RUN (6 frames)
+================================================================================
+Output: 384 x 64 pixels (6 frames of 64x64)
+At 2x scale: 768 x 128 pixels (6 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A shadow assassin girl with long straight pastel pink (#F4A6C8) hair tied
+in a low ponytail that hangs behind (tips darken to magenta #C44B99).
+Side-swept bangs on forehead. Small rectangular glasses (#3A2838 frame)
+with 1-2 pixel white (#FFFFFF) lens glint. Sharp violet-pink (#FF69B4) eyes.
+Fair warm skin (#FFE0CC). Fitted dark magenta (#8B1A6E) cropped assassin
+coat with high collar, deep plum (#5C1158) shadows. Light pink (#FFCCE0)
+inner shirt at neckline. Black (#1A1018) utility belt with pink (#FF69B4)
+gem buckle, pouch on back hip. Black (#1A1018) fingerless gloves. Sleek
+black (#1A1018) thigh-high boots with pink (#FF69B4) stripe. Light pink
+(#FFCCE0) scarf ribbon at collar. Semi-chibi anime proportions.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game
+  perspective (Street Fighter, Metal Slug).
+- NOT 3/4 view. NOT front-facing. NOT isometric. Pure flat side profile.
+- Character always faces RIGHT (running to the right).
+- Semi-chibi anime proportions: head ~1/3 of body height.
+- Character height: ~48-56px within each 64x64 cell.
+- Feet at y=58 (6px from bottom). Center at x=32.
+- 1-pixel dark outline (#2A1028). 2-3 shading levels per color.
+- No anti-aliasing. Hard pixel edges. No dithering.
+
+IMAGE LAYOUT:
+- 6 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 384 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: RUN CYCLE (full sprint, looping)
+
+Frame 1 (RIGHT CONTACT):
+Right foot strikes ground ahead, left arm swings forward with fist, right
+arm back. Body leans forward ~5 degrees (aggressive assassin sprint).
+Ponytail streams behind the character. Scarf flutters back from speed.
+Glasses visible on the face.
+
+Frame 2 (RIGHT DOWN):
+Right foot planted, body lowers to the lowest point of the cycle. Arms
+mid-swing. Ponytail follows momentum, slightly higher from the bob.
+
+Frame 3 (RIGHT PASSING):
+Right foot pushes off, body rises. Legs cross underneath the body. Arms
+passing center. Ponytail catches up to body position.
+
+Frame 4 (LEFT CONTACT):
+Left foot strikes ground ahead (mirror of Frame 1). Right arm forward,
+left arm back. Ponytail still streaming behind.
+
+Frame 5 (LEFT DOWN):
+Left foot planted, body lowers (mirror of Frame 2). Lowest point.
+
+Frame 6 (LEFT PASSING):
+Left foot pushes off, legs cross (mirror of Frame 3). This frame loops
+seamlessly back to Frame 1.
+
+IMPORTANT:
+- Ponytail and scarf MUST trail BEHIND the direction of movement in every
+  frame. They lag by 1-2 frames from body position (natural hair/cloth
+  physics). The ponytail streams backward from the running motion.
+- The run cycle must loop seamlessly (Frame 6 → Frame 1).
+- Body leans forward aggressively — this is an assassin character built
+  for speed.
+- Do NOT draw any weapons, energy trails, or effects. Body and clothing only.
+- Glasses must remain visible in every frame.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A2 — ROW 2: JUMP (3 frames)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+At 2x scale: 384 x 128 pixels (3 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A shadow assassin girl with long straight pastel pink (#F4A6C8) hair tied
+in a low ponytail (tips #C44B99). Rectangular glasses (#3A2838) with white
+glint. Violet-pink (#FF69B4) eyes. Fair skin (#FFE0CC). Dark magenta
+(#8B1A6E) cropped assassin coat, high collar, plum (#5C1158) shadows. Pink
+(#FFCCE0) shirt at neckline. Black (#1A1018) belt with pink gem, fingerless
+gloves, thigh-high boots with pink (#FF69B4) stripe. Pink (#FFCCE0) scarf
+ribbon. Semi-chibi anime proportions.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric. Pure flat side profile.
+- Character faces RIGHT. Semi-chibi proportions. Head ~1/3 of body.
+- Character height: ~48-56px. Center at x=32.
+- 1-pixel dark outline (#2A1028). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 3 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: JUMP (launch → peak → fall, one-shot, does NOT loop)
+
+Frame 1 (LAUNCH):
+Legs compressed and bent, crouching low, arms pull downward. Body coils
+like a spring ready to release. Ponytail compressed downward from the
+crouch. Feet still near y=58 (still on the ground, about to jump).
+
+Frame 2 (PEAK):
+Body airborne, legs tucked up slightly, arms out at sides for balance.
+Ponytail floats upward in a weightless arc (zero gravity feel). Scarf
+floats upward. Coat tails lift slightly from the ascent. Character
+centered vertically in the 64x64 frame.
+
+Frame 3 (FALL):
+Legs extend downward toward the ground, arms rise up, head tilts slightly
+down (looking where she'll land). Ponytail streams upward behind (trailing
+from the downward fall). Scarf above the character. Descending pose.
+
+IMPORTANT:
+- Frame 1 has feet near ground (crouching). Frame 2 is airborne (centered
+  vertically). Frame 3 is descending.
+- Ponytail, scarf, and coat react to gravity and momentum realistically:
+  compressed down in Frame 1, floating up in Frame 2, trailing up in Frame 3.
+- Glasses must be visible in every frame.
+- Do NOT draw any energy effects, aura, or weapons.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A3 — ROW 3: ATTACK 1 — Dagger Slash (3 frames)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+At 2x scale: 384 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A shadow assassin girl with long straight pastel pink (#F4A6C8) hair tied
+in a low ponytail (tips #C44B99). Rectangular glasses (#3A2838) with white
+glint. Violet-pink (#FF69B4) eyes. Fair skin (#FFE0CC). Dark magenta
+(#8B1A6E) cropped assassin coat, high collar, plum (#5C1158) shadows. Pink
+(#FFCCE0) shirt at neckline. Black (#1A1018) belt with pink gem, fingerless
+gloves, thigh-high boots with pink (#FF69B4) stripe. Pink (#FFCCE0) scarf
+ribbon. Semi-chibi anime proportions.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~48-56px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline (#2A1028). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 3 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: ATTACK 1 — Quick Dagger Slash (very fast melee strike, one-shot)
+
+Frame 1 (WINDUP):
+Right hand sweeps back behind the body, fingers extended in a claw/strike
+position (as if gripping an invisible energy dagger). Body coils slightly
+forward. Left arm raised in front as a guard. Quick, tight, compact motion.
+Ponytail shifts slightly from the body twist.
+
+Frame 2 (STRIKE):
+Right arm slashes horizontally forward in a fast arc. Arm fully extended
+with hand reaching to approximately 45 pixels from the left edge of the
+64x64 frame (maximum forward reach to the right). Open hand/claw pose at
+the end of the slash. Body rotates into the slash with shoulders turned.
+This is the impact frame — the most extended pose.
+
+Frame 3 (RECOVERY):
+Right arm pulling back toward the body. Body returning to a neutral
+assassin stance. Very fast recovery — this character is the fastest melee
+fighter in the game. Left arm drops guard.
+
+IMPORTANT:
+- Do NOT draw any energy dagger, blade, slash trail, pink glow, or any
+  weapon in the character's hands. Only draw the character's body and arm
+  positions. The pink energy slash effect is added by the game engine at
+  runtime as a separate sprite overlay.
+- The strike frame should look fast and precise — an assassin's quick cut,
+  not a heavy brawler punch.
+- Glasses must remain visible.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A4 — ROW 4: ATTACK 2 — Backhand Slash (3 frames)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+At 2x scale: 384 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A shadow assassin girl with long straight pastel pink (#F4A6C8) hair tied
+in a low ponytail (tips #C44B99). Rectangular glasses (#3A2838) with white
+glint. Violet-pink (#FF69B4) eyes. Fair skin (#FFE0CC). Dark magenta
+(#8B1A6E) cropped assassin coat, high collar, plum (#5C1158) shadows. Pink
+(#FFCCE0) shirt at neckline. Black (#1A1018) belt with pink gem, fingerless
+gloves, thigh-high boots with pink (#FF69B4) stripe. Pink (#FFCCE0) scarf
+ribbon. Semi-chibi anime proportions.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~48-56px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline (#2A1028). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 3 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: ATTACK 2 — Backhand Slash (reverse melee strike, one-shot)
+
+Frame 1 (WINDUP):
+Left arm crosses in front of body from right to left, winding up for a
+backhand strike. Body twists slightly away from the target (shoulders
+rotate so the left shoulder pulls back). Right arm pulled back for
+balance. This is the reverse of Attack 1's motion.
+
+Frame 2 (STRIKE):
+Left arm whips outward in a backhand slash from left to right. Full
+extension — arm reaches toward the right side of the frame. Body rotates
+into the hit with force. The reverse motion from Attack 1 makes this feel
+like alternating slashes in a combo. Open hand/claw at full extension.
+
+Frame 3 (RECOVERY):
+Left arm returning toward the body. Body untwisting back to neutral.
+Slightly faster recovery than Attack 1 to maintain smooth combo flow
+into Attack 3.
+
+IMPORTANT:
+- Do NOT draw any weapon, energy blade, slash trail, or glow effect.
+  Only draw the character's body and arm positions. Engine adds effects.
+- This is the SECOND hit in a 3-hit combo. The starting position should
+  feel natural coming from Attack 1's recovery, and the recovery should
+  flow naturally into Attack 3's windup.
+- Glasses must remain visible.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A5 — ROW 5: ATTACK 3 — Spinning Downward Slash (4 frames)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+At 2x scale: 512 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A shadow assassin girl with long straight pastel pink (#F4A6C8) hair tied
+in a low ponytail (tips #C44B99). Rectangular glasses (#3A2838) with white
+glint. Violet-pink (#FF69B4) eyes. Fair skin (#FFE0CC). Dark magenta
+(#8B1A6E) cropped assassin coat, high collar, plum (#5C1158) shadows. Pink
+(#FFCCE0) shirt at neckline. Black (#1A1018) belt with pink gem, fingerless
+gloves, thigh-high boots with pink (#FF69B4) stripe. Pink (#FFCCE0) scarf
+ribbon. Semi-chibi anime proportions.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~48-56px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline (#2A1028). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 4 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: ATTACK 3 — Spinning Downward Slash (heavy combo finisher, one-shot)
+
+Frame 1 (WINDUP):
+Body begins to pivot. Both arms pull up and back above the head. Weight
+shifts to front foot. Ponytail begins swinging from the body rotation.
+Coiling up for a powerful spinning strike.
+
+Frame 2 (SPIN):
+Body rotating, mid-spin. Arms sweeping in a wide downward arc. Ponytail
+whips around from the spin momentum — fully extended and trailing the
+rotation. In side view, the torso appears slightly turned (shoulders
+overlapping to show rotation). Full-body commitment to the spin.
+
+Frame 3 (IMPACT):
+Both arms slash downward diagonally toward the lower-right. Maximum reach
+forward and down — body lunged forward aggressively. This is the heaviest
+hit in the combo — the pose should look powerful, committed, and dangerous.
+Ponytail fully extended backward from the spin momentum. Most dynamic
+attack pose.
+
+Frame 4 (RECOVERY):
+Body stumbles forward slightly from the spin momentum — the character
+over-committed to the attack. Arms lowering back down. Longer recovery
+than Attacks 1 and 2 (high risk, high reward). Ponytail settling down.
+Slight forward lean.
+
+IMPORTANT:
+- Do NOT draw any weapon, energy, slash effects, or glow. Body only.
+- This is the HEAVIEST attack in the 3-hit combo (deals 10 damage vs
+  6 for hits 1 and 2). Frame 3 should be the most dramatic and powerful
+  attack pose.
+- The spinning motion makes the ponytail and scarf react dynamically —
+  they trail the rotation direction.
+- Glasses must remain visible.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A6 — ROW 6: CAST — Void Kunai Throw (4 frames)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+At 2x scale: 512 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A shadow assassin girl with long straight pastel pink (#F4A6C8) hair tied
+in a low ponytail (tips #C44B99). Rectangular glasses (#3A2838) with white
+glint. Violet-pink (#FF69B4) eyes. Fair skin (#FFE0CC). Dark magenta
+(#8B1A6E) cropped assassin coat, high collar, plum (#5C1158) shadows. Pink
+(#FFCCE0) shirt at neckline. Black (#1A1018) belt with pink gem, fingerless
+gloves, thigh-high boots with pink (#FF69B4) stripe. Pink (#FFCCE0) scarf
+ribbon. Semi-chibi anime proportions. Small pouch visible on back hip (this
+is the kunai holster).
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~48-56px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline (#2A1028). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 4 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: CAST — Void Kunai Throw (ranged ability, one-shot)
+
+Frame 1 (PREPARE):
+Right hand reaches behind the body toward the belt pouch on the back hip
+(the kunai holster). Body turns slightly as the arm reaches back. Left
+arm extends out front for balance, pointing toward the target. Determined
+expression.
+
+Frame 2 (DRAW):
+Right hand pulls back past the ear in a classic throwing position — elbow
+high, hand behind the head, wrist cocked back. Body coils with weight
+shifting to the back foot. Ready to throw. The hand looks like it's
+gripping something small (fingers together, pinching).
+
+Frame 3 (THROW):
+Right arm whips forward in an overhand throwing motion at full extension.
+Body lunges forward. Arm reaches toward the right side of the frame. Wrist
+flicks at the release point. Maximum forward reach. This is the frame where
+the game engine spawns the projectile at the hand position.
+
+Frame 4 (FOLLOW-THROUGH):
+Arm continues the forward arc, then begins returning to the body. Body
+settles with a slight forward lean from the throwing momentum. Returning
+toward a neutral stance.
+
+IMPORTANT:
+- Do NOT draw a kunai, dagger, or any weapon in the character's hand. The
+  Void Kunai projectile is a SEPARATE sprite that the game engine spawns at
+  the hand's position during Frame 3. Only draw the character's body, arms,
+  and hand positions showing the throwing motion.
+- The throwing motion should look like a ninja throwing a small weapon —
+  fast, precise overhand throw.
+- Glasses must remain visible.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A7 — ROW 7: TAKE HIT (2 frames)
+================================================================================
+Output: 128 x 64 pixels (2 frames of 64x64)
+At 2x scale: 256 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A shadow assassin girl with long straight pastel pink (#F4A6C8) hair tied
+in a low ponytail (tips #C44B99). Rectangular glasses (#3A2838) with white
+glint. Violet-pink (#FF69B4) eyes. Fair skin (#FFE0CC). Dark magenta
+(#8B1A6E) cropped assassin coat, high collar, plum (#5C1158) shadows. Pink
+(#FFCCE0) shirt at neckline. Black (#1A1018) belt with pink gem, fingerless
+gloves, thigh-high boots with pink (#FF69B4) stripe. Pink (#FFCCE0) scarf
+ribbon. Semi-chibi anime proportions.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~48-56px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline (#2A1028). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 2 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 128 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: TAKE HIT (damage reaction, one-shot)
+
+Frame 1 (IMPACT):
+Body jerked backward from being hit. Head snaps back. Glasses shift
+slightly on the face — pushed upward or askew by the impact force. Pain
+expression: eyes squeeze shut or wince, mouth opens slightly. Ponytail
+whips FORWARD (opposite of the backward body movement — hair momentum).
+One arm reaches toward the point of impact.
+
+Frame 2 (RECOIL):
+Body leans further back in an exaggerated stagger. Front foot (the one
+closer to the right/facing direction) lifts off the ground. Arms flung
+outward from the impact force. Glasses still shifted/askew. Ponytail
+still swinging forward. More extreme stagger than Frame 1. Nearly losing
+balance.
+
+IMPORTANT:
+- The hit pushes the character BACKWARD (to the LEFT, since she faces right).
+- Glasses shifting/going askew is a key character-specific reaction detail.
+- Pain expression must be clearly visible — this is a damage reaction.
+- Ponytail reacts opposite to body (body goes back, hair swings forward).
+- Do NOT draw damage numbers, blood, hit sparks, or any effects.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A8 — ROW 8: DODGE / PHASE SHIFT (2 frames)
+================================================================================
+Output: 128 x 64 pixels (2 frames of 64x64)
+At 2x scale: 256 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A shadow assassin girl with long straight pastel pink (#F4A6C8) hair tied
+in a low ponytail (tips #C44B99). Rectangular glasses (#3A2838) with white
+glint. Violet-pink (#FF69B4) eyes. Fair skin (#FFE0CC). Dark magenta
+(#8B1A6E) cropped assassin coat, high collar, plum (#5C1158) shadows. Pink
+(#FFCCE0) shirt at neckline. Black (#1A1018) belt with pink gem, fingerless
+gloves, thigh-high boots with pink (#FF69B4) stripe. Pink (#FFCCE0) scarf
+ribbon. Semi-chibi anime proportions.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~48-56px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline (#2A1028). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 2 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 128 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: DODGE / PHASE SHIFT (enter → ethereal hold, one-shot)
+
+Frame 1 (ENTER):
+Arms cross in front of the chest in an X shape, bracing/focusing. Body
+tenses, crouching slightly with knees bent. Glasses glint brighter (add
+1-2 extra white pixels on the lens). Scarf pulls tight against the body.
+Concentrating expression — eyes focused, brow slightly furrowed. This is
+the activation frame.
+
+Frame 2 (ACTIVE — this frame is HELD for the full 1-second dodge):
+Body relaxes into an ethereal, ghostly pose. Arms slightly spread to the
+sides with palms open and fingers relaxed. Standing straight and tall.
+Serene, calm expression — completely at peace while phasing through
+reality. Ponytail floats slightly upward as if weightless (defying
+gravity). Scarf floats and drifts. An otherworldly, weightless stance.
+
+IMPORTANT:
+- Draw Frame 2 as a NORMAL, FULLY OPAQUE character with normal colors.
+  The game engine makes this frame semi-transparent and adds a blue-pink
+  color tint at runtime to create the ghostly phasing effect. You just
+  draw the character normally in her standard colors.
+- Frame 2 is held for 1 full second during gameplay, so it must be a
+  clean, visually appealing pose that looks good when static.
+- The floating hair/scarf in Frame 2 conveys the "phasing through reality"
+  feel.
+- Glasses visible in both frames.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A9 — ROW 9: ULTIMATE — Phantom Barrage (4 frames)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+At 2x scale: 512 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A shadow assassin girl with long straight pastel pink (#F4A6C8) hair tied
+in a low ponytail (tips #C44B99). Rectangular glasses (#3A2838) with white
+glint. Violet-pink (#FF69B4) eyes. Fair skin (#FFE0CC). Dark magenta
+(#8B1A6E) cropped assassin coat, high collar, plum (#5C1158) shadows. Pink
+(#FFCCE0) shirt at neckline. Black (#1A1018) belt with pink gem, fingerless
+gloves, thigh-high boots with pink (#FF69B4) stripe. Pink (#FFCCE0) scarf
+ribbon. Semi-chibi anime proportions.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~48-56px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline (#2A1028). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 4 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: ULTIMATE — Phantom Barrage (most powerful attack, one-shot)
+This is the character's ultimate ability — she vanishes and reappears
+rapidly across the arena slashing everything. These frames show her body
+poses during the ultimate sequence.
+
+Frame 1 (CHARGE):
+Crouching very low, almost one knee touching the ground. Both fists
+clenched tightly at her sides. Head down with chin toward chest. Glasses
+glinting intensely (extra white pixels). The most compressed, coiled pose
+— like a spring about to explode. Intense, focused, dangerous expression.
+
+Frame 2 (RISE):
+Pushing up explosively from the crouch to a standing position. Arms
+sweeping outward and upward with force. Ponytail rising with the upward
+momentum. Expression shifts from focused to fierce and determined. Body
+rising with power.
+
+Frame 3 (VANISH POSE — THE MOST DYNAMIC FRAME):
+Dynamic forward-leaning sprint/dash pose, as if about to launch at
+incredible speed. One arm pulled back behind the body (as if holding an
+energy blade position), the other arm forward slicing through the air.
+Ponytail streams straight behind from the explosive forward momentum.
+Body leaning forward aggressively at ~30 degrees. This is the LAST
+frame visible before Rina teleports — it must look like frozen motion,
+mid-dash, the most aggressive and dynamic pose in the entire sprite sheet.
+
+Frame 4 (REAPPEAR):
+Superhero landing pose — one knee down touching the ground, one hand flat
+on the ground in front, the other arm resting on the raised knee. Head
+slightly bowed with a cool, composed expression: "it's already over."
+Ponytail settling down after the barrage. Glasses visible. A calm, stylish
+aftermath pose.
+
+IMPORTANT:
+- Do NOT draw energy aura, particles, magic circles, pink glow, shadow
+  effects, or any visual effects around the character. The game engine adds
+  dramatic energy aura, screen flash, and particles at runtime. Only draw
+  the CHARACTER'S BODY POSES.
+- Frame 3 should be the single MOST DYNAMIC and DRAMATIC pose in the entire
+  character sprite sheet. It captures the explosive speed of the assassin.
+- Frame 4 is the cool aftermath — contrast the explosive Frame 3 with this
+  calm, stylish landing.
+- Glasses visible in all 4 frames.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A10 — ROW 10: DEATH (3 frames)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+At 2x scale: 384 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A shadow assassin girl with long straight pastel pink (#F4A6C8) hair tied
+in a low ponytail (tips #C44B99). Rectangular glasses (#3A2838) with white
+glint. Violet-pink (#FF69B4) eyes. Fair skin (#FFE0CC). Dark magenta
+(#8B1A6E) cropped assassin coat, high collar, plum (#5C1158) shadows. Pink
+(#FFCCE0) shirt at neckline. Black (#1A1018) belt with pink gem, fingerless
+gloves, thigh-high boots with pink (#FF69B4) stripe. Pink (#FFCCE0) scarf
+ribbon. Semi-chibi anime proportions.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~48-56px. Center at x=32.
+- 1-pixel dark outline (#2A1028). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 3 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: DEATH (knocked out, one-shot, does not loop)
+
+Frame 1 (STAGGER):
+Stumbling forward, one hand clutches her stomach/chest area. Glasses
+slipping down the nose (shifted downward by a few pixels from their normal
+position). Pain expression — wincing, mouth slightly open. Ponytail swings
+from the stagger momentum. Knees beginning to buckle but still partially
+standing.
+
+Frame 2 (FALLING):
+Body tilting sideways to the right, legs giving out beneath her. Arms go
+limp at her sides, no longer able to resist. Glasses falling off or hanging
+at a crooked angle on the face. Ponytail trailing the fall direction
+(streaming upward/left as she falls right). No longer able to stand.
+
+Frame 3 (DOWN):
+Lying on the ground. Body rotated approximately 80 degrees clockwise so
+the character lies horizontally — head on the right side, feet on the
+left side of the frame. The body must fit entirely within the 64x64 frame.
+Glasses on the ground nearby or still barely clinging to the face. Ponytail
+spread on the ground behind the head. Peaceful, unconscious expression —
+eyes closed. Scarf draped limply.
+
+IMPORTANT:
+- Frame 3 is the FINAL resting state. The character must be rotated to
+  lie horizontally and fit within the 64x64 frame.
+- The glasses detail is important: they slip (Frame 1), fall off (Frame 2),
+  and rest nearby (Frame 3). This is a signature character detail.
+- Do NOT draw blood, X-eyes, stars, or cartoon death symbols. Keep it clean
+  and dignified.
+- Do NOT draw any energy effects or particles.
+
+--- END COPY ---
+
+
+================================================================================
+================================================================================
+  PART B: SKILL EFFECT PROMPTS
+================================================================================
+================================================================================
+
+
+================================================================================
+PROMPT B1 — VOID KUNAI (Primary Projectile)
+================================================================================
+Output: 128 x 32 pixels (4 frames of 32x32)
+At 2x scale: 256 x 64 pixels (4 frames of 64x64)
+File: void_kunai.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a pink energy kunai projectile for a 2D
+side-scrolling fighting game.
+
+RENDERING RULES:
+- Strict side view, 90-degree angle, like a classic 2D game projectile.
+- NOT 3/4 view. NOT perspective. Flat 2D side profile.
+- Each frame is exactly 32x32 pixels.
+- 4 frames in a single horizontal row.
+- Total image: 128 pixels wide x 32 pixels tall.
+- Transparent background.
+- The kunai points and travels to the RIGHT. Engine flips for left.
+
+APPEARANCE:
+The kunai is made of glowing pink energy, NOT physical metal. It is a
+classic kunai/dagger shape: narrow pointed tip on the RIGHT side, wider
+base on the LEFT with a small ring/loop at the tail end. Approximately
+20 pixels long and 8 pixels wide. Centered vertically in each 32x32 frame.
+Positioned with tip at about x=26 and tail at about x=6.
+
+Colors: hot pink (#FF69B4) body, white (#FFFFFF) edge highlight along the
+blade edge, darker magenta (#8B1A6E) shadow on the underside, and a soft
+semi-transparent pastel pink (#FFB6D9) glow halo around the outer edges
+(2-3 pixels of soft glow). The energy kunai looks like solidified pink
+light with a dark shadow/void quality.
+
+FRAMES (looping animation):
+Frame 1: Kunai shape with soft glow halo, steady state. Clean, sharp.
+Frame 2: Energy pulses — glow around edges expands by 1-2 pixels. White
+  highlight shifts slightly. Overall brightness increases subtly.
+Frame 3: Glow contracts back. Small dark void wisps (#2A1028) appear at
+  the tail end (1-2 dark pixels trailing behind). Kunai body unchanged.
+Frame 4: Returns to Frame 1 state for seamless loop. Wisps fade.
+
+STYLE:
+Clean pixel art, 1px dark outline, no anti-aliasing, no dithering.
+Vibrant pink and magenta colors. Retro 2D game projectile sprite.
+Do NOT draw trailing particles or motion blur — engine adds those.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B2 — KUNAI IMPACT (Projectile Explosion)
+================================================================================
+Output: 320 x 64 pixels (5 frames of 64x64)
+At 2x scale: 640 x 128 pixels (5 frames of 128x128)
+File: void_kunai_impact.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a pink void energy impact explosion for a 2D
+side-scrolling fighting game.
+
+RENDERING RULES:
+- Flat 2D view, centered in each frame.
+- Each frame is exactly 64x64 pixels.
+- 5 frames in a single horizontal row.
+- Total image: 320 pixels wide x 64 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+This is a SHADOW/VOID energy impact, NOT a fire explosion. It looks like
+reality shattering with pink energy mixed with dark void shadows. The
+explosion pattern is ANGULAR and CRYSTALLINE — sharp fragments like broken
+glass, NOT smooth round fire bursts. Colors: white (#FFFFFF) flash, hot
+pink (#FF69B4) energy, pastel pink (#FFB6D9) highlights, and dark void
+black (#2A1028) shadow fragments mixed together.
+
+FRAMES (one-shot, very fast):
+Frame 1 (FLASH): Small bright white-pink flash at the center, approximately
+  12-16 pixels diameter. Pure white (#FFFFFF) center with hot pink (#FF69B4)
+  edge. Sharp starburst shape with 4-6 short angular rays.
+
+Frame 2 (EXPAND): Flash blooms outward to approximately 28-32 pixels. Center
+  shifts from white to pastel pink (#FFB6D9). Outer edge is hot pink breaking
+  into angular shards. Dark void particles (#2A1028) begin appearing at edges,
+  mixed with the pink.
+
+Frame 3 (FULL SIZE): Maximum expansion, approximately 40-48 pixels. A burst
+  of pink and dark void energy. Alternating pink (#FF69B4) and shadow-dark
+  (#2A1028) fragments creating a distinctive "void shatter" look. Angular,
+  crystalline break pattern like broken glass. Most dramatic frame.
+
+Frame 4 (FADE): Burst collapses inward. Fragments scatter outward and become
+  semi-transparent. Center darkens. Void-black wisps curl inward. Pink fading.
+
+Frame 5 (DISSIPATE): Nearly gone. A few faint pink pixels and dark shadow
+  wisps at the center. Very transparent. Vanishing into nothing.
+
+STYLE:
+Clean pixel art, 1px dark outline. Angular/sharp fragment shapes — NOT
+smooth or round. Vibrant pink with dark void accents. Retro 2D game impact.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B3 — SHADOW AFTERIMAGE (Secondary Ability Effect)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+At 2x scale: 512 x 128 pixels (4 frames of 128x128)
+File: shadow_afterimage.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a shadow afterimage/ghost silhouette for a 2D
+side-scrolling fighting game.
+
+RENDERING RULES:
+- Strict side view (profile), facing RIGHT.
+- Each frame is exactly 64x64 pixels.
+- 4 frames in a single horizontal row.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+A semi-transparent ghost silhouette of an assassin girl character. This is
+NOT a detailed character drawing — it is a FLAT SHADOW FILL with a clearly
+recognizable outline. The silhouette shows: long ponytail behind the head,
+small rectangular glasses shape on the face, fitted coat at the waist with
+high collar, thigh-high boots. The figure is approximately 48-56 pixels
+tall with feet at y=58.
+
+Colors: dark magenta (#8B1A6E) flat fill for the body, with bright hot pink
+(#FF69B4) glowing edges/outline. The silhouette looks like a dark ghost
+with pink energy outlining its shape.
+
+FRAMES (dissolution sequence, one-shot):
+Frame 1 (APPEAR): Semi-transparent silhouette in idle standing pose. Clearly
+  readable character shape — you can tell it's the assassin girl from the
+  ponytail, glasses outline, and coat shape. Dark magenta fill, bright pink
+  glowing edges. About 70% opacity visual feel.
+
+Frame 2 (GLITCH): Afterimage begins distorting. The silhouette splits
+  horizontally by 1-2 pixels — a "digital glitch" effect where the top half
+  offsets slightly from the bottom. Edges glow brighter pink. Dark void
+  fragments (#2A1028) begin separating from the silhouette edges.
+
+Frame 3 (DISSOLVE): Silhouette breaking apart. Top half dissolves into
+  upward-floating pink and dark particles/fragments. Bottom half still
+  partially visible but very transparent. Overall shape is losing coherence —
+  barely recognizable as a figure anymore.
+
+Frame 4 (VANISH): Nearly gone. A few scattered hot pink (#FF69B4) and dark
+  void (#2A1028) pixels floating where the afterimage was. Very sparse.
+  Almost fully transparent.
+
+STYLE:
+Clean pixel art. Flat silhouette (NOT detailed character drawing). Digital
+glitch aesthetic with the horizontal split effect. Pink energy edges and
+dark void colors. The dissolution goes UPWARD (particles float up, not
+outward like an explosion). Retro 2D game ghost/shadow effect.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B4 — SLASH TRAIL (Melee Hit Visual)
+================================================================================
+Output: 192 x 32 pixels (3 frames of 64x32)
+At 2x scale: 384 x 64 pixels (3 frames of 128x64)
+File: slash_trail.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of an energy slash trail for a 2D side-scrolling
+fighting game.
+
+RENDERING RULES:
+- Flat 2D view.
+- Each frame is exactly 64 pixels wide and 32 pixels tall.
+- 3 frames in a single horizontal row.
+- Total image: 192 pixels wide x 32 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+A sweeping diagonal slash arc from the UPPER-LEFT to the LOWER-RIGHT of
+each frame. This is the trail left by a pink energy dagger cutting through
+the air. The slash is a thin curved arc approximately 50 pixels long.
+Colors: bright white (#FFFFFF) center line with hot pink (#FF69B4) glow on
+each side of the line (1-2 pixels of pink bordering the white). The slash
+has a slight curve — it's a sweeping cut, not a perfectly straight line.
+
+FRAMES (one-shot, extremely fast — 40ms per frame):
+Frame 1 (SLASH): Sharp bright slash arc at full brightness. White center
+  line (2-3 pixels wide at the thickest point, tapering to 1 pixel at each
+  end). Hot pink glow border on both sides. Clean and crisp speed-line.
+
+Frame 2 (GLOW): Slash line widens slightly to 3-4 pixels. White center
+  fades to pastel pink (#FFB6D9). Pink glow border expands. Small angular
+  fragments appear along the slash path.
+
+Frame 3 (FADE): Slash line thins to 1 pixel, mostly transparent. Fragments
+  scatter slightly. Colors shift to faint pink. Nearly invisible. Vanishing.
+
+STYLE:
+Clean pixel art. Sharp speed-line aesthetic — fast, clean, precise. Pink
+energy slash colors (white core, pink glow). Retro 2D fighting game slash
+effect. This should look like a razor-fast energy cut through the air.
+Do NOT draw trailing particles — engine adds those.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B5 — PHANTOM SLASH (Ultimate Effect)
+================================================================================
+Output: 512 x 64 pixels (4 frames of 128x64)
+At 2x scale: 1024 x 128 pixels (4 frames of 256x128)
+File: phantom_slash.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a phantom slash ultimate attack effect for a 2D
+side-scrolling fighting game.
+
+RENDERING RULES:
+- Flat 2D view, horizontal orientation.
+- Each frame is exactly 128 pixels wide and 64 pixels tall.
+- 4 frames in a single horizontal row.
+- Total image: 512 pixels wide x 64 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+Multiple horizontal speed-line slashes cutting across the frame, representing
+a phantom assassin cutting through space with supernatural speed. Two or
+three parallel horizontal streaks, offset vertically by approximately 10
+pixels from each other. Each streak is approximately 100 pixels long.
+
+The slashes are combined with dark void cracks between them — like reality
+itself splitting open where the assassin's blade passed. This creates a
+distinctive "dimension-cutting" aesthetic.
+
+Colors: white (#FFFFFF) and hot pink (#FF69B4) energy streaks for the
+slashes, with dark void black (#2A1028) cracks and fractures between them.
+Pastel pink (#FFB6D9) transitions.
+
+FRAMES (plays once per slash during the ultimate — 5 times total):
+Frame 1 (FLASH): Bright horizontal speed-line streaks cutting across the
+  frame. White (#FFFFFF) center with hot pink (#FF69B4) edges, each streak
+  3-4 pixels tall. Sharp, crisp lines. Multiple parallel slashes at slightly
+  different angles. The frame is mostly empty space with these dramatic
+  slash lines cutting through it.
+
+Frame 2 (EXPAND): Streaks widen to 6-8 pixels. Colors shift from white to
+  bright pastel pink (#FFB6D9). Dark void cracks (#2A1028) appear BETWEEN
+  the streaks — angular fracture lines like shattered glass. Reality is
+  splitting where the slashes passed.
+
+Frame 3 (SHATTER): Streaks break apart into angular pink and dark fragments.
+  Void-dark shards fly outward from the slash lines. The center of each
+  streak darkens to void black. Pattern looks like a cracked screen/mirror
+  with pink energy leaking through the cracks. Most dramatic frame.
+
+Frame 4 (FADE): Fragments scatter and fade rapidly. Void cracks close up.
+  A few lingering pink and dark pixels. Nearly transparent. Space is healing.
+
+STYLE:
+Clean pixel art. Dramatic speed-lines combined with reality-cracking/void
+aesthetic. Vibrant pink with dark void accents. This is the ULTIMATE attack
+effect — the MOST DRAMATIC and VISUALLY IMPRESSIVE effect in the game.
+Retro 2D fighting game ultimate slash effect.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B6 — HIT IMPACT SPARK (Shared — create once for all characters)
+================================================================================
+Output: 96 x 32 pixels (3 frames of 32x32)
+At 2x scale: 192 x 64 pixels (3 frames of 64x64)
+File: hit_spark.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a hit impact spark for a 2D side-scrolling
+fighting game.
+
+RENDERING RULES:
+- Flat 2D view, centered in each frame.
+- Each frame is exactly 32x32 pixels.
+- 3 frames in a single horizontal row.
+- Total image: 96 pixels wide x 32 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+Classic fighting game hit flash. A universal impact spark that plays whenever
+any attack connects with an opponent. White (#FFFFFF) and yellow (#FFDD00)
+starburst/flash effect.
+
+FRAMES (one-shot, very fast — 50ms per frame):
+Frame 1 (FLASH): Bright white-yellow starburst at the center of the frame.
+  Small, approximately 16 pixels diameter. Sharp angular rays extending
+  outward from the center (4-6 rays). Maximum brightness. Pure white center
+  with yellow ray tips.
+
+Frame 2 (EXPAND): Sparks and angular lines radiating outward, expanding to
+  approximately 24 pixels. White center fading to yellow (#FFDD00). Angular
+  spark shapes spreading. More rays visible.
+
+Frame 3 (FADE): Sparks dissipating, nearly transparent. Faint yellow-white
+  traces. Almost gone.
+
+STYLE:
+Clean pixel art. Classic arcade fighting game impact spark — the kind you
+see in Street Fighter or King of Fighters when a hit connects. Bright,
+sharp, fast. White and yellow only. Retro 2D game hit effect.
+
+--- END COPY ---
+
+
+================================================================================
+  PART C: OPTIONAL — SHADOW BLINK TELEPORT FLASH
+================================================================================
+This is an extra effect specific to Rina's Shadow Blink ability.
+
+================================================================================
+PROMPT C1 — SHADOW BLINK FLASH (Teleport arrival visual)
+================================================================================
+Output: 128 x 64 pixels (2 frames of 64x64)
+At 2x scale: 256 x 128 pixels (2 frames of 128x128)
+File: shadow_blink_flash.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a shadow teleport arrival flash for a 2D
+side-scrolling fighting game.
+
+RENDERING RULES:
+- Flat 2D view, centered in each frame.
+- Each frame is exactly 64x64 pixels.
+- 2 frames in a single horizontal row.
+- Total image: 128 pixels wide x 64 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+A quick flash of pink and dark energy that appears where an assassin
+teleports TO (the arrival point). A burst of shadow-void energy with bright
+pink highlights, centered in the frame. The flash is approximately 40-48
+pixels in diameter.
+
+Colors: bright hot pink (#FF69B4) energy flash with dark void (#2A1028)
+fragments mixed in. White (#FFFFFF) center flash. Pastel pink (#FFB6D9)
+outer glow.
+
+FRAMES (one-shot, very fast):
+Frame 1 (FLASH): Bright white-pink burst at center. Dark void shards
+  radiating outward from the center point. Like a mini-explosion of shadow
+  energy. Compact and intense.
+
+Frame 2 (FADE): The burst fades rapidly. Dark shards dissipate. Pink
+  wisps trail upward. Nearly transparent.
+
+STYLE:
+Clean pixel art. Quick teleport arrival flash — small, fast, impactful.
+Pink energy with dark void accents. Retro 2D game teleport effect.
+
+--- END COPY ---
+
+
+================================================================================
+ASSEMBLY CHECKLIST
+================================================================================
+
+CHARACTER SPRITE SHEET:
+[ ] A0  — Idle (4 frames, 256x64)         → stitched at y=0
+[ ] A1  — Run (6 frames, 384x64)          → stitched at y=64
+[ ] A2  — Jump (3 frames, 192x64)         → stitched at y=128
+[ ] A3  — Attack 1: Dagger Slash (3f)     → stitched at y=192
+[ ] A4  — Attack 2: Backhand Slash (3f)   → stitched at y=256
+[ ] A5  — Attack 3: Spin Slash (4f)       → stitched at y=320
+[ ] A6  — Cast: Kunai Throw (4f)          → stitched at y=384
+[ ] A7  — Take Hit (2f)                   → stitched at y=448
+[ ] A8  — Dodge (2f)                      → stitched at y=512
+[ ] A9  — Ultimate: Phantom Barrage (4f)  → stitched at y=576
+[ ] A10 — Death (3f)                      → stitched at y=640
+[ ] FINAL: Stitched to 384x704 (or 768x1408 at 2x)
+[ ] All frames face RIGHT
+[ ] Feet at y=58, centered at x=32
+[ ] NO weapons/energy/effects on character
+[ ] Consistent style across all rows
+[ ] Empty cells are transparent
+[ ] Saved as PNG: Sprites/Rina Shadow Assassin SPRITE.png
+
+SKILL EFFECTS:
+[ ] B1 — Void Kunai projectile (128x32)   → void_kunai.png
+[ ] B2 — Kunai Impact (320x64)            → void_kunai_impact.png
+[ ] B3 — Shadow Afterimage (256x64)       → shadow_afterimage.png
+[ ] B4 — Slash Trail (192x32)             → slash_trail.png
+[ ] B5 — Phantom Slash (512x64)           → phantom_slash.png
+[ ] B6 — Hit Spark (96x32)                → hit_spark.png (shared)
+
+OPTIONAL:
+[ ] C1 — Shadow Blink Flash (128x64)      → shadow_blink_flash.png
+
+
+CONNECTIONS
+================================================================================
+<- 01_CHARACTER_DESCRIPTION.txt    provides: Appearance, Palette, Ability Names
+<- 02_CHARACTER_DESIGN.txt         provides: Frame Poses, Tech Specs
+<- 03_CHARACTER_SKILLS_EFFECTS.txt provides: Effect Details, Frame Descriptions
+-> Sprites/                        receives: All generated PNG files

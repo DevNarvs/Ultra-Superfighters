@@ -1,0 +1,1055 @@
+================================================================================
+  TEMPLATE 04: AI GENERATION PROMPTS (Frame-by-Frame)
+  Super Battlemancers
+================================================================================
+  PURPOSE:  Ready-to-copy-paste AI image generator prompts for EACH animation
+            and skill effect, individually. Generate one animation at a time.
+  INPUT:    <- 01_CHARACTER_DESCRIPTION.txt (Visual Identity, Palette)
+            <- 02_CHARACTER_DESIGN.txt (Pose Guide, Tech Specs)
+            <- 03_CHARACTER_SKILLS_EFFECTS.txt (Skill Details, Effect Specs)
+  OUTPUT:   Individual sprite strips per animation row & per skill effect
+================================================================================
+
+
+HOW TO USE THIS TEMPLATE
+================================================================================
+
+1. Fill in ALL [bracket] placeholders using data from templates 01, 02, and 03.
+2. Each PROMPT section below is a complete, self-contained copy-paste block.
+3. Copy ONE prompt at a time into your AI image generator.
+4. After generating all strips, STITCH them together:
+   - Animation rows 0-10 → stack vertically → full character sprite sheet
+   - Skill effects → keep as individual horizontal strip files
+
+STITCHING GUIDE (for character sprite sheet):
+   Use Photopea.com (free), Photoshop, or GIMP:
+   - Create new canvas: 384 x 704 pixels, transparent background.
+   - Paste Row 0 at position (0, 0).
+   - Paste Row 1 at position (0, 64).
+   - Paste Row 2 at position (0, 128).
+   - ... Row N at position (0, N * 64).
+   - Row 10 at position (0, 640).
+   - Save as PNG with transparency.
+   - Use "Nearest Neighbor" resampling when resizing to preserve pixel art.
+
+IMPORTANT: If generating at 2x scale (128x128 per frame), adjust all pixel
+values accordingly (multiply by 2). Final sheet at 2x = 768 x 1408 pixels.
+
+
+CHARACTER REFERENCE (copy from 01_CHARACTER_DESCRIPTION)
+================================================================================
+Name              : [Character Name]
+Title             : [Title / Alias]
+Element / Theme   : [Element]
+Role              : [Role]
+
+Appearance Summary (include in every prompt):
+[Write a condensed 3-5 line appearance block that describes the character.
+ This block is repeated in every prompt below so each prompt is self-contained.
+ Include: hair, glasses/face features, outfit, belt, gloves, boots, extras.
+ Include hex color codes for every color mentioned.]
+
+Example:
+  "A shadow assassin girl with long pastel pink (#F4A6C8) hair in a low
+   ponytail (tips darken to #C44B99). Rectangular glasses (#3A2838 frame)
+   with white lens glint. Dark magenta (#8B1A6E) cropped assassin coat,
+   light pink (#FFCCE0) shirt at neckline. Black (#1A1018) utility belt
+   with pink gem buckle, fingerless gloves, thigh-high boots with pink
+   (#FF69B4) stripe. Light pink (#FFCCE0) scarf ribbon at collar.
+   Fair skin (#FFE0CC). Semi-chibi anime proportions."
+
+Color Palette:
+  [List all hex codes and what they're for, copied from 01]
+
+
+================================================================================
+================================================================================
+  PART A: CHARACTER ANIMATION PROMPTS (11 rows)
+================================================================================
+================================================================================
+
+Each prompt below generates a SINGLE HORIZONTAL STRIP of frames for one
+animation row. After generating all 11, stack them vertically to create the
+full sprite sheet.
+
+
+================================================================================
+PROMPT A0 — ROW 0: IDLE (4 frames)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64 in a horizontal row)
+If generating at 2x: 512 x 128 pixels (4 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+[Paste full appearance summary here with all hex color codes]
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. The character is seen from a
+  perfect side angle like classic 2D fighting game sprites (Street Fighter,
+  Metal Slug perspective).
+- NOT 3/4 view. NOT front-facing. NOT isometric. NOT top-down. Pure flat
+  side profile.
+- Character always faces RIGHT.
+- Semi-chibi anime proportions: head is approximately 1/3 of total body height.
+- Character height: approximately 48-56 pixels tall within each 64x64 cell.
+- Feet planted at y=58 (6 pixels from the bottom of each 64x64 frame).
+- Character body centered horizontally at x=32 in each cell.
+- Clean 1-pixel dark outline ([darkest hex]) around the entire character.
+- 2-3 shading levels per color area (highlight, base, shadow).
+- No anti-aliasing. Hard pixel edges. No dithering. No sub-pixel detail.
+
+IMAGE LAYOUT:
+- 4 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+- Frames read left to right: Frame 1, Frame 2, Frame 3, Frame 4.
+
+ANIMATION: IDLE (standing, breathing, looping)
+
+Frame 1 (NEUTRAL):
+[Describe the idle pose in detail from 02_CHARACTER_DESIGN. Include specific
+ body position, arm placement, leg stance, hair position, expression.
+ Example: "Relaxed assassin stance. Weight on back foot. Right hand hanging
+ at side, left hand near hip resting by belt pouch. Ponytail hangs naturally
+ behind the head. Glasses clearly visible with white glint pixel. Scarf
+ hangs still at the collar. Calm, composed expression. Feet at y=58."]
+
+Frame 2 (INHALE):
+[Describe breath up motion. Example: "Subtle inhale — body rises 1-2 pixels.
+ Ponytail shifts very slightly. Hand near hip moves 1px upward. Glasses
+ glint stays in same position. Keep feet at y=58."]
+
+Frame 3 (PEAK):
+[Describe peak of breath. Example: "Peak of breath. Faint glow hint on hand
+ near hip (element energy ready). Ponytail sways 1-2px. Scarf tails shift
+ slightly."]
+
+Frame 4 (EXHALE):
+[Describe return to neutral. Example: "Exhale — body lowers back to Frame 1
+ position. Glow fades. Smooth return for seamless loop. Must align perfectly
+ with Frame 1 when the animation loops."]
+
+IMPORTANT:
+- Do NOT draw any weapons, energy effects, or magical aura. Only the
+  character's body and clothing.
+- All 4 frames must have consistent character proportions and positioning.
+- The animation should loop seamlessly (Frame 4 transitions back to Frame 1).
+- [Any character-specific notes, e.g., "Glasses must be visible in every frame"]
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A1 — ROW 1: RUN (6 frames)
+================================================================================
+Output: 384 x 64 pixels (6 frames of 64x64 in a horizontal row)
+If generating at 2x: 768 x 128 pixels (6 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+[Paste full appearance summary here with all hex color codes]
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game
+  perspective (Street Fighter, Metal Slug).
+- NOT 3/4 view. NOT front-facing. NOT isometric. Pure flat side profile.
+- Character always faces RIGHT (running to the right).
+- Semi-chibi anime proportions: head ~1/3 of body height.
+- Character height: ~48-56px within each 64x64 cell.
+- Feet at y=58 (6px from bottom). Center at x=32.
+- 1-pixel dark outline ([darkest hex]). 2-3 shading levels per color.
+- No anti-aliasing. Hard pixel edges. No dithering.
+
+IMAGE LAYOUT:
+- 6 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 384 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: RUN CYCLE (full sprint, looping)
+
+Frame 1 (RIGHT CONTACT):
+[Describe from 02. Example: "Right foot strikes ground ahead, left arm swings
+ forward with fist, right arm back. Body leans forward ~5 degrees (aggressive
+ sprint). Ponytail streams behind. Scarf flutters back. Glasses visible."]
+
+Frame 2 (RIGHT DOWN):
+[Example: "Right foot planted, body lowers (lowest point of the cycle). Arms
+ mid-swing. Ponytail follows momentum, slightly higher."]
+
+Frame 3 (RIGHT PASSING):
+[Example: "Right foot pushes off, body rises. Legs cross underneath. Arms
+ passing center. Ponytail catches up to body."]
+
+Frame 4 (LEFT CONTACT):
+[Example: "Left foot strikes ground (mirror of Frame 1). Right arm forward,
+ left arm back."]
+
+Frame 5 (LEFT DOWN):
+[Example: "Left foot planted, body lowers (mirror of Frame 2)."]
+
+Frame 6 (LEFT PASSING):
+[Example: "Left foot pushes off, legs cross (mirror of Frame 3). This frame
+ loops seamlessly back to Frame 1."]
+
+IMPORTANT:
+- [Hair/cape/scarf] must trail BEHIND the direction of movement in every frame.
+  They lag by 1-2 frames from body position (natural physics).
+- The run cycle must loop seamlessly (Frame 6 → Frame 1).
+- Body leans forward aggressively — this is a [Role] character.
+- Do NOT draw any weapons or energy effects.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A2 — ROW 2: JUMP (3 frames)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+If generating at 2x: 384 x 128 pixels (3 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+[Paste full appearance summary here with all hex color codes]
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric. Pure flat side profile.
+- Character faces RIGHT. Semi-chibi anime proportions.
+- Character height: ~48-56px. Center at x=32.
+- 1-pixel dark outline ([darkest hex]). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 3 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: JUMP (launch → peak → fall, one-shot, does NOT loop)
+
+Frame 1 (LAUNCH):
+[Describe from 02. Example: "Legs compressed and bent, crouching low, arms
+ pull downward. Body coils like a spring. Ponytail compressed down. Feet still
+ near y=58."]
+
+Frame 2 (PEAK):
+[Example: "Body airborne, legs tucked up slightly, arms out at sides for
+ balance. Ponytail floats upward (weightless feel). Scarf floats up. Coat
+ tails lift slightly. Character centered vertically in frame."]
+
+Frame 3 (FALL):
+[Example: "Legs extend downward toward ground, arms rise up, head tilts
+ slightly down (looking where landing). Ponytail streams upward (trailing
+ from fall). Scarf above character."]
+
+IMPORTANT:
+- Frame 1 has feet near ground (crouching). Frame 2 is airborne (centered in
+  frame). Frame 3 is descending.
+- [Hair/scarf/extras] react to gravity and momentum realistically.
+- Do NOT draw any weapons or energy effects.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A3 — ROW 3: ATTACK 1 (3 frames)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+If generating at 2x: 384 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+[Paste full appearance summary here with all hex color codes]
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~48-56px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline ([darkest hex]). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 3 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: ATTACK 1 — [Attack 1 Name from 01] (fast melee, one-shot)
+
+Frame 1 (WINDUP):
+[Describe from 02. Example: "Right hand sweeps back behind the body. Body
+ coils slightly. Left arm guards in front. Quick, tight motion."]
+
+Frame 2 (STRIKE):
+[Example: "Right arm slashes/punches forward in a fast arc. Arm fully extended
+ with hand reaching to ~45px from left edge. Body rotates into the strike.
+ Maximum forward reach."]
+
+Frame 3 (RECOVERY):
+[Example: "Arm pulling back toward body. Body returning to neutral. Fast
+ recovery."]
+
+IMPORTANT:
+- Do NOT draw any weapon, energy blade, slash trail, or glow effect in the
+  character's hands. Only draw the character's body, arms, and hand positions.
+  The game engine adds all attack effects at runtime as separate sprites.
+- The strike frame (Frame 2) should show maximum forward extension — the
+  character is reaching toward the RIGHT side of the frame.
+- [Any character-specific attack notes]
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A4 — ROW 4: ATTACK 2 (3 frames)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+If generating at 2x: 384 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+[Paste full appearance summary here with all hex color codes]
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~48-56px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline ([darkest hex]). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 3 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: ATTACK 2 — [Attack 2 Name from 01] (melee combo hit 2, one-shot)
+
+Frame 1 (WINDUP):
+[Describe from 02. Example: "Left arm crosses in front of body from right to
+ left, winding up for a backhand. Body twists slightly away from target."]
+
+Frame 2 (STRIKE):
+[Example: "Left arm whips outward in a backhand motion. Full extension. Body
+ rotates into the hit. Reverse motion from Attack 1 for alternating combo."]
+
+Frame 3 (RECOVERY):
+[Example: "Left arm returning. Body untwisting. Fast recovery to maintain
+ combo flow into Attack 3."]
+
+IMPORTANT:
+- Do NOT draw any weapon, energy blade, slash trail, or glow. Only draw
+  the character's body and arm positions. Engine adds effects at runtime.
+- This attack should visually flow from Attack 1 — it's the second hit in
+  a combo, so the starting position (Frame 1) should feel natural coming
+  from Attack 1's recovery pose.
+- [Character-specific notes]
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A5 — ROW 5: ATTACK 3 (4 frames)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+If generating at 2x: 512 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+[Paste full appearance summary here with all hex color codes]
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~48-56px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline ([darkest hex]). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 4 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: ATTACK 3 — [Attack 3 Name from 01] (heavy finisher, one-shot)
+
+Frame 1 (WINDUP):
+[Describe from 02. Example: "Body begins to pivot. Both arms pull up and back.
+ Weight shifts to front foot. Ponytail begins swinging."]
+
+Frame 2 (EXTEND):
+[Example: "Body rotating, mid-motion. Arms sweeping in an arc. Ponytail whips
+ around. Full-body commitment to the attack."]
+
+Frame 3 (IMPACT):
+[Example: "Maximum reach and power. Arms/legs at full extension. Body lunged
+ forward. Most powerful pose — looks committed and dangerous. Ponytail fully
+ extended from momentum."]
+
+Frame 4 (RECOVERY):
+[Example: "Body stumbles slightly forward from momentum. Arms lowering. Longer
+ recovery than other attacks (high risk/reward). Settling back toward stance."]
+
+IMPORTANT:
+- Do NOT draw any weapon, energy, or effects. Body and clothing only.
+- This is the HEAVIEST attack in the combo — the pose should look powerful
+  and committed (more exaggerated than Attacks 1 and 2).
+- Frame 3 (IMPACT) should have the most dramatic, extended pose.
+- [Character-specific notes]
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A6 — ROW 6: CAST ABILITY (4 frames)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+If generating at 2x: 512 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+[Paste full appearance summary here with all hex color codes]
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~48-56px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline ([darkest hex]). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 4 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: CAST — [Primary Power Name from 01] (ability cast, one-shot)
+
+Frame 1 (PREPARE):
+[Describe from 02. Example: "Right hand reaches behind to belt pouch. Body
+ slightly turned. Left arm out front for balance."]
+
+Frame 2 (CHARGE):
+[Example: "Right hand pulls back past the ear in a throwing/casting position.
+ Body coils. Weight shifts to back foot."]
+
+Frame 3 (RELEASE):
+[Example: "Right arm thrusts/whips forward at full extension. Body lunges
+ forward. This is the frame where the projectile spawns from the hand."]
+
+Frame 4 (FOLLOW-THROUGH):
+[Example: "Arm continues forward motion, then begins returning. Body settles.
+ Slight forward lean from the casting momentum."]
+
+IMPORTANT:
+- Do NOT draw the projectile, energy ball, kunai, or any magical effect in
+  the character's hand. The projectile is a SEPARATE sprite spawned by the
+  game engine at the hand position during Frame 3.
+- Only draw the character's body performing the casting/throwing motion.
+- [Character-specific casting notes]
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A7 — ROW 7: TAKE HIT (2 frames)
+================================================================================
+Output: 128 x 64 pixels (2 frames of 64x64)
+If generating at 2x: 256 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+[Paste full appearance summary here with all hex color codes]
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~48-56px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline ([darkest hex]). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 2 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 128 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: TAKE HIT (damage reaction, one-shot)
+
+Frame 1 (IMPACT):
+[Describe from 02. Example: "Body jerked backward from a hit. Head snaps back.
+ Pain expression — eyes squeeze, mouth opens. Glasses shift on face. Ponytail
+ whips forward from the backward momentum (opposite direction of body)."]
+
+Frame 2 (RECOIL):
+[Example: "Body leans further back. Front foot lifts off ground (staggering).
+ Arms flung outward from impact force. Glasses still shifted. More exaggerated
+ stagger than Frame 1."]
+
+IMPORTANT:
+- The hit comes from the RIGHT (since character faces right, the hit pushes
+  them LEFT/backward).
+- Expression should clearly show pain/reaction.
+- [Character-specific hit reaction notes — e.g., "glasses shift", "hat falls"]
+- Do NOT draw any damage numbers, blood, or hit effects. Engine adds those.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A8 — ROW 8: DODGE / PHASE SHIFT (2 frames)
+================================================================================
+Output: 128 x 64 pixels (2 frames of 64x64)
+If generating at 2x: 256 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+[Paste full appearance summary here with all hex color codes]
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~48-56px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline ([darkest hex]). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 2 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 128 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: DODGE / PHASE SHIFT (enter → hold, one-shot then holds Frame 2)
+
+Frame 1 (ENTER):
+[Describe from 02. Example: "Arms cross in front of chest in an X shape. Body
+ tenses, crouching slightly. Concentrating expression. Bracing for the phase."]
+
+Frame 2 (ACTIVE — this frame is HELD for the full dodge duration):
+[Example: "Body relaxes into a ghostly/ethereal pose. Arms slightly spread to
+ sides, palms open. Standing straight. Serene expression. Ponytail floats
+ slightly (weightless/phasing). Scarf floats."]
+
+IMPORTANT:
+- Draw Frame 2 as a NORMAL, FULLY OPAQUE character. The game engine makes
+  this frame semi-transparent and adds a blue/element-colored tint at runtime
+  to create the ghost/phase effect. You just draw the character normally.
+- Frame 2 is HELD for 1 full second during gameplay — it's the main dodge
+  visual. Make it a clean, readable pose.
+- [Character-specific dodge notes]
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A9 — ROW 9: ULTIMATE (4 frames)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+If generating at 2x: 512 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+[Paste full appearance summary here with all hex color codes]
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~48-56px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline ([darkest hex]). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 4 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: ULTIMATE — [Ultimate Name from 01] (most powerful attack, one-shot)
+
+Frame 1 (CHARGE):
+[Describe from 02. Example: "Crouching low, fists clenched at sides, head
+ down. Intense, focused expression. Power building. Most compressed pose."]
+
+Frame 2 (RISE):
+[Example: "Pushing up from crouch to standing. Arms sweeping outward. Power
+ emanating from the body. Expression shifts to determined/fierce."]
+
+Frame 3 (PEAK):
+[Example: "Maximum energy pose. Most dynamic and dramatic frame in the entire
+ sprite sheet. Aggressive forward-leaning stance or dramatic power pose.
+ This is THE hero moment."]
+
+Frame 4 (RELEASE/AFTERMATH):
+[Example: "Energy released. Landing pose or follow-through. Settling from the
+ ultimate. Cool, composed aftermath expression."]
+
+IMPORTANT:
+- Do NOT draw energy aura, particles, magic circles, or any visual effects
+  around the character. The game engine adds a dramatic energy aura, screen
+  flash, and particles at runtime. Only draw the CHARACTER'S BODY POSES.
+- These should be the MOST DRAMATIC and EXPRESSIVE poses in the entire sheet.
+- Frame 3 should be the most dynamic pose the character has.
+- [Character-specific ultimate notes]
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A10 — ROW 10: DEATH (3 frames)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+If generating at 2x: 384 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+[Paste full appearance summary here with all hex color codes]
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~48-56px. Center at x=32.
+- 1-pixel dark outline ([darkest hex]). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 3 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: DEATH (knocked out, one-shot)
+
+Frame 1 (STAGGER):
+[Describe from 02. Example: "Stumbling forward, one hand clutches chest/wound.
+ Glasses slipping down nose. Pain expression. Knees buckling. Still partially
+ standing."]
+
+Frame 2 (FALLING):
+[Example: "Body tilting sideways, legs giving out. Arms go limp. Glasses
+ falling off or hanging at angle. Ponytail trailing the fall direction. No
+ longer able to stand."]
+
+Frame 3 (DOWN):
+[Example: "Lying on the ground. Body rotated approximately 80 degrees
+ clockwise. Head on the right, feet on the left. Must fit within the 64x64
+ frame. Peaceful/unconscious expression."]
+
+IMPORTANT:
+- Frame 3 is the FINAL resting state — the character lies on the ground.
+  The body must be rotated to fit horizontally within the 64x64 frame.
+- Do NOT draw blood, X eyes, or cartoon death symbols. Keep it clean.
+- [Character-specific death notes — e.g., "glasses on ground nearby"]
+
+--- END COPY ---
+
+
+================================================================================
+================================================================================
+  PART B: SKILL EFFECT PROMPTS
+================================================================================
+================================================================================
+
+Each prompt below generates a separate skill effect sprite strip.
+These are INDIVIDUAL FILES, not part of the character sprite sheet.
+
+
+================================================================================
+PROMPT B1 — PRIMARY PROJECTILE
+================================================================================
+Output: 128 x 32 pixels (4 frames of 32x32)
+If generating at 2x: 256 x 64 pixels (4 frames of 64x64)
+File: [ability_name]_projectile.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a [element] [projectile type] projectile for a 2D
+side-scrolling fighting game.
+
+RENDERING RULES:
+- Strict side view, 90-degree angle. Classic 2D game projectile.
+- NOT 3/4 view. NOT perspective. Flat 2D side profile.
+- Each frame is exactly 32x32 pixels.
+- 4 frames in a single horizontal row.
+- Total image: 128 pixels wide x 32 pixels tall.
+- Transparent background.
+- The projectile faces RIGHT (moves to the right). Engine flips for left.
+
+APPEARANCE:
+[Describe the projectile in detail from 03. Include: shape, size (~20-24px),
+ what it's made of (fire, energy, ice, etc.), color progression from core
+ to outer edge with hex codes.
+ Example: "A pink energy kunai shape, approximately 20 pixels long and 8 pixels
+ wide. Pointed tip on the right, wider base with a ring on the left. Made of
+ glowing pink energy, not metal. Hot pink (#FF69B4) body, white (#FFFFFF) edge
+ highlight, darker magenta (#8B1A6E) shadow, semi-transparent pastel pink
+ (#FFB6D9) glow halo around edges."]
+
+FRAMES (looping animation):
+Frame 1: [Steady state. Example: "Compact projectile shape with soft glow."]
+Frame 2: [Variation. Example: "Glow pulses slightly brighter and wider."]
+Frame 3: [Variation. Example: "Glow contracts, small dark wisps at tail."]
+Frame 4: [Return. Example: "Returns to Frame 1 state for seamless loop."]
+
+STYLE:
+Clean pixel art, 1px dark outline, no anti-aliasing, no dithering.
+Vibrant [element color] colors. Retro 2D game projectile sprite.
+Do NOT draw trailing particles or motion blur — the engine adds those.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B2 — PROJECTILE IMPACT / EXPLOSION
+================================================================================
+Output: 320 x 64 pixels (5 frames of 64x64)
+If generating at 2x: 640 x 128 pixels (5 frames of 128x128)
+File: [ability_name]_explosion.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a [element] impact explosion for a 2D side-scrolling
+fighting game.
+
+RENDERING RULES:
+- Flat 2D view, centered in each frame.
+- Each frame is exactly 64x64 pixels.
+- 5 frames in a single horizontal row.
+- Total image: 320 pixels wide x 64 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+[Describe from 03. Include: what kind of explosion (fire burst, energy shatter,
+ ice crack, etc.), color progression through the frames, unique visual identity.
+ Example: "A shadow/void energy impact. Angular crystalline fragments like
+ broken glass, NOT smooth round fire bursts. Pink (#FF69B4) energy mixed with
+ dark void (#2A1028) shadow fragments."]
+
+FRAMES (one-shot, fast):
+Frame 1 (FLASH): [Example: "Small bright white-pink flash at center, 12-16px
+  diameter. Sharp starburst shape with 4-6 short rays."]
+Frame 2 (EXPAND): [Example: "Blooming outward to 28-32px. Pink energy with
+  angular fragments appearing at edges."]
+Frame 3 (FULL SIZE): [Example: "Maximum expansion 40-48px. Most dramatic frame.
+  Pink and dark void shards mixed in crystalline break pattern."]
+Frame 4 (FADE): [Example: "Collapsing inward. Fragments scatter and become
+  semi-transparent. Dark wisps curl inward."]
+Frame 5 (DISSIPATE): [Example: "Nearly gone. Faint pink traces and dark wisps.
+  Very transparent. Vanishing."]
+
+STYLE:
+Clean pixel art, 1px dark outline. [Element-specific style note, e.g., "angular
+sharp fragment shapes" or "smooth fiery burst"]. Vibrant colors.
+Retro 2D game impact effect.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B3 — SECONDARY ABILITY EFFECT
+================================================================================
+Output: 384 x 96 pixels (4 frames of 96x96)
+If generating at 2x: 768 x 192 pixels (4 frames of 192x192)
+File: [ability_name]_effect.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a [element] [effect type: shield aura / afterimage /
+buff / trap] for a 2D side-scrolling fighting game.
+
+RENDERING RULES:
+- [For SHIELD/AURA type: "Flat 2D view, centered. The CENTER of each frame
+   must be EMPTY/TRANSPARENT (about 40x56 pixels). The player character renders
+   behind this sprite and shows through the center. Only draw the effect around
+   the edges."]
+- [For NON-AURA type (afterimage, buff, placed): "Flat 2D view, centered. The
+   full frame area can be used. No empty center needed."]
+- Each frame is exactly 96x96 pixels.
+- 4 frames in a single horizontal row.
+- Total image: 384 pixels wide x 96 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+[Describe from 03. Include: shape, what the effect looks like, colors with hex
+ codes, how it relates to the character's element.
+ Example for shield: "A ring of flames surrounding an empty center. Hot orange
+ (#FF6600) flames rising outward, yellow (#FFD700) inner edge, red (#CC0000)
+ outer tips."
+ Example for afterimage: "A semi-transparent ghost silhouette of an assassin
+ girl. Dark magenta (#8B1A6E) flat fill with hot pink (#FF69B4) glowing
+ edges. Shows ponytail, glasses, coat outline."]
+
+FRAMES (looping / one-shot as appropriate):
+Frame 1: [Describe initial state]
+Frame 2: [Describe variation / change]
+Frame 3: [Describe further variation]
+Frame 4: [Describe return to loop / final fade]
+
+STYLE:
+Clean pixel art. [Element style]. Retro 2D game effect sprite.
+Do NOT draw additional particles or ambient glow — the engine adds those.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B4 — GROUND HAZARD
+================================================================================
+Output: 192 x 32 pixels (3 frames of 64x32)
+If generating at 2x: 384 x 64 pixels (3 frames of 128x64)
+File: [ability_name]_ground.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a [element] ground hazard for a 2D side-scrolling
+fighting game.
+
+RENDERING RULES:
+- Flat 2D side view.
+- Each frame is exactly 64 pixels wide and 32 pixels tall.
+- 3 frames in a single horizontal row.
+- Total image: 192 pixels wide x 32 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+[Describe from 03. Example: "Low flames burning on a surface. Fire rises
+ upward from the bottom edge, 16-24 pixels tall. Yellow (#FFD700) tips,
+ orange (#FF6600) body, dark red (#8B0000) embers at base."
+ Or: "Dark shadow energy tendrils rising from a void crack on the ground.
+ Pink (#FF69B4) energy wisps, dark void (#2A1028) base."]
+
+STRUCTURE (side view):
+- [Element] grows UPWARD from the bottom edge of each frame.
+- Bottom 1-2 pixels = base/embers/source (darkest color).
+- Effect height: 16-24 pixels tall (short ground hazard, not towering).
+- Spreads across the full 64px width.
+
+FRAMES (looping):
+Frame 1: [Example: "Element at various heights, flickering naturally."]
+Frame 2: [Example: "Some parts taller, some shorter. Natural movement."]
+Frame 3: [Example: "Different variation from Frames 1 and 2. Loops to 1."]
+
+STYLE:
+Clean pixel art, 1px dark outline, side view. Retro 2D game hazard tile.
+Do NOT draw rising particles — the engine adds those.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B5 — ULTIMATE EFFECT / WAVE
+================================================================================
+Output: 512 x 64 pixels (4 frames of 128x64)
+If generating at 2x: 1024 x 128 pixels (4 frames of 256x128)
+File: [ability_name]_ultimate.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a massive [element] ultimate attack effect for a 2D
+side-scrolling fighting game.
+
+RENDERING RULES:
+- Flat 2D view, horizontal orientation.
+- Each frame is exactly 128 pixels wide and 64 pixels tall.
+- 4 frames in a single horizontal row.
+- Total image: 512 pixels wide x 64 pixels tall.
+- Transparent background.
+- The attack travels/faces RIGHT. Engine flips for left.
+
+APPEARANCE:
+[Describe from 03 in dramatic detail. This is the BIGGEST, MOST DRAMATIC
+ effect in the game. Example: "Multiple horizontal speed-line slashes cutting
+ across the frame. Two or three parallel streaks offset vertically by ~10
+ pixels, each approximately 100 pixels long. White (#FFFFFF) and hot pink
+ (#FF69B4) energy streaks with dark void (#2A1028) cracks between them."
+ Or: "Massive wall of flame, white-hot (#FFFFFF) core, orange (#FF6600) body,
+ red (#CC0000) edges, 128 pixels wide."]
+
+Color Palette (brightest → darkest):
+  Core:   [Hex] (white-hot / brightest)
+  Inner:  [Hex]
+  Middle: [Hex]
+  Outer:  [Hex]
+  Edge:   [Hex] (darkest accent)
+
+FRAMES (looping):
+Frame 1: [Example: "Full attack at peak intensity. Sharp and crisp."]
+Frame 2: [Example: "Attack churns/shifts, shape changes, movement feel."]
+Frame 3: [Example: "Leading edge stretches aggressively forward."]
+Frame 4: [Example: "Settles slightly, cycles back toward Frame 1 for loop."]
+
+STYLE:
+Clean pixel art. This should be the MOST DRAMATIC and VISUALLY IMPRESSIVE
+effect in the game. Use the BRIGHTEST colors of the palette. Vivid, intense.
+Retro 2D game ultimate attack effect.
+Do NOT draw trailing particles — the engine adds those.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B6 — HIT IMPACT SPARK (Shared — create once)
+================================================================================
+Output: 96 x 32 pixels (3 frames of 32x32)
+If generating at 2x: 192 x 64 pixels (3 frames of 64x64)
+File: hit_spark.png (SHARED by all characters)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a hit impact spark for a 2D side-scrolling fighting
+game.
+
+RENDERING RULES:
+- Flat 2D view, centered in each frame.
+- Each frame is exactly 32x32 pixels.
+- 3 frames in a single horizontal row.
+- Total image: 96 pixels wide x 32 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+Classic fighting game hit flash. A universal impact spark that plays whenever
+any attack connects. White (#FFFFFF) and yellow (#FFDD00) starburst flash.
+
+FRAMES (one-shot, very fast — 50ms per frame):
+Frame 1 (FLASH): Bright white-yellow starburst at the center, small (~16px
+  diameter). Sharp rays extending outward. Maximum brightness.
+Frame 2 (EXPAND): Sparks and lines radiating outward, expanding to ~24px.
+  White center fading to yellow. Angular spark shapes.
+Frame 3 (FADE): Sparks dissipating, nearly transparent. Faint traces.
+
+STYLE:
+Clean pixel art. Classic arcade fighting game impact spark. Bright, sharp,
+fast. Retro 2D game hit effect.
+
+--- END COPY ---
+
+
+================================================================================
+  PART C: OPTIONAL EXTRA PROMPTS
+================================================================================
+================================================================================
+
+Add any character-specific additional effects here that don't fit the standard
+6 effect types. Examples:
+- Teleport arrival flash
+- Special stance aura
+- Charge-up particles
+- Victory pose
+
+[Add custom prompts following the same format as above, with RENDERING RULES,
+ APPEARANCE, FRAMES, and STYLE sections.]
+
+
+================================================================================
+ASSEMBLY CHECKLIST
+================================================================================
+
+CHARACTER SPRITE SHEET:
+[ ] Generated all 11 animation strips (A0 through A10)
+[ ] Stitched into single 384x704 image (or 768x1408 at 2x)
+[ ] Verified alignment — all frames are exactly 64x64 (or 128x128 at 2x)
+[ ] Character faces RIGHT in all frames
+[ ] Feet at y=58 in all standing frames
+[ ] Character centered at x=32 in all frames
+[ ] NO weapons, energy, or effects drawn on character
+[ ] Consistent art style across all rows
+[ ] Unused cells (right side of shorter rows) are transparent
+[ ] Saved as PNG with transparency
+
+SKILL EFFECTS:
+[ ] Generated all required effect strips (B1 through B6)
+[ ] Verified exact pixel dimensions for each
+[ ] Projectile faces RIGHT
+[ ] Shield/aura center is transparent (if applicable)
+[ ] Art style matches the character sprite
+[ ] Saved as individual PNG files with transparency
+
+FILES:
+[ ] Character sheet: Sprites/[character_name] SPRITE.png
+[ ] Projectile:     Sprites/[ability]_projectile.png
+[ ] Impact:         Sprites/[ability]_explosion.png
+[ ] Secondary:      Sprites/[ability]_effect.png
+[ ] Ground hazard:  Sprites/[ability]_ground.png
+[ ] Ultimate:       Sprites/[ability]_ultimate.png
+[ ] Hit spark:      Sprites/hit_spark.png (shared, create once)
+
+
+================================================================================
+TIPS FOR AI IMAGE GENERATION
+================================================================================
+
+1. STYLE CONSISTENCY:
+   If your AI tool supports image references, upload your character's idle
+   pose (or the Fire Battlemancer sprite) as a style reference when generating
+   each new strip. This keeps the art style consistent across all animations.
+
+2. IF AI GIVES INDIVIDUAL IMAGES (not a strip):
+   Generate each frame as a separate image, then stitch them side-by-side:
+   - Open Photopea.com (free, browser-based Photoshop)
+   - Create new canvas at the exact total strip size
+   - Paste each frame at the correct X offset:
+     Frame 0 at x=0, Frame 1 at x=[frame_width], Frame 2 at x=[frame_width*2]...
+   - Use "Nearest Neighbor" resampling to preserve pixel art
+
+3. SCALE NOTES:
+   - If your AI generates at higher resolution, resize DOWN using
+     "Nearest Neighbor" interpolation (NOT bilinear/bicubic).
+   - If generating at 2x scale, all pixel values in the prompts should be
+     doubled (e.g., 64x64 becomes 128x128, y=58 becomes y=116).
+
+4. BACKGROUND REMOVAL:
+   - Use remove.bg, Photopea "Magic Wand + Delete", or GIMP "Color to Alpha"
+   - Make sure the background is truly transparent (not white)
+
+5. COMMON AI MISTAKES TO WATCH FOR:
+   - 3/4 view instead of strict side view → re-prompt with emphasis on "SIDE"
+   - Front-facing character → re-prompt: "NOT front-facing, side profile only"
+   - Added effects/weapons → re-prompt: "body and clothing ONLY, no effects"
+   - Inconsistent proportions between frames → use same prompt structure
+   - Frames not aligned → manually align in Photopea before stitching
+
+6. PROMPT STRENGTHENING:
+   If the AI ignores certain rules, try moving those rules to the BEGINNING
+   of the prompt and repeating them. Example: Start with "CRITICAL: This must
+   be a strict SIDE VIEW profile..." and repeat at the end.
+
+
+CONNECTIONS
+================================================================================
+<- 01_CHARACTER_DESCRIPTION.txt    provides: Appearance, Palette, Ability Names
+<- 02_CHARACTER_DESIGN.txt         provides: Frame Poses, Tech Specs, Grid Layout
+<- 03_CHARACTER_SKILLS_EFFECTS.txt provides: Effect Details, Frame Descriptions
+-> Sprites/ folder                 receives: All generated PNG files

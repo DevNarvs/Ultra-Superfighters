@@ -1,0 +1,636 @@
+================================================================================
+  CHARACTER SPRITE DESIGN: MORTIS — THE SOUL REAPER
+  Super Battlemancers
+================================================================================
+  INPUT:    <- 01_CHARACTER_DESCRIPTION.txt
+  OUTPUT:   mortis_death_reaper.png (sprite sheet)
+================================================================================
+
+
+CHARACTER REFERENCE
+================================================================================
+Name              : Mortis
+Element / Theme   : Shadow / Death (cyan-green spectral energy)
+Role              : Zoner (scythe range, keep-away)
+Key Visual Traits : Deep pointed hood with glowing cyan eyes, long tattered robe,
+                    dark iron scythe with green-glowing blade, skeletal hands,
+                    angular shoulder pauldrons with rune markings, chain belt
+                    with glowing gem, NO visible feet (floats/glides)
+
+Palette:
+  Robe Base       : #1A1A2E (deep charcoal)
+  Robe Shadow     : #0F0F1A (near-black blue)
+  Robe Highlight  : #2D2D44 (dark slate)
+  Hood Interior   : #050510 (void black)
+  Energy/Eyes     : #00FFAA (spectral cyan-green)
+  Energy Bright   : #66FFCC (bright mint)
+  Hands (Bone)    : #D4C8A8 (pale bone)
+  Bone Shadow     : #A89878 (dusty tan)
+  Scythe Shaft    : #333344 (dark iron)
+  Scythe Blade    : #AABBCC (silver edge)
+  Blade Glow      : #00CC88 (ghost green)
+  Rune Accents    : #228866 (dim green)
+  Robe Wisps      : #221133 (dark purple-gray)
+  Chain Belt      : #444455 (gunmetal)
+  Darkest/Outline : #0A0A14
+
+
+TECHNICAL SPECIFICATIONS
+================================================================================
+Frame size        : 64 x 64 pixels
+Sheet layout      : 6 columns x 11 rows
+Total sheet size  : 384 x 704 pixels
+Background        : Transparent (PNG-24 with alpha)
+Character height  : ~52-56px within the 64px frame (taller than average)
+Ground line       : Robe bottom at y=58 (6px from bottom edge)
+Center X          : Character centered at x=32
+Outline           : 1px dark outline (#0A0A14) around character
+Shading           : 2-3 levels per color (base, shadow, highlight)
+View              : Strict side view (profile), facing RIGHT always
+Art style         : Anime pixel art, semi-chibi proportions, dark gothic mood
+
+
+SPRITESHEET GRID LAYOUT
+================================================================================
+
+         Col 0    Col 1    Col 2    Col 3    Col 4    Col 5
+Row  0:  IDLE_0   IDLE_1   IDLE_2   IDLE_3   ------   ------    Idle (4)
+Row  1:  GLIDE_0  GLIDE_1  GLIDE_2  GLIDE_3  GLIDE_4  GLIDE_5  Glide (6)
+Row  2:  JUMP_0   JUMP_1   JUMP_2   ------   ------   ------    Jump (3)
+Row  3:  ATK1_0   ATK1_1   ATK1_2   ------   ------   ------    Crypt Slash (3)
+Row  4:  ATK2_0   ATK2_1   ATK2_2   ------   ------   ------    Reaping Arc (3)
+Row  5:  ATK3_0   ATK3_1   ATK3_2   ATK3_3   ------   ------    Grave Cleave (4)
+Row  6:  CAST_0   CAST_1   CAST_2   CAST_3   ------   ------    Wraith Bolt (4)
+Row  7:  HIT_0    HIT_1    ------   ------   ------   ------    Hit (2)
+Row  8:  DODGE_0  DODGE_1  ------   ------   ------   ------    Shadow Step (2)
+Row  9:  ULT_0    ULT_1    ULT_2    ULT_3    ------   ------    Death's Harvest (4)
+Row 10:  DIE_0    DIE_1    DIE_2    ------   ------   ------    Death (3)
+
+Total used: 38 frames. "------" = fully transparent cell.
+
+
+ANIMATION TABLE
+================================================================================
+
+Row   Animation              Frames   Speed    Loop
+---   ---------              ------   -----    ----
+ 0    Idle                   4        150ms    Yes
+ 1    Glide (Run equiv.)     6        100ms    Yes
+ 2    Jump                   3        120ms    No
+ 3    Attack 1 (Crypt Slash) 3        100ms    No     (slower than avg — heavy scythe)
+ 4    Attack 2 (Reaping Arc) 3        100ms    No
+ 5    Attack 3 (Grave Cleave)4        120ms    No     (slowest attack in the game)
+ 6    Cast (Wraith Bolt)     4        120ms    No
+ 7    Take Hit               2        150ms    No
+ 8    Shadow Step (Dodge)    2        holds    No
+ 9    Ultimate               4        200ms    No
+10    Death                  3        200ms    No
+
+
+FRAME-BY-FRAME POSE GUIDE
+================================================================================
+
+ROW 0 — IDLE (4 frames, looping)
+---------------------------------
+F0: Neutral hovering stance. Body upright, very slight forward lean. Scythe
+    held vertically in the right hand at the character's side — shaft runs
+    along the body, blade curves upward and to the right above the shoulder.
+    Left arm hangs at the side, skeletal hand visible with fingers slightly
+    curled. Robe drapes naturally, tattered bottom edges hang near y=58 with
+    a 1-2px gap underneath suggesting the character floats. Hood points
+    upward, interior pure black with two glowing cyan-green eye dots clearly
+    visible. Shoulder pauldrons visible on both shoulders. Chain belt with
+    gem visible at the waist. Robe tendrils hang still. Calm, ominous pose.
+
+F1: Body drifts UPWARD 1-2px. Robe tendrils begin to sway gently to the
+    left (as if moved by an unseen wind). Eye glow pulses slightly brighter
+    — add 1 extra pixel of #66FFCC around each eye dot. Scythe tilts very
+    slightly. The gap under the robe hem increases by 1px (floating higher).
+    Chain gem sways slightly.
+
+F2: Peak of float. Body at highest position (2px above F0). Robe tendrils
+    drift further to the left, spread slightly more. Eyes at maximum glow
+    brightness — the brightest they get during idle. Scythe tilts a fraction
+    more. A sense of weightless, ethereal hovering. The most "supernatural"
+    frame of the idle loop.
+
+F3: Body descends back toward F0 position. Robe tendrils begin settling back.
+    Eye glow dims back to base #00FFAA. Gap under hem shrinks. Everything
+    returns smoothly to F0 for a seamless loop. The motion should feel like
+    slow, ghostly breathing — a figure that doesn't breathe but pulses with
+    dark energy.
+
+IMPORTANT: The idle animation should convey that this character is NOT
+standing — it is HOVERING. The slight up-down float, swaying tendrils,
+and eye pulsing create an unsettling, supernatural presence.
+
+
+ROW 1 — GLIDE (6 frames, looping)
+---------------------------------
+This character does NOT run with legs. The "run" animation is a forward
+GLIDE/FLOAT. No leg movement is visible — the robe conceals everything below
+the waist. Movement is conveyed through body lean, robe billowing, and
+scythe positioning.
+
+F0: Body leans forward ~8 degrees into the direction of movement. Scythe
+    held back in the right hand, shaft trailing behind at ~45 degrees, blade
+    pointing back and up. Left arm extended slightly forward, skeletal hand
+    reaching ahead. Robe streams behind the body — the tattered tendrils
+    stretch out to the left, trailing like ghostly ribbons. Hood leans
+    forward with the body. Eyes glow steadily. The character looks like
+    a dark specter gliding forward with intent.
+
+F1: Body dips slightly lower (1-2px down). The forward lean deepens a
+    fraction. Robe billows more — the fabric creates a wave shape behind,
+    like cloth caught in wind. Tendrils stretch further back. Left arm
+    position shifts slightly. This is the "lowest" point of the glide bob.
+
+F2: Body rises back up 1px. Robe ripples — the wave shape shifts along the
+    trailing fabric. The body is in the passing/transition position. Scythe
+    shaft angle adjusts slightly with the body motion. Tendrils begin to
+    settle before the next dip.
+
+F3: Mirror lean of F0 with subtle differences. The forward lean continues
+    but the body has shifted — left arm pulls back slightly, right arm
+    (with scythe) adjusts. Robe billows in a slightly different pattern
+    from F0 to prevent the glide from looking too mechanical.
+
+F4: Body dips again (mirror of F1). Different robe billow pattern. The
+    tendrils stretch in a slightly different configuration. Creates natural
+    variation in the floating motion.
+
+F5: Body rises (mirror of F2). Robe settles slightly. Loops seamlessly
+    back to F0.
+
+CRITICAL: NO visible leg movement at any point. The robe bottom maintains
+a consistent shape — it does not open to reveal legs. The entire movement
+impression comes from the upper body lean, arm positions, robe flow, and
+tendril trailing. This character GLIDES like a ghost, not runs like a human.
+
+
+ROW 2 — JUMP (3 frames, one-shot)
+---------------------------------
+F0: LAUNCH — body compresses downward. Robe crumples and bunches at the
+    bottom. Scythe pulls in close to the body, held vertically against the
+    right side. Left arm pulls down. The robe hem drops to touch y=58 fully
+    (no floating gap). Hood dips slightly. Eyes maintain glow. The character
+    is gathering upward force — even a floating entity needs to coil before
+    launching higher.
+
+F1: PEAK — body fully stretched upward, at the highest point. Robe SPREADS
+    outward on both sides like dark wings or a cape billowing in the wind.
+    The tattered tendrils fan out dramatically — widest silhouette in the
+    entire sheet. Scythe raised diagonally upward in the right hand, blade
+    pointing up and to the right. Left arm extended out to the side. Eyes
+    blaze at maximum brightness (#66FFCC). Hood points sharply upward.
+    This should be a dramatic, imposing silhouette — a dark angel ascending.
+    Character centered in frame, robe edges can approach frame boundaries.
+
+F2: FALL — body curls inward slightly. Robe wraps around the body like a
+    descending shroud — tendrils pull in and stream upward (trailing from
+    the downward fall). Scythe points downward, blade aimed at the ground.
+    Left arm pulls in close. Eyes dim slightly. Hood tilts forward and down.
+    The character descends like a dark omen coming to earth.
+
+
+ROW 3 — ATTACK 1: Crypt Slash (3 frames, one-shot, 100ms)
+---------------------------------
+F0: WINDUP — scythe pulls back behind the body to the left. Both hands grip
+    the shaft — right hand high, left hand low. Body coils to the left,
+    twisting away from the attack direction. Robe follows the twist, fabric
+    pulling to the left. Hood turns slightly with the body. Eyes glow
+    steadily. Feet/robe bottom remains at y=58. The scythe blade is behind
+    the character, ready to sweep forward.
+
+F1: STRIKE — fast horizontal scythe swipe from left to right at chest height.
+    The scythe sweeps in a horizontal arc. Blade passes through the space in
+    front of the character, reaching approximately 36-38px from the left edge
+    of the frame (long reach). Body snaps to the right with the swing. Robe
+    whips with the motion. Both hands visible on the shaft mid-swing. Eyes
+    flare brighter during the strike. This is the fastest scythe attack —
+    a quick reaping slash.
+
+F2: RECOVERY — scythe continues past the strike point, momentum carrying it
+    to the right side. Body begins to untwist. Robe settles from the motion.
+    Hands shift on the shaft as Mortis pulls the scythe back to neutral.
+    Eyes return to normal glow. Return toward idle stance.
+
+IMPORTANT: The scythe blade creates a visible arc/sweep across the frame.
+The blade itself should be clearly drawn in each position along the swing
+path. Do NOT draw a slash trail — the engine adds that. Only the physical
+scythe in its current position.
+
+
+ROW 4 — ATTACK 2: Reaping Arc (3 frames, one-shot, 100ms)
+---------------------------------
+F0: WINDUP — scythe raised HIGH overhead with both skeletal hands gripping
+    the shaft. Body leans back slightly to counterbalance the raised weapon.
+    Robe flares outward at the bottom from the backward lean. Hood tilts back.
+    The scythe blade is at the top of the frame, curving to the right, poised
+    for a massive downward sweep. Eyes glow intensely — this is a power attack.
+    Arms fully extended upward, bone-white hands visible gripping the dark shaft.
+
+F1: STRIKE — scythe sweeps in a massive downward arc from top-right to
+    bottom-left. The blade passes through a wide arc covering most of the
+    frame's right half. Body lunges forward into the swing, adding weight.
+    Robe whips dramatically with the lunging motion. This is the frame with
+    maximum reach — the blade tip should be at approximately 44px from the
+    left edge and about 40px from the top (low sweep). Eyes blaze. The pose
+    should convey tremendous sweeping force — the entire body commits to
+    this swing.
+
+F2: RECOVERY — scythe ends its arc at the lower left of the character. Body
+    is hunched forward from the lunge. Robe wraps and settles. Mortis begins
+    pulling upright, dragging the scythe back. This recovery is noticeably
+    slower than Attack 1 — the pose should look like the character needs a
+    moment to pull back from such a heavy swing.
+
+
+ROW 5 — ATTACK 3: Grave Cleave (4 frames, one-shot, 120ms)
+---------------------------------
+F0: WINDUP — body rises HIGHER than normal (2-3px above usual position).
+    Scythe raised above and behind the head with both hands, blade pointing
+    backward and up — the highest the scythe ever goes. Body leans back
+    dramatically. Robe lifts and billows as if caught in an updraft. Eyes
+    blaze maximum bright (#66FFCC). This is the most dramatic windup in the
+    sheet — the character is channeling everything into this one strike. A
+    momentary pause at the apex before the devastating downswing.
+
+F1: DESCEND — body plunges forward and downward. Scythe begins its massive
+    overhead-to-ground swing. The blade sweeps from behind the head in a
+    vertical arc coming down toward the ground in front. Mid-swing frame —
+    scythe is at roughly 45 degrees, sweeping through. Body weight shifts
+    entirely forward. Robe streams upward and behind from the sudden
+    downward plunge. Hood dips with the motion.
+
+F2: IMPACT — scythe SLAMS into the ground at maximum forward reach. The
+    blade tip touches near the bottom of the frame at full extension —
+    approximately 46-48px from the left edge. This is the LONGEST reach of
+    any attack in the entire game. Body is crouched over the planted scythe,
+    hunched forward. Robe splays outward dramatically from the impact force.
+    Eyes blaze. Both hands white-knuckle the shaft. The pose should convey
+    earth-shaking impact — even though the character floats, this slam has
+    real weight behind it.
+
+F3: RECOVERY — the slowest recovery frame of any attack. Scythe is still
+    partially embedded in the ground position. Mortis slowly drags it back,
+    body rising sluggishly. One hand releases the shaft to help push
+    upright. Robe is still settling from the impact. Eyes dim slightly.
+    This is the PUNISH WINDOW — the character is clearly vulnerable. The
+    pose should look heavy, committed, and slow to recover. Approximately
+    240ms of vulnerability in-game.
+
+IMPORTANT: This is the most committal and dangerous attack. The windup is
+telegraphed, the impact is devastating, and the recovery is punishable. The
+poses should sell ALL of that — dramatic power AND visible vulnerability.
+
+
+ROW 6 — CAST: Wraith Bolt (4 frames, one-shot, 120ms)
+---------------------------------
+F0: PREPARE — scythe is PLANTED in the ground to the right of the character.
+    Right hand releases the scythe shaft (it stands upright on its own).
+    Both skeletal hands raise to chest level, palms facing forward, fingers
+    spread. The character shifts focus from weapon to magic. Robe settles
+    into a more vertical drape. Eyes begin to glow brighter. The chain
+    gem at the waist also glows slightly.
+
+F1: CHARGE — hands pull apart to shoulder width. Between the skeletal palms,
+    a space forms where the spectral skull will manifest (the skull itself is
+    NOT drawn — the engine spawns it). Eyes blaze at maximum brightness.
+    Fingers curl inward slightly as if containing energy. Green-cyan glow
+    appears on the fingertips and palm areas (2-3 pixels of #00FFAA on each
+    hand). Body straightens tall. Robe hangs still — the air is heavy with
+    dark magic.
+
+F2: RELEASE — left hand thrusts forward toward the right side of the frame,
+    palm open, fingers extended. This is the launch point — the engine spawns
+    the Wraith Bolt projectile at the left hand position. Right hand pulls
+    back. Body twists slightly with the thrust. Robe ripples from the energy
+    release. Eyes maintain bright glow. The glow on the extended hand
+    intensifies (more #66FFCC pixels).
+
+F3: FOLLOW-THROUGH — left arm still extended but relaxing. Right hand reaches
+    back to grab the planted scythe. Body begins to settle. Eye glow dims
+    back to normal. Hand glow fades. Wisps of shadow (#221133) trail from
+    the extended fingers (2-3 tiny pixels suggesting residual energy).
+    Scythe being retrieved from ground position.
+
+IMPORTANT: Do NOT draw the Wraith Bolt skull projectile in any frame. Only
+draw the character's body, hands, and the energy glow on the hands. The
+spectral skull is a separate sprite spawned by the game engine at the hand
+position during F2.
+
+
+ROW 7 — TAKE HIT (2 frames, one-shot)
+---------------------------------
+F0: IMPACT — body jerked backward sharply. Hood flips back slightly from the
+    force, briefly revealing more of the black void underneath — the shadow
+    under the hood is still pure black, but the hood opening is wider,
+    showing there truly is NOTHING under there except darkness and eyes.
+    Eyes FLICKER — one eye dims to 1px while the other stays lit (asymmetric
+    flicker suggests disruption). Scythe knocked to an awkward angle, grip
+    loosening. Robe whips forward from the backward momentum. Skeletal hands
+    flinch. Chain gem swings. Pain is conveyed not through facial expression
+    (there is no face) but through the body jerk, eye flicker, and hood
+    displacement.
+
+F1: RECOIL — body leans further backward. Hood settles back slightly but
+    still more open than normal. Both eyes dim to a lower glow (#228866
+    instead of #00FFAA — sickly, weakened green). One skeletal hand rises
+    to clutch the chest area. Scythe droops in the loosened grip. Robe
+    continues whipping forward. Robe bottom lifts slightly off the ground
+    from the backward lean. The character looks destabilized — a being of
+    shadow momentarily disrupted.
+
+
+ROW 8 — SHADOW STEP / DODGE (2 frames, holds F1)
+---------------------------------
+F0: ENTER — body wraps the robe tightly around itself like a cocoon or
+    funeral shroud. Arms cross against the chest, pulling the robe inward.
+    Scythe is pulled close against the body vertically. Hood dips forward,
+    concealing the eyes almost entirely — just the faintest cyan-green
+    glimmer at the hood opening. The tattered tendrils at the robe bottom
+    curl inward and upward, wrapping around the body. The entire silhouette
+    narrows and compresses. The character is dissolving into shadow.
+
+F1: ACTIVE — the character has become an amorphous dark shadow form. The
+    shape is a vaguely humanoid blob of darkness (#0F0F1A, #050510) —
+    roughly the same height and width as the character but with undefined
+    edges that blur and wisp outward. No scythe visible, no hands, no robe
+    details — just a dark mass. The two cyan-green eye dots (#00FFAA) float
+    in the upper portion of the shadow, still visible — the only recognizable
+    feature. The edges of the shadow form have wispy tendrils that fade to
+    transparency.
+    The engine makes this frame semi-transparent and adds a dark purple tint
+    at runtime. Draw the shadow form at full opacity — the engine handles
+    the ghosting effect.
+    This frame is HELD for 1 full second during the dodge.
+
+IMPORTANT: F1 should NOT look like the character wrapped in a cloak. It
+should look like the character has literally BECOME shadow — an indistinct
+dark mass with floating eyes. Only the eyes connect it to Mortis.
+
+
+ROW 9 — ULTIMATE: Death's Harvest (4 frames, one-shot, 200ms)
+---------------------------------
+F0: CHARGE — body hunches low, almost crouching. Scythe is planted firmly in
+    the ground in front with both hands gripping the shaft tightly. Head
+    bowed, hood tilted forward. Eyes glow at their most intense — even
+    brighter than any other frame, using extra #66FFCC pixels. The chain
+    gem blazes with energy. Dark energy is gathering (engine adds the aura
+    and swirling particles). Robe whips and lashes as if caught in a
+    violent wind — tendrils streaming outward in all directions. The pose
+    radiates "power building" — something terrible is about to happen.
+    The most tense frame in the sheet.
+
+F1: RISE — body straightens and RISES to maximum height, taller than any
+    other frame. Standing at full imposing height. Scythe lifts from the
+    ground, rising with the body. Arms beginning to spread. Hood pulls back
+    slightly revealing the eyes blazing at full power. Robe billows outward
+    dramatically. Shoulder pauldrons' rune markings glow brighter (#00FFAA
+    instead of the usual dim #228866). The character is ascending — dark
+    power fully charged and rising from the earth. Chain gem glows maximum.
+
+F2: PEAK — the most dramatic pose in the entire sprite sheet. Scythe raised
+    above the head with both hands, blade pointing to the right. Body at
+    absolute maximum height. Robe SPREADS wide on both sides like massive
+    dark wings — filling nearly the full 64px frame width. Hood pulled back,
+    eyes blazing twin beacons of cyan-green light. Pauldron runes glowing.
+    Arms extended upward and outward, skeletal hands gripping the scythe
+    overhead. This is the "angel of death" moment — the apex of power
+    before the devastating release. Every visual element is at its most
+    extreme — widest robe, brightest eyes, highest scythe, tallest stance.
+
+F3: RELEASE — scythe sweeps in a massive horizontal arc from left to right.
+    Body twists powerfully with the swing — the full-body rotation drives
+    the scythe. The blade reaches maximum extension to the right. Robe
+    whips violently with the rotation, tendrils lashing outward. Eyes
+    maintain bright glow. This is the frame where the spectral wave is
+    launched — the engine spawns the Death's Harvest wave projectile at the
+    scythe blade position. The pose conveys absolute release of all
+    accumulated dark energy in one devastating horizontal sweep.
+
+IMPORTANT: The ultimate sequence should be the most cinematic and dramatic
+4 frames on the entire sheet. Each frame should feel like a key moment in
+a death god's awakening: crouch → rise → ascend → reap.
+
+
+ROW 10 — DEATH (3 frames, one-shot, 200ms)
+---------------------------------
+F0: STAGGER — body stumbles forward, listing to the right. Scythe slips from
+    the grip, right hand opening — the scythe begins to fall away from the
+    body. Left skeletal hand reaches out in front as if grasping for
+    something. Eyes FLICKER rapidly — one on, one off, unstable. Hood
+    shifts askew. Robe tendrils droop and hang limply (no longer animated
+    by supernatural energy). Chain gem's glow gutters. The dark power
+    sustaining this being is failing. Knees (hidden by robe) buckle —
+    the robe silhouette shows the body lowering and leaning.
+
+F1: FALLING — body tilts sideways to the right, collapsing. Scythe is now
+    clearly separated from the body, falling beside or behind the character.
+    Arms go limp, skeletal hands hanging. Eyes dim to a faint, sickly
+    glow (#228866 — barely visible). Hood falls back, revealing more of
+    the void underneath — the darkness under the hood is dissolving,
+    becoming less solid. Robe begins to fragment at the edges — tendrils
+    break apart into disconnected wisps. The being is literally coming
+    undone — the dark magic that holds it together is dissipating.
+
+F2: DOWN — a collapsed pile of tattered robe and the scythe on the ground.
+    The body (rotated ~80 degrees clockwise) has lost most of its form —
+    what remains is mostly just the robe draped over a vaguely body-shaped
+    mound. The scythe lies beside or across the robe pile, blade pointing
+    right. The hood has collapsed flat. The eyes are either completely gone
+    (extinguished — no glow) OR the faintest single pixel of dim
+    cyan (#228866) remains as the last spark. Skeletal hand bones may be
+    partially visible poking from a sleeve. Must fit within the 64x64 frame.
+    The overall impression: a dark spirit has been vanquished, leaving behind
+    only empty robes and a weapon.
+
+
+RULES CHECKLIST
+================================================================================
+[ ] Always facing RIGHT (engine flips for left)
+[ ] Character centered at x=32 in every frame
+[ ] Robe bottom at y=58 consistently across all standing/hovering frames
+[ ] Attacks can extend but stay within 64px frame
+[ ] NO skill effects in sprite (spectral bolts, shadow energy = added at runtime)
+[ ] Scythe visible and recognizable in EVERY frame (except Dodge F1 and Death F2)
+[ ] Eyes (cyan-green dots) visible in EVERY frame (key identifying trait)
+[ ] NO visible legs or feet at any time — robe always conceals lower body
+[ ] Glide/Run has NO leg movement — upper body lean and robe flow only
+[ ] Both players use same sheet (P2 tinted differently by engine)
+[ ] Unused cells are fully transparent
+[ ] Dark 1px outline (#0A0A14) around character
+[ ] 2-3 shade levels per color area
+[ ] Robe tendrils trail BEHIND during movement (natural ghostly physics)
+[ ] Eye glow varies: bright during attacks, dim during hit/death
+
+
+================================================================================
+AI GENERATION PROMPT: FULL SPRITE SHEET
+================================================================================
+
+Create a pixel art sprite sheet for a 2D side-scrolling fighting game character.
+
+CHARACTER: "Mortis" — a Grim Reaper inspired shadow/death battlemancer with
+spectral cyan-green energy. Dark, gothic, ominous character.
+
+CRITICAL RENDERING RULES:
+- Strict SIDE VIEW (profile). The character is seen from a perfect 90-degree
+  side angle, like classic 2D fighting game sprites (Street Fighter, Metal
+  Slug pixel art perspective).
+- NOT 3/4 view. NOT front-facing. NOT isometric. NOT top-down.
+- Character always faces RIGHT. Right side of the character faces the viewer's
+  right. The character's front/chest faces right.
+- Every frame is exactly 64x64 pixels.
+- The character is approximately 52-56 pixels tall (taller than average).
+- Robe bottom touches y=58 (6 pixels from the bottom of each 64x64 cell).
+- Character body is horizontally centered at x=32 in each cell.
+
+SPRITE SHEET LAYOUT:
+- 6 columns and 11 rows of 64x64 pixel cells.
+- Total image dimensions: exactly 384 pixels wide x 704 pixels tall.
+- Frames read left to right within each row.
+- Unused cells (where a row has fewer than 6 frames) are completely
+  empty/transparent.
+
+CHARACTER APPEARANCE (side profile view):
+- HOOD: Deep pointed hood that completely covers the head. The hood is part
+  of a long robe — seamless transition. Interior of the hood is pure black
+  (#050510), creating a void where the face should be. The hood's point
+  extends slightly upward. In side view, the pointed tip and deep interior
+  shadow are visible. There is NO face, NO skin, NO hair — only darkness.
+- EYES: Two small glowing cyan-green (#00FFAA) dots floating in the darkness
+  under the hood. These are the ONLY feature visible under the hood. No nose,
+  no mouth. Just two eerie glowing dots. They are the KEY identifying feature
+  and must be visible in every frame. In side view, one eye is fully visible
+  and the second is partially visible behind it.
+- BODY: Tall, gaunt, skeletal silhouette underneath the robe. The body shape
+  is defined by the robe draping over a thin frame. Angular shoulders are
+  visible through the fabric.
+- ROBE: Long flowing robe in deep charcoal (#1A1A2E) that extends from the
+  hood to the ground. Shadows in the deepest folds are near-black blue
+  (#0F0F1A). Highlight edges are dark slate (#2D2D44). The bottom hem is
+  TORN and TATTERED — fraying into multiple wispy tendrils and ragged strips
+  of fabric. The robe is layered. In side view, it creates a tall, narrow,
+  flowing silhouette. NO feet or legs are visible — the robe conceals
+  everything below the waist entirely.
+- SHOULDER PAULDRONS: Small angular dark iron (#333344) guards on both
+  shoulders. They have faint dim green (#228866) runic markings — just
+  1-2 pixels suggesting etched magical runes. Angular, bony shape.
+- CHAIN BELT: Thin gunmetal (#444455) chain at the waist. A small glowing
+  cyan-green (#00FFAA) gem pendant hangs from the center.
+- HANDS: Skeletal bone-white (#D4C8A8) hands with shadows in dusty tan
+  (#A89878). Bony, elongated, claw-like fingers. Clearly skeletal with no
+  flesh. They emerge from the wide robe sleeves.
+- SCYTHE: Held in the right hand. The defining feature of this character.
+  Dark iron (#333344) shaft, approximately 40-45px long. Curved blade at
+  the top made of silver metal (#AABBCC) with a faint cyan-green (#00CC88)
+  glow along the sharp edge. In side view during idle, the shaft is mostly
+  vertical at the character's side with the blade curving forward (right).
+  The scythe should be instantly recognizable in every frame.
+
+COLOR PALETTE (strict):
+- Deep Charcoal #1A1A2E (robe base)
+- Near-Black Blue #0F0F1A (robe shadows)
+- Dark Slate #2D2D44 (robe highlights)
+- Void Black #050510 (hood interior)
+- Spectral Cyan #00FFAA (eyes, energy, gem)
+- Bright Mint #66FFCC (energy highlights)
+- Pale Bone #D4C8A8 (hands)
+- Dusty Tan #A89878 (hand shadows)
+- Dark Iron #333344 (scythe shaft, pauldrons)
+- Silver #AABBCC (scythe blade)
+- Ghost Green #00CC88 (blade glow)
+- Dim Green #228866 (rune marks)
+- Dark Purple-Gray #221133 (robe wisps)
+- Gunmetal #444455 (chain belt)
+- Outline #0A0A14 (darkest)
+
+PIXEL ART STYLE:
+- Clean 1-pixel dark outline (#0A0A14) around the entire character silhouette.
+- 2-3 shading levels per color (highlight, base, shadow).
+- No anti-aliasing. Hard pixel edges. No dithering.
+- Semi-chibi anime proportions (head about 1/3 of body height).
+- Dark, gothic, ethereal mood — this character should feel ominous compared
+  to brighter fighters.
+- Quality level similar to "Warrior Girls Pack" or "Street Fighter III" sprites.
+
+ANIMATIONS PER ROW (describe the character's body pose for each frame):
+
+Row 0 — IDLE (4 frames, columns 0-3):
+  Hovering stance with scythe at side. Subtle floating motion — body drifts
+  up 1-2px and back down. Robe tendrils sway gently. Eyes pulse in brightness.
+  1-2px gap under robe hem suggesting hovering. Ominous, still, supernatural.
+
+Row 1 — GLIDE (6 frames, columns 0-5):
+  Forward floating movement — NO leg movement visible. Body leans forward.
+  Robe streams and billows behind. Tattered tendrils trail like ghostly
+  ribbons. Scythe held back. Upper body bobs gently with glide momentum.
+  6 frames: lean forward, dip, rise, lean, dip, rise.
+
+Row 2 — JUMP (3 frames, columns 0-2):
+  Frame 0: Compress downward, robe bunches, scythe pulled close.
+  Frame 1: Peak — body stretched tall, robe spreads wide like dark wings,
+  scythe raised, eyes blaze. Dramatic dark angel silhouette.
+  Frame 2: Fall — body curls, robe wraps like shroud, scythe points down.
+
+Row 3 — ATTACK 1: Crypt Slash (3 frames, columns 0-2):
+  Frame 0: Scythe pulls back behind body, both hands on shaft, body coils left.
+  Frame 1: Horizontal scythe swipe forward at chest height, long reach.
+  Frame 2: Scythe continues past, body untwists, recovering.
+
+Row 4 — ATTACK 2: Reaping Arc (3 frames, columns 0-2):
+  Frame 0: Scythe raised high overhead with both hands, body leans back.
+  Frame 1: Massive downward sweeping arc, full lunge forward, widest reach.
+  Frame 2: Scythe low at side, body hunched from lunge, recovering.
+
+Row 5 — ATTACK 3: Grave Cleave (4 frames, columns 0-3):
+  Frame 0: Body rises higher, scythe raised behind head, dramatic lean back.
+  Frame 1: Plunging downward, scythe mid-swing in vertical arc.
+  Frame 2: Scythe SLAMS into ground at maximum reach, body crouched over.
+  Frame 3: Slow heavy recovery, dragging scythe back, visibly vulnerable.
+
+Row 6 — CAST: Wraith Bolt (4 frames, columns 0-3):
+  Frame 0: Scythe planted in ground beside, both hands raised, palms forward.
+  Frame 1: Hands apart, energy on fingertips (green glow pixels on hands).
+  Frame 2: Left hand thrusts forward, launching (projectile spawned by engine).
+  Frame 3: Arm extended, reaching back for planted scythe.
+  NOTE: Do NOT draw the skull projectile — only hand positions and glow.
+
+Row 7 — TAKE HIT (2 frames, columns 0-1):
+  Frame 0: Body jerked back, hood flips revealing more void, eyes flicker.
+  Frame 1: Leaning further back, hand clutches chest, eyes dim sickly green.
+
+Row 8 — SHADOW STEP (2 frames, columns 0-1):
+  Frame 0: Robe wraps tightly around body like cocoon, shrinking, dissolving.
+  Frame 1: Amorphous dark shadow blob, vaguely humanoid shape, no details
+  visible except two floating eye dots. Draw at full opacity — engine adds
+  transparency.
+
+Row 9 — ULTIMATE: Death's Harvest (4 frames, columns 0-3):
+  Frame 0: Crouch with scythe planted, head bowed, eyes blazing, power building.
+  Frame 1: Rise to maximum height, scythe lifting, robe billowing, runes glow.
+  Frame 2: PEAK — scythe overhead, robe spread like dark wings filling frame,
+  eyes blazing twin beacons. Most dramatic pose on the sheet.
+  Frame 3: Massive horizontal scythe sweep, full body twist, energy release.
+
+Row 10 — DEATH (3 frames, columns 0-2):
+  Frame 0: Stumbling, scythe slipping from grip, eyes flickering, power failing.
+  Frame 1: Collapsing sideways, scythe falling away, robe fragmenting at edges.
+  Frame 2: Collapsed pile of empty robes and scythe on ground, eyes extinguished.
+
+FINAL OUTPUT:
+- Single PNG image, exactly 384 x 704 pixels.
+- Transparent background throughout.
+- All 66 cells in the grid, with 38 cells containing character frames and
+  28 cells completely empty/transparent.
+
+
+================================================================================
+FILE DELIVERY
+================================================================================
+Filename          : mortis_death_reaper.png
+Size              : 384 x 704 pixels
+Format            : PNG-24 with transparency
+Location          : Sprites/

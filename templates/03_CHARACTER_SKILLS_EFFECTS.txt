@@ -1,0 +1,404 @@
+================================================================================
+  TEMPLATE 03: CHARACTER SKILL EFFECTS SPRITES
+  Super Battlemancers
+================================================================================
+  PURPOSE:  Define the skill/ability EFFECT sprites for a character
+  INPUT:    ← 01_CHARACTER_DESCRIPTION.txt (Element, Palette, Ability Details)
+  OUTPUT:   Skill effect sprite sheet PNGs for the game engine
+================================================================================
+
+
+CHARACTER REFERENCE (copy from 01_CHARACTER_DESCRIPTION)
+================================================================================
+Name              : [Character Name]
+Element / Theme   : [Element]
+Primary Power     : [Ability name and type]
+Secondary Ability : [Ability name and type]
+Ultimate          : [Ability name and type]
+Palette           : [Accent 1 hex] [Accent 2 hex] [Dark hex]
+
+
+HOW HYBRID EFFECTS WORK
+================================================================================
+
+  Your Sprite Art    +    Engine Particles    =    Final In-Game Look
+  (shape & style)         (glow, trail, sparks)    (polished & dynamic)
+
+You draw the CORE shape. The engine adds glow, trails, sparks at runtime.
+Your sprites do NOT need trailing particles or ambient glow — just the main shape.
+
+
+EFFECTS OVERVIEW TABLE
+================================================================================
+
+#   Effect                File                     Frame Size   Frames   Sheet Size    Priority
+-   ------                ----                     ----------   ------   ----------    --------
+1   Primary Projectile    [ability]_projectile.png  32 x 32     4        128 x 32     MUST
+2   Projectile Impact     [ability]_explosion.png   64 x 64     5        320 x 64     MUST
+3   Secondary Effect      [ability]_effect.png      96 x 96     4        384 x 96     SHOULD
+4   Ground Hazard         [ability]_ground.png      64 x 32     3        192 x 32     SHOULD
+5   Ultimate Projectile   [ability]_ultimate.png   128 x 64     4        512 x 64     SHOULD
+6   Hit Impact Spark      hit_spark.png             32 x 32     3         96 x 32     NICE
+
+Any effect you skip = engine uses PARTICLE-ONLY fallback (still works, less polished).
+
+
+GENERAL RULES (ALL EFFECTS)
+================================================================================
+Layout            : Horizontal strip — all frames in a single row, left to right
+Background        : Transparent (PNG-24 with alpha)
+Art style         : Must match the character sprite style (anime pixel art)
+Outline           : 1px dark outline
+Shading           : 2-3 levels per color
+Direction         : Projectiles face RIGHT (engine flips for left)
+Centering         : Effect centered within each frame
+No extras         : No trailing particles or glow — engine adds those
+
+
+================================================================================
+EFFECT 1: PRIMARY PROJECTILE                                        [MUST HAVE]
+================================================================================
+
+File              : [ability_name]_projectile.png
+Frame size        : 32 x 32 pixels
+Frames            : 4
+Total sheet size  : 128 x 32 pixels
+Animation         : Looping, 80ms per frame
+Direction         : Facing right (engine flips for left)
+Engine adds       : [Element] particle trail behind, additive glow
+
+Layout:
+  [ F0 ][ F1 ][ F2 ][ F3 ]
+  32x32  32x32  32x32  32x32
+
+Frame Guide:
+  F0: Compact [element] projectile shape, ~20-24px diameter, centered.
+      [Describe: e.g., "Round fireball with bright yellow core, orange mid, red outer"]
+  F1: Slight flicker — shape shifts subtly, core wobbles.
+      [Describe variation]
+  F2: [Element] expands slightly, some wisps extend outward.
+      [Describe variation]
+  F3: Contracts back toward F0 shape for seamless loop.
+      [Describe variation]
+
+Color Palette:
+  Core (brightest)  : [Hex] [Hex]
+  Middle            : [Hex] [Hex]
+  Outer (darkest)   : [Hex] [Hex]
+
+Design Notes:
+  - Projectile diameter ~20-24px, centered in 32x32 frame
+  - Leave padding for flickering edges
+  - Engine adds trailing particles, so sprite is just the ball/shape itself
+
+AI Prompt:
+  Pixel art sprite sheet of a [element] projectile for a 2D fighting game.
+  4 animation frames in a single horizontal row, each frame 32x32 pixels.
+  Total image: 128x32 pixels.
+  [Describe the projectile shape and appearance in detail].
+  [Describe color progression: core, middle, outer].
+  Frame 1: compact shape. Frame 2: slight flicker.
+  Frame 3: expands slightly. Frame 4: contracts back.
+  Transparent background, dark pixel outline, side view, facing right.
+  Style: anime pixel art, retro 2D game sprite, vibrant [element] colors.
+
+
+================================================================================
+EFFECT 2: PROJECTILE IMPACT / EXPLOSION                             [MUST HAVE]
+================================================================================
+
+File              : [ability_name]_explosion.png
+Frame size        : 64 x 64 pixels
+Frames            : 5
+Total sheet size  : 320 x 64 pixels
+Animation         : One-shot, 60ms per frame (fast)
+Engine adds       : Small spark particles, screen shake on heavy hits
+
+Layout:
+  [  F0  ][  F1  ][  F2  ][  F3  ][  F4  ]
+   64x64   64x64   64x64   64x64   64x64
+
+Frame Guide:
+  F0: INITIAL FLASH — small bright flash at center (~16px diameter).
+      [Describe: e.g., "White-yellow flash, very bright"]
+  F1: EXPANDING — blooming outward (~32px).
+      [Describe: e.g., "Yellow core, orange edges"]
+  F2: FULL SIZE — maximum expansion (~48px), most dramatic frame.
+      [Describe: e.g., "Intense orange with red edges, sparks"]
+  F3: FADING — breaking apart, embers/fragments, becoming transparent.
+      [Describe fade]
+  F4: DISSIPATING — faint traces, nearly transparent.
+      [Describe: e.g., "Smoke wisps, almost gone"]
+
+Color Progression:
+  F0-F1: Brightest  [white, pale yellow]
+  F2:    Mid        [bright orange, red]
+  F3-F4: Fading     [dark orange, gray smoke]
+
+AI Prompt:
+  Pixel art sprite sheet of a [element] explosion for a 2D fighting game.
+  5 animation frames in a single horizontal row, each frame 64x64 pixels.
+  Total image: 320x64 pixels.
+  [Element] impact explosion sequence, centered in each frame:
+  Frame 1: small bright flash at center.
+  Frame 2: [element] expanding outward.
+  Frame 3: full size, maximum expansion, dramatic.
+  Frame 4: breaking apart into fragments, fading.
+  Frame 5: faint wisps dissipating, nearly gone.
+  Transparent background, dark pixel outline.
+  Style: anime pixel art, retro 2D game effect, dramatic impact.
+
+
+================================================================================
+EFFECT 3: SECONDARY ABILITY EFFECT                                  [SHOULD]
+================================================================================
+
+File              : [ability_name]_effect.png
+Frame size        : 96 x 96 pixels
+Frames            : 4
+Total sheet size  : 384 x 96 pixels
+Animation         : Looping, 120ms per frame
+Alignment         : Centered on the player sprite
+Engine adds       : Additional particles, screen tint
+
+Layout:
+  [   F0   ][   F1   ][   F2   ][   F3   ]
+    96x96     96x96     96x96     96x96
+
+>>> IF SHIELD/AURA TYPE: CENTER MUST BE EMPTY <<<
+
+  For shield/aura abilities, the center ~40x56px area must be TRANSPARENT.
+  The player character renders BEHIND this sprite, showing through the center.
+  Only draw the effect around the edges.
+
+      96px wide
+  +-------------------+
+  | effect  effect     |
+  | effect          eff|
+  | effect  EMPTY   eff|    <-- Center is TRANSPARENT
+  | effect  AREA    eff|        Player shows through here
+  | effect          eff|
+  | effect  effect     |
+  +-------------------+
+
+Frame Guide:
+  F0: [Element] effect at steady state.
+      [Describe: e.g., "Ring of flames, steady, surrounding empty center"]
+  F1: Effect shifts/rotates slightly, some parts grow.
+      [Describe variation]
+  F2: More variation, natural movement.
+      [Describe variation]
+  F3: Returns toward F0 for seamless loop.
+      [Describe variation]
+
+AI Prompt (Shield/Aura type):
+  Pixel art sprite sheet of a [element] shield aura for a 2D fighting game.
+  4 animation frames in a single horizontal row, each frame 96x96 pixels.
+  Total image: 384x96 pixels.
+  [Element] effect surrounding an empty center. The CENTER must be
+  EMPTY/TRANSPARENT — about 40x56 pixels in the middle has no pixels.
+  [Describe the effect ring/aura appearance].
+  Frame 1: steady. Frame 2: shifts slightly.
+  Frame 3: variation. Frame 4: returns to frame 1 for loop.
+  Transparent background and transparent center.
+  Style: anime pixel art, retro 2D game aura effect.
+
+AI Prompt (Buff/Placed type):
+  Pixel art sprite sheet of a [element] [buff/trap/placed effect] for a 2D game.
+  4 animation frames in a single horizontal row, each frame 96x96 pixels.
+  Total image: 384x96 pixels.
+  [Describe the full effect, no empty center needed].
+  Transparent background.
+  Style: anime pixel art, retro 2D game effect.
+
+
+================================================================================
+EFFECT 4: GROUND HAZARD                                             [SHOULD]
+================================================================================
+
+File              : [ability_name]_ground.png
+Frame size        : 64 x 32 pixels (wide, short — sits on ground)
+Frames            : 3
+Total sheet size  : 192 x 32 pixels
+Animation         : Looping, 150ms per frame
+Alignment         : Bottom edge sits on platform surface
+Engine adds       : Rising particles, flickering light
+
+Layout:
+  [   F0   ][   F1   ][   F2   ]
+    64x32     64x32     64x32
+
+Structure (side view):
+  +--------------------+
+  |  tip  tip    tip   |  <-- [Element] tips (brightest color)
+  | body body  body    |  <-- [Element] body (mid color)
+  |base base base base |  <-- Base / embers (darkest, 1-2px)
+  +====================+  <-- y=32 ground line
+
+Frame Guide:
+  F0: [Element] hazard spread across 64px width, rising 16-24px from bottom.
+      [Describe: e.g., "Several low flames flickering, varying heights"]
+  F1: [Element] shifts — some parts taller, some shorter.
+      [Describe variation]
+  F2: Different variation from F0 and F1.
+      [Describe variation]
+
+Design Notes:
+  - [Element] grows UPWARD from bottom edge
+  - Bottom 1-2px = base/embers (darkest color)
+  - Short effect (16-24px tall) — this is a ground hazard, not towering
+  - Left behind by Ultimate ability, lasts several seconds
+
+AI Prompt:
+  Pixel art sprite sheet of [element] ground hazard for a 2D fighting game.
+  3 animation frames in a single horizontal row.
+  Each frame is 64 pixels wide and 32 pixels tall.
+  Total image: 192x32 pixels.
+  [Describe the ground effect: e.g., "Low flames burning on surface"].
+  [Element] rises upward from the bottom edge, 16-24 pixels tall.
+  Bottom edge has [dark base description, e.g., "glowing embers"].
+  Frame 1: [element] at various heights.
+  Frame 2: some taller, some shorter.
+  Frame 3: different variation.
+  Transparent background, dark pixel outline, side view.
+  Style: anime pixel art, retro 2D game hazard tile.
+
+
+================================================================================
+EFFECT 5: ULTIMATE PROJECTILE / WAVE                                [SHOULD]
+================================================================================
+
+File              : [ability_name]_ultimate.png
+Frame size        : 128 x 64 pixels (large!)
+Frames            : 4
+Total sheet size  : 512 x 64 pixels
+Animation         : Looping, 100ms per frame
+Direction         : Traveling right (engine flips for left)
+Engine adds       : Intense particle trail, screen shake, camera flash
+
+Layout:
+  [     F0     ][     F1     ][     F2     ][     F3     ]
+     128x64       128x64       128x64       128x64
+
+Frame Guide:
+  F0: Full [element] attack — brightest core, dramatic shape.
+      [Describe: e.g., "Massive wall of flame, white-hot core, red edges"]
+  F1: [Element] churns/shifts, shape changes, movement feel.
+      [Describe variation]
+  F2: Leading edge (right side) stretches aggressively forward.
+      [Describe variation]
+  F3: Settles slightly, cycles back toward F0 for loop.
+      [Describe variation]
+
+Color Palette (brightest to darkest):
+  Core center     : [Hex] [Hex]   (white-hot / brightest possible)
+  Inner           : [Hex] [Hex]
+  Middle          : [Hex] [Hex]
+  Outer           : [Hex] [Hex]
+  Edge/tips       : [Hex] [Hex]   (darkest accent)
+
+Design Notes:
+  - This is the BIGGEST, MOST DRAMATIC effect in the game
+  - 128px wide = clearly the most powerful attack
+  - Use the BRIGHTEST colors of the palette here
+  - Leading edge (right) = sharp/aggressive
+  - Trailing edge (left) = diffuse/dissipating
+
+AI Prompt:
+  Pixel art sprite sheet of a massive [element] ultimate attack for a 2D game.
+  4 animation frames in a single horizontal row.
+  Each frame is 128 pixels wide and 64 pixels tall.
+  Total image: 512x64 pixels.
+  [Describe the ultimate visual in dramatic detail].
+  This is the most powerful attack in the game — make it dramatic.
+  [Brightest color] core fading to [darker colors] at the edges.
+  Frame 1: full [element] attack, intense.
+  Frame 2: [element] churns, shifts.
+  Frame 3: leading edge stretches forward aggressively.
+  Frame 4: settles, loops back to frame 1.
+  Transparent background, facing right.
+  Style: anime pixel art, retro 2D game, extremely dramatic, vivid colors.
+
+
+================================================================================
+EFFECT 6: HIT IMPACT SPARK                                         [NICE]
+================================================================================
+
+File              : hit_spark.png   (SHARED across all characters)
+Frame size        : 32 x 32 pixels
+Frames            : 3
+Total sheet size  : 96 x 32 pixels
+Animation         : One-shot, 50ms per frame (very fast)
+Engine adds       : Additional tiny spark particles
+NOTE              : This is universal — only create ONCE, not per character
+
+Layout:
+  [ F0 ][ F1 ][ F2 ]
+  32x32  32x32  32x32
+
+Frame Guide:
+  F0: FLASH — bright white-yellow starburst, small (~16px), centered.
+  F1: EXPAND — sparks and lines radiating outward, expanding.
+  F2: FADE — sparks dissipating, nearly transparent.
+
+AI Prompt:
+  Pixel art sprite sheet of a hit impact spark for a 2D fighting game.
+  3 animation frames in a single horizontal row, each frame 32x32 pixels.
+  Total image: 96x32 pixels.
+  Classic fighting game hit flash:
+  Frame 1: bright white-yellow starburst flash, small, centered.
+  Frame 2: sparks radiating outward, expanding.
+  Frame 3: fading away, nearly transparent.
+  Transparent background.
+  Style: anime pixel art, retro 2D fighting game impact.
+
+
+POST-GENERATION CHECKLIST
+================================================================================
+[ ] Transparent background — no solid color behind the effect
+[ ] Correct total dimensions — resized to exact pixel sizes above
+[ ] Frames evenly spaced — equal width per frame in the strip
+[ ] Consistent style — matches the character sprite art style
+[ ] Projectiles face right — engine flips for left
+[ ] Shield center is empty (if shield/aura type)
+[ ] No gaps between frames — tightly aligned
+
+
+TIPS FOR AI IMAGE GENERATION
+================================================================================
+
+1. If AI gives individual images instead of a sprite sheet:
+   Generate each frame separately, then stitch side-by-side in
+   Photopea.com (free browser Photoshop) or even MS Paint.
+
+2. To remove backgrounds:
+   Use remove.bg, or Photopea "Magic Wand + Delete",
+   or GIMP "Color to Alpha".
+
+3. To resize to exact dimensions:
+   Photopea → Image → Canvas Size → set exact pixels.
+   Use "Nearest Neighbor" resampling to preserve pixel art.
+
+4. To keep style consistent:
+   Upload your character sprite as a style reference
+   (if your AI tool supports image references).
+
+5. Frame alignment:
+   If frames are different sizes, create new canvas at total size,
+   paste each frame at correct X position:
+   Frame 0 at x=0, Frame 1 at x=frameWidth, Frame 2 at x=frameWidth*2...
+
+
+FILE DELIVERY SUMMARY
+================================================================================
+
+Place all files in the Sprites/ folder:
+
+  Sprites/
+  +-- [character_name] SPRITE.png        <-- Character (from 02 template)
+  +-- [ability]_projectile.png           <-- 128x32   (4 frames)   MUST
+  +-- [ability]_explosion.png            <-- 320x64   (5 frames)   MUST
+  +-- [ability]_effect.png               <-- 384x96   (4 frames)   SHOULD
+  +-- [ability]_ground.png               <-- 192x32   (3 frames)   SHOULD
+  +-- [ability]_ultimate.png             <-- 512x64   (4 frames)   SHOULD
+  +-- hit_spark.png                      <-- 96x32    (3 frames)   NICE (shared)
