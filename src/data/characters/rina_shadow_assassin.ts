@@ -68,9 +68,9 @@ export const RINA_SHADOW_ASSASSIN: CharacterData = {
       knockback: 450,
       startup: 500,
       chargeRate: {
-        dealDamage: 1 / 4,
-        takeDamage: 1 / 8,
-        passive: 1.2
+        dealDamage: 1 / 2,
+        takeDamage: 1 / 3,
+        passive: 3
       }
     },
     dodge: {

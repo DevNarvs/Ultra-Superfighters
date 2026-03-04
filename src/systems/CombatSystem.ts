@@ -13,6 +13,7 @@ export class CombatSystem {
   private scene: Phaser.Scene;
   private fighters: Fighter[];
   private activeHitboxes: Hitbox[];
+  private isFrozen = false;
 
   constructor(scene: Phaser.Scene, fighters: Fighter[]) {
     this.scene = scene;
@@ -72,6 +73,28 @@ export class CombatSystem {
     const kbY = hitbox.knockback > 100 ? -150 : -30;
     fighter.takeDamage(hitbox.damage, kbX, kbY);
     this.spawnHitSpark(fighter.x, fighter.y - 10);
+
+    // Screen shake
+    const isHeavy = hitbox.knockback > 100;
+    if (isHeavy) {
+      this.scene.cameras.main.shake(200, 0.01);
+    } else {
+      this.scene.cameras.main.shake(80, 0.004);
+    }
+
+    // Hit freeze
+    if (!this.isFrozen) {
+      this.isFrozen = true;
+      const freezeMs = isHeavy ? 80 : 40;
+      this.scene.physics.pause();
+      this.scene.time.delayedCall(freezeMs, () => {
+        this.scene.physics.resume();
+        this.isFrozen = false;
+      });
+    }
+
+    // Damage number
+    this.spawnDamageNumber(fighter.x, fighter.y - 30, hitbox.damage, isHeavy);
   }
 
   private spawnHitSpark(x: number, y: number): void {
@@ -80,6 +103,28 @@ export class CombatSystem {
     spark.setDepth(90);
     spark.play('fx_hit_spark');
     spark.once('animationcomplete', () => spark.destroy());
+  }
+
+  private spawnDamageNumber(x: number, y: number, damage: number, isHeavy: boolean): void {
+    const offsetX = (Math.random() - 0.5) * 20;
+    const text = this.scene.add.text(x + offsetX, y, String(damage), {
+      fontSize: isHeavy ? '18px' : '14px',
+      fontFamily: 'monospace',
+      color: isHeavy ? '#ffcc00' : '#ffffff',
+      fontStyle: 'bold',
+      stroke: '#000000',
+      strokeThickness: 3
+    });
+    text.setOrigin(0.5);
+    text.setDepth(95);
+    this.scene.tweens.add({
+      targets: text,
+      y: y - 40,
+      alpha: 0,
+      duration: 600,
+      ease: 'Power2',
+      onComplete: () => text.destroy()
+    });
   }
 
   private destroyHitbox(hitbox: Hitbox): void {

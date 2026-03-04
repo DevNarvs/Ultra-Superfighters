@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { Fighter } from '../entities/Fighter';
-import { InputManager } from '../systems/InputManager';
+import { InputManager, AIInputManager } from '../systems/InputManager';
+import { AIController } from '../systems/AIController';
 import { createFighterAnimations } from '../systems/AnimationManager';
 import { CombatSystem } from '../systems/CombatSystem';
 import { AbilitySystem } from '../systems/AbilitySystem';
@@ -27,6 +28,7 @@ export class BattleScene extends Phaser.Scene {
   private announcer!: Announcer;
   private scoreBoard!: ScoreBoard;
   private killZoneY!: number;
+  private aiController!: AIController;
   private debugText!: Phaser.GameObjects.Text;
 
   constructor() {
@@ -53,6 +55,14 @@ export class BattleScene extends Phaser.Scene {
     }
 
     this.abilitySystem = new AbilitySystem(this, this.fighters);
+    this.aiController = new AIController(
+      this,
+      this.fighters[1],
+      this.fighters[0],
+      this.fighters[1].inputMgr as AIInputManager,
+      this.abilitySystem,
+      'opus'
+    );
     this.cameraSystem = new CameraSystem(this, this.fighters, arenaData.bounds);
 
     this.matchManager = new MatchManager(this, this.fighters, this.arena, {
@@ -85,7 +95,7 @@ export class BattleScene extends Phaser.Scene {
 
     for (let i = 0; i < 2; i++) {
       const spawn = ArenaFactory.getSpawnPoint(this.arena, i);
-      const input = new InputManager(this, i);
+      const input = i === 1 ? new AIInputManager(this, i) : new InputManager(this, i);
       const fighter = new Fighter(this, spawn.x, spawn.y, charData, i, input);
 
       if (i === 1) {
@@ -108,6 +118,7 @@ export class BattleScene extends Phaser.Scene {
       }
     }
 
+    this.aiController.update(time, delta);
     this.abilitySystem.update(time, delta);
     this.cameraSystem.update();
     this.matchManager.update(time, delta);
@@ -123,9 +134,8 @@ export class BattleScene extends Phaser.Scene {
       const scores = this.matchManager.getScores();
       this.debugText.setText([
         `P1: ${p1.state} | HP: ${p1.health}/${p1.maxHealth} | ULT: ${Math.floor(s1?.ultimateCharge || 0)}% | Wins: ${scores[0]}`,
-        `P2: ${p2.state} | HP: ${p2.health}/${p2.maxHealth} | ULT: ${Math.floor(s2?.ultimateCharge || 0)}% | Wins: ${scores[1]}`,
+        `P2 [AI Opus 4.6]: ${p2.state} | HP: ${p2.health}/${p2.maxHealth} | ULT: ${Math.floor(s2?.ultimateCharge || 0)}% | Wins: ${scores[1]}`,
         `P1: WASD move, F attack, Q fireball, E shield, Space dodge, R ult`,
-        `P2: Arrows, Num1 attack, Num4 ability, Num5 shield, Num0 dodge, Num2 ult`,
         `Match: ${this.matchManager.state} | FPS: ${Math.round(this.game.loop.actualFps)}`
       ].join('\n'));
     }
