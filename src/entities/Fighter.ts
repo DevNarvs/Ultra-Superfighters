@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import type { CharacterData } from '../types';
 import { InputManager } from '../systems/InputManager';
+import { EventBus, Events } from '../systems/EventBus';
 
 export enum State {
   IDLE = 'idle',
@@ -283,6 +284,7 @@ export class Fighter extends Phaser.Physics.Arcade.Sprite {
     this.body.setAllowGravity(false);
     this.play(`${this.prefix}_death`, true);
     this.emit('fighter-ko', this);
+    EventBus.emit(Events.PLAYER_KO, { playerIndex: this.playerIndex });
   }
 
   reset(x: number, y: number): void {

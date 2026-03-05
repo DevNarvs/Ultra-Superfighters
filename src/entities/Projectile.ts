@@ -1,6 +1,11 @@
 import Phaser from 'phaser';
 import type { ProjectileConfig } from '../types';
 import type { Fighter } from './Fighter';
+import type { ProjectileVFX } from '../systems/CharacterVFX';
+
+export interface ProjectileOptions extends ProjectileConfig {
+  vfx?: ProjectileVFX | null;
+}
 
 export class Projectile extends Phaser.Physics.Arcade.Sprite {
   declare body: Phaser.Physics.Arcade.Body;
@@ -9,10 +14,11 @@ export class Projectile extends Phaser.Physics.Arcade.Sprite {
   public direction: number;
   public ownerIndex: number;
   public passThrough: boolean;
-  public visual: Phaser.GameObjects.Sprite;
+  public visual: Phaser.GameObjects.GameObject;
+  private customVFX: ProjectileVFX | null;
   private lifespanTimer: Phaser.Time.TimerEvent;
 
-  constructor(scene: Phaser.Scene, x: number, y: number, config: ProjectileConfig) {
+  constructor(scene: Phaser.Scene, x: number, y: number, config: ProjectileOptions) {
     super(scene, x, y, '__DEFAULT');
 
     this.damage = config.damage;
@@ -20,6 +26,7 @@ export class Projectile extends Phaser.Physics.Arcade.Sprite {
     this.direction = config.direction;
     this.ownerIndex = config.ownerIndex;
     this.passThrough = config.passThrough || false;
+    this.customVFX = config.vfx || null;
 
     const size = config.size || { width: 24, height: 24 };
 
@@ -27,11 +34,16 @@ export class Projectile extends Phaser.Physics.Arcade.Sprite {
     scene.add.existing(this);
     scene.physics.add.existing(this);
 
-    this.visual = scene.add.sprite(x, y, 'fx_void_kunai');
-    this.visual.setScale(0.5);
-    this.visual.setDepth(50);
-    this.visual.setFlipX(this.direction < 0);
-    this.visual.play('fx_void_kunai');
+    if (this.customVFX) {
+      this.visual = this.customVFX.createVisual(scene, x, y, this.direction);
+    } else {
+      const sprite = scene.add.sprite(x, y, 'fx_void_kunai');
+      sprite.setScale(0.5);
+      sprite.setDepth(50);
+      sprite.setFlipX(this.direction < 0);
+      sprite.play('fx_void_kunai');
+      this.visual = sprite;
+    }
 
     this.body.setSize(size.width, size.height);
     this.body.setAllowGravity(false);
@@ -44,7 +56,11 @@ export class Projectile extends Phaser.Physics.Arcade.Sprite {
 
   update(): void {
     if (this.visual && this.active) {
-      this.visual.setPosition(this.x, this.y);
+      if (this.customVFX) {
+        this.customVFX.updateVisual(this.visual, this.x, this.y);
+      } else {
+        (this.visual as Phaser.GameObjects.Sprite).setPosition(this.x, this.y);
+      }
     }
   }
 
@@ -59,6 +75,10 @@ export class Projectile extends Phaser.Physics.Arcade.Sprite {
   }
 
   private spawnImpact(): void {
+    if (this.customVFX) {
+      this.customVFX.createImpact(this.scene, this.x, this.y);
+      return;
+    }
     const impact = this.scene.add.sprite(this.x, this.y, 'fx_kunai_impact');
     impact.setScale(0.5);
     impact.setDepth(90);
@@ -68,7 +88,13 @@ export class Projectile extends Phaser.Physics.Arcade.Sprite {
 
   destroyProjectile(): void {
     if (this.lifespanTimer) this.lifespanTimer.remove();
-    if (this.visual) this.visual.destroy();
+    if (this.visual) {
+      if (this.customVFX) {
+        this.customVFX.destroyVisual(this.visual);
+      } else {
+        this.visual.destroy();
+      }
+    }
     this.destroy();
   }
 }

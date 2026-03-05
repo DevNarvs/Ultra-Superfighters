@@ -19,6 +19,7 @@ import { ScoreBoard } from '../ui/ScoreBoard';
 import { ComboCounter } from '../ui/ComboCounter';
 import { getCharacter } from '../data/characters';
 import { TRAINING_GROUNDS } from '../data/arenas/training_grounds';
+import { SoundManager } from '../systems/SoundManager';
 import type { Arena } from '../types';
 
 export class BattleScene extends Phaser.Scene {
@@ -38,18 +39,23 @@ export class BattleScene extends Phaser.Scene {
   private scoreBoard!: ScoreBoard;
   private comboCounter!: ComboCounter;
   private killZoneY!: number;
-  private aiController!: AIController;
+  private aiController: AIController | null = null;
   private debugText!: Phaser.GameObjects.Text;
   private uiCamera!: Phaser.Cameras.Scene2D.Camera;
+  private mode: 'ai' | 'local' = 'ai';
+  private sceneData: any = {};
 
   constructor() {
     super({ key: 'BattleScene' });
   }
 
-  create(data: { p1Character?: string; p2Character?: string }): void {
+  create(data: { p1Character?: string; p2Character?: string; mode?: 'ai' | 'local'; aiDifficulty?: string }): void {
     this.fighters = [];
     this.healthBars = [];
     this.hazardSystem = null;
+    this.aiController = null;
+    this.mode = data?.mode || 'ai';
+    this.sceneData = data;
 
     // Determine characters from scene data or defaults
     const p1CharId = data?.p1Character || 'rina_shadow_assassin';
@@ -66,7 +72,7 @@ export class BattleScene extends Phaser.Scene {
     const arenaData = TRAINING_GROUNDS;
     this.arena = ArenaFactory.build(this, arenaData);
 
-    this.spawnPlayers(p1CharId, p2CharId);
+    this.spawnPlayers(p1CharId, p2CharId, this.mode);
 
     // Core systems
     this.combatSystem = new CombatSystem(this, this.fighters);
@@ -77,14 +83,19 @@ export class BattleScene extends Phaser.Scene {
     }
 
     this.abilitySystem = new AbilitySystem(this, this.fighters);
-    this.aiController = new AIController(
-      this,
-      this.fighters[1],
-      this.fighters[0],
-      this.fighters[1].inputMgr as AIInputManager,
-      this.abilitySystem,
-      'opus'
-    );
+
+    // Only create AI controller in AI mode
+    if (this.mode === 'ai') {
+      const aiDifficulty = (data?.aiDifficulty || 'opus') as any;
+      this.aiController = new AIController(
+        this,
+        this.fighters[1],
+        this.fighters[0],
+        this.fighters[1].inputMgr as AIInputManager,
+        this.abilitySystem,
+        aiDifficulty
+      );
+    }
     this.cameraSystem = new CameraSystem(this, this.fighters, arenaData.bounds);
 
     this.matchManager = new MatchManager(this, this.fighters, this.arena, {
@@ -136,7 +147,22 @@ export class BattleScene extends Phaser.Scene {
       // F5 goes back to character select
       this.input.keyboard.on('keydown-F5', (event: KeyboardEvent) => {
         event.preventDefault();
+        SoundManager.getInstance().stopMusic();
         this.scene.start('CharacterSelectScene');
+      });
+
+      // ESC opens pause menu
+      this.input.keyboard.on('keydown-ESC', (event: KeyboardEvent) => {
+        event.preventDefault();
+        if (!this.scene.isPaused()) {
+          this.scene.pause();
+          this.scene.launch('PauseScene');
+        }
+      });
+
+      // M toggles mute
+      this.input.keyboard.on('keydown-M', () => {
+        SoundManager.getInstance().toggleMute();
       });
     }
 
@@ -176,10 +202,13 @@ export class BattleScene extends Phaser.Scene {
     this.arena.platformGroup.getChildren().forEach(c => worldObjects.push(c));
     this.uiCamera.ignore(worldObjects);
 
+    // Start battle music
+    SoundManager.getInstance().startBattleMusic();
+
     this.matchManager.start();
   }
 
-  private spawnPlayers(p1CharId: string, p2CharId: string): void {
+  private spawnPlayers(p1CharId: string, p2CharId: string, mode: 'ai' | 'local'): void {
     const charIds = [p1CharId, p2CharId];
 
     for (let i = 0; i < 2; i++) {
@@ -187,7 +216,10 @@ export class BattleScene extends Phaser.Scene {
       if (!charData) continue;
 
       const spawn = ArenaFactory.getSpawnPoint(this.arena, i);
-      const input = i === 1 ? new AIInputManager(this, i) : new InputManager(this, i);
+      // In local mode, both players use real InputManager; in AI mode, P2 uses AIInputManager
+      const input = (i === 1 && mode === 'ai')
+        ? new AIInputManager(this, i)
+        : new InputManager(this, i);
       const fighter = new Fighter(this, spawn.x, spawn.y, charData, i, input);
 
       if (i === 1) {
@@ -210,7 +242,7 @@ export class BattleScene extends Phaser.Scene {
       }
     }
 
-    this.aiController.update(time, delta);
+    if (this.aiController) this.aiController.update(time, delta);
     this.abilitySystem.update(time, delta);
     this.cameraSystem.update();
     this.matchManager.update(time, delta);
@@ -228,8 +260,8 @@ export class BattleScene extends Phaser.Scene {
       const scores = this.matchManager.getScores();
       this.debugText.setText([
         `P1: ${p1.state} | HP: ${p1.health}/${p1.maxHealth}${p1.isRaging ? ' RAGE!' : ''} | ULT: ${Math.floor(s1?.ultimateCharge || 0)}% | Wins: ${scores[0]}`,
-        `P2 [AI]: ${p2.state} | HP: ${p2.health}/${p2.maxHealth}${p2.isRaging ? ' RAGE!' : ''} | ULT: ${Math.floor(s2?.ultimateCharge || 0)}% | Wins: ${scores[1]}`,
-        `P1: WASD move, F attack, Q fireball, E shield, Space dodge, R ult`,
+        `P2 [${this.mode === 'ai' ? 'AI' : 'P2'}]: ${p2.state} | HP: ${p2.health}/${p2.maxHealth}${p2.isRaging ? ' RAGE!' : ''} | ULT: ${Math.floor(s2?.ultimateCharge || 0)}% | Wins: ${scores[1]}`,
+        `P1: WASD+F+QER+Space | ${this.mode === 'local' ? 'P2: Arrows+Numpad' : 'AI mode'}`,
         `Match: ${this.matchManager.state} | FPS: ${Math.round(this.game.loop.actualFps)}`
       ].join('\n'));
     }
@@ -245,6 +277,13 @@ export class BattleScene extends Phaser.Scene {
       { key: 'fx_phantom_slash',  frames: 4, frameRate: 10, repeat: 0 },
       { key: 'fx_hit_spark',      frames: 3, frameRate: 16, repeat: 0 },
       { key: 'fx_blink_flash',    frames: 2, frameRate: 10, repeat: 0 },
+      // Karasu VFX
+      { key: 'fx_karasu_black_flame',   frames: 4, frameRate: 12, repeat: -1 },
+      { key: 'fx_karasu_flame_impact',  frames: 5, frameRate: 14, repeat: 0 },
+      { key: 'fx_karasu_crow_sub',      frames: 4, frameRate: 6,  repeat: 0 },
+      { key: 'fx_karasu_phantom_slash', frames: 3, frameRate: 10, repeat: 0 },
+      { key: 'fx_karasu_susanoo',       frames: 4, frameRate: 6,  repeat: 0 },
+      { key: 'fx_karasu_hellfire',      frames: 4, frameRate: 8,  repeat: 0 },
     ];
     for (const fx of effects) {
       if (anims.exists(fx.key)) continue;

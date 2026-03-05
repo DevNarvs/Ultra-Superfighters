@@ -1,0 +1,233 @@
+================================================================================
+  CHARACTER SPRITE TEMPLATE — SHEET 4: REACTIONS
+  Super Battlemancers
+================================================================================
+  Generates Take Hit + Death in a single image (2 rows).
+  Output: 384 x 128 pixels (6 columns x 2 rows, each cell 64x64)
+  At 2x scale: 768 x 256 pixels
+================================================================================
+
+
+LAYOUT
+================================================================================
+  Row 0 (y=0-63)  : A7  — Take Hit (2 frames, cells 1-2, one-shot)
+  Row 1 (y=64-127): A10 — Death    (3 frames, cells 1-3, one-shot)
+
+  Empty cells = fully transparent.
+  Total: 384 x 128 pixels.
+
+
+FILL GUIDE — Replace all {PLACEHOLDERS} before use
+================================================================================
+  {CHAR_NAME}             Character name
+  {CHAR_HEIGHT}           Pixel height
+  {APPEARANCE_BLOCK}      Full character appearance description
+  {OUTLINE_COLOR}         Outline hex + name
+  {KEY_FEATURE}           Identifying feature
+  {PALETTE_NOTE}          Palette mood note
+
+  --- TAKE HIT ---
+  {HIT_STYLE}             How this character takes damage (e.g., "stoic grimace",
+                          "determined endurance", "pained but defiant")
+  {HIT_FEATURE_REACT}     How the key feature reacts to damage (e.g., "sun mark
+                          dims to dull gold #CC9900", "crimson eyes dim to #880000",
+                          "glasses shift askew on the face")
+  {HIT_WEAPON_REACT}      How the weapon reacts (e.g., "katana grip loosens, blade
+                          drops to awkward angle", "no weapon — hands clutch impact",
+                          "scythe swings loosely from weakened grip")
+  {HIT_CLOTHING_REACT}    How flowing elements react (e.g., "cloak flares forward",
+                          "hakama whip forward", "ponytail swings forward")
+  {HIT_EXPRESSION}        Pain expression personality (e.g., "determined — hurt but
+                          NOT giving up", "stoic — controlled grimace, no screaming",
+                          "fierce — anger through pain")
+
+  --- DEATH ---
+  {DEATH_STYLE}           How this character falls (e.g., "dignified and tragic",
+                          "the fire goes out", "the curse releases")
+  {DEATH_FEATURE_PROGRESSION} How the key feature fades across 3 frames (e.g.,
+                          "sun mark: flickering #CC9900 → barely visible #996600 →
+                          extinguished #B8960F", "crimson eyes: dim → flickering →
+                          completely dark")
+  {DEATH_SIGNATURE_DETAIL} The unique death detail (e.g., "katana falls from grip
+                          and lies nearby", "glasses slip off and rest on ground",
+                          "crows separate from body and scatter", "scythe plants
+                          in ground beside fallen body")
+  {DEATH_F1_DESC}         Stagger frame details
+  {DEATH_F2_DESC}         Falling frame details
+  {DEATH_F3_DESC}         Down/resting frame details
+  {DEATH_F3_EXTRAS}       Extra details in the final resting frame (e.g., "katana
+                          lies nearby with sun tsuba visible", "2-3 small crows
+                          perch on/near the fallen body")
+  {DEATH_TONE}            Emotional tone (e.g., "tragic hero at rest", "cursed
+                          warrior finally at peace", "a fallen dancer — the sun
+                          has set")
+
+
+================================================================================
+  TEMPLATE — COPY AND FILL
+================================================================================
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of damage reaction and death animations for a 2D
+side-scrolling fighting game character. This sheet contains 2 animations
+organized as 2 rows. Each row is a separate animation.
+
+CHARACTER:
+{APPEARANCE_BLOCK}
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game
+  perspective (Street Fighter, Metal Slug).
+- NOT 3/4 view. NOT front-facing. NOT isometric. Pure flat side profile.
+- Character always faces RIGHT.
+- Semi-chibi anime proportions: head ~1/3 of body height.
+- Character height: ~{CHAR_HEIGHT} within each 64x64 cell.
+- Feet at y=58 (grounded frames). Center at x=32.
+- 1-pixel outline ({OUTLINE_COLOR}). 2-3 shading levels per color.
+- No anti-aliasing. Hard pixel edges. No dithering.
+
+IMAGE LAYOUT:
+- 6 columns, 2 rows. Each cell is exactly 64x64 pixels.
+- Total image: 384 pixels wide x 128 pixels tall.
+- Transparent background throughout.
+- Each row is a SEPARATE animation.
+- Empty cells are fully transparent.
+
+Row 0 (y=0-63)   — 2 frames — TAKE HIT: damage reaction
+Row 1 (y=64-127) — 3 frames — DEATH: knocked out, final rest
+
+
+=== ROW 0 (y=0-63): TAKE HIT — Damage Reaction ===
+2 frames in cells 1-2. Cells 3-6 empty/transparent.
+One-shot. Plays when the character receives damage.
+
+The hit pushes the character BACKWARD (to the LEFT, since the character
+faces right). {HIT_STYLE}. Each character has a SIGNATURE damage reaction
+detail that makes their hit unique.
+
+Frame 1 (IMPACT):
+Body jerked backward from being hit. Head snaps back from the force.
+{HIT_FEATURE_REACT} — the character's key identifying feature reacts to
+the damage. This is the SIGNATURE hit reaction detail.
+{HIT_EXPRESSION} — the pain expression must be clearly visible.
+{HIT_WEAPON_REACT} — weapon control is disrupted by the impact.
+{HIT_CLOTHING_REACT} — flowing elements swing FORWARD (opposite to the
+backward body movement — hair/cloth momentum carries forward as the body
+goes back). One hand reaches toward the point of impact on the torso.
+Feet still at y=58 but weight shifts backward.
+
+Frame 2 (RECOIL):
+Body leans further backward in an exaggerated stagger. Front foot lifts
+1-2px off the ground from the impact force. Arms flung slightly outward —
+losing control.
+{HIT_FEATURE_REACT} intensifies — the feature dims/shifts even further.
+{HIT_WEAPON_REACT} worsens — even less control.
+{HIT_CLOTHING_REACT} continues forward swing.
+{HIT_EXPRESSION} but still fighting — NOT defeated, still standing.
+Nearly losing balance but refusing to go down.
+
+IMPORTANT — ROW 0:
+- The hit pushes the character BACKWARD (to the LEFT).
+- {HIT_FEATURE_REACT} is the KEY character-specific reaction — every
+  character has one unique detail:
+  * Rina: glasses shift askew
+  * Mortis: eye dots dim
+  * Hiro: sun mark flickers/dims
+  * Karasu: crimson eye glow dims
+- {HIT_EXPRESSION}: show pain but also the character's personality through
+  how they endure it. NOT cartoonish — grounded, character-appropriate.
+- Flowing elements react OPPOSITE to body (body back → hair/cloth forward).
+- Do NOT draw damage numbers, blood, hit sparks, or visual effects.
+- {KEY_FEATURE} visible (even dimmed/shifted) in both frames.
+
+
+=== ROW 1 (y=64-127): DEATH — Knocked Out ===
+3 frames in cells 1-3. Cells 4-6 empty/transparent.
+One-shot. Does NOT loop. Frame 3 is the final resting state.
+
+{DEATH_STYLE}. The character's key feature fades progressively across all
+3 frames — this is the emotional core of the death animation.
+Feature progression: {DEATH_FEATURE_PROGRESSION}.
+{DEATH_SIGNATURE_DETAIL}.
+Tone: {DEATH_TONE}.
+
+Frame 1 (STAGGER):
+{DEATH_F1_DESC}
+{DEATH_FEATURE_PROGRESSION} — first stage (dimming/flickering). Expression:
+fighting to stay upright, but failing. Knees buckle. The character's power
+begins to fade. {DEATH_SIGNATURE_DETAIL} begins (if applicable — e.g.,
+weapon grip loosening, glasses slipping, crows beginning to separate).
+Still partially standing.
+
+Frame 2 (FALLING):
+{DEATH_F2_DESC}
+{DEATH_FEATURE_PROGRESSION} — second stage (nearly gone). Body tilting and
+collapsing — legs giving out completely. Arms go limp. {DEATH_SIGNATURE_DETAIL}
+in progress (weapon separating, glasses falling, crows scattering). Eyes
+closing or half-shut. The character can no longer fight. Clothing trails
+the fall direction. The emotional shift from resistance to acceptance.
+
+Frame 3 (DOWN — FINAL RESTING STATE):
+{DEATH_F3_DESC}
+Body rotated approximately 80 degrees clockwise so the character lies
+HORIZONTALLY — head on the RIGHT side, feet on the LEFT side of the frame.
+The body must fit ENTIRELY within the 64x64 frame.
+{DEATH_FEATURE_PROGRESSION} — final stage (extinguished/off/removed).
+{DEATH_F3_EXTRAS}
+Eyes closed peacefully. Expression: rest, not pain. {DEATH_TONE}.
+This is the FINAL IMAGE the viewer sees of this character when they lose.
+It must be dignified, emotional, and character-appropriate.
+
+IMPORTANT — ROW 1:
+- Frame 3 is the FINAL resting state — the character must be rotated to lie
+  HORIZONTALLY and fit entirely within the 64x64 frame.
+- The KEY FEATURE fading is the emotional core:
+  {DEATH_FEATURE_PROGRESSION}
+- {DEATH_SIGNATURE_DETAIL} — this unique detail gives the death personality.
+- The death must be DIGNIFIED — no cartoonish expressions (X-eyes, stars,
+  tongue out). No comedy. No blood.
+- Do NOT draw energy effects, death particles, or visual effects beyond the
+  character's body and {DEATH_SIGNATURE_DETAIL}.
+- The 3-frame progression tells a micro-story:
+  Frame 1: "I'm still fighting" (resistance)
+  Frame 2: "I can't hold on" (acceptance)
+  Frame 3: "It's over" (peace)
+
+--- END COPY ---
+
+
+================================================================================
+  SLICING GUIDE
+================================================================================
+  magick sheet4.png -crop 384x64+0+0  +repage a7_hit.png
+  magick sheet4.png -crop 384x64+0+64 +repage a10_death.png
+
+  Trim:
+  magick a7_hit.png    -crop 128x64+0+0 +repage a7_hit.png     (2 frames)
+  magick a10_death.png -crop 192x64+0+0 +repage a10_death.png  (3 frames)
+
+  CHECKLIST:
+  [ ] Side view (NOT 3/4)
+  [ ] {KEY_FEATURE} visible in all 5 frames (even faded in death)
+  [ ] Hit: body pushed BACKWARD (to the LEFT)
+  [ ] Hit: flowing elements swing FORWARD (opposite to body)
+  [ ] Hit: key feature dims/shifts (character-specific reaction)
+  [ ] Death: key feature fades progressively across 3 frames
+  [ ] Death: signature detail present (weapon falls, glasses slip, etc.)
+  [ ] Death Frame 3: body rotated ~80deg, lying horizontal, fits in 64x64
+  [ ] Death Frame 3: peaceful expression — dignified, not cartoonish
+  [ ] No blood, X-eyes, stars, hit sparks, or damage numbers drawn
+  [ ] Transparent background, no color fill leaked
+
+
+================================================================================
+  QUICK REFERENCE: SIGNATURE REACTIONS PER CHARACTER
+================================================================================
+
+  CHARACTER     HIT REACTION              DEATH SIGNATURE
+  ---------     ------------              ---------------
+  Rina          Glasses shift askew       Glasses slip off, rest on ground
+  Mortis        Eye dots dim              Eyes extinguish, scythe plants nearby
+  Hiro          Sun mark flickers/dims    Sun mark extinguishes, katana falls away
+  Karasu        Crimson eyes dim          Eyes go dark, crows separate from body

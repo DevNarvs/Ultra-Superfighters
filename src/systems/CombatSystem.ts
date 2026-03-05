@@ -2,6 +2,40 @@ import Phaser from 'phaser';
 import type { Fighter } from '../entities/Fighter';
 import { EventBus, Events } from './EventBus';
 
+interface MeleeVFX {
+  slashTrail(scene: Phaser.Scene, x: number, y: number, dir: number): void;
+  hitSpark(scene: Phaser.Scene, x: number, y: number): void;
+}
+
+function getCharacterMeleeVFX(characterId: string): MeleeVFX | null {
+  if (characterId === 'karasu_crimson_phantom') {
+    return {
+      slashTrail(scene: Phaser.Scene, x: number, y: number, dir: number): void {
+        // Phantom slash trail
+        const slash = scene.add.sprite(x, y, 'fx_karasu_phantom_slash');
+        slash.setScale(0.5);
+        slash.setDepth(85);
+        slash.setFlipX(dir < 0);
+        slash.play('fx_karasu_phantom_slash');
+        const uiCam = scene.cameras.getCamera('ui');
+        if (uiCam) uiCam.ignore(slash);
+        slash.once('animationcomplete', () => slash.destroy());
+      },
+      hitSpark(scene: Phaser.Scene, x: number, y: number): void {
+        // Dark flame impact burst
+        const impact = scene.add.sprite(x, y, 'fx_karasu_flame_impact');
+        impact.setScale(0.35);
+        impact.setDepth(90);
+        impact.play('fx_karasu_flame_impact');
+        const uiCam = scene.cameras.getCamera('ui');
+        if (uiCam) uiCam.ignore(impact);
+        impact.once('animationcomplete', () => impact.destroy());
+      }
+    };
+  }
+  return null;
+}
+
 interface Hitbox extends Phaser.GameObjects.Rectangle {
   attackerIndex: number;
   damage: number;
@@ -14,12 +48,17 @@ export class CombatSystem {
   private scene: Phaser.Scene;
   private fighters: Fighter[];
   private activeHitboxes: Hitbox[];
+  private meleeVFX: Map<number, MeleeVFX | null>;
   private isFrozen = false;
 
   constructor(scene: Phaser.Scene, fighters: Fighter[]) {
     this.scene = scene;
     this.fighters = fighters;
     this.activeHitboxes = [];
+    this.meleeVFX = new Map();
+    for (const f of fighters) {
+      this.meleeVFX.set(f.playerIndex, getCharacterMeleeVFX(f.charData.id));
+    }
   }
 
   performAttack(attacker: Fighter, attackIndex: number): void {
@@ -45,14 +84,19 @@ export class CombatSystem {
     this.activeHitboxes.push(hitbox);
     this.ignoreOnUI(hitbox);
 
-    // Slash trail visual
-    const trail = this.scene.add.sprite(hbX, hbY, 'fx_slash_trail');
-    trail.setScale(0.5);
-    trail.setDepth(85);
-    trail.setFlipX(direction < 0);
-    trail.play('fx_slash_trail');
-    this.ignoreOnUI(trail);
-    trail.once('animationcomplete', () => trail.destroy());
+    // Slash trail visual (character-specific)
+    const meleeVfx = this.meleeVFX.get(attacker.playerIndex);
+    if (meleeVfx) {
+      meleeVfx.slashTrail(this.scene, hbX, hbY, direction);
+    } else {
+      const trail = this.scene.add.sprite(hbX, hbY, 'fx_slash_trail');
+      trail.setScale(0.5);
+      trail.setDepth(85);
+      trail.setFlipX(direction < 0);
+      trail.play('fx_slash_trail');
+      this.ignoreOnUI(trail);
+      trail.once('animationcomplete', () => trail.destroy());
+    }
 
     for (const target of this.fighters) {
       if (target.playerIndex === attacker.playerIndex) continue;
@@ -82,7 +126,12 @@ export class CombatSystem {
     const kbX = hitbox.direction * hitbox.knockback;
     const kbY = hitbox.knockback > 100 ? -150 : -30;
     fighter.takeDamage(finalDamage, kbX, kbY);
-    this.spawnHitSpark(fighter.x, fighter.y - 10);
+    const attackerVfx = this.meleeVFX.get(hitbox.attackerIndex);
+    if (attackerVfx) {
+      attackerVfx.hitSpark(this.scene, fighter.x, fighter.y - 10);
+    } else {
+      this.spawnHitSpark(fighter.x, fighter.y - 10);
+    }
 
     // Emit hit event for combo tracking
     EventBus.emit(Events.HIT_LANDED, {

@@ -1,0 +1,824 @@
+================================================================================
+  COMBINED SKILL EFFECTS SHEET — ONE-SHOT TEMPLATE
+  Super Battlemancers
+================================================================================
+  Generate ALL skill effects for one character in a SINGLE AI image prompt.
+  Each effect = one row. Each frame = one 64x64 cell. 6 columns, 7 rows.
+  Output: 384 x 448 pixels (or 768 x 896 at 2x scale)
+================================================================================
+
+
+SHEET LAYOUT (384 x 448)
+================================================================================
+  6 columns of 64px = 384px wide
+  7 rows of 64px = 448px tall
+
+  Row 0 (y=0)   : B0 — Hit Spark           (3 frames, small centered in cell)
+  Row 1 (y=64)  : B1 — Projectile           (4 frames, small centered in cell)
+  Row 2 (y=128) : B2 — Projectile Impact    (5 frames)
+  Row 3 (y=192) : B3 — Melee Slash Trail    (3 frames)
+  Row 4 (y=256) : B4 — Secondary Ability    (4 frames)
+  Row 5 (y=320) : B5 — Dodge Effect         (2 frames)
+  Row 6 (y=384) : B6 — Ultimate Effect      (4 frames)
+
+  Empty cells = fully transparent.
+
+
+HOW TO USE
+================================================================================
+1. Copy the FILLED template for your character (see examples below).
+2. Paste into AI image generator. Generate at 2x (768x896) for better detail.
+3. After generation, slice into individual rows:
+   - B0: row at y=0,   height=64  → hit_spark.png
+   - B1: row at y=64,  height=64  → projectile.png
+   - B2: row at y=128, height=64  → projectile_impact.png
+   - B3: row at y=192, height=64  → slash_trail.png
+   - B4: row at y=256, height=64  → ability_effect.png
+   - B5: row at y=320, height=64  → dodge_effect.png
+   - B6: row at y=384, height=64  → ultimate_effect.png
+4. For effects that need to be smaller (32x32 projectile, 32x32 spark),
+   downscale the cropped row by 50% with Nearest Neighbor.
+5. For effects that need to be larger (128x64 ultimate overlays),
+   upscale the cropped row by 2x with Nearest Neighbor, or regenerate
+   the ultimate row separately at full size if more detail is needed.
+
+
+NOTE ON SCALE
+================================================================================
+Everything is drawn at 64x64 per cell for CONSISTENCY in the combined sheet.
+In-game, some effects are smaller (hit spark = 32x32) or larger (ultimate
+overlay = 128x128). Post-process by scaling the sliced rows:
+
+  B0 Hit Spark:     Downscale 50%  → 32x32 per frame   (or use at 64x64)
+  B1 Projectile:    Downscale 50%  → 32x32 per frame   (or use at 64x64)
+  B2 Impact:        Use as-is      → 64x64 per frame
+  B3 Slash Trail:   Use as-is      → 64x64 per frame
+  B4 Ability:       Use as-is      → 64x64 per frame
+  B5 Dodge:         Use as-is      → 64x64 per frame
+  B6 Ultimate:      Upscale 2x     → 128x128 per frame (for detail)
+
+
+================================================================================
+================================================================================
+  BLANK TEMPLATE (fill in {PLACEHOLDERS})
+================================================================================
+================================================================================
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of combat skill effects for a 2D side-scrolling
+fighting game. This sheet contains ALL visual effects for one character,
+organized as 7 rows of animation frames.
+
+THEME / PALETTE:
+{CHARACTER_NAME} — {CHARACTER_TITLE}. Element: {ELEMENT}.
+All effects use this color palette:
+- Primary energy  : {COLOR_ENERGY_PRIMARY} ({COLOR_ENERGY_PRIMARY_HEX})
+- Bright/core     : {COLOR_ENERGY_BRIGHT} ({COLOR_ENERGY_BRIGHT_HEX})
+- Secondary glow  : {COLOR_ENERGY_SECONDARY} ({COLOR_ENERGY_SECONDARY_HEX})
+- Dark accent     : {COLOR_ENERGY_DARK} ({COLOR_ENERGY_DARK_HEX})
+- Flash/highlight : {COLOR_FLASH} ({COLOR_FLASH_HEX})
+
+RENDERING RULES:
+- Flat 2D view. NOT 3/4. NOT perspective. NOT isometric.
+- Each cell is exactly 64x64 pixels.
+- 6 columns, 7 rows. Total image: 384 pixels wide x 448 pixels tall.
+- Transparent background throughout — NO solid color fill.
+- Clean pixel art. 1-pixel outlines where applicable. No anti-aliasing.
+  No dithering. Hard pixel edges.
+- Effects that travel move to the RIGHT. Engine flips for left.
+- Each row is a SEPARATE effect animation. Rows do NOT relate to each other.
+- Empty cells (when a row has fewer than 6 frames) are fully transparent.
+- Center each effect within its 64x64 cell.
+
+IMAGE LAYOUT:
+Row 0 (y=0-63)    — 3 frames — {B0_NAME}: {B0_SHORT_DESC}
+Row 1 (y=64-127)  — 4 frames — {B1_NAME}: {B1_SHORT_DESC}
+Row 2 (y=128-191) — 5 frames — {B2_NAME}: {B2_SHORT_DESC}
+Row 3 (y=192-255) — 3 frames — {B3_NAME}: {B3_SHORT_DESC}
+Row 4 (y=256-319) — 4 frames — {B4_NAME}: {B4_SHORT_DESC}
+Row 5 (y=320-383) — 2 frames — {B5_NAME}: {B5_SHORT_DESC}
+Row 6 (y=384-447) — 4 frames — {B6_NAME}: {B6_SHORT_DESC}
+
+--- ROW 0 (y=0): {B0_NAME} — Hit Spark (3 frames) ---
+
+{B0_DESCRIPTION}
+
+Frame 1: {B0_FRAME_1}
+Frame 2: {B0_FRAME_2}
+Frame 3: {B0_FRAME_3}
+
+--- ROW 1 (y=64): {B1_NAME} — Projectile (4 frames, looping) ---
+
+{B1_DESCRIPTION}
+
+Frame 1: {B1_FRAME_1}
+Frame 2: {B1_FRAME_2}
+Frame 3: {B1_FRAME_3}
+Frame 4: {B1_FRAME_4}
+
+--- ROW 2 (y=128): {B2_NAME} — Projectile Impact (5 frames, one-shot) ---
+
+{B2_DESCRIPTION}
+
+Frame 1: {B2_FRAME_1}
+Frame 2: {B2_FRAME_2}
+Frame 3: {B2_FRAME_3}
+Frame 4: {B2_FRAME_4}
+Frame 5: {B2_FRAME_5}
+
+--- ROW 3 (y=192): {B3_NAME} — Melee Slash Trail (3 frames, one-shot) ---
+
+{B3_DESCRIPTION}
+
+Frame 1: {B3_FRAME_1}
+Frame 2: {B3_FRAME_2}
+Frame 3: {B3_FRAME_3}
+
+--- ROW 4 (y=256): {B4_NAME} — Secondary Ability (4 frames) ---
+
+{B4_DESCRIPTION}
+
+Frame 1: {B4_FRAME_1}
+Frame 2: {B4_FRAME_2}
+Frame 3: {B4_FRAME_3}
+Frame 4: {B4_FRAME_4}
+
+--- ROW 5 (y=320): {B5_NAME} — Dodge Effect (2 frames, one-shot) ---
+
+{B5_DESCRIPTION}
+
+Frame 1: {B5_FRAME_1}
+Frame 2: {B5_FRAME_2}
+
+--- ROW 6 (y=384): {B6_NAME} — Ultimate Effect (4 frames) ---
+
+{B6_DESCRIPTION}
+
+Frame 1: {B6_FRAME_1}
+Frame 2: {B6_FRAME_2}
+Frame 3: {B6_FRAME_3}
+Frame 4: {B6_FRAME_4}
+
+IMPORTANT:
+- Each row is a completely SEPARATE effect — they do not interact.
+- Transparent background in ALL empty space and unused cells.
+- Center effects within each 64x64 cell.
+- {PALETTE_REMINDER}
+
+--- END COPY ---
+
+
+================================================================================
+================================================================================
+  FILLED TEMPLATE: RINA — THE PHANTOM BLADE
+================================================================================
+================================================================================
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of combat skill effects for a 2D side-scrolling
+fighting game. This sheet contains ALL visual effects for one character,
+organized as 7 rows of animation frames.
+
+THEME / PALETTE:
+Rina — The Phantom Blade. Element: Shadow / Void (pink energy).
+All effects use this color palette:
+- Primary energy  : Hot Pink (#FF69B4)
+- Bright/core     : White (#FFFFFF)
+- Secondary glow  : Pastel Pink (#FFB6D9)
+- Dark accent     : Shadow Black (#2A1028)
+- Flash/highlight : White (#FFFFFF)
+The energy feels like solidified pink light mixed with dark void shadows.
+Angular, crystalline fracture patterns — NOT smooth or round.
+
+RENDERING RULES:
+- Flat 2D view. NOT 3/4. NOT perspective. NOT isometric.
+- Each cell is exactly 64x64 pixels.
+- 6 columns, 7 rows. Total image: 384 pixels wide x 448 pixels tall.
+- Transparent background throughout — NO solid color fill.
+- Clean pixel art. 1-pixel outlines where applicable. No anti-aliasing.
+  No dithering. Hard pixel edges.
+- Effects that travel move to the RIGHT. Engine flips for left.
+- Each row is a SEPARATE effect. Empty cells are fully transparent.
+- Center each effect within its 64x64 cell.
+
+IMAGE LAYOUT:
+Row 0 (y=0-63)    — 3 frames — Hit Spark: pink void impact flash
+Row 1 (y=64-127)  — 4 frames — Void Kunai: pink energy dagger projectile
+Row 2 (y=128-191) — 5 frames — Kunai Impact: void shatter explosion
+Row 3 (y=192-255) — 3 frames — Slash Trail: pink energy slash arc
+Row 4 (y=256-319) — 4 frames — Shadow Afterimage: ghost silhouette dissolving
+Row 5 (y=320-383) — 2 frames — Phase Shift Flash: dodge activation burst
+Row 6 (y=384-447) — 4 frames — Phantom Slash: dimension-cutting speed lines
+
+--- ROW 0 (y=0): Hit Spark — Pink Void Impact (3 frames, one-shot) ---
+
+A bright pink-and-white starburst spark that appears at the point of
+melee contact. Angular and sharp — NOT round or soft. The spark mixes
+bright pink energy with dark void fragments.
+
+Frame 1: Bright white (#FFFFFF) and hot pink (#FF69B4) starburst at center,
+  ~28-32px diameter. 4-6 sharp angular rays radiating outward. Maximum
+  brightness. A satisfying flash of melee impact.
+Frame 2: Rays extend outward to ~40-48px. White fades to pastel pink
+  (#FFB6D9). Dark void fragments (#2A1028) appear between rays. Angular
+  shards scatter from intersection points.
+Frame 3: Rays dissolve into fading pink and dark pixels. Nearly transparent.
+  Vanishing. A few scattered angular fragments remain.
+
+--- ROW 1 (y=64): Void Kunai — Pink Energy Projectile (4 frames, looping) ---
+
+A classic kunai/dagger shape made of glowing pink energy, NOT physical metal.
+Narrow pointed tip on the RIGHT, wider base with ring on the LEFT. ~40px
+long, centered in each cell. Hot pink (#FF69B4) body, white (#FFFFFF) edge,
+dark magenta (#8B1A6E) shadow, pastel pink (#FFB6D9) glow halo.
+
+Frame 1: Kunai shape with soft pink glow halo. Clean, sharp, steady state.
+Frame 2: Energy pulses — glow expands 2-3px. White highlight shifts. Overall
+  brightness increases. The kunai shimmers.
+Frame 3: Glow contracts. Small dark void wisps (#2A1028) trail at the tail
+  end (left side, 2-3 dark pixels). Kunai body unchanged.
+Frame 4: Returns to Frame 1 state for seamless loop. Wisps fade.
+
+--- ROW 2 (y=128): Kunai Impact — Void Shatter (5 frames, one-shot) ---
+
+A SHADOW/VOID energy impact. Looks like reality shattering with pink energy
+mixed with dark void shadows. The pattern is ANGULAR and CRYSTALLINE — sharp
+fragments like broken glass, NOT smooth round bursts.
+
+Frame 1: Small bright white-pink flash at center, ~20px. White center with
+  hot pink edge. Sharp starburst with 4-6 angular rays.
+Frame 2: Flash blooms to ~40px. Center shifts to pastel pink. Outer edge
+  breaks into angular pink shards. Dark void (#2A1028) particles at edges.
+Frame 3: Maximum ~56px. Alternating pink and dark void fragments in a
+  "shattered glass" pattern. Most dramatic frame.
+Frame 4: Collapses inward. Fragments scatter outward. Void wisps curl in.
+Frame 5: Nearly gone. Faint pink pixels and dark wisps. Very transparent.
+
+--- ROW 3 (y=192): Slash Trail — Pink Energy Arc (3 frames, one-shot) ---
+
+A sweeping diagonal slash arc from UPPER-LEFT to LOWER-RIGHT. A thin curved
+energy trail left by an invisible pink energy dagger. ~50px long arc.
+
+Frame 1: Sharp bright slash arc. White (#FFFFFF) center line 3-4px wide
+  tapering to 1px at tips. Hot pink (#FF69B4) glow border. Clean speed-line.
+Frame 2: Arc widens to 5-6px. White fades to pastel pink. Pink glow
+  expands. Small angular fragments along the path.
+Frame 3: Arc thins to 1-2px. Faint pink. Fragments scatter. Nearly gone.
+
+--- ROW 4 (y=256): Shadow Afterimage — Ghost Silhouette (4 frames, one-shot) ---
+
+A semi-transparent ghost silhouette of an assassin girl. Dark magenta
+(#8B1A6E) flat fill body with hot pink (#FF69B4) glowing edge outline.
+Recognizable shape: ponytail, glasses outline, fitted coat, boots. ~50px tall.
+
+Frame 1: Semi-transparent silhouette in standing pose. Dark magenta fill,
+  bright pink glowing edges. ~70% opacity feel. Clearly readable character.
+Frame 2: Silhouette splits horizontally 2-3px — digital glitch effect. Top
+  half offsets from bottom. Edges glow brighter. Dark void fragments separate.
+Frame 3: Top half dissolves into upward-floating pink and dark particles.
+  Bottom half very transparent. Shape losing coherence.
+Frame 4: Nearly gone. Scattered pink and dark pixels floating upward. Sparse.
+
+--- ROW 5 (y=320): Phase Shift Flash — Dodge Burst (2 frames, one-shot) ---
+
+A bright pink-white flash burst where the character was when activating the
+dodge. A "poof" of void energy — the character phases out of reality.
+
+Frame 1: Bright white-pink flash at center ~32px. Radiating pink rays and
+  scattered pink/dark particles. Shaped vaguely like a dissolving human form
+  — wider at top and bottom, narrow at waist. Maximum brightness.
+Frame 2: Flash faded. Only scattered pink (#FF69B4) and dark (#2A1028)
+  particles remain, drifting outward. Sparse. Very transparent. The void
+  closes behind where the character was.
+
+--- ROW 6 (y=384): Phantom Slash — Ultimate Speed Lines (4 frames, one-shot) ---
+
+Multiple horizontal speed-line slashes cutting across the cell. 2-3 parallel
+streaks with dark void cracks between them — reality splitting open where the
+assassin's blade passed. "Dimension-cutting" aesthetic.
+
+Frame 1: 2-3 bright horizontal speed-line streaks. White center with pink
+  edges, each 3-4px tall. Sharp lines cutting across the cell.
+Frame 2: Streaks widen to 6-8px. Shift to pastel pink. Dark void cracks
+  (#2A1028) appear BETWEEN streaks — angular fractures like shattered glass.
+Frame 3: Streaks break into angular pink and dark fragments. Center of each
+  darkens to void black. Cracked screen/mirror pattern. Most dramatic frame.
+Frame 4: Fragments scatter and fade. Void cracks close. A few lingering pink
+  and dark pixels. Nearly transparent.
+
+IMPORTANT:
+- Each row is a completely SEPARATE effect — they do not interact.
+- Transparent background in ALL empty space and unused cells.
+- Center effects within each 64x64 cell.
+- This character's effects are ANGULAR and CRYSTALLINE — sharp fragments,
+  NOT smooth or round shapes. Pink energy + dark void shadows. The overall
+  aesthetic is "reality shattering with pink light."
+
+--- END COPY ---
+
+
+================================================================================
+================================================================================
+  FILLED TEMPLATE: MORTIS — THE SOUL REAPER
+================================================================================
+================================================================================
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of combat skill effects for a 2D side-scrolling
+fighting game. This sheet contains ALL visual effects for one character,
+organized as 7 rows of animation frames.
+
+THEME / PALETTE:
+Mortis — The Soul Reaper. Element: Shadow / Death (cyan-green spectral energy).
+All effects use this color palette:
+- Primary energy  : Spectral Cyan (#00FFCC)
+- Bright/core     : Ghost White (#E0FFF8)
+- Secondary glow  : Toxic Green (#00CC88)
+- Dark accent     : Void Black (#050510)
+- Flash/highlight : Spectral White (#E0FFF8)
+The energy feels ghostly, cold, and unnatural. Wispy, ethereal shapes —
+spectral flames and soul-like wisps. A deathly, otherworldly glow.
+
+RENDERING RULES:
+- Flat 2D view. NOT 3/4. NOT perspective. NOT isometric.
+- Each cell is exactly 64x64 pixels.
+- 6 columns, 7 rows. Total image: 384 pixels wide x 448 pixels tall.
+- Transparent background throughout — NO solid color fill.
+- Clean pixel art. 1-pixel outlines where applicable. No anti-aliasing.
+  No dithering. Hard pixel edges.
+- Effects that travel move to the RIGHT. Engine flips for left.
+- Each row is a SEPARATE effect. Empty cells are fully transparent.
+- Center each effect within its 64x64 cell.
+
+IMAGE LAYOUT:
+Row 0 (y=0-63)    — 3 frames — Shadow Spark: spectral green melee impact
+Row 1 (y=64-127)  — 4 frames — Wraith Bolt: ghostly cyan projectile orb
+Row 2 (y=128-191) — 5 frames — Wraith Impact: spectral explosion burst
+Row 3 (y=192-255) — 3 frames — Scythe Trail: cyan-green slash arc
+Row 4 (y=256-319) — 4 frames — Soul Drain Circle: spectral ground trap ring
+Row 5 (y=320-383) — 2 frames — Grave Shift Flash: dodge shadow burst
+Row 6 (y=384-447) — 4 frames — Death's Harvest Wave: massive spectral wave
+
+--- ROW 0 (y=0): Shadow Spark — Spectral Hit Flash (3 frames, one-shot) ---
+
+A cold, ghostly cyan-green starburst that appears at melee contact. Unlike
+warm fire sparks, this feels COLD and spectral — deathly energy.
+
+Frame 1: Ghost white (#E0FFF8) and spectral cyan (#00FFCC) starburst, ~28-32px.
+  4-6 sharp rays. Void black (#050510) flecks mixed in. Cold, eerie flash.
+Frame 2: Rays extend to ~40-48px. White fades to cyan. Wispy tendrils curl
+  at ray tips (spectral flame quality). Dark void particles between rays.
+Frame 3: Rays dissolve into fading cyan wisps curling upward. Nearly gone.
+
+--- ROW 1 (y=64): Wraith Bolt — Spectral Projectile (4 frames, looping) ---
+
+A ghostly orb of cyan-green spectral energy. ~24-28px diameter. NOT a fireball
+— a cold, translucent, wispy sphere of death energy. Spectral cyan (#00FFCC)
+body with ghost white (#E0FFF8) core and void black (#050510) center dot.
+Wispy tendrils trail behind (left side).
+
+Frame 1: Spectral orb with cold glow. Translucent quality — leave some
+  pixel gaps. 2-3 wispy tendrils trail left. Steady state.
+Frame 2: Orb pulses — glow expands 2px. Tendrils shift. A faint toxic green
+  (#00CC88) ring appears at the outer edge.
+Frame 3: Glow contracts. Tendrils elongate slightly. Void center pulses.
+Frame 4: Returns to Frame 1 for loop. Tendrils reset.
+
+--- ROW 2 (y=128): Wraith Impact — Spectral Burst (5 frames, one-shot) ---
+
+An eerie spectral explosion. Cold, wispy, ghostly — NOT a warm fireball.
+Ghost white flash at center, expanding into cyan wisps and dark void.
+
+Frame 1: Ghost white (#E0FFF8) flash, ~20px. Cold, sharp. Spectral rays.
+Frame 2: Expands to ~40px. White to cyan shift. Wispy spectral tendrils curl
+  outward. Dark void fragments at edges. Eerie, cold.
+Frame 3: Maximum ~56px. Cyan wisps spreading like ghostly flames. Dark void
+  (#050510) particles mixed throughout. Most dramatic frame. Soul-like wisps.
+Frame 4: Collapsing. Wisps curl inward and upward. Cyan fading. Dark void
+  particles drift. The spectral energy dissipates.
+Frame 5: Nearly gone. Faint cyan wisps and a few dark pixels. Very sparse.
+
+--- ROW 3 (y=192): Scythe Trail — Spectral Slash Arc (3 frames, one-shot) ---
+
+A wide sweeping arc from UPPER-LEFT to LOWER-RIGHT — the trail of a spectral
+scythe cutting through the air. Wider and slower-feeling than dagger slashes.
+~55px long curved arc. The arc has a spectral, wispy quality.
+
+Frame 1: Sharp slash arc. Ghost white (#E0FFF8) center 3-4px wide, spectral
+  cyan (#00FFCC) glow border. Wider and more curved than a sword slash.
+Frame 2: Arc widens to 6-8px. White fades to cyan. Wispy tendrils appear
+  along the path. Toxic green (#00CC88) outer glow.
+Frame 3: Arc breaks into spectral wisps that curl and dissolve. Faint cyan.
+  Ghostly remnants drift upward. Nearly transparent.
+
+--- ROW 4 (y=256): Soul Drain Circle — Ground Trap (4 frames, looping) ---
+
+A spectral magic circle/ring on the ground seen from the SIDE VIEW (appears
+as a horizontal ellipse ~50px wide, ~12px tall, centered at y=50 — near the
+ground line). Glowing cyan-green runes/symbols around the ring perimeter.
+
+Frame 1: Elliptical ring outline in spectral cyan (#00FFCC). Faint ghost
+  white (#E0FFF8) inner glow. 3-4 tiny rune symbols along the ring. Dark
+  void (#050510) fill inside the ring.
+Frame 2: Ring pulses brighter. Runes glow. Wispy tendrils rise upward from
+  the ring (soul energy being drained). Inner void darkens.
+Frame 3: Maximum brightness. More tendrils rising. Runes at peak glow. One
+  extra toxic green (#00CC88) pulse ripple at the outer edge.
+Frame 4: Settles back toward Frame 1. Tendrils shorten. Loop reset.
+
+--- ROW 5 (y=320): Grave Shift Flash — Dodge Burst (2 frames, one-shot) ---
+
+A dark, cold flash where the character was. Spectral energy and shadow
+collapse inward then scatter — the character sinks into shadow.
+
+Frame 1: Dark void (#050510) burst at center ~32px surrounded by cyan
+  spectral wisps. The shape suggests a figure sinking downward — darker at
+  the bottom, wisps rising from the top. Cold, eerie flash.
+Frame 2: Void dissipates. Scattered cyan wisps drift upward and outward.
+  A few dark particles settle downward. Very sparse. Ghostly remnants.
+
+--- ROW 6 (y=384): Death's Harvest Wave — Ultimate Wave (4 frames, one-shot) ---
+
+A massive spectral energy wave sweeping from LEFT to RIGHT across the cell.
+A wide crescent-shaped wall of spectral cyan-green energy — like a tidal wave
+of death energy. The wave is approximately 40-50px tall and 20-30px wide.
+
+Frame 1: Wave forming at left side of cell — a crescent of spectral cyan
+  (#00FFCC) with ghost white (#E0FFF8) leading edge. Dark void (#050510)
+  core behind the wave front. Wispy tendrils at the top.
+Frame 2: Wave at center of cell, full size. Maximum brightness. Spectral
+  wisps and soul-like shapes within the wave body. Most dramatic frame.
+Frame 3: Wave passing to right side. Front edge fading. Trailing wisps
+  and void particles left in its wake.
+Frame 4: Wave faded. Only lingering wisps and faint cyan remnants. The
+  death energy has passed. Nearly transparent.
+
+IMPORTANT:
+- Each row is a completely SEPARATE effect — they do not interact.
+- Transparent background in ALL empty space and unused cells.
+- Center effects within each 64x64 cell.
+- This character's effects are COLD, GHOSTLY, and SPECTRAL — wispy tendrils,
+  ethereal glows, NOT warm fire. Cyan-green + void black. The overall
+  aesthetic is "ghostly death energy and spectral flames."
+
+--- END COPY ---
+
+
+================================================================================
+================================================================================
+  FILLED TEMPLATE: HIRO — THE SUN DANCER
+================================================================================
+================================================================================
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of combat skill effects for a 2D side-scrolling
+fighting game. This sheet contains ALL visual effects for one character,
+organized as 7 rows of animation frames.
+
+THEME / PALETTE:
+Hiro — The Sun Dancer. Element: Primal — Fire (Solar / Sun).
+All effects use this color palette:
+- Primary energy  : Bright Gold (#FFD700)
+- Bright/core     : Solar White (#FFF5CC)
+- Secondary glow  : Flame Orange (#FF8C00)
+- Dark accent     : Deep Flame (#CC3300)
+- Flash/highlight : Solar White (#FFF5CC)
+The energy feels like captured sunlight — warm, bright, radiant, heroic.
+Radiating starburst patterns and smooth fire arcs, NOT dark or smoky.
+
+RENDERING RULES:
+- Flat 2D view. NOT 3/4. NOT perspective. NOT isometric.
+- Each cell is exactly 64x64 pixels.
+- 6 columns, 7 rows. Total image: 384 pixels wide x 448 pixels tall.
+- Transparent background throughout — NO solid color fill.
+- Clean pixel art. 1-pixel outlines where applicable. No anti-aliasing.
+  No dithering. Hard pixel edges.
+- Effects that travel move to the RIGHT. Engine flips for left.
+- Each row is a SEPARATE effect. Empty cells are fully transparent.
+- Center each effect within its 64x64 cell.
+
+IMAGE LAYOUT:
+Row 0 (y=0-63)    — 3 frames — Solar Spark: golden hit impact flash
+Row 1 (y=64-127)  — 4 frames — Solar Slash Arc: golden fire slash trail
+Row 2 (y=128-191) — 5 frames — Dawn Slash Impact: solar flare burst
+Row 3 (y=192-255) — 3 frames — Fire Arc Trail: wide katana fire sweep
+Row 4 (y=256-319) — 4 frames — Sun's Ember Aura: golden buff glow overlay
+Row 5 (y=320-383) — 2 frames — Ember Step Flash: ember dissolution burst
+Row 6 (y=384-447) — 4 frames — Burning Sun Dome: intersecting fire arcs
+
+--- ROW 0 (y=0): Solar Spark — Golden Hit Flash (3 frames, one-shot) ---
+
+A bright, warm golden-white starburst. A tiny solar flare on impact. The
+opposite of dark void sparks — all warmth and radiance, no darkness.
+
+Frame 1: Bright solar white (#FFF5CC) center with golden (#FFD700) starburst,
+  ~28-32px. 4-6 sharp radiating rays. All brightness at center. Warm flash.
+Frame 2: Rays extend to ~40-48px. Golden and flame orange (#FF8C00) lines.
+  Tips glow bright gold. Small ember pixels (#FF6B00) at intersections.
+Frame 3: Rays dissolve into fading warm amber. Ember pixels drift outward.
+  Nearly transparent. Warmth dissipates.
+
+--- ROW 1 (y=64): Solar Slash Arc — Fire Trail (4 frames, looping) ---
+
+A thin curved arc of golden-orange solar fire, ~50px long. The trail left by
+a sun-powered katana slash. Sweeps diagonally from UPPER-LEFT to LOWER-RIGHT.
+Solar white center, golden glow, orange edges. Warm captured sunlight.
+
+Frame 1: Sharp bright arc. Solar white (#FFF5CC) center 3-4px wide tapering
+  to 1px at tips. Golden (#FFD700) glow border. Clean fiery speed-line.
+Frame 2: Arc widens to 5-6px. White fades to golden. Orange (#FF8C00)
+  border expands. Small ember pixels (#FF6B00) along the path.
+Frame 3: Arc thins. Colors shift to burnt orange (#CC5500). Embers scatter.
+Frame 4: Returns to Frame 1 for loop. Embers fade.
+
+--- ROW 2 (y=128): Dawn Slash Impact — Solar Burst (5 frames, one-shot) ---
+
+A burst of golden-orange solar energy. Like a small sun flaring. Warm,
+bright, radiating starburst — NOT dark, NOT smoky. Sun-ray pattern.
+
+Frame 1: Solar white (#FFF5CC) starburst, ~20px. Pure bright gold center
+  with short radiating rays. Tiny sun igniting. Maximum brightness.
+Frame 2: Blooms to ~40px. Center to bright gold (#FFD700). Rays extend.
+  Flame orange (#FF8C00) at ray tips. Ember particles begin.
+Frame 3: Maximum ~56px. Full sun-ray spread — 6-8 golden-orange rays.
+  Warm amber (#FFAA33) outer ring. Embers scattered. Miniature solar flare.
+Frame 4: Collapses. Rays shorten. Shifts to amber and burnt orange. Dimming.
+Frame 5: Nearly gone. Faint orange pixels and ember dots. Vanishing warmth.
+
+--- ROW 3 (y=192): Fire Arc Trail — Wide Katana Sweep (3 frames, one-shot) ---
+
+A WIDE sweeping slash arc, larger than the Row 1 trail. This is for the
+heavy combo finisher and dash attack — a bigger, bolder fire sweep. ~55px
+long, thicker arc. Same solar palette but more intense.
+
+Frame 1: Wide bright arc, solar white center 4-5px. Golden glow 2-3px on
+  each side. Flame orange outer edge. Thick, bold, powerful speed-line.
+Frame 2: Arc at maximum width ~8-10px total. Fully golden-orange. Ember
+  particles scatter along path. Deep flame (#CC3300) accents at edges.
+  The most visually intense fire trail.
+Frame 3: Arc dissolving. Breaks into scattered golden and orange pixels.
+  Embers drift. Fading rapidly. Nearly transparent.
+
+--- ROW 4 (y=256): Sun's Ember Aura — Buff Overlay (4 frames, looping) ---
+
+A warm golden-orange glow aura around an EMPTY human-shaped space (~50px
+tall figure silhouette centered in cell). The CENTER is transparent (character
+sprite goes there). The aura is ~4-6px of golden glow at the edges only.
+Small ember particles float UPWARD.
+
+Frame 1: Soft golden glow at silhouette edges. Solar white (#FFF5CC) inner,
+  gold (#FFD700) mid, orange (#FF8C00) outer. 3-4 ember pixels floating up.
+Frame 2: Aura expands 2px outward. Brightness increases. More embers.
+Frame 3: Maximum aura. Brightest frame. Extra solar white at inner edge.
+  Embers at highest positions. Radiating sunlight.
+Frame 4: Contracts back to Frame 1 size. Embers settle. Seamless loop.
+
+--- ROW 5 (y=320): Ember Step Flash — Dodge Burst (2 frames, one-shot) ---
+
+A warm "poof" of golden-orange embers where the character was. Like a
+campfire suddenly scattering. Embers float UPWARD.
+
+Frame 1: Bright golden-white flash ~32px, shaped vaguely like a dissolving
+  human silhouette. 15-20 ember pixels (#FFD700, #FF8C00, #FF6B00) scatter
+  outward, concentrated upward. Warm and bright.
+Frame 2: Flash faded. Only scattered ember particles remain, drifting upward
+  and outward. Dimming from gold to orange to burnt orange. Sparse.
+
+--- ROW 6 (y=384): Burning Sun Dome — Ultimate Effect (4 frames, looping) ---
+
+A dome of intersecting golden-orange fire slash arcs. 6-8 overlapping curved
+slash trails at different angles (horizontal, diagonal, vertical), all
+intersecting at a bright golden core at the center. Forms a SUN pattern —
+a circular radiating pattern of fire lines. ~50-56px diameter in the cell.
+
+Frame 1: 4-5 slash arcs visible. Golden (#FFD700) core glowing at center.
+  Arcs clean and sharp. Ember particles at intersections. ~80% size.
+Frame 2: All 6-8 arcs at full brightness and size. Core at maximum (#FFF5CC).
+  Every arc has golden-orange fire glow. Embers float along arcs. Blazing sun.
+Frame 3: Arcs pulse — some brighten, some dim (rotating shimmer). Core
+  pulses. 1-2 arcs shift angle. Dynamic, breathing dome.
+Frame 4: Some outer arcs thin. Core dims slightly. Returns to Frame 1.
+
+IMPORTANT:
+- Each row is a completely SEPARATE effect — they do not interact.
+- Transparent background in ALL empty space and unused cells.
+- Center effects within each 64x64 cell.
+- This character's effects are WARM, BRIGHT, and RADIANT — golden-orange-
+  white solar fire. NOT red fire, NOT dark, NOT smoky. The overall aesthetic
+  is "captured sunlight — warm, heroic, and clean."
+
+--- END COPY ---
+
+
+================================================================================
+================================================================================
+  FILLED TEMPLATE: KARASU — THE CRIMSON PHANTOM
+================================================================================
+================================================================================
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of combat skill effects for a 2D side-scrolling
+fighting game. This sheet contains ALL visual effects for one character,
+organized as 7 rows of animation frames.
+
+THEME / PALETTE:
+Karasu — The Crimson Phantom. Element: Spirit — Hellfire (dark cursed flames
++ spectral warrior spirit).
+All effects use this color palette:
+- Primary energy  : Ghost Violet (#6B3FA0)
+- Bright/core     : Bright Violet (#9B59B6)
+- Secondary glow  : Crimson Red (#CC0000)
+- Dark accent     : Pure Black (#050505)
+- Flash/highlight : Bright Crimson (#FF0000)
+The energy feels dark, cursed, and spectral. Ghostly violet blades that
+manifest and dissolve. Dark fire that burns without light. Crow silhouettes.
+
+RENDERING RULES:
+- Flat 2D view. NOT 3/4. NOT perspective. NOT isometric.
+- Each cell is exactly 64x64 pixels.
+- 6 columns, 7 rows. Total image: 384 pixels wide x 448 pixels tall.
+- Transparent background throughout — NO solid color fill.
+- Clean pixel art. 1-pixel outlines where applicable. No anti-aliasing.
+  No dithering. Hard pixel edges.
+- Effects that travel move to the RIGHT. Engine flips for left.
+- Each row is a SEPARATE effect. Empty cells are fully transparent.
+- Center each effect within its 64x64 cell.
+
+IMAGE LAYOUT:
+Row 0 (y=0-63)    — 3 frames — Spectral Spark: violet impact flash
+Row 1 (y=64-127)  — 4 frames — Black Flame: dark fire projectile
+Row 2 (y=128-191) — 5 frames — Black Flame Impact: dark fire eruption
+Row 3 (y=192-255) — 3 frames — Spectral Blade Slash: ghost-violet slash arc
+Row 4 (y=256-319) — 4 frames — Crow Clone: crow-silhouette decoy + explosion
+Row 5 (y=320-383) — 2 frames — Crow Scatter Flash: crow dissolution burst
+Row 6 (y=384-447) — 4 frames — Susanoo Spirit: spectral warrior forming
+
+--- ROW 0 (y=0): Spectral Spark — Violet Hit Flash (3 frames, one-shot) ---
+
+A ghostly violet-and-crimson starburst at the point of melee impact. The
+spark feels ethereal and cold — a spectral blade making contact.
+
+Frame 1: Bright violet (#9B59B6) starburst with crimson (#CC0000) center
+  flash, ~28-32px. 4-6 ghostly rays. A few dark violet (#2A1A3E) fragments.
+  Ethereal impact flash.
+Frame 2: Rays extend to ~40-48px. Violet fades at edges. Crimson sparks
+  scatter from center. Dark fragments between rays. Ghostly dissipation.
+Frame 3: Rays dissolve into faint violet particles that fade. Crimson sparks
+  extinguish. Nearly transparent. The spectral impact vanishes.
+
+--- ROW 1 (y=64): Black Flame — Dark Fire Projectile (4 frames, looping) ---
+
+A small sphere of BLACK fire — dark, unnatural, cursed flame. ~28-32px
+diameter. Pure black (#050505) core with dim dark red (#880000) outer glow.
+The flames move with slow, menacing, unnatural quality. A dark hole that burns.
+NOT bright — the DARKEST projectile in the game.
+
+Frame 1: Black flame sphere, steady. Dark core with dim red outer glow.
+  2-3 small dark red flame tongues extending from edges. Menacing.
+Frame 2: Flame tongues shift. Outer glow expands 2px. Tiny crimson (#CC0000)
+  spark at the leading edge (right side). Core stays pure black.
+Frame 3: Contracts slightly. Glow dims. Spark trails behind (left). Dark
+  wisps (#050505) trail 3-4px behind the left side.
+Frame 4: Returns to Frame 1 for loop. Spark fades. Wisps fade.
+
+--- ROW 2 (y=128): Black Flame Impact — Dark Eruption (5 frames, one-shot) ---
+
+A DARK fire impact. Mostly black and deep red. The explosion is dark and
+oppressive — NOT a bright fireball. Brief crimson flash then mostly darkness.
+
+Frame 1: Brief white (#FFFFFF) flash at center, ~20px, immediately darkening
+  to crimson. Short dark red (#880000) rays. The only bright moment.
+Frame 2: Expands to ~40px. Center darkens to black (#050505). Dark red fire
+  tendrils spread outward. Already losing brightness.
+Frame 3: Maximum ~56px. Roiling mass of dark fire. Black core with dark red
+  tendrils. Crimson (#CC0000) sparks at outer tips. Very dark overall.
+Frame 4: Collapses. Dark tendrils curl inward. Small dark embers drift up.
+Frame 5: Nearly gone. Faint dark red wisps curling upward. Very sparse.
+
+--- ROW 3 (y=192): Spectral Blade Slash — Ghost Arc (3 frames, one-shot) ---
+
+A ghostly violet energy slash arc from UPPER-LEFT to LOWER-RIGHT. The arc
+from a SPIRIT weapon — translucent, ethereal. The blade manifests for the
+slash and dissolves after. ~50px long. NOT physical steel — ghost energy.
+
+Frame 1: Spectral blade appears mid-swing. Bright violet (#9B59B6) edge glow,
+  ghost violet (#6B3FA0) body, dark violet (#2A1A3E) core. Katana-like curve.
+  1-2 crimson (#CC0000) spark pixels at the origin point. Sharp and ghostly.
+Frame 2: Arc widens to 5-6px. Ghost violet brightens toward bright violet.
+  Trailing edge dissolves into transparent particles. Crimson sparks fade.
+  Ghostly sword cut lingering in the air.
+Frame 3: Arc breaks into floating ghost-violet particles that drift and fade.
+  Solid arc gone — scattered violet pixels dissolving. The spectral blade
+  returns to the void. Vanishing.
+
+--- ROW 4 (y=256): Crow Clone — Decoy Explosion (4 frames, one-shot) ---
+
+A dark humanoid silhouette (~50px tall) made of clustered tiny crow shapes.
+NOT a detailed character — a dark mass of overlapping small bird shapes in
+human form. Void black (#0A0A14) base with 4-6 tiny crimson (#CC0000) dots
+(crow eyes). The clone stands, then EXPLODES into scattered crows.
+
+Frame 1: Dark human-shaped silhouette in standing pose. Interior filled with
+  overlapping dark crow shapes (~3-4px each). 2 brighter crimson dots where
+  eyes would be. Looks almost like a real character at a glance.
+Frame 2: Crow shapes within shift and rearrange 1-2px. Red eye dots flicker.
+  Outline wobbles 1px. Unstable, restless.
+Frame 3: BURST — silhouette explodes outward. 8-12 tiny crow silhouettes
+  (~4-5px each) scatter in all directions. Dark red (#880000) energy flash
+  at center ~24px. Red eye dots scatter with crows. Human shape GONE.
+Frame 4: Crows dispersed further. Energy flash fading. Crow shapes smaller
+  and at frame edges. Mostly transparent. Aftermath.
+
+--- ROW 5 (y=320): Crow Scatter Flash — Dodge Burst (2 frames, one-shot) ---
+
+The character bursts into a murder of crows. A dark, dramatic dissolution
+— the solid form shatters into small black birds with red eyes.
+
+Frame 1: Dark void (#0A0A14) burst at center shaped like a dissolving human.
+  6-8 small crow silhouettes (~4-5px, each with 1 red pixel eye) erupting
+  outward from the center. Some fly up, some sideways. Dark energy flash.
+Frame 2: Crows scattered further — at edges of cell. Flying in different
+  directions. Very sparse center. The form is gone — only birds remain.
+  Dark particles settling. Dramatic and eerie.
+
+--- ROW 6 (y=384): Susanoo Spirit — Spectral Warrior (4 frames, one-shot) ---
+
+A translucent spectral armored warrior forming and slashing. Drawn at 64x64
+scale (upscale later for full-size overlay). The spirit has a vaguely humanoid
+upper body dissolving into energy below. Spectral violet (#7B4FBF) body,
+bright lavender (#B088D0) edges, deep purple (#3D1F6D) shadows, hellfire red
+(#FF2200) energy veins. Crimson (#CC0000) eyes on the spectral face.
+
+Frame 1: Spirit materializing — upper outline visible. Translucent violet.
+  Crimson eyes appear. Faint hellfire veins. Rising/emerging. Ghostly.
+Frame 2: Fully formed. Armored shoulders, fierce face, crimson eyes. Enormous
+  spectral blade raised overhead. Hellfire pulses through body. Imposing.
+Frame 3: Slash — blade sweeps DOWN in devastating arc. Hellfire trails from
+  blade path. Lavender flash along the slash. IMPACT frame. Most dramatic.
+Frame 4: Dissolving from bottom up. Blade dissolves first. Face and eyes last
+  to fade. Purple fragments drift upward. Haunting afterimage.
+
+IMPORTANT:
+- Each row is a completely SEPARATE effect — they do not interact.
+- Transparent background in ALL empty space and unused cells.
+- Center effects within each 64x64 cell.
+- This character's effects are VERY DARK — mostly black, deep red, and violet.
+  The darkest palette in the game. AI generators will overbrighten — darken
+  in post. Only the violet blade glow and crimson sparks should be bright.
+  Everything else is near-black. "Darkness that burns."
+
+--- END COPY ---
+
+
+================================================================================
+  POST-GENERATION: SLICING GUIDE
+================================================================================
+
+After generating the 384x448 combined sheet, slice into individual files:
+
+  Tool: Photopea.com (free), Photoshop, or ImageMagick
+
+  ImageMagick commands (if using CLI):
+    magick {input}.png -crop 384x64+0+0   +repage b0_hit_spark.png
+    magick {input}.png -crop 384x64+0+64  +repage b1_projectile.png
+    magick {input}.png -crop 384x64+0+128 +repage b2_impact.png
+    magick {input}.png -crop 384x64+0+192 +repage b3_slash_trail.png
+    magick {input}.png -crop 384x64+0+256 +repage b4_ability.png
+    magick {input}.png -crop 384x64+0+320 +repage b5_dodge.png
+    magick {input}.png -crop 384x64+0+384 +repage b6_ultimate.png
+
+  Then trim unused columns per row (remove empty 64px cells from the right):
+    B0 (3 frames): trim to 192x64
+    B1 (4 frames): trim to 256x64
+    B2 (5 frames): trim to 320x64
+    B3 (3 frames): trim to 192x64
+    B4 (4 frames): trim to 256x64
+    B5 (2 frames): trim to 128x64
+    B6 (4 frames): trim to 256x64
+
+  For downscaled effects (projectile, hit spark — originally 32x32):
+    magick b0_hit_spark.png -filter Point -resize 50% b0_hit_spark_32.png
+    magick b1_projectile.png -filter Point -resize 50% b1_projectile_32.png
+
+  For upscaled effects (ultimate overlay — needs 128x128):
+    magick b6_ultimate.png -filter Point -resize 200% b6_ultimate_128.png
+
+
+================================================================================
+  QUALITY CHECKLIST
+================================================================================
+[ ] All 7 rows present and visually distinct from each other
+[ ] Transparent background — no solid fill leaked anywhere
+[ ] Effects centered in their cells — not pressed against edges
+[ ] Empty cells (right side of short rows) are fully transparent
+[ ] Palette matches character — no off-theme colors leaked
+[ ] Projectile points/travels to the RIGHT
+[ ] Looping animations (B1, B4, B6) have Frame 1 ≈ last frame for seamless loop
+[ ] One-shot animations (B0, B2, B3, B5) end nearly transparent
+[ ] No character body parts drawn — these are EFFECTS only, not character sprites
+[ ] Scale with "Nearest Neighbor" ONLY when resizing

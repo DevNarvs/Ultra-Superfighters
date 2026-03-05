@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { generateProceduralTextures } from '../systems/CharacterVFX';
 
 export class BootScene extends Phaser.Scene {
   constructor() {
@@ -37,8 +38,23 @@ export class BootScene extends Phaser.Scene {
       frameHeight: 128
     });
 
-    // Fire Battlemancer — uses rina sprite as placeholder until dedicated spritesheet exists
+    // Placeholder sprites — all use rina spritesheet until dedicated spritesheets exist
     this.load.spritesheet('fire_battlemancer', 'assets/sprites/rina.png', {
+      frameWidth: 128,
+      frameHeight: 128
+    });
+
+    this.load.spritesheet('mortis', 'assets/sprites/rina.png', {
+      frameWidth: 128,
+      frameHeight: 128
+    });
+
+    this.load.spritesheet('hiro', 'assets/sprites/rina.png', {
+      frameWidth: 128,
+      frameHeight: 128
+    });
+
+    this.load.spritesheet('karasu', 'assets/sprites/karasu.png', {
       frameWidth: 128,
       frameHeight: 128
     });
@@ -65,9 +81,30 @@ export class BootScene extends Phaser.Scene {
     this.load.spritesheet('fx_blink_flash', 'assets/sprites/effects/shadow_blink_flash.png', {
       frameWidth: 128, frameHeight: 128
     });
+
+    // Karasu VFX spritesheets
+    this.load.spritesheet('fx_karasu_black_flame', 'assets/sprites/effects/karasu_black_flame.png', {
+      frameWidth: 64, frameHeight: 64
+    });
+    this.load.spritesheet('fx_karasu_flame_impact', 'assets/sprites/effects/karasu_flame_impact.png', {
+      frameWidth: 128, frameHeight: 128
+    });
+    this.load.spritesheet('fx_karasu_crow_sub', 'assets/sprites/effects/karasu_crow_sub.png', {
+      frameWidth: 128, frameHeight: 128
+    });
+    this.load.spritesheet('fx_karasu_phantom_slash', 'assets/sprites/effects/karasu_phantom_slash.png', {
+      frameWidth: 128, frameHeight: 128
+    });
+    this.load.spritesheet('fx_karasu_susanoo', 'assets/sprites/effects/karasu_susanoo.png', {
+      frameWidth: 128, frameHeight: 128
+    });
+    this.load.spritesheet('fx_karasu_hellfire', 'assets/sprites/effects/karasu_hellfire.png', {
+      frameWidth: 128, frameHeight: 128
+    });
   }
 
   create(): void {
-    this.scene.start('CharacterSelectScene');
+    generateProceduralTextures(this);
+    this.scene.start('MainMenuScene');
   }
 }

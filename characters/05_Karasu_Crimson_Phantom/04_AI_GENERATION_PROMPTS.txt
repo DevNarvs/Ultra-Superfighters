@@ -1,0 +1,1335 @@
+================================================================================
+  AI GENERATION PROMPTS: KARASU — THE CRIMSON PHANTOM
+  Super Battlemancers
+================================================================================
+  Ready-to-copy-paste AI prompts for EACH animation and skill effect.
+  INPUT:    <- 01_CHARACTER_DESCRIPTION.txt
+            <- 02_CHARACTER_DESIGN.txt
+            <- 03_CHARACTER_SKILLS_EFFECTS.txt
+  OUTPUT:   Individual sprite strips → stitch into full sprite sheet + effects
+================================================================================
+
+
+HOW TO USE
+================================================================================
+1. Copy ONE prompt at a time into your AI image generator.
+2. Generate, review, adjust if needed.
+3. After generating all 11 animation strips (A0-A10), stitch vertically:
+   - Row 0 at y=0, Row 1 at y=64, Row 2 at y=128, ... Row 10 at y=640
+   - Final sheet: 384 x 704 pixels (or 768 x 1408 at 2x scale)
+4. Skill effects (B1-B6) are separate individual files.
+5. Use Photopea.com (free) or Photoshop. "Nearest Neighbor" resampling.
+
+VERY DARK PALETTE WARNING:
+Karasu is the DARKEST character in the game — nearly all black with crimson
+accents. AI generators will try to brighten the cloak. You WILL need to darken
+results in post-processing. The cloak should be almost indistinguishable from
+true black (#0F0F1A). The ONLY bright elements are the crimson eyes (#CC0000),
+spectral blade glow (#9B59B6), and pale skin (#F0DCC8). Everything else is
+near-black. Crow details are tiny — don't expect perfect crows at this scale.
+
+
+CHARACTER REFERENCE
+================================================================================
+Name              : Karasu
+Title             : The Crimson Phantom
+Element / Theme   : Spirit — Hellfire (cursed dark flames + spectral warrior)
+Role              : Slayer (patient, mid-range, devastating single strikes)
+
+APPEARANCE BLOCK (included in every prompt):
+  A mysterious dark illusionist with long straight jet black (#0A0A14) hair
+  tied in a low loose ponytail behind the back, with side-parted bangs that
+  partially shadow one eye. Subtle dark violet (#2A1A3E) hair highlights.
+  Glowing crimson red (#CC0000) eyes — KEY IDENTIFYING FEATURE — calm, cold,
+  piercing. Pale ivory (#F0DCC8) skin, noticeably pale. Dark high-collared
+  cloak (#0F0F1A near-black) reaching mid-calf with open front, high collar
+  framing the jaw. Dark red (#660000) trim lines at cloak edges. Dark slate
+  (#1A1A2E) highlights on cloak folds. Dark crimson (#4A0000) fitted tunic
+  visible under the open cloak. Dark charcoal (#2A2A2A) fitted pants. Dark
+  (#1A1018) mid-calf boots with dark red (#660000) accent line. Dark (#1A1018)
+  fingerless gloves over pale hands. NO visible weapon in idle — hands are
+  empty. 1-2 small black crow silhouettes (~4-5px each) perched on or near
+  shoulders. Semi-chibi anime proportions (head ~1/3 of body height). Lean,
+  tall, narrow frame (~52-54px tall). Elegant, precise posture.
+
+COLOR PALETTE:
+  Cloak Base      : #0F0F1A (near-black)
+  Hair / Shadow   : #0A0A14 (void black)
+  Cloak Highlight : #1A1A2E (dark slate)
+  Eyes / Energy   : #CC0000 (crimson red)
+  Max Energy      : #FF0000 (bright crimson)
+  Trim / Accents  : #660000 (dark crimson)
+  Tunic           : #4A0000 (deep blood)
+  Skin            : #F0DCC8 (pale ivory)
+  Hair Highlight  : #2A1A3E (dark violet)
+  Pants           : #2A2A2A (dark charcoal)
+  Boots / Gloves  : #1A1018 (charcoal black)
+  Outline         : #050510 (true black — coldest dark)
+
+
+================================================================================
+================================================================================
+  PART A: CHARACTER ANIMATION PROMPTS (11 rows)
+================================================================================
+================================================================================
+
+
+================================================================================
+PROMPT A0 — ROW 0: IDLE (4 frames)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+At 2x scale: 512 x 128 pixels (4 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A mysterious dark illusionist with long straight jet black (#0A0A14) hair
+tied in a low loose ponytail behind the back, with side-parted bangs that
+partially shadow one eye. Subtle dark violet (#2A1A3E) hair highlights.
+Glowing crimson red (#CC0000) eyes — KEY IDENTIFYING FEATURE — calm, cold,
+piercing. Pale ivory (#F0DCC8) skin, noticeably pale. Dark high-collared
+cloak (#0F0F1A near-black) reaching mid-calf with open front, high collar
+framing the jaw. Dark red (#660000) trim lines at cloak edges. Dark slate
+(#1A1A2E) highlights on cloak folds. Dark crimson (#4A0000) fitted tunic
+visible under the open cloak. Dark charcoal (#2A2A2A) fitted pants. Dark
+(#1A1018) mid-calf boots with dark red (#660000) accent line. Dark (#1A1018)
+fingerless gloves over pale hands. NO visible weapon — hands are empty.
+1-2 small black crow silhouettes (~4-5px each, with tiny red #CC0000 eye dot)
+perched on or near shoulders. Semi-chibi anime proportions (head ~1/3 of body
+height). Lean, tall frame (~52-54px). Elegant, calm posture.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. The character is seen from a
+  perfect side angle like classic 2D fighting game sprites (Street Fighter,
+  Metal Slug perspective).
+- NOT 3/4 view. NOT front-facing. NOT isometric. NOT top-down. Pure flat
+  side profile.
+- Character always faces RIGHT.
+- Semi-chibi anime proportions: head is approximately 1/3 of total body height.
+- Character height: approximately 52-54 pixels tall within each 64x64 cell.
+- Feet planted at y=58 (6 pixels from the bottom of each 64x64 frame).
+- Character body centered horizontally at x=32 in each cell.
+- Clean 1-pixel dark outline (#050510) around the entire character.
+- 2-3 shading levels per color area (highlight, base, shadow).
+- No anti-aliasing. Hard pixel edges. No dithering. No sub-pixel detail.
+
+IMAGE LAYOUT:
+- 4 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+- Frames read left to right: Frame 1, Frame 2, Frame 3, Frame 4.
+
+ANIMATION: IDLE (standing, breathing, looping)
+
+Frame 1 (NEUTRAL):
+Calm, upright standing stance. Weight distributed evenly. Arms hang relaxed
+at sides, pale hands (#F0DCC8) visible below the dark cloak. The cloak drapes
+naturally — open front shows the dark crimson tunic beneath. High collar frames
+the lower jaw. Ponytail hangs straight down behind the back. Crimson eyes glow
+steadily (#CC0000). Expression: calm, emotionless, cold focus. 1-2 small crow
+silhouettes perched on the right shoulder or nearby. Feet at y=58.
+
+Frame 2 (INHALE):
+Subtle inhale — body rises 1 pixel. Cloak fabric shifts very slightly as if
+caught in a faint breeze. Ponytail sways 1 pixel to the right. The crimson
+eye glow remains steady. One crow adjusts its position slightly (shifts 1px).
+Keep feet at y=58.
+
+Frame 3 (PEAK):
+Peak of breath. Crimson eye glow brightens very subtly (add 1-2 pixels of
+brighter crimson #FF0000 at the iris center — a momentary intensification).
+Cloak billows 1-2 pixels outward on the trailing edge as if a gentle dark
+wind tugs it. A crow ruffles its wings (change shape by 1-2px). Ponytail
+sways 1 pixel further.
+
+Frame 4 (EXHALE):
+Exhale — body settles back to Frame 1 position. Eye glow returns to normal
+#CC0000. Cloak settles. Crow returns to resting position. Smooth return for
+seamless loop. Must align perfectly with Frame 1 when the animation loops.
+
+IMPORTANT:
+- Do NOT draw any weapons, spectral blades, energy effects, or magical aura.
+  Only the character's body, clothing, and the 1-2 small perched crows.
+- The glowing crimson eyes must be clearly visible in every single frame —
+  this is the character's KEY identifying feature. The eye glow is a steady
+  red light, not a flaming effect.
+- The cloak is the most prominent clothing element — it has volume and drapes
+  around the character.
+- The crows are TINY (~4-5px body each). Don't overthink their detail — just
+  small dark shapes with a single red pixel eye.
+- All 4 frames must have consistent character proportions and positioning.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A1 — ROW 1: RUN (6 frames)
+================================================================================
+Output: 384 x 64 pixels (6 frames of 64x64)
+At 2x scale: 768 x 128 pixels (6 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A mysterious dark illusionist with long straight jet black (#0A0A14) hair
+tied in a low loose ponytail (dark violet #2A1A3E highlights). Glowing crimson
+red (#CC0000) eyes. Pale ivory (#F0DCC8) skin. Dark high-collared cloak
+(#0F0F1A) reaching mid-calf, open front, dark red (#660000) trim. Dark crimson
+(#4A0000) tunic. Dark charcoal (#2A2A2A) pants. Dark (#1A1018) boots with red
+(#660000) accent. Dark (#1A1018) fingerless gloves. NO weapon visible. Semi-
+chibi anime proportions. Lean, tall frame (~52-54px).
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game
+  perspective (Street Fighter, Metal Slug).
+- NOT 3/4 view. NOT front-facing. NOT isometric. Pure flat side profile.
+- Character always faces RIGHT (running to the right).
+- Semi-chibi anime proportions: head ~1/3 of body height.
+- Character height: ~52-54px within each 64x64 cell.
+- Feet at y=58 (6px from bottom). Center at x=32.
+- 1-pixel dark outline (#050510). 2-3 shading levels per color.
+- No anti-aliasing. Hard pixel edges. No dithering.
+
+IMAGE LAYOUT:
+- 6 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 384 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: RUN CYCLE (deliberate stride, NOT a sprint — looping)
+Karasu does NOT sprint frantically. He moves with a controlled, purposeful
+stride — fast but calm, like a phantom gliding forward. The cloak billows
+dramatically behind him.
+
+Frame 1 (RIGHT CONTACT):
+Right foot strikes ground ahead, left arm swings forward, right arm back.
+Body leans forward only slightly (~3 degrees — more upright than most
+runners, dignified). The cloak streams behind the character, billowing and
+flowing with volume. Ponytail trails behind. Crimson eyes glow steadily.
+
+Frame 2 (RIGHT DOWN):
+Right foot planted, body lowers to the lowest point of the cycle. Arms
+mid-swing. Cloak continues to billow behind, catching air. Ponytail follows
+momentum.
+
+Frame 3 (RIGHT PASSING):
+Right foot pushes off, body rises. Legs cross underneath. Arms passing
+center. Cloak ripples from the movement.
+
+Frame 4 (LEFT CONTACT):
+Left foot strikes ground ahead (mirror of Frame 1). Right arm forward,
+left arm back. Cloak still streaming behind.
+
+Frame 5 (LEFT DOWN):
+Left foot planted, body lowers (mirror of Frame 2). Lowest point.
+
+Frame 6 (LEFT PASSING):
+Left foot pushes off, legs cross (mirror of Frame 3). This frame loops
+seamlessly back to Frame 1.
+
+IMPORTANT:
+- The CLOAK is the most dramatic element during the run. It MUST trail and
+  billow BEHIND the character in every frame — flowing with weight and volume
+  like a real heavy cloak caught in motion. This is what makes Karasu's run
+  visually distinctive.
+- Ponytail streams behind from running motion (natural hair physics).
+- The run cycle must loop seamlessly (Frame 6 → Frame 1).
+- This character runs with DIGNITY — controlled stride, not frantic sprinting.
+  He moves like a phantom gliding, not a panicked runner.
+- Do NOT draw any weapons, crows, energy trails, or effects. Body, clothing,
+  and cloak only.
+- Crimson eyes must remain visible in every frame.
+- NO crows during run — they scatter when Karasu moves.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A2 — ROW 2: JUMP (3 frames)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+At 2x scale: 384 x 128 pixels (3 frames of 128x128)
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A mysterious dark illusionist with long straight jet black (#0A0A14) hair in
+a low ponytail (dark violet #2A1A3E highlights). Glowing crimson red (#CC0000)
+eyes. Pale ivory (#F0DCC8) skin. Dark high-collared cloak (#0F0F1A), open
+front, dark red (#660000) trim. Dark crimson (#4A0000) tunic. Dark charcoal
+(#2A2A2A) pants. Dark (#1A1018) boots, fingerless gloves. Semi-chibi anime
+proportions. Lean, tall frame (~52-54px).
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric. Pure flat side profile.
+- Character faces RIGHT. Semi-chibi proportions. Head ~1/3 of body.
+- Character height: ~52-54px. Center at x=32.
+- 1-pixel dark outline (#050510). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 3 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: JUMP (launch → peak → fall, one-shot, does NOT loop)
+
+Frame 1 (LAUNCH):
+Legs compressed and bent, crouching low. Arms pull downward at sides. The
+heavy cloak compresses around the body, bunching up from the crouch. Ponytail
+compressed downward. Crimson eyes glow steadily. Feet still near y=58 (still
+on the ground, about to jump). Calm expression — no strain, jumping is
+effortless for this character.
+
+Frame 2 (PEAK):
+Body airborne, legs tucked up slightly. Arms held at sides in a calm,
+controlled pose — NOT flailing. The cloak SPREADS dramatically, billowing
+outward on both sides and below like dark wings. This is the most visually
+striking frame — the cloak creates a dramatic silhouette. Ponytail floats
+upward in a weightless arc. Character centered vertically in the 64x64 frame.
+Crimson eyes glow. Expression remains calm and composed even mid-air.
+
+Frame 3 (FALL):
+Legs extend downward toward the ground. Arms slightly raised. The cloak
+streams UPWARD behind and above the character, trailing from the downward
+fall — creating a dramatic upward billow. Ponytail streams upward. Head
+tilts slightly down (looking where he'll land). Descending with composure.
+
+IMPORTANT:
+- Frame 2 is the MONEY FRAME — the cloak spreading like dark wings creates
+  Karasu's signature aerial silhouette. This should look dramatic and
+  imposing, like a dark bird of prey descending.
+- The cloak reacts to gravity and momentum in all frames: compressed in
+  Frame 1, spread wide in Frame 2, streaming upward in Frame 3.
+- Crimson eyes must be visible in every frame.
+- Do NOT draw any energy effects, aura, crows, or weapons.
+- Expression stays calm and controlled in all frames — this character does
+  not express effort or panic.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A3 — ROW 3: ATTACK 1 — Shadow Cut (3 frames)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+At 2x scale: 384 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A mysterious dark illusionist with long straight jet black (#0A0A14) hair in
+a low ponytail (dark violet #2A1A3E highlights). Glowing crimson red (#CC0000)
+eyes. Pale ivory (#F0DCC8) skin. Dark high-collared cloak (#0F0F1A), open
+front, dark red (#660000) trim. Dark crimson (#4A0000) tunic. Dark charcoal
+(#2A2A2A) pants. Dark (#1A1018) boots, fingerless gloves. Semi-chibi anime
+proportions. Lean, tall frame (~52-54px).
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~52-54px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline (#050510). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 3 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: ATTACK 1 — Shadow Cut (first hit of 3-hit combo, one-shot)
+A clean horizontal spectral blade swipe. The character barely moves — only
+the arm extends. Cold, efficient, surgical.
+
+Frame 1 (WINDUP):
+Right arm draws back behind the body, hand open with fingers extended and
+together (as if about to manifest a blade). Left arm stays near the body.
+Cloak shifts from the body movement. Crimson eyes maintain cold focus.
+Minimal body rotation — this is a precise, economical strike, not a wild
+swing. Ponytail shifts slightly from the arm motion.
+
+Frame 2 (STRIKE):
+Right arm sweeps horizontally forward at full extension. Hand reaches to
+approximately x=48 from the left edge of the 64x64 frame (long reach ~38px).
+Fingers still extended in the slashing position — the spectral blade appears
+HERE at runtime (engine adds it). Body barely shifted forward — only the arm
+moved. This is the IMPACT FRAME. Crimson eyes intensify (slightly brighter
+red). Cloak barely disturbed — cold, minimal movement.
+
+Frame 3 (RECOVERY):
+Right arm pulling back toward the body. Returning to a neutral stance.
+Slow recovery (this character is deliberate, not fast). Left arm drops.
+Eyes return to normal glow intensity. Cloak settles.
+
+IMPORTANT:
+- Do NOT draw any spectral blade, energy weapon, slash trail, violet glow,
+  or ANY weapon in the character's hands. Only draw the character's body and
+  arm positions. The spectral blade is a SEPARATE sprite that the game engine
+  manifests at the hand position during Frame 2.
+- This attack is COLD and PRECISE — minimal body movement, maximum arm reach.
+  Karasu fights with surgical efficiency, not wild aggression.
+- The crimson eyes are the only "energy" element on the character sprite itself.
+- Crimson eyes must remain visible in all frames.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A4 — ROW 4: ATTACK 2 — Phantom Sweep (3 frames)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+At 2x scale: 384 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A mysterious dark illusionist with long straight jet black (#0A0A14) hair in
+a low ponytail (dark violet #2A1A3E highlights). Glowing crimson red (#CC0000)
+eyes. Pale ivory (#F0DCC8) skin. Dark high-collared cloak (#0F0F1A), open
+front, dark red (#660000) trim. Dark crimson (#4A0000) tunic. Dark charcoal
+(#2A2A2A) pants. Dark (#1A1018) boots, fingerless gloves. Semi-chibi anime
+proportions. Lean, tall frame (~52-54px).
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~52-54px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline (#050510). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 3 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: ATTACK 2 — Phantom Sweep (second hit, diagonal downward slash, one-shot)
+A wider, more committed diagonal downward slash. The body steps forward
+slightly — more aggressive than Attack 1 but still controlled.
+
+Frame 1 (WINDUP):
+Right arm raises diagonally above and behind the head, hand open with fingers
+together (blade manifests here at runtime). Body shifts weight to back foot
+and leans back slightly — coiling for the diagonal slash. Left arm extends
+forward as a loose guard. Cloak flares slightly from the upward arm motion.
+Ponytail shifts. Crimson eyes lock on target.
+
+Frame 2 (STRIKE):
+Right arm sweeps diagonally downward from upper-left to lower-right in a wide
+arc. Body steps forward, transferring weight to the front foot. Full
+commitment to the slash — shoulders rotate into the strike. This is a wider,
+more powerful swing than Attack 1. Arm reaches past the body to the right side
+of the frame. Greater knockback pose. Crimson eyes glow brighter. Cloak swirls
+from the body rotation.
+
+Frame 3 (RECOVERY):
+Right arm continues the downward arc past the body, decelerating. Body settles
+with weight forward. Returning toward neutral but leaning slightly forward
+from the step. Slower recovery than Attack 1 — more commitment means more
+vulnerability. Cloak settling from the movement.
+
+IMPORTANT:
+- Do NOT draw any spectral blade, energy weapon, slash trail, or glow effect.
+  Only draw the character's body and arm positions. Engine adds effects.
+- This is the SECOND hit in a 3-hit combo. The starting position should feel
+  natural coming from Attack 1's recovery, and the recovery should flow
+  naturally into Attack 3's windup.
+- More body commitment than Attack 1 — a step forward, more rotation.
+- Crimson eyes must remain visible.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A5 — ROW 5: ATTACK 3 — Crimson Severance (4 frames)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+At 2x scale: 512 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A mysterious dark illusionist with long straight jet black (#0A0A14) hair in
+a low ponytail (dark violet #2A1A3E highlights). Glowing crimson red (#CC0000)
+eyes. Pale ivory (#F0DCC8) skin. Dark high-collared cloak (#0F0F1A), open
+front, dark red (#660000) trim. Dark crimson (#4A0000) tunic. Dark charcoal
+(#2A2A2A) pants. Dark (#1A1018) boots, fingerless gloves. Semi-chibi anime
+proportions. Lean, tall frame (~52-54px).
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~52-54px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline (#050510). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 4 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: ATTACK 3 — Crimson Severance (combo finisher, massive overhead chop, one-shot)
+The most devastating basic strike. Eyes blaze maximum crimson. A full-commitment
+overhead chop with the largest spectral blade. Extremely slow recovery. If it
+hits, devastating. If it misses, punishable.
+
+Frame 1 (WINDUP):
+Both arms raise high above the head, hands clasped together overhead as if
+gripping a massive two-handed blade (no blade drawn — engine adds it). Body
+stands fully upright, weight on back foot. The cloak spreads outward from the
+upward arm motion, creating a dramatic silhouette. Crimson eyes BLAZE at
+maximum intensity — add 2-3 pixels of bright crimson (#FF0000) at the iris
+and 1-2 pixels of faint red glow around the eye area. Head tilted slightly
+upward. This is the most dramatic windup pose in the basic combo.
+
+Frame 2 (APEX):
+Arms at maximum height, body stretched tall — the highest point before the
+downward strike. Ponytail pulled upward from the reaching motion. Cloak spread
+wide. Every pixel of this pose says "incoming devastation." A brief hold at
+the peak before the strike descends.
+
+Frame 3 (CHOP — IMPACT):
+Both arms SLAM downward in a massive overhead chop. Arms reach far forward
+and down — hands at approximately waist height at the furthest forward point.
+Body lunges forward aggressively, weight crashes onto the front foot. The
+cloak whips forward from the violent downward motion. This is the HEAVIEST
+attack pose — full body commitment, maximum reach (~44px forward). Crimson
+eyes blazing. The most dynamic and powerful pose in the basic combo.
+
+Frame 4 (RECOVERY — VULNERABLE):
+Body hunched forward from the follow-through of the massive chop. Arms hang
+low, exhausted from the committed strike. Extremely slow recovery — the
+character is VULNERABLE here. Weight awkwardly forward. Cloak still settling
+from the violent motion. Eyes dim slightly from exertion. The price paid for
+the most powerful basic attack.
+
+IMPORTANT:
+- Do NOT draw any spectral blade, energy, slash effects, or glow (except the
+  eye intensification in Frames 1-3). Body and clothing only.
+- This is the HEAVIEST attack in the 3-hit combo (22 damage). Frame 3 should
+  be the most dramatic and powerful attack pose in the entire basic combo.
+- Frame 4's vulnerability is KEY — the character is visibly exhausted and
+  exposed after this massive commitment.
+- The eye glow intensification (brighter crimson, slight surrounding glow)
+  is the ONLY energy effect on the character sprite itself.
+- Crimson eyes must be visible in all frames.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A6 — ROW 6: CAST — Black Flame (4 frames)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+At 2x scale: 512 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A mysterious dark illusionist with long straight jet black (#0A0A14) hair in
+a low ponytail (dark violet #2A1A3E highlights). Glowing crimson red (#CC0000)
+eyes. Pale ivory (#F0DCC8) skin. Dark high-collared cloak (#0F0F1A), open
+front, dark red (#660000) trim. Dark crimson (#4A0000) tunic. Dark charcoal
+(#2A2A2A) pants. Dark (#1A1018) boots, fingerless gloves. Semi-chibi anime
+proportions. Lean, tall frame (~52-54px).
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~52-54px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline (#050510). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 4 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: CAST — Black Flame (dark fire projectile, one-shot)
+Karasu focuses his cursed eye power to manifest a sphere of black fire and
+launches it forward. The casting is calm and controlled — an outstretched
+hand, not a dramatic throw.
+
+Frame 1 (FOCUS):
+Right hand rises to eye level, palm open and facing forward (toward the
+right side of the frame). Left arm hangs at side. Crimson eyes intensify
+— add 1-2 pixels of brighter crimson (#FF0000). Head tilts slightly to
+focus both eyes toward the outstretched hand. Cloak shifts from the arm
+movement. Ponytail still. A moment of concentration.
+
+Frame 2 (CHANNEL):
+Right hand still extended at eye level, fingers slightly curled as if
+cupping something invisible (the Black Flame forms HERE in the engine).
+Crimson eyes at maximum glow — the eye power is channeling. Body leans
+very slightly forward. Left hand rises to chest level as a supporting
+gesture. The character is focusing cursed energy through the eye → hand.
+
+Frame 3 (RELEASE):
+Right hand pushes forward in a controlled palm-thrust motion — launching
+the projectile. Arm at full extension toward the right. Fingers spread
+open at the release point. Body shifts weight forward. This is the frame
+where the game engine spawns the Black Flame projectile at the hand
+position. Eyes flash brightest crimson.
+
+Frame 4 (FOLLOW-THROUGH):
+Right arm lowers back to the side. Body returns to neutral stance. Eyes
+return to normal #CC0000 glow. Calm, composed — the attack was effortless.
+Returning to his patient waiting stance.
+
+IMPORTANT:
+- Do NOT draw any flame, fire, dark energy, or projectile in the character's
+  hand. The Black Flame projectile is a SEPARATE sprite spawned by the game
+  engine at the hand position during Frame 3. Only draw the character's body
+  and hand positions.
+- The casting motion is CALM and CONTROLLED — an outstretched hand, not a
+  dramatic overhead throw. Karasu channels through his eyes, not through
+  physical force.
+- Eye glow intensification is the only energy element on the character sprite.
+- Crimson eyes must remain visible.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A7 — ROW 7: TAKE HIT (2 frames)
+================================================================================
+Output: 128 x 64 pixels (2 frames of 64x64)
+At 2x scale: 256 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A mysterious dark illusionist with long straight jet black (#0A0A14) hair in
+a low ponytail (dark violet #2A1A3E highlights). Glowing crimson red (#CC0000)
+eyes. Pale ivory (#F0DCC8) skin. Dark high-collared cloak (#0F0F1A), open
+front, dark red (#660000) trim. Dark crimson (#4A0000) tunic. Dark charcoal
+(#2A2A2A) pants. Dark (#1A1018) boots, fingerless gloves. Semi-chibi anime
+proportions. Lean, tall frame (~52-54px).
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~52-54px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline (#050510). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 2 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 128 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: TAKE HIT (damage reaction, one-shot)
+
+Frame 1 (IMPACT):
+Body jerked backward from being hit. Head snaps back. The high collar of the
+cloak shifts from the impact. Crimson eye glow DIMS noticeably — reduced to
+a darker red (#880000) or partially obscured. Pain expression: eyes narrow,
+teeth gritted — NOT screaming, more of a controlled grimace (this character
+endures pain stoically). Ponytail whips FORWARD (opposite of the backward
+body movement — hair momentum). Cloak flares forward from the impact force.
+One arm reaches toward the point of impact.
+
+Frame 2 (RECOIL):
+Body leans further back in a stagger. Front foot lifts off the ground. Arms
+flung slightly outward. Cloak billows forward from the continued backward
+momentum. Ponytail still swinging forward. Crimson eyes still dimmed. The
+stoic expression cracks slightly — more visible pain but still controlled.
+Nearly losing balance but fighting to stay upright.
+
+IMPORTANT:
+- The hit pushes the character BACKWARD (to the LEFT, since he faces right).
+- The EYE GLOW DIMMING is Karasu's key character-specific damage reaction —
+  his cursed power weakens when he takes damage.
+- Pain expression is STOIC — controlled grimace, not screaming or cartoonish.
+- Ponytail reacts opposite to body (body goes back, hair swings forward).
+- Cloak reacts dramatically — it's a large flowing garment that catches the
+  impact momentum.
+- Do NOT draw damage numbers, blood, hit sparks, or any effects.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A8 — ROW 8: DODGE — Crow Scatter (2 frames)
+================================================================================
+Output: 128 x 64 pixels (2 frames of 64x64)
+At 2x scale: 256 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A mysterious dark illusionist with long straight jet black (#0A0A14) hair in
+a low ponytail (dark violet #2A1A3E highlights). Glowing crimson red (#CC0000)
+eyes. Pale ivory (#F0DCC8) skin. Dark high-collared cloak (#0F0F1A), open
+front, dark red (#660000) trim. Dark crimson (#4A0000) tunic. Dark charcoal
+(#2A2A2A) pants. Dark (#1A1018) boots, fingerless gloves. Semi-chibi anime
+proportions. Lean, tall frame (~52-54px).
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~52-54px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline (#050510). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 2 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 128 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: DODGE — Crow Scatter (body bursts into crows, one-shot)
+Karasu's body shatters into a murder of crows. This is the most visually
+distinctive dodge in the game — the character literally becomes a flock of
+birds.
+
+Frame 1 (ACTIVATE):
+Arms cross in front of the chest in an X shape. Body tenses, crouching
+slightly with knees bent. Crimson eyes blaze at maximum intensity (#FF0000)
+— the cursed power activates. Cloak pulls tight around the body, wrapping
+close. The silhouette compresses — the character is about to dissolve. A
+focused, deliberate expression: calm acceptance, not panic.
+
+Frame 2 (SCATTER — this frame is HELD for the full 1-second dodge):
+The character's body has PARTIALLY dissolved into crows. The lower body
+(legs, lower cloak) breaks apart into 4-6 small black crow silhouettes
+(~4-5px each, each with a tiny red #CC0000 eye dot) scattering outward.
+The upper body (torso, head, arms) is still partially visible but fading —
+semi-transparent, breaking at the edges into more crow shapes. The overall
+impression: the solid character is mid-transformation into a swarm of
+black birds. Crimson eyes still visible on the partially-dissolved face as
+the last feature to fade.
+
+IMPORTANT:
+- Draw Frame 2 as a NORMAL, FULLY OPAQUE image. The game engine handles the
+  transparency/ghosting effect at runtime. You draw the crows and partial
+  dissolution at full opacity.
+- Frame 2 is held for 1 full second during gameplay, so it must be visually
+  appealing when static.
+- The crows are TINY (~4-5px body each) — small dark bird silhouettes with a
+  single red pixel eye. Don't overthink their detail at this scale.
+- The KEY visual: solid character dissolving into a flock of small dark birds.
+  Bottom dissolves first, top last. Eyes are the last recognizable feature.
+- Do NOT draw magical circles, energy aura, or glowing effects. Only draw the
+  character body (partially dissolved) and the crow silhouettes.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A9 — ROW 9: ULTIMATE — Susanoo Awakening (4 frames)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+At 2x scale: 512 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A mysterious dark illusionist with long straight jet black (#0A0A14) hair in
+a low ponytail (dark violet #2A1A3E highlights). Glowing crimson red (#CC0000)
+eyes. Pale ivory (#F0DCC8) skin. Dark high-collared cloak (#0F0F1A), open
+front, dark red (#660000) trim. Dark crimson (#4A0000) tunic. Dark charcoal
+(#2A2A2A) pants. Dark (#1A1018) boots, fingerless gloves. Semi-chibi anime
+proportions. Lean, tall frame (~52-54px).
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~52-54px. Feet at y=58. Center at x=32.
+- 1-pixel dark outline (#050510). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 4 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: ULTIMATE — Susanoo Awakening (most powerful attack, one-shot)
+The single biggest hit in the entire game (45 damage). Karasu's cursed eyes
+reach maximum power, summoning a massive spectral warrior around his body.
+One devastating overhead slash. These frames show Karasu's body poses —
+the Susanoo spirit is a separate overlay added by the engine.
+
+Frame 1 (AWAKENING):
+Standing straight and still. Both arms at sides, fists clenched tight. Head
+bowed slightly — chin toward chest, looking downward. Crimson eyes BLAZE at
+absolute maximum intensity — the brightest they have ever been. Add 3-4 pixels
+of bright crimson (#FF0000) at each eye and 2-3 pixels of faint red glow
+surrounding the eye area. The cloak begins to billow outward as if pushed by
+an unseen force. Ponytail rises slightly. A moment of terrifying calm before
+the storm. The most intimidating still pose in the sprite sheet.
+
+Frame 2 (SUMMON):
+Arms rise to shoulder height, spread outward to the sides — palms up, fingers
+spread, as if lifting the weight of the spectral warrior forming around him
+(engine draws the Susanoo). Cloak FLARES dramatically outward and upward, as
+if caught in a massive upward windstorm. Ponytail whips upward. Eyes blazing.
+Head tilts back slightly — looking up as the Susanoo forms above. Power pose
+— commanding the spectral warrior to manifest.
+
+Frame 3 (SLASH — THE MOST DYNAMIC FRAME):
+Both arms sweep downward in a massive overhead chop motion — this mirrors the
+Susanoo's enormous spectral slash above. Body lunges forward with total
+commitment. Arms at maximum forward-downward extension. Cloak whips violently
+forward from the motion. Ponytail whips forward. Eyes blazing absolute
+maximum. This is the single most DYNAMIC and POWERFUL pose in Karasu's entire
+sprite sheet — the biggest hit in the game. Everything about this pose screams
+devastating finality.
+
+Frame 4 (AFTERMATH — VULNERABLE):
+Body hunched forward, exhausted. Arms hang at sides, limp. Head bowed. The
+aftermath of channeling maximum cursed power. Crimson eyes DIM significantly
+— reduced to a faint dark red (#880000), almost flickering. Cloak hangs
+heavy and still, drained of the dramatic motion. Ponytail settles. A pose of
+total exhaustion — the price of the most powerful attack. Extremely
+vulnerable to counter-attack. "It's over — one way or the other."
+
+IMPORTANT:
+- Do NOT draw the Susanoo spectral warrior, spectral blade, fire, energy
+  aura, ground effects, screen flash, or ANY visual effect around the
+  character. The game engine adds the Susanoo overlay, screen flash, camera
+  shake, and all energy effects at runtime. Only draw KARASU'S BODY POSES.
+- Frame 3 should be the single MOST DYNAMIC and DRAMATIC pose in the entire
+  sprite sheet. This is the hardest-hitting attack in the game.
+- Frame 4's exhaustion is CRITICAL — dimmed eyes, limp posture, completely
+  drained. This communicates the massive risk of the ultimate missing.
+- Eye glow progression: very bright (F1) → blazing (F2) → maximum (F3) →
+  dimmed/exhausted (F4).
+- Crimson eyes visible in all frames (even dimmed in Frame 4).
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT A10 — ROW 10: DEATH (3 frames)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+At 2x scale: 384 x 128 pixels
+
+--- COPY FROM HERE ---
+
+Pixel art sprite strip for a 2D side-scrolling fighting game character.
+
+CHARACTER:
+A mysterious dark illusionist with long straight jet black (#0A0A14) hair in
+a low ponytail (dark violet #2A1A3E highlights). Glowing crimson red (#CC0000)
+eyes. Pale ivory (#F0DCC8) skin. Dark high-collared cloak (#0F0F1A), open
+front, dark red (#660000) trim. Dark crimson (#4A0000) tunic. Dark charcoal
+(#2A2A2A) pants. Dark (#1A1018) boots, fingerless gloves. Semi-chibi anime
+proportions. Lean, tall frame (~52-54px).
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game.
+- NOT 3/4 view. NOT front-facing. NOT isometric.
+- Character faces RIGHT. Semi-chibi proportions.
+- Character height: ~52-54px. Center at x=32.
+- 1-pixel dark outline (#050510). 2-3 shading levels. No anti-aliasing.
+
+IMAGE LAYOUT:
+- 3 frames in a single horizontal row.
+- Each frame is exactly 64x64 pixels.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+ANIMATION: DEATH (knocked out, one-shot, does not loop)
+
+Frame 1 (STAGGER):
+Stumbling backward, one hand reaches toward the chest/eye area — clutching
+at the source of his cursed power as it fails. Crimson eyes FLICKER —
+draw the eyes as partially dimmed, uneven brightness between the two (one
+still faintly glowing, the other nearly dark). Expression: stoic acceptance
+— no screaming, a calm realization. Cloak wraps partially around the
+staggering body. Knees beginning to buckle. 1-2 small crow silhouettes
+begin to appear at the edges of the body, separating from the character
+(the cursed power unraveling).
+
+Frame 2 (FALLING):
+Body tilting backward and to the right, legs giving out. Arms go limp.
+Crimson eyes nearly EXTINGUISHED — only the faintest dark red (#660000)
+remains, almost black. The cloak spreads outward as the body falls,
+creating a dramatic dark silhouette. More small crow shapes (~3-4) separate
+from the body outline and scatter outward — the character is beginning to
+dissolve. Ponytail trailing the fall direction. Expression: peaceful,
+accepting.
+
+Frame 3 (DOWN):
+Lying on the ground. Body rotated approximately 80 degrees clockwise so
+the character lies horizontally — head on the right side, feet on the left.
+Body must fit within the 64x64 frame. Crimson eyes COMPLETELY DARK — no
+glow remaining. The curse has released. The cloak is spread beneath and
+around the body like dark wings. 2-3 small crow silhouettes rest on or near
+the fallen body. Ponytail spread on the ground behind the head. Peaceful,
+unconscious expression — eyes closed. A tragic, dignified fall.
+
+IMPORTANT:
+- Frame 3 is the FINAL resting state. Character must be rotated to lie
+  horizontally and fit within the 64x64 frame.
+- The EYE GLOW FADING is Karasu's signature death detail: bright → flickering
+  → faint → completely dark. The cursed power extinguishes as he falls.
+- CROW SEPARATION: small crow shapes separating from the body represent the
+  cursed power unraveling. 1-2 in Frame 1, 3-4 in Frame 2, 2-3 resting
+  in Frame 3. They are tiny (~4-5px) dark shapes with faint red eye dots.
+- The death is DIGNIFIED and TRAGIC — no cartoonish expressions, no comedy.
+  Stoic acceptance. A cursed warrior finally at peace.
+- Do NOT draw blood, X-eyes, stars, or cartoon death symbols.
+- Do NOT draw energy effects or particles beyond the crow silhouettes.
+
+--- END COPY ---
+
+
+================================================================================
+================================================================================
+  PART B: SKILL EFFECT PROMPTS
+================================================================================
+================================================================================
+
+
+================================================================================
+PROMPT B1 — BLACK FLAME (Primary Projectile)
+================================================================================
+Output: 128 x 32 pixels (4 frames of 32x32)
+At 2x scale: 256 x 64 pixels (4 frames of 64x64)
+File: black_flame.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a dark fire projectile for a 2D side-scrolling
+fighting game.
+
+RENDERING RULES:
+- Strict side view, 90-degree angle, like a classic 2D game projectile.
+- NOT 3/4 view. NOT perspective. Flat 2D side profile.
+- Each frame is exactly 32x32 pixels.
+- 4 frames in a single horizontal row.
+- Total image: 128 pixels wide x 32 pixels tall.
+- Transparent background.
+- The projectile travels to the RIGHT. Engine flips for left.
+
+APPEARANCE:
+A small sphere of BLACK FIRE — this is NOT normal fire. It is a dark,
+unnatural, cursed flame. The fire's core is almost pure black (#050505),
+with a dim dark red (#880000) outer glow flickering around it. The flames
+move with a slow, menacing, unnatural quality — like shadows that burn.
+Approximately 14-16 pixels diameter. Centered vertically in each 32x32
+frame. The overall impression: a dark hole in reality that's slowly burning
+through space.
+
+Colors: pure black (#050505) core, dark red (#880000) outer flame glow,
+faint crimson (#CC0000) sparks at flame tips. NO bright orange or yellow —
+this fire is DARK. The brightest element is the occasional crimson spark.
+
+FRAMES (looping animation):
+Frame 1: Black flame sphere, steady state. Dark core with dim red outer
+  glow flickering. 2-3 small flame tongues of dark red extending from the
+  sphere edges. Clean, menacing.
+Frame 2: Flame tongues shift positions — the dark fire pulses. Outer glow
+  expands by 1 pixel. A tiny crimson (#CC0000) spark appears at the leading
+  edge (right side). Core remains pure black.
+Frame 3: Flame contracts slightly. Glow dims. The spark moves behind the
+  sphere (trailing). Dark wisps (#050505) trail 2-3 pixels behind the left
+  side (the projectile leaves a dark trail).
+Frame 4: Returns to Frame 1 state for seamless loop. Spark fades. Trail
+  fades. Reset.
+
+STYLE:
+Clean pixel art, 1px dark outline, no anti-aliasing, no dithering. VERY
+DARK color palette — this projectile should barely be visible against a
+dark background. It's menacing because of how DARK it is, not because it
+glows brightly. Retro 2D game projectile sprite.
+Do NOT draw trailing particles or motion blur — engine adds those.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B2 — BLACK FLAME IMPACT (Projectile Hit)
+================================================================================
+Output: 320 x 64 pixels (5 frames of 64x64)
+At 2x scale: 640 x 128 pixels (5 frames of 128x128)
+File: black_flame_impact.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a dark fire impact explosion for a 2D
+side-scrolling fighting game.
+
+RENDERING RULES:
+- Flat 2D view, centered in each frame.
+- Each frame is exactly 64x64 pixels.
+- 5 frames in a single horizontal row.
+- Total image: 320 pixels wide x 64 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+This is a DARK FIRE impact, NOT a bright explosion. When the black flame
+projectile hits a target, it erupts into a burst of dark, cursed fire.
+The explosion is dark and oppressive — mostly black and deep red, with only
+brief flashes of crimson at the brightest. The pattern is organic and
+flame-like — NOT angular or crystalline.
+
+Colors: pure black (#050505) core, dark red (#880000) fire, crimson
+(#CC0000) sparks, faint white (#FFFFFF) flash only in Frame 1.
+
+FRAMES (one-shot, fast):
+Frame 1 (FLASH): Small bright flash at the center, approximately 12-16
+  pixels diameter. Brief white (#FFFFFF) center that immediately darkens to
+  crimson. The only bright moment in the entire effect. Sharp starburst
+  with 4-6 dark red rays extending outward.
+
+Frame 2 (EXPAND): Flash darkens rapidly. Expands to ~28-32 pixels. Center
+  shifts to black (#050505). Outer edge is dark red (#880000) fire tendrils
+  spreading outward. Already losing brightness — becoming a dark eruption.
+
+Frame 3 (FULL SIZE): Maximum expansion, ~40-48 pixels. A roiling mass of
+  dark fire — mostly black core with dark red fire tendrils. Occasional
+  crimson (#CC0000) sparks at the outer tips. Looks like a dark bonfire
+  burst. Most dramatic frame but still VERY DARK overall.
+
+Frame 4 (BURN): Burst collapses. Dark fire tendrils curl inward and
+  dissolve. The center darkens further. Small dark embers drift upward.
+  Fading rapidly.
+
+Frame 5 (DISSIPATE): Nearly gone. A few faint dark red wisps curling
+  upward. 2-3 scattered dark pixels. Very transparent. The dark fire
+  extinguishes.
+
+STYLE:
+Clean pixel art, 1px outline where applicable. DARK fire aesthetic — this
+is NOT a bright, cheerful explosion. It's dark, oppressive, and cursed.
+The overall brightness should be very low. Retro 2D game dark fire impact.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B3 — CROW CLONE (Secondary Ability — Crow Substitution Decoy)
+================================================================================
+Output: 256 x 64 pixels (4 frames of 64x64)
+At 2x scale: 512 x 128 pixels (4 frames of 128x128)
+File: crow_clone.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a dark crow-clone decoy for a 2D side-scrolling
+fighting game.
+
+RENDERING RULES:
+- Strict side view (profile), facing RIGHT.
+- Each frame is exactly 64x64 pixels.
+- 4 frames in a single horizontal row.
+- Total image: 256 pixels wide x 64 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+A dark humanoid silhouette approximately 52-54 pixels tall, made entirely of
+clustered small crow shapes. This is NOT a detailed character drawing — it is
+a DARK SILHOUETTE composed of many tiny black bird shapes crowded together in
+a vaguely human form. The outline should be recognizable as a standing human
+figure (same proportions as the character — tall, lean, with a cloak-like
+lower body and ponytail shape), but the interior is filled with overlapping
+crow shapes instead of solid color.
+
+Colors: void black (#0A0A14) base for the crow shapes, near-black (#0F0F1A)
+gaps between crows, 4-6 tiny crimson red (#CC0000) dots scattered throughout
+(crow eyes — 1 pixel each). The overall look is a dark, unsettling mass of
+birds in human shape.
+
+FRAMES (standing loop, then explosion on hit):
+Frame 1 (APPEAR): Silhouette standing in idle pose. Clearly human-shaped
+  outline. Interior filled with overlapping dark crow shapes. Red eye dots
+  visible — 2 where the character's eyes would be (brighter, #FF0000), and
+  2-4 others scattered among the crow bodies. The silhouette looks almost
+  convincing as the real character at a glance — that's the point.
+
+Frame 2 (SHIFT): The crow-shapes within the silhouette shift slightly —
+  the mass of birds is restless. Some crow shapes rearrange positions (shift
+  1-2px). The red eye dots flicker (some appear, some disappear). The
+  outline wobbles 1px — the clone is unstable. Still standing in idle pose.
+
+Frame 3 (EXPLODE): The silhouette BURSTS outward. The crow shapes scatter
+  in all directions — 8-12 individual tiny crow silhouettes (~4-5px each)
+  flying outward from the center. A dark energy flash at the center (dark
+  red #880000 burst, ~16px). Crow shapes radiate outward in a starburst
+  pattern. Red eye dots scatter with the crows. The human shape is GONE —
+  replaced by scattered birds and dark energy.
+
+Frame 4 (SCATTER): Crows have dispersed further from center. Dark energy
+  flash fading. Individual crow shapes smaller and further apart — some at
+  the edges of the 64x64 frame. Mostly transparent now. A few lingering
+  dark pixels. The explosion aftermath.
+
+STYLE:
+Clean pixel art. The key visual is a human-shaped mass of tiny black birds
+that explodes into scattered crows. Dark, unsettling aesthetic. The crows
+within the silhouette are just overlapping dark shapes (~3-4px each) — don't
+try to draw detailed birds. Retro 2D game trap/decoy effect.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B4 — SPECTRAL BLADE SLASH (Melee Hit Visual)
+================================================================================
+Output: 192 x 64 pixels (3 frames of 64x64)
+At 2x scale: 384 x 128 pixels (3 frames of 128x128)
+File: spectral_blade_slash.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a ghostly violet energy blade slash for a 2D
+side-scrolling fighting game.
+
+RENDERING RULES:
+- Flat 2D view.
+- Each frame is exactly 64 pixels wide and 64 pixels tall.
+- 3 frames in a single horizontal row.
+- Total image: 192 pixels wide x 64 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+A sweeping diagonal slash arc from the UPPER-LEFT to the LOWER-RIGHT of
+each frame, created by a ghostly spectral energy blade. This is NOT a
+physical metal slash — it's a translucent, ethereal, ghost-violet energy
+cut. The slash is a curved arc approximately 50 pixels long. The blade
+itself appears and disappears — it MANIFESTS for the slash and DISSOLVES
+after.
+
+Colors: bright violet (#9B59B6) edge glow, ghost violet (#6B3FA0) body,
+dark violet (#2A1A3E) core, faint crimson (#CC0000) sparks at the origin
+point (where the hand was). The slash has a semi-transparent, ghostly
+quality — like a spirit weapon cutting through reality.
+
+FRAMES (one-shot, fast — 40ms per frame):
+Frame 1 (MANIFEST + SLASH): The spectral blade appears mid-swing — a
+  curved arc of ghost-violet energy cutting diagonally. Bright violet edge
+  glow on the leading edge. Dark violet core. The blade shape is katana-
+  like: slightly curved, tapering to a point. At the origin point (lower-
+  left), 1-2 pixels of crimson spark. Clean and sharp.
+
+Frame 2 (GLOW): The slash arc widens to 4-5 pixels. The ghost-violet
+  (#6B3FA0) body brightens toward bright violet (#9B59B6). The blade shape
+  begins dissolving at the trailing edge — becoming transparent particles.
+  Crimson sparks at the origin fade. The overall effect is a ghostly sword
+  cut lingering in the air.
+
+Frame 3 (DISSOLVE): The slash arc breaks apart into floating ghost-violet
+  particles/fragments that drift and fade. The solid arc is gone — replaced
+  by scattered violet pixels dissolving into nothing. Very transparent.
+  The spectral blade returns to the void. Vanishing.
+
+STYLE:
+Clean pixel art. Ghostly, ethereal quality — this slash is from a SPIRIT
+weapon, not physical steel. Semi-transparent feel (draw with fewer pixels,
+more spacing). Violet-purple color scheme, NOT pink or blue. The manifesting
+and dissolving quality is KEY — this weapon doesn't exist permanently.
+Retro 2D fighting game energy slash effect.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B5 — SUSANOO SPIRIT (Ultimate Overlay Effect)
+================================================================================
+Output: 512 x 128 pixels (4 frames of 128x128)
+At 2x scale: 1024 x 256 pixels (4 frames of 256x256)
+File: susanoo_spirit.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a massive spectral warrior spirit for a 2D
+side-scrolling fighting game ultimate attack.
+
+RENDERING RULES:
+- Flat 2D side view, facing RIGHT.
+- Each frame is exactly 128 pixels wide and 128 pixels tall.
+- 4 frames in a single horizontal row.
+- Total image: 512 pixels wide x 128 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+A massive translucent spectral armored warrior — approximately 100-110 pixels
+tall (about 2x character height). This is a ghostly spirit entity that forms
+AROUND and ABOVE the character during the ultimate attack. It has a vaguely
+humanoid upper body (head, shoulders, arms) with the lower body dissolving
+into spectral energy. The spirit wields an enormous spectral fire blade.
+
+The spirit is TRANSLUCENT — draw it with visible gaps, spacing between pixels,
+and lighter colors to convey a ghostly, see-through quality. It is NOT solid.
+
+Colors: spectral violet (#7B4FBF) body, bright lavender (#B088D0) brightest
+edges, deep purple (#3D1F6D) shadows, hellfire red (#FF2200) energy coursing
+through the body in vein-like patterns, crimson (#CC0000) eyes on the spirit's
+face. The spectral blade is enormous — wider than the character, glowing with
+hellfire red (#FF2200) and bright violet (#9B59B6) edges.
+
+FRAMES (one-shot, dramatic):
+Frame 1 (FORM): The spirit is materializing — only the upper portion visible.
+  Translucent violet outline of shoulders, head, and upper arms. Ghostly,
+  partially transparent. Hellfire red veins begin glowing. Crimson eyes appear
+  on the spectral face. The spirit's blade is not yet formed — just a faint
+  outline. The spirit is rising/emerging.
+
+Frame 2 (MANIFEST): Fully formed spectral warrior. Upper body complete with
+  armored shoulders, chest, and fierce spectral face with glowing crimson
+  eyes. The enormous spectral blade is raised high overhead — held in both
+  ghostly hands. Hellfire red energy pulses through the translucent violet
+  body. The spirit is at its MOST IMPRESSIVE — a towering ghostly warrior
+  with a massive blazing blade raised to strike.
+
+Frame 3 (SLASH): The spectral warrior brings the enormous blade DOWN in a
+  devastating overhead slash. Arms sweep forward and down. The blade covers
+  a massive arc in front. Hellfire energy trails from the blade's path. This
+  is the IMPACT FRAME — the most dramatic moment. The blade reaches the
+  lowest point of the slash. Bright lavender flash along the slash path.
+
+Frame 4 (FADE): The spirit is dissolving. Starting from the lower edges and
+  moving upward, the spectral body breaks apart into floating violet and
+  crimson particles. The blade dissolves first. The face and eyes are the
+  LAST elements to fade (mirroring Karasu's own eye power). Deep purple
+  fragments drift upward and vanish. A haunting afterimage of what was.
+
+STYLE:
+Clean pixel art at a larger scale (128x128). TRANSLUCENT, GHOSTLY quality is
+essential — leave gaps and use lighter/fewer pixels to suggest transparency.
+The spirit should look IMPOSING and TERRIFYING despite being translucent.
+Violet-purple with hellfire red accents. This is the ULTIMATE ATTACK effect
+— the single MOST IMPRESSIVE visual in this character's kit.
+Do NOT draw the character inside the spirit — engine positions Karasu's sprite
+separately beneath the spirit overlay.
+
+--- END COPY ---
+
+
+================================================================================
+PROMPT B6 — DARK FIRE GROUND WAVE (Ultimate Aftermath)
+================================================================================
+Output: 512 x 32 pixels (4 frames of 128x32)
+At 2x scale: 1024 x 64 pixels (4 frames of 256x64)
+File: dark_fire_ground.png
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a ground-level dark fire wave for a 2D
+side-scrolling fighting game.
+
+RENDERING RULES:
+- Flat 2D side view.
+- Each frame is exactly 128 pixels wide and 32 pixels tall.
+- 4 frames in a single horizontal row.
+- Total image: 512 pixels wide x 32 pixels tall.
+- Transparent background.
+
+APPEARANCE:
+A wave of dark cursed fire that spreads along the ground after the ultimate
+attack's massive slash impacts. The fire burns low to the ground — the
+tallest flames are approximately 16-20 pixels high, most are 8-12 pixels.
+The fire stretches approximately 100 pixels wide along the ground line.
+
+This is BLACK FIRE — the same dark, unnatural fire as the Black Flame
+projectile but spread across the ground. Mostly black cores (#050505) with
+dark red (#880000) outer flame edges. Occasional crimson (#CC0000) tips.
+The fire sits ON the ground (bottom of each frame) and burns upward.
+
+FRAMES (one-shot, lingers briefly):
+Frame 1 (IGNITE): The dark fire erupts from the impact point (center of
+  frame) and spreads outward along the ground in both directions. Flames
+  are at maximum height (~16-20px). Brightest frame — dark red flames with
+  crimson tips. Black cores visible in the largest flames. Intense, menacing.
+
+Frame 2 (BURN): Fire fully spread across the ground. Flames flicker and
+  shift positions. Height reduces slightly (~12-16px). Colors shift darker
+  — more black, less crimson. The fire is settling into a steady burn.
+
+Frame 3 (SMOLDER): Fire shrinking. Flames reduced to ~8-10px height. Mostly
+  black with faint dark red edges. Embers (#CC0000, tiny 1px dots) rise
+  upward from the fire. The cursed fire is dying.
+
+Frame 4 (EXTINGUISH): Nearly gone. Small dark wisps and a few faint red
+  pixels along the ground line. 1-2 tiny embers still drifting up. Very
+  transparent. The dark fire has burned out.
+
+STYLE:
+Clean pixel art. DARK fire aesthetic — mostly black and deep red. The fire
+looks unnatural and cursed — dark where normal fire would be bright. Flames
+burn UPWARD from the ground line (bottom of frame). Retro 2D game ground
+fire hazard effect.
+
+--- END COPY ---
+
+
+================================================================================
+  ASSEMBLY INSTRUCTIONS
+================================================================================
+
+CHARACTER SPRITE SHEET (from Part A):
+1. Generate all 11 prompts (A0 through A10) individually.
+2. Stitch them vertically into ONE image:
+   Row 0 (Idle)     at y=0    : 256 x 64
+   Row 1 (Run)      at y=64   : 384 x 64
+   Row 2 (Jump)     at y=128  : 192 x 64
+   Row 3 (Attack 1) at y=192  : 192 x 64
+   Row 4 (Attack 2) at y=256  : 192 x 64
+   Row 5 (Attack 3) at y=320  : 256 x 64
+   Row 6 (Cast)     at y=384  : 256 x 64
+   Row 7 (Hit)      at y=448  : 128 x 64
+   Row 8 (Dodge)    at y=512  : 128 x 64
+   Row 9 (Ultimate) at y=576  : 256 x 64
+   Row 10 (Death)   at y=640  : 192 x 64
+   ---
+   Final sheet width: 384px (widest row = Run at 6 frames)
+   Final sheet height: 704px (11 rows x 64px)
+   At 2x: 768 x 1408
+
+3. Save as: karasu_crimson_phantom.png (transparent background, PNG-24)
+
+SKILL EFFECTS (from Part B):
+- B1: black_flame.png (128 x 32)
+- B2: black_flame_impact.png (320 x 64)
+- B3: crow_clone.png (256 x 64)
+- B4: spectral_blade_slash.png (192 x 64)
+- B5: susanoo_spirit.png (512 x 128)
+- B6: dark_fire_ground.png (512 x 32)
+
+
+================================================================================
+  POST-PROCESSING CHECKLIST
+================================================================================
+[ ] Darken ALL results — AI generators WILL make things too bright
+[ ] Cloak should be nearly indistinguishable from true black
+[ ] Eyes must glow crimson clearly against the dark body
+[ ] Verify 64x64 cell alignment on all animation frames
+[ ] Check feet at y=58 in all standing frames
+[ ] Verify transparent background (no white/colored bg leaked)
+[ ] Verify side-view angle (NOT 3/4 — common AI generator mistake)
+[ ] Verify no weapons drawn in idle frames (spectral blade = engine only)
+[ ] Verify crows are tiny (~4-5px) and not overdone
+[ ] Test the run cycle loop (Frame 6 → Frame 1 seamless)
+[ ] Test the idle loop (Frame 4 → Frame 1 seamless)
+[ ] Scale with "Nearest Neighbor" ONLY — no bilinear/bicubic

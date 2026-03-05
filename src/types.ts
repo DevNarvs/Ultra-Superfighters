@@ -31,6 +31,26 @@ export interface ShieldAbility {
   cooldown: number;
 }
 
+export interface DashAbility {
+  name: string;
+  type: 'dash';
+  damage: number;
+  range: number;
+  knockback: number;
+  cooldown: number;
+}
+
+export interface AoeAbility {
+  name: string;
+  type: 'aoe';
+  damage: number;
+  radius: number;
+  knockback: number;
+  cooldown: number;
+}
+
+export type SecondaryAbility = ShieldAbility | DashAbility | AoeAbility;
+
 export interface WaveAbility {
   name: string;
   type: 'wave';
@@ -52,7 +72,7 @@ export interface DodgeAbility {
 
 export interface AbilityConfig {
   primary: ProjectileAbility;
-  secondary: ShieldAbility;
+  secondary: SecondaryAbility;
   ultimate: WaveAbility;
   dodge: DodgeAbility;
 }

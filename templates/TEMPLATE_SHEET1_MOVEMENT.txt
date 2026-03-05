@@ -1,0 +1,239 @@
+================================================================================
+  CHARACTER SPRITE TEMPLATE — SHEET 1: MOVEMENT
+  Super Battlemancers
+================================================================================
+  Generates Idle + Run + Jump in a single image (3 rows).
+  Output: 384 x 192 pixels (6 columns x 3 rows, each cell 64x64)
+  At 2x scale: 768 x 384 pixels
+================================================================================
+
+
+LAYOUT
+================================================================================
+  Row 0 (y=0-63)   : A0 — Idle  (4 frames, cells 1-4, looping)
+  Row 1 (y=64-127) : A1 — Run   (6 frames, cells 1-6, looping)
+  Row 2 (y=128-191): A2 — Jump  (3 frames, cells 1-3, one-shot)
+
+  Empty cells = fully transparent.
+  Total: 384 x 192 pixels.
+
+
+FILL GUIDE — Replace all {PLACEHOLDERS} before use
+================================================================================
+  {CHAR_NAME}             Character name
+  {CHAR_TITLE}            Title / alias
+  {CHAR_HEIGHT}           Pixel height (e.g., "50-52px" or "52-54px")
+  {APPEARANCE_BLOCK}      Full character appearance description
+  {OUTLINE_COLOR}         Outline hex + name (e.g., "#1A0F0A warm dark brown")
+  {KEY_FEATURE}           Identifying feature (e.g., "golden sun mark on forehead")
+  {KEY_FEATURE_DETAIL}    How the feature behaves in idle (e.g., "steady golden glow")
+  {WEAPON_IDLE}           Weapon position in idle (or "NO weapon — hands empty")
+  {WEAPON_RUN}            Weapon position during run
+  {FLOWING_ELEMENTS}      Clothing/hair that flows (e.g., "ponytail, cloak, obi tails")
+  {FLOW_DESC_IDLE}        How flowing elements behave in idle breathing
+  {FLOW_DESC_RUN}         How they trail behind during run
+  {FLOW_DESC_JUMP}        How they react to gravity during jump
+  {RUN_LEAN}              Body lean angle (e.g., "~8 degrees aggressive" or "~3 degrees dignified")
+  {RUN_STYLE}             Run personality (e.g., "aggressive sprint" or "controlled stride")
+  {JUMP_STYLE}            Jump personality (e.g., "martial, controlled" or "explosive, wild")
+  {JUMP_PEAK_SIGNATURE}   What makes the jump peak visually special for this character
+  {IDLE_ENERGY_HINT}      Subtle energy hint during idle breathing peak
+  {PALETTE_NOTE}          Palette personality (e.g., "WARM and BRIGHT" or "VERY DARK")
+  {MOOD}                  Character mood (e.g., "confident, heroic" or "calm, cold")
+  {EXTRAS_IDLE}           Extra details in idle (e.g., "1-2 small crows on shoulders")
+  {EXTRAS_RUN}            Extra details during run (e.g., "NO crows — they scatter")
+
+
+================================================================================
+  TEMPLATE — COPY AND FILL
+================================================================================
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of character movement animations for a 2D side-
+scrolling fighting game. This sheet contains 3 animations organized as
+3 rows of frames. Each row is a separate, independent animation.
+
+CHARACTER:
+{APPEARANCE_BLOCK}
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. The character is seen from a
+  perfect side angle like classic 2D fighting game sprites (Street Fighter,
+  Metal Slug perspective).
+- NOT 3/4 view. NOT front-facing. NOT isometric. NOT top-down. Pure flat
+  side profile.
+- Character always faces RIGHT.
+- Semi-chibi anime proportions: head approximately 1/3 of total body height.
+- Character height: approximately {CHAR_HEIGHT} within each 64x64 cell.
+- Feet planted at y=58 (6 pixels from the bottom of each 64x64 frame).
+- Character body centered horizontally at x=32 in each cell.
+- Clean 1-pixel outline ({OUTLINE_COLOR}) around the entire character.
+- 2-3 shading levels per color area (highlight, base, shadow).
+- No anti-aliasing. Hard pixel edges. No dithering. No sub-pixel detail.
+- {PALETTE_NOTE} mood — {MOOD}.
+
+IMAGE LAYOUT:
+- 6 columns, 3 rows. Each cell is exactly 64x64 pixels.
+- Total image: 384 pixels wide x 192 pixels tall.
+- Transparent background throughout.
+- Each row is a SEPARATE animation. Rows do NOT relate to each other.
+- Empty cells (when a row has fewer than 6 frames) are fully transparent.
+
+Row 0 (y=0-63)    — 4 frames — IDLE: standing, breathing, looping
+Row 1 (y=64-127)  — 6 frames — RUN: {RUN_STYLE}, looping
+Row 2 (y=128-191) — 3 frames — JUMP: launch, peak, fall, one-shot
+
+
+=== ROW 0 (y=0-63): IDLE — Standing Breathing Loop ===
+4 frames in cells 1-4. Cells 5-6 empty/transparent.
+Looping animation — Frame 4 must transition seamlessly back to Frame 1.
+
+The idle stance defines the character's personality at rest. {MOOD}.
+{KEY_FEATURE} must be clearly visible in every frame.
+
+Frame 1 (NEUTRAL — THE BASELINE):
+Relaxed standing stance. Weight distributed naturally. {WEAPON_IDLE}.
+{FLOWING_ELEMENTS} hang naturally at rest — no movement. {KEY_FEATURE}
+is clearly visible with {KEY_FEATURE_DETAIL}. {EXTRAS_IDLE}.
+Expression: {MOOD}. Feet at y=58. This is the DEFINITIVE pose — if you could
+only show one frame to represent this character, this is it. Every
+identifying element (silhouette, weapon, key feature, outfit details) must
+be immediately readable.
+
+Frame 2 (INHALE):
+Subtle inhale — body rises 1-2 pixels from Frame 1 position. {FLOWING_ELEMENTS}
+shift very slightly (1px) from the body movement. {KEY_FEATURE} maintains
+steady state. {WEAPON_IDLE} position unchanged. Keep feet at y=58. Barely
+perceptible change — a living character breathes.
+
+Frame 3 (PEAK):
+Peak of breath — the highest point. {IDLE_ENERGY_HINT}. {FLOWING_ELEMENTS}
+sway 1-2 pixels in one direction. {KEY_FEATURE} at its brightest idle state
+(if it glows) or shifts subtly. A moment of readiness — the character's
+inner power flickers for an instant.
+
+Frame 4 (EXHALE):
+Exhale — body lowers back to exact Frame 1 position. All energy hints fade.
+{FLOWING_ELEMENTS} return to Frame 1 positions. Smooth seamless return —
+Frame 4 must align PERFECTLY with Frame 1 for looping.
+
+IMPORTANT — ROW 0:
+- {KEY_FEATURE} must be clearly visible in ALL 4 frames.
+- Do NOT draw energy aura, fire, magic effects, or ability visuals. Only
+  the character's body, clothing, weapon (if held), and {EXTRAS_IDLE}.
+- All 4 frames must have IDENTICAL proportions and consistent positioning.
+- The idle loop should feel alive but subtle — a gentle breathing cycle.
+
+
+=== ROW 1 (y=64-127): RUN — {RUN_STYLE} ===
+6 frames in cells 1-6 (full row used).
+Looping animation — Frame 6 must loop seamlessly back to Frame 1.
+
+{CHAR_NAME} runs with a {RUN_STYLE} — body leans forward {RUN_LEAN}.
+{WEAPON_RUN}. This is a 6-frame standard run cycle with 2 full strides
+(right leg leads frames 1-3, left leg leads frames 4-6).
+
+Frame 1 (RIGHT CONTACT):
+Right foot strikes ground ahead. Left arm swings forward, right arm back.
+{WEAPON_RUN}. Body leans forward {RUN_LEAN}. {FLOWING_ELEMENTS} stream
+BEHIND the character — trailing the forward movement. {KEY_FEATURE} visible.
+{EXTRAS_RUN}.
+
+Frame 2 (RIGHT DOWN — LOWEST POINT):
+Right foot planted firmly. Body at the LOWEST point of the cycle — most
+compressed vertically. Arms at mid-swing positions. {FLOWING_ELEMENTS}
+follow momentum with 1-2 frame delay (natural physics). {KEY_FEATURE}
+visible.
+
+Frame 3 (RIGHT PASSING — TRANSITION):
+Right foot pushes off, body RISES. Legs cross underneath. Arms passing
+center. Transitional frame — body ascending from the low point.
+{FLOWING_ELEMENTS} catch up to body position.
+
+Frame 4 (LEFT CONTACT — MIRROR OF FRAME 1):
+Left foot strikes ground ahead. Right arm forward, left arm back.
+{WEAPON_RUN} (mirrored arm positions). {FLOWING_ELEMENTS} still streaming
+behind. Mirror of Frame 1 with opposite legs.
+
+Frame 5 (LEFT DOWN — MIRROR OF FRAME 2):
+Left foot planted. Lowest point again. Mirror of Frame 2.
+
+Frame 6 (LEFT PASSING — MIRROR OF FRAME 3):
+Left foot pushes off. Legs cross. Mirror of Frame 3. This frame must loop
+SEAMLESSLY back to Frame 1 — matching positions precisely.
+
+IMPORTANT — ROW 1:
+- {FLOWING_ELEMENTS} MUST trail BEHIND the direction of movement in every
+  frame. They lag 1-2 frames from body position (natural hair/cloth physics).
+- The run cycle must loop perfectly: Frame 6 → Frame 1.
+- {KEY_FEATURE} visible in all 6 frames.
+- Do NOT draw speed lines, energy trails, dust clouds, or any effects.
+  Body, clothing, and weapon only.
+- {FLOW_DESC_RUN}
+
+
+=== ROW 2 (y=128-191): JUMP — Launch, Peak, Fall ===
+3 frames in cells 1-3. Cells 4-6 empty/transparent.
+One-shot animation (does NOT loop).
+
+A {JUMP_STYLE} jump. The character launches upward, reaches the apex, then
+descends. {FLOWING_ELEMENTS} react to gravity and momentum realistically.
+
+Frame 1 (LAUNCH — ON THE GROUND):
+Crouching low, legs deeply bent, about to spring upward. Arms pull downward
+for momentum. Body compressed and coiled — a spring loaded with energy.
+{FLOWING_ELEMENTS} compressed downward from the crouch — pushed down by the
+squatting motion. {WEAPON_IDLE} pulled close to the body (compact).
+{KEY_FEATURE} visible. Feet still at y=58 (still on the ground). Expression
+shows preparation / focus.
+
+Frame 2 (PEAK — AIRBORNE, THE SIGNATURE FRAME):
+Body at the apex of the jump, airborne. Character centered VERTICALLY in the
+64x64 frame (not at y=58 — floating in the middle). Legs tucked up slightly.
+{JUMP_PEAK_SIGNATURE}. {FLOWING_ELEMENTS} float upward in a weightless arc —
+zero gravity feel. Hair floats. Loose clothing lifts. Everything that hangs
+now rises. {KEY_FEATURE} visible. Expression: {MOOD} — composed even mid-air.
+This is the MOST VISUALLY STRIKING jump frame.
+
+Frame 3 (FALL — DESCENDING):
+Body angling downward, preparing to land. Legs extend below toward the ground.
+Arms adjust for the landing. Head tilts slightly down (looking at landing
+point). {FLOWING_ELEMENTS} stream UPWARD — trailing from the downward fall.
+Hair rises. Loose clothing lifts above the body. {KEY_FEATURE} visible.
+Descending pose with intent.
+
+IMPORTANT — ROW 2:
+- {FLOWING_ELEMENTS} react to gravity: compressed DOWN in Frame 1, floating
+  UP in Frame 2, streaming UP in Frame 3. This is natural physics.
+- Frame 1 has feet at y=58 (ground). Frame 2 is centered vertically
+  (airborne). Frame 3 is descending (between center and ground).
+- {KEY_FEATURE} visible in all 3 frames.
+- {FLOW_DESC_JUMP}
+- Do NOT draw energy effects, aura, or trails. Body and clothing only.
+
+--- END COPY ---
+
+
+================================================================================
+  SLICING GUIDE
+================================================================================
+  magick sheet1.png -crop 384x64+0+0   +repage a0_idle.png
+  magick sheet1.png -crop 384x64+0+64  +repage a1_run.png
+  magick sheet1.png -crop 384x64+0+128 +repage a2_jump.png
+
+  Trim empty cells:
+  magick a0_idle.png -crop 256x64+0+0 +repage a0_idle.png   (4 frames)
+  magick a2_jump.png -crop 192x64+0+0 +repage a2_jump.png   (3 frames)
+  (a1_run uses all 6 cells — no trim needed)
+
+  CHECKLIST:
+  [ ] Side view (NOT 3/4)
+  [ ] {KEY_FEATURE} visible in all 13 frames
+  [ ] Idle loop seamless (Frame 4 → Frame 1)
+  [ ] Run loop seamless (Frame 6 → Frame 1)
+  [ ] Feet at y=58 in standing/running frames
+  [ ] Jump Frame 2 centered vertically (airborne)
+  [ ] {FLOWING_ELEMENTS} physics correct per frame
+  [ ] Transparent background, no color fill leaked
+  [ ] Consistent proportions across all 13 frames

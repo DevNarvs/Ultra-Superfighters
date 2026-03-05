@@ -1,0 +1,260 @@
+================================================================================
+  CHARACTER SPRITE TEMPLATE — SHEET 3: ABILITIES
+  Super Battlemancers
+================================================================================
+  Generates Cast + Dodge + Ultimate in a single image (3 rows).
+  Output: 384 x 192 pixels (6 columns x 3 rows, each cell 64x64)
+  At 2x scale: 768 x 384 pixels
+================================================================================
+
+
+LAYOUT
+================================================================================
+  Row 0 (y=0-63)   : A6 — Cast / Primary Ability (4 frames, one-shot)
+  Row 1 (y=64-127) : A8 — Dodge                  (2 frames, one-shot, F2 held)
+  Row 2 (y=128-191): A9 — Ultimate               (4 frames, one-shot)
+
+  Empty cells = fully transparent.
+  Total: 384 x 192 pixels.
+
+
+FILL GUIDE — Replace all {PLACEHOLDERS} before use
+================================================================================
+  {CHAR_NAME}             Character name
+  {CHAR_HEIGHT}           Pixel height
+  {APPEARANCE_BLOCK}      Full character appearance description
+  {OUTLINE_COLOR}         Outline hex + name
+  {KEY_FEATURE}           Identifying feature
+  {PALETTE_NOTE}          Palette mood note
+  {MOOD}                  Character mood
+
+  --- CAST (PRIMARY ABILITY) ---
+  {CAST_NAME}             Ability name (e.g., "Black Flame", "Blazing Dawn Slash")
+  {CAST_TYPE}             Ability type (e.g., "projectile", "dash attack", "trap")
+  {CAST_DESC}             Short description
+  {CAST_STYLE}            Casting personality (e.g., "calm outstretched hand",
+                          "explosive iaido draw", "scythe sweep into ground")
+  {CAST_F1}               Frame 1: Prepare / Focus pose
+  {CAST_F2}               Frame 2: Channel / Load pose
+  {CAST_F3}               Frame 3: Release / Launch pose (engine spawns effect here)
+  {CAST_F4}               Frame 4: Follow-through / Return pose
+  {CAST_SPAWN_NOTE}       Where the engine spawns the projectile/effect (e.g.,
+                          "at the hand position during Frame 3")
+  {CAST_WEAPON_NOTE}      What happens to weapon during cast (e.g., "katana sheathed
+                          in iaido stance", "no weapon — manifests from eyes")
+  {CAST_ENERGY_NOTE}      Energy hints on the CHARACTER (e.g., "eyes intensify",
+                          "sun mark blazes") — NOT the spawned projectile/effect
+
+  --- DODGE ---
+  {DODGE_NAME}            Dodge name (e.g., "Crow Scatter", "Ember Step")
+  {DODGE_DESC}            Short description of the visual
+  {DODGE_F1}              Frame 1: Activation pose (tense, brace, focus)
+  {DODGE_F2}              Frame 2: Active state (HELD for 1 second in-game)
+  {DODGE_SIGNATURE}       What makes this dodge visually unique (e.g., "body
+                          dissolves into crows", "form becomes embers",
+                          "character goes ghostly/translucent")
+  {DODGE_F2_NOTE}         Important: "Draw at FULL OPACITY — engine handles
+                          transparency effects at runtime"
+
+  --- ULTIMATE ---
+  {ULT_NAME}              Ultimate name (e.g., "Susanoo Awakening", "Hinokami")
+  {ULT_DAMAGE}            Damage value
+  {ULT_DESC}              Short description
+  {ULT_STYLE}             Ultimate personality (e.g., "one devastating slash",
+                          "rapid multi-slash dance", "massive spectral summon")
+  {ULT_F1}                Frame 1: Charge / Activation pose
+  {ULT_F2}                Frame 2: Build-up / Rising pose
+  {ULT_F3}                Frame 3: THE STRIKE — most dynamic pose in entire sheet
+  {ULT_F4}                Frame 4: Aftermath — exhausted / serene
+  {ULT_ENERGY_PROGRESSION} How energy escalates across frames (e.g., "eyes:
+                          bright → blazing → maximum → dimmed/exhausted")
+  {ULT_ENGINE_NOTE}       What the engine adds (e.g., "Susanoo overlay, screen flash",
+                          "fire dome, camera shake") — do NOT draw these
+
+
+================================================================================
+  TEMPLATE — COPY AND FILL
+================================================================================
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of special ability animations for a 2D side-scrolling
+fighting game character. This sheet contains 3 ability animations organized
+as 3 rows. Each row is a separate, independent ability.
+
+CHARACTER:
+{APPEARANCE_BLOCK}
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game
+  perspective (Street Fighter, Metal Slug).
+- NOT 3/4 view. NOT front-facing. NOT isometric. Pure flat side profile.
+- Character always faces RIGHT.
+- Semi-chibi anime proportions: head ~1/3 of body height.
+- Character height: ~{CHAR_HEIGHT} within each 64x64 cell.
+- Feet at y=58 (6px from bottom). Center at x=32.
+- 1-pixel outline ({OUTLINE_COLOR}). 2-3 shading levels per color.
+- No anti-aliasing. Hard pixel edges. No dithering.
+
+IMAGE LAYOUT:
+- 6 columns, 3 rows. Each cell is exactly 64x64 pixels.
+- Total image: 384 pixels wide x 192 pixels tall.
+- Transparent background throughout.
+- Each row is a SEPARATE ability. Rows do NOT relate to each other.
+- Empty cells are fully transparent.
+
+Row 0 (y=0-63)    — 4 frames — CAST: {CAST_NAME} ({CAST_TYPE})
+Row 1 (y=64-127)  — 2 frames — DODGE: {DODGE_NAME} (invulnerability)
+Row 2 (y=128-191) — 4 frames — ULTIMATE: {ULT_NAME} (most powerful attack)
+
+
+=== ROW 0 (y=0-63): CAST — {CAST_NAME} ===
+4 frames in cells 1-4. Cells 5-6 empty/transparent.
+One-shot. {CAST_TYPE}. {CAST_DESC}.
+
+The cast animation shows the CHARACTER'S BODY POSES during the ability.
+{CAST_STYLE}. The engine spawns the actual projectile/effect separately —
+do NOT draw the projectile, energy ball, fire, or ability effect in the
+character's hands or around the character.
+
+Frame 1 (PREPARE):
+{CAST_F1}
+{CAST_WEAPON_NOTE}. {KEY_FEATURE} visible. Feet at y=58. A moment of focus
+and preparation — loading the ability. The body language says "something is
+about to happen."
+
+Frame 2 (CHANNEL):
+{CAST_F2}
+{CAST_ENERGY_NOTE} — energy on the character's body begins building. The
+pose shows the ability being channeled — maximum concentration. {KEY_FEATURE}
+intensifies.
+
+Frame 3 (RELEASE — SPAWN FRAME):
+{CAST_F3}
+This is the frame where the engine spawns the ability effect {CAST_SPAWN_NOTE}.
+Maximum forward extension or release pose. {CAST_ENERGY_NOTE} at peak.
+{KEY_FEATURE} at maximum intensity. The body commits to the release.
+
+Frame 4 (FOLLOW-THROUGH):
+{CAST_F4}
+{CAST_ENERGY_NOTE} fading. {KEY_FEATURE} returning to normal. The ability
+has been launched. Body settling back toward neutral. Calm return.
+
+IMPORTANT — ROW 0:
+- Do NOT draw the projectile, energy effect, fire, or any ability visual in
+  the character's hands or around the character. The engine adds the ability
+  effect as a SEPARATE sprite at runtime. Only draw the CHARACTER'S body and
+  arm positions showing the casting motion.
+- {CAST_WEAPON_NOTE}
+- {KEY_FEATURE} visible in all 4 frames.
+
+
+=== ROW 1 (y=64-127): DODGE — {DODGE_NAME} ===
+2 frames in cells 1-2. Cells 3-6 empty/transparent.
+One-shot. 1 second invulnerability. 15 second cooldown.
+Frame 2 is HELD for the full 1-second dodge duration in-game.
+
+{DODGE_DESC}. {DODGE_SIGNATURE}.
+
+Frame 1 (ACTIVATE):
+{DODGE_F1}
+{KEY_FEATURE} at maximum intensity — the power activates. Arms cross or
+brace. Body tenses and compresses — about to transform/dissolve/shift.
+Feet at y=58. A split-second of total focus before the dodge takes effect.
+Determined, deliberate expression.
+
+Frame 2 (ACTIVE — HELD FOR 1 FULL SECOND):
+{DODGE_F2}
+{DODGE_SIGNATURE}. This frame is displayed for 1 FULL SECOND during gameplay,
+so it must be visually appealing as a STATIC image — not a transitional frame.
+It needs to look good when frozen.
+
+{DODGE_F2_NOTE}.
+
+IMPORTANT — ROW 1:
+- {DODGE_F2_NOTE}
+- Frame 2 must look good as a static held image — it's on screen for a full
+  second. Make it visually interesting and readable.
+- {KEY_FEATURE} visible in both frames (or as the last element to fade in
+  Frame 2 if the body is dissolving).
+- Do NOT draw magic circles, energy rings, or aura effects around the
+  character — engine adds dodge visual effects at runtime.
+
+
+=== ROW 2 (y=128-191): ULTIMATE — {ULT_NAME} ===
+4 frames in cells 1-4. Cells 5-6 empty/transparent.
+One-shot. {ULT_DAMAGE} damage. The MOST POWERFUL attack.
+
+{ULT_DESC}. {ULT_STYLE}. This is the character's ultimate ability — the
+most dramatic and powerful sequence in the entire sprite sheet. These frames
+show ONLY the character's body poses. The engine adds all energy effects,
+screen flash, overlays, and camera shake at runtime.
+
+Energy progression across frames: {ULT_ENERGY_PROGRESSION}.
+
+Frame 1 (CHARGE — ACTIVATION):
+{ULT_F1}
+{KEY_FEATURE} at its ABSOLUTE BRIGHTEST / most intense — the peak of the
+character's power activation. The most intimidating still pose. Stillness
+before the storm. Everything coils and charges. The viewer should feel that
+something devastating is about to happen.
+
+Frame 2 (BUILD — RISING POWER):
+{ULT_F2}
+The power manifests physically — the body moves with explosive force. The
+transition from Frame 1's stillness to Frame 2's explosion should be the
+most dramatic pose change in the sheet. Arms spread. Body rises or expands.
+Clothing reacts dramatically. Energy building toward the strike.
+
+Frame 3 (STRIKE — THE SINGLE MOST DYNAMIC FRAME):
+{ULT_F3}
+THIS IS THE MOST DYNAMIC AND DRAMATIC POSE IN THE ENTIRE CHARACTER'S SPRITE
+SHEET. Maximum extension, maximum commitment, maximum force. If you could
+only show ONE frame to represent this character's POWER, it would be this
+frame. Every element — body, clothing, weapon, expression — communicates
+devastating, unstoppable force. {KEY_FEATURE} at absolute maximum intensity.
+
+Frame 4 (AFTERMATH — THE PRICE):
+{ULT_F4}
+The cost of ultimate power. {KEY_FEATURE} dims significantly — the power
+is spent. Body shows exhaustion, depletion, or serene stillness (depending
+on character). This frame communicates the RISK — if the ultimate missed,
+the character is completely vulnerable here. The contrast between Frame 3's
+explosive power and Frame 4's aftermath is the emotional climax.
+
+IMPORTANT — ROW 2:
+- Do NOT draw energy aura, fire dome, spectral overlays, screen flash,
+  particles, or ANY visual effects around the character. {ULT_ENGINE_NOTE}.
+  Only draw the CHARACTER'S BODY POSES.
+- Frame 3 = the single most DRAMATIC pose in the ENTIRE sprite sheet
+  (across all 4 sheets). Commit fully to this frame's intensity.
+- Frame 4's vulnerability/calm is ESSENTIAL for contrast.
+- {KEY_FEATURE} progression: intense (F1) → building (F2) → MAXIMUM (F3) →
+  spent/dimmed (F4).
+- {KEY_FEATURE} visible in all 4 frames (even dimmed in Frame 4).
+
+--- END COPY ---
+
+
+================================================================================
+  SLICING GUIDE
+================================================================================
+  magick sheet3.png -crop 384x64+0+0   +repage a6_cast.png
+  magick sheet3.png -crop 384x64+0+64  +repage a8_dodge.png
+  magick sheet3.png -crop 384x64+0+128 +repage a9_ultimate.png
+
+  Trim:
+  magick a6_cast.png     -crop 256x64+0+0 +repage a6_cast.png      (4 frames)
+  magick a8_dodge.png    -crop 128x64+0+0 +repage a8_dodge.png     (2 frames)
+  magick a9_ultimate.png -crop 256x64+0+0 +repage a9_ultimate.png  (4 frames)
+
+  CHECKLIST:
+  [ ] Side view (NOT 3/4)
+  [ ] {KEY_FEATURE} visible in all 10 frames (even dimmed in ult aftermath)
+  [ ] Cast: NO projectile/effect drawn — body poses only
+  [ ] Dodge Frame 2: drawn at full opacity, looks good as static held image
+  [ ] Ultimate Frame 3: THE most dramatic pose across entire sprite sheet
+  [ ] Ultimate Frame 4: clearly exhausted/vulnerable/serene (contrast F3)
+  [ ] No energy effects, aura, fire, or overlays drawn — engine adds those
+  [ ] Feet at y=58 in grounded frames
+  [ ] Transparent background, no color fill leaked

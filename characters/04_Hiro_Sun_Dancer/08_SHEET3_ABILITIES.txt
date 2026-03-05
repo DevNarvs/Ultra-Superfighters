@@ -1,0 +1,319 @@
+================================================================================
+  SPRITE SHEET 3: ABILITIES — HIRO, THE SUN DANCER
+  Super Battlemancers
+================================================================================
+  Generates Cast + Dodge + Ultimate in a single image (3 rows).
+  Output: 384 x 192 pixels (or 768 x 384 at 2x scale)
+  Template: <- tools/TEMPLATE_SHEET3_ABILITIES.txt
+================================================================================
+
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of character ability animations for a 2D side-
+scrolling fighting game. This sheet contains 3 animations organized as
+3 rows of frames. Each row is a separate, independent animation.
+
+CHARACTER:
+A young swordsman with short messy dark reddish-brown (#8B2500) hair,
+forward swept with a few strands falling across the forehead. A small
+golden sun symbol (#FFD700) on the center of the forehead — circular dot
+with 4-6 short radiating lines — KEY identifying feature, must be visible
+in EVERY frame. Warm amber (#FF8C00) eyes with a determined expression.
+Warm tan (#FFCC99) skin. Dark navy (#1A1A3E) short-sleeved kimono top
+(uwagi) with golden (#FFD700) trim along collar and sleeve edges, navy
+shadow (#0F0F2A) in deep folds, navy highlight (#2D2D55) on lighter areas.
+Burnt orange (#CC5500) obi sash tied at the waist with 2 short hanging
+tails (~6-8px long). Dark charcoal (#2A2A2A) wide-legged hakama pants
+tucked into boots. Simple dark (#1A1018) ankle boots with thin golden
+(#FFD700) accent line. Cloth-wrapped (#E8D5B8) hands. KATANA in right
+hand: dark wrapped (#2A2A2A) handle, golden (#FFD700) circular sun-shaped
+tsuba (guard), polished steel (#C0C8D0) blade with faint orange-gold
+(#FF8C00) shimmer on the cutting edge. Small golden (#FFD700) sun-shaped
+earring on visible ear. Semi-chibi anime proportions (head ~1/3 of body
+height). Athletic, lean build. ~50-52px tall.
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. The character is seen from a
+  perfect side angle like classic 2D fighting game sprites (Street Fighter,
+  Metal Slug perspective).
+- NOT 3/4 view. NOT front-facing. NOT isometric. NOT top-down. Pure flat
+  side profile.
+- Character always faces RIGHT.
+- Semi-chibi anime proportions: head approximately 1/3 of total body height.
+- Character height: approximately 50-52 pixels tall within each 64x64 cell.
+- Feet planted at y=58 (6 pixels from the bottom of each 64x64 frame).
+- Character body centered horizontally at x=32 in each cell.
+- Clean 1-pixel WARM DARK BROWN outline (#1A0F0A) — NOT pure black. This is
+  a warm, bright, heroic character. The outline must feel warm.
+- 2-3 shading levels per color area (highlight, base, shadow).
+- No anti-aliasing. Hard pixel edges. No dithering. No sub-pixel detail.
+- WARM and BRIGHT mood — confident, determined, heroic.
+
+IMAGE LAYOUT:
+- 6 columns, 3 rows. Each cell is exactly 64x64 pixels.
+- Total image: 384 pixels wide x 192 pixels tall.
+- Transparent background throughout.
+- Each row is a SEPARATE animation. Rows do NOT relate to each other.
+- Empty cells (when a row has fewer than 6 frames) are fully transparent.
+
+Row 0 (y=0-63)    — 4 frames — CAST: Blazing Dawn Slash (iaido dash attack), one-shot
+Row 1 (y=64-127)  — 2 frames — DODGE: Ember Step (dissolve into embers), one-shot
+Row 2 (y=128-191) — 4 frames — ULTIMATE: Hinokami — Burning Sun (multi-slash dance), one-shot
+
+
+=== ROW 0 (y=0-63): CAST — Blazing Dawn Slash (Iaido Dash Attack) ===
+4 frames in cells 1-4. Cells 5-6 empty/transparent.
+One-shot (does NOT loop). 18 damage. ~80px forward dash.
+
+Hiro's primary ability — a lunging iaido draw-strike that covers ~80px of
+ground. The engine handles the forward movement; these frames show only the
+body poses during the dash. This is the ONE animation where the katana
+starts SHEATHED — an iaido battojutsu technique. The sequence goes from
+absolute stillness to explosive speed to composed aftermath.
+
+Frame 1 (PREPARE — IAIDO STANCE):
+Katana SHEATHED at the left hip — a simple dark (#2A2A2A) scabbard at the
+left side, with the golden tsuba visible at the scabbard mouth. Right hand
+grips the handle with thumb on the tsuba, ready to draw — the classic iaido
+draw-ready grip. Left hand rests on the scabbard, steadying it. Body turns
+slightly sideways, presenting a narrow profile — weight back. Feet wide
+apart (~20px between them) in a low iaido stance, both at y=58. Head bowed
+slightly with eyes focused forward — intense concentration. Sun mark glows
+steadily (#FFD700). Every muscle coiled. Absolute stillness — the calm
+before the storm.
+
+Frame 2 (DRAW — BATTOJUTSU):
+The explosive draw. Katana rips from the sheath in a flash — the blade is
+mid-draw, approximately 60% emerged from the scabbard, the steel catching
+a bright orange-gold (#FF8C00) shimmer along its edge. Body EXPLODES
+forward from the iaido stance — right arm pulls the blade out and forward,
+left hand pushes the scabbard backward. Legs drive forward with explosive
+force. Front knee bent deep, back leg extending. Sun mark BLAZES (#FFE44D
+with 1px of #FFF5CC). Hair tips glow bright orange (#FF6B00). Hakama whip
+from the explosive lunge. The character is frozen in the moment the blade
+leaves the sheath — maximum tension and explosive speed.
+
+Frame 3 (SLASH — FULL EXTENSION):
+The dash slash at maximum extension. Katana fully drawn and extended to the
+right at full arm's length — the blade reaches approximately x=52-54 from
+the left edge (the farthest reach of ANY animation). Body fully committed
+to the forward lunge — front leg bent deep at approximately a 90-degree
+angle, back leg extended behind at full stretch. Both arms drive the blade
+forward in a devastating horizontal cut. The scabbard is now at the left
+hip, empty. Sun mark at maximum blaze. Hair tips bright orange. Hakama
+billow from the explosive forward motion. Maximum forward reach and total
+commitment. This is the frame where the engine spawns the fire arc effect.
+
+Frame 4 (FINISH — LOW STANCE):
+The dash is complete. Hiro ends in a low finishing stance — one knee nearly
+touching the ground at approximately y=54, katana held horizontally to the
+right at hip level (the blade has completed its arc). Body low and forward,
+weight settled on the front leg. Left hand rests on the forward knee.
+Hakama spread on the ground from the low position. Sun mark begins dimming
+back to normal. Hair tips fade to auburn. Obi tails settle. A composed,
+cool aftermath pose. "The cut is already done."
+
+IMPORTANT — ROW 0:
+- Frame 1 shows a SHEATHED katana (iaido stance) — this is the ONLY
+  animation where the katana starts in a sheath. The scabbard is a simple
+  dark (#2A2A2A) rectangular shape at the left hip. The golden sun tsuba
+  is visible at the scabbard opening.
+- The draw-slash (Frames 2-3) is battojutsu — drawing and cutting in one
+  explosive motion. Stillness (F1) to explosion (F2-F3) is dramatic.
+- Do NOT draw the fire arc trail — the engine adds that during Frame 3.
+- The engine moves the character forward ~80px — frames show poses only.
+- Sun mark blazing during Frames 2-3.
+- Frame 4 is punishable on whiff — high commitment ability.
+
+
+=== ROW 1 (y=64-127): DODGE — Ember Step ===
+2 frames in cells 1-2. Cells 3-6 empty/transparent.
+One-shot (Frame 2 held for 1 full second). 1s invulnerability, 15s cooldown.
+
+Hiro's body bursts into a cloud of floating embers and sparks — his solid
+form dissolves momentarily into solar fire particles. The sun mark becomes
+the brightest anchor point in the dissolving form.
+
+Frame 1 (ENTER — CONCENTRATION):
+Body tenses and compresses — crouching slightly with arms pulling inward.
+Katana held vertically close to the chest with both hands, blade pointing
+straight up alongside the face. Eyes shut in intense concentration — one
+moment of total focus. Sun mark BLAZES at maximum brightness (#FFE44D with
+1-2px of #FFF5CC solar white around it) — the solar energy activates at
+its peak. Obi sash pulls tight against the body. Hakama tense and compress.
+Feet at y=58. The character is about to transform into embers. A split
+second of total inner focus before the body ignites.
+
+Frame 2 (ACTIVE — EMBER FORM, held for 1 full second):
+The character's solid form has partially dissolved into a scatter of embers
+and warm light. The overall SILHOUETTE is still recognizable as a human
+figure holding a sword — you can tell it's Hiro from the sword shape, the
+forehead sun mark position, and the hakama width — but the edges and details
+break apart into scattered orange-gold (#FF8C00, #FFD700, #FF6B00) ember
+pixels. The body is rendered in softer, WARMER tones — the navy kimono
+shifts toward warm dark tones. The sun mark is the BRIGHTEST point in the
+entire frame — a blazing golden beacon (#FFE44D with #FFF5CC center) in the
+dissolving form, like the last ember that refuses to go out. The golden
+tsuba on the katana is the second-brightest point. Scattered ember pixels
+(#FF8C00, #FF6B00, #FFD700) float outward from the silhouette edges:
+upward from the head and hair, outward from the hands and arms, downward
+from the hakama hem. The katana blade glows warm orange along its entire
+length (#FF8C00 replacing the #C0C8D0 steel). 8-12 individual ember pixels
+scattered around the figure at various distances (1-6px from the silhouette
+edge), floating upward like real embers rising from a fire.
+
+IMPORTANT — ROW 1:
+- Frame 2 should look like the character is MADE OF EMBERS — a warm glowing
+  human shape composed of floating particles and soft light, not a solid
+  person. But the SILHOUETTE must still be readable as Hiro.
+- Draw Frame 2 at FULL OPACITY — the game engine makes it semi-transparent
+  and adds additional floating ember particles at runtime.
+- Frame 2 is held for 1 full second, so it must look visually appealing as
+  a static image.
+- The sun mark is the BRIGHTEST POINT in Frame 2 — the anchor of the
+  dissolving form. Like a heart of flame.
+- Ember pixels float UPWARD (like real embers from a fire).
+- Do NOT draw fire trails, rings, or energy effects beyond the body's edge.
+
+
+=== ROW 2 (y=128-191): ULTIMATE — Hinokami: Burning Sun ===
+4 frames in cells 1-4. Cells 5-6 empty/transparent.
+One-shot (does NOT loop). 35 total damage. 0.6s startup. Close-range only.
+
+The character's ULTIMATE — the Kagura dance at its absolute peak. The most
+dramatic and powerful sequence in the entire sprite sheet. A rapid series
+of circular fire slashes performed as a ritual dance, culminating in a
+massive horizontal sweep. Kneeling meditation → explosive rise → peak
+dance → serene stillness.
+
+Frame 1 (CHARGE — SACRED MEDITATION):
+Kneeling on one knee (right knee down at approximately y=54, left foot
+planted at y=58). Katana planted vertically in front with the tip touching
+the ground at approximately x=36, y=58. Both hands rest on the pommel at
+approximately y=28 (chest height). Head bowed deeply — chin nearly touching
+chest, eyes closed in profound meditation. The posture suggests a warrior
+in prayer before the final dance. Sun mark BLAZES at its ABSOLUTE BRIGHTEST
+— the brightest it has ever been in the entire sprite sheet. Use #FFE44D
+base with 2-3 pixels of #FFF5CC (solar white) radiating around the mark,
+and even 1 pixel of pure #FFFFFF at the center dot. The golden trim on the
+kimono seems to glow warmer — add 1 extra pixel of #FFD700 along the collar
+edge. Hair tips glow intensely (#FF6B00). Hakama spread on the ground from
+the kneeling pose, creating a wide base. Earring catches a golden glint.
+This is the most SACRED and INTENSE pose — the dancer entering the trance
+state. Perfect stillness before explosive movement.
+
+Frame 2 (RISE — EXPLOSIVE AWAKENING):
+EXPLODING upward from the kneeling position with maximum force. Body rising
+with explosive power — both feet leaving the ground (2-3px above y=58).
+The transition from Frame 1's stillness to Frame 2's explosion is the most
+dramatic pose change in the sprite sheet. Katana rips from the ground and
+sweeps to the right side in one motion — blade at approximately x=42, y=24
+(mid-height, extended). Arms spreading outward with the rising force. Eyes
+snap OPEN — amber (#FF8C00) irises burning with fierce intensity. Mouth
+opens with a battle cry. Sun mark blazing (#FFE44D + #FFF5CC). Hair swept
+upward from the explosive rise — defying gravity momentarily. Hakama billow
+DRAMATICALLY upward from the sudden burst — maximum fabric motion. Obi
+tails fly outward at near-horizontal. The character is ASCENDING — the
+dance has begun.
+
+Frame 3 (DANCE — THE SINGLE MOST DYNAMIC FRAME):
+Full dance combat pose — THIS IS THE MOST DYNAMIC AND DRAMATIC FRAME IN
+THE ENTIRE SPRITE SHEET. Body mid-spin with katana extended at full reach
+to the right — blade at approximately x=50-52, y=30 (maximum forward
+extension at mid-height). The pose captures frozen motion mid-slash: body
+twisted in a powerful circular cut with maximum rotational force. One foot
+planted at y=58 for the pivot, the other trailing the spin at approximately
+y=50 (lifted and trailing). Hakama whip outward in a DRAMATIC SPIRAL — the
+wide fabric caught in centrifugal force, creating a massive flowing shape.
+Obi tails arc through the air at full extension. Hair swept by the
+rotational force — pushed to one side. Sun mark blazing at maximum. Hair
+tips at maximum orange glow (#FF6B00). Every cloth element (hakama, obi,
+kimono collar) is caught in peak dynamic motion. The blade at maximum
+extension with the golden tsuba catching light. This frame represents the
+PEAK of the Hinokami Kagura — the dancer at the height of his art.
+
+Frame 4 (FINISH — SERENE STILLNESS):
+The dance is complete. Hiro stands in a serene finishing pose — body
+upright and centered, feet shoulder-width at y=58. Katana held horizontally
+at his right side with both hands at approximately y=36 (hip height), blade
+pointing right — a clean, resolved position. One foot slightly forward.
+Head tilted slightly down with a calm, composed expression — eyes half-
+lidded, mouth closed, at peace. "The storm has passed." Sun mark dims back
+to a warm, steady glow (#FFD700) — not blazing, just present. A gentle,
+grounded light. Hair tips return to normal auburn. Hakama settle and drape
+naturally — back to their resting wide-legged shape. Obi tails hang still.
+Everything is STILL.
+
+The contrast between Frame 3's explosive rotational energy and Frame 4's
+absolute serene calm is the emotional climax of the entire character's
+animation set. Frame 3 is the storm. Frame 4 is the sunrise after.
+
+IMPORTANT — ROW 2:
+- This is the MOST DRAMATIC sequence in the entire sprite sheet — each
+  frame must be visually striking and emotionally powerful.
+- Frame 1 (kneeling meditation) to Frame 2 (explosive rise) creates the
+  single most dramatic transition: sacred stillness to explosive power.
+- Frame 3 must be the single most DYNAMIC pose on the entire sheet — frozen
+  mid-dance, maximum motion in a still frame. If you could only show ONE
+  frame to represent this character, it would be Frame 3.
+- Frame 4's calm is ESSENTIAL — it contrasts with Frame 3.
+- Do NOT draw fire aura, circular slash arcs, energy effects, or particles.
+  The engine adds screen flash, fire dome, and slash effects at runtime.
+  Only draw the CHARACTER'S BODY POSES.
+- Sun mark at ABSOLUTE MAXIMUM BLAZE in Frames 1-3, calm steady in Frame 4.
+
+
+CRITICAL REMINDERS FOR THE ENTIRE SHEET:
+- WARM DARK BROWN outline (#1A0F0A) — NOT pure black. If the AI produces
+  black outlines, they need recoloring in post.
+- Golden SUN MARK on forehead visible in ALL 10 frames across all 3 rows.
+- Golden SUN TSUBA on katana visible whenever the sword is in frame.
+- Katana blade is STEEL (#C0C8D0), NOT gold (except during dodge Frame 2
+  where it glows warm orange #FF8C00).
+- HAKAMA are WIDE-LEGGED traditional pants that billow and flow — NOT skinny.
+- Cast Row: katana starts SHEATHED (only animation with a scabbard).
+- Dodge Row: Frame 2 is ember-form — body dissolving, draw at full opacity.
+- Ultimate Row: the most dramatic 4-frame sequence of the entire sheet.
+- Overall feeling: WARM, BRIGHT, HEROIC — like sunlight in human form.
+- NO fire trails, energy effects, or slash arcs in any frame — engine adds
+  all effects at runtime.
+
+--- END COPY ---
+
+
+================================================================================
+  POST-GENERATION
+================================================================================
+
+SLICING:
+  magick sheet3_hiro.png -crop 384x64+0+0   +repage a6_cast.png
+  magick sheet3_hiro.png -crop 384x64+0+64  +repage a8_dodge.png
+  magick sheet3_hiro.png -crop 384x64+0+128 +repage a9_ultimate.png
+
+TRIM empty cells:
+  magick a6_cast.png     -crop 256x64+0+0 +repage a6_cast.png     (4 frames)
+  magick a8_dodge.png    -crop 128x64+0+0 +repage a8_dodge.png    (2 frames)
+  magick a9_ultimate.png -crop 256x64+0+0 +repage a9_ultimate.png (4 frames)
+
+CHECKLIST:
+  [ ] Side view (NOT 3/4 — common AI mistake)
+  [ ] Warm dark brown outline (#1A0F0A), NOT pure black
+  [ ] Sun mark visible in all 10 frames
+  [ ] Sun tsuba visible on katana in all frames
+  [ ] Katana blade is steel (#C0C8D0), NOT gold (except dodge F2)
+  [ ] Hakama are wide-legged and flow correctly per frame
+  [ ] Cast F1: katana is SHEATHED in scabbard at left hip
+  [ ] Cast F2-F3: explosive draw-slash sequence (battojutsu)
+  [ ] Cast F4: low finishing stance (punishable pose)
+  [ ] Dodge F1: tense, compressed, eyes shut
+  [ ] Dodge F2: ember-form — edges dissolving, embers floating upward
+  [ ] Dodge F2: sun mark is BRIGHTEST POINT in the dissolving form
+  [ ] Ultimate F1: kneeling meditation, katana planted vertically
+  [ ] Ultimate F2: explosive rise from kneeling, both feet off ground
+  [ ] Ultimate F3: most dynamic pose — mid-spin, maximum extension
+  [ ] Ultimate F4: serene stillness — total calm contrast
+  [ ] Feet at y=58 in all grounded frames
+  [ ] Transparent background, no color fill leaked
+  [ ] Consistent proportions across all 10 frames
+  [ ] Warm, bright, heroic feel — increase warmth in post if too cool/blue

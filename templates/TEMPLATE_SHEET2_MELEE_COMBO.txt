@@ -1,0 +1,273 @@
+================================================================================
+  CHARACTER SPRITE TEMPLATE — SHEET 2: MELEE COMBO
+  Super Battlemancers
+================================================================================
+  Generates Attack 1 + Attack 2 + Attack 3 in a single image (3 rows).
+  Output: 384 x 192 pixels (6 columns x 3 rows, each cell 64x64)
+  At 2x scale: 768 x 384 pixels
+================================================================================
+
+
+LAYOUT
+================================================================================
+  Row 0 (y=0-63)   : A3 — Attack 1 (3 frames, cells 1-3, one-shot)
+  Row 1 (y=64-127) : A4 — Attack 2 (3 frames, cells 1-3, one-shot)
+  Row 2 (y=128-191): A5 — Attack 3 (4 frames, cells 1-4, one-shot)
+
+  Empty cells = fully transparent.
+  Total: 384 x 192 pixels.
+
+
+FILL GUIDE — Replace all {PLACEHOLDERS} before use
+================================================================================
+  {CHAR_NAME}             Character name
+  {CHAR_HEIGHT}           Pixel height (e.g., "50-52px")
+  {APPEARANCE_BLOCK}      Full character appearance description
+  {OUTLINE_COLOR}         Outline hex + name
+  {KEY_FEATURE}           Identifying feature
+  {KEY_FEATURE_ATTACK}    How the feature reacts during attacks (e.g., "sun mark
+                          blazes brighter", "crimson eyes intensify")
+  {PALETTE_NOTE}          Palette mood note
+  {MOOD}                  Character mood
+
+  --- COMBO IDENTITY ---
+  {COMBO_NAME}            Combo name (e.g., "Solar Kagura", "Phantom Edge")
+  {COMBO_STYLE}           Combo personality (e.g., "flowing dance forms",
+                          "cold precise surgical cuts", "wild berserker chain")
+  {COMBO_FLOW}            How attacks connect (e.g., "each recovery flows into
+                          the next attack's windup like a dance transition")
+  {WEAPON_TYPE}           Weapon description (e.g., "katana held two-handed",
+                          "spectral blade manifests from nothing", "bare fists")
+  {WEAPON_NOTE}           Important weapon rule (e.g., "Do NOT draw the spectral
+                          blade — engine adds it", "katana visible in all frames")
+
+  --- ATTACK 1 ---
+  {ATK1_NAME}             Attack 1 name (e.g., "Dawn Strike")
+  {ATK1_DAMAGE}           Damage value (e.g., "10")
+  {ATK1_DESC}             Short description (e.g., "quick horizontal slash")
+  {ATK1_WINDUP}           Windup pose detail
+  {ATK1_STRIKE}           Strike pose detail (the impact frame)
+  {ATK1_REACH}            Forward reach in pixels (e.g., "~38px", "~48px")
+  {ATK1_RECOVERY}         Recovery pose — how it transitions to attack 2
+
+  --- ATTACK 2 ---
+  {ATK2_NAME}             Attack 2 name
+  {ATK2_DAMAGE}           Damage value
+  {ATK2_DESC}             Short description
+  {ATK2_WINDUP}           Windup pose — should flow FROM attack 1's recovery
+  {ATK2_STRIKE}           Strike pose
+  {ATK2_REACH}            Forward reach
+  {ATK2_RECOVERY}         Recovery pose — how it transitions to attack 3
+
+  --- ATTACK 3 ---
+  {ATK3_NAME}             Attack 3 name (combo finisher)
+  {ATK3_DAMAGE}           Damage value (highest in combo)
+  {ATK3_DESC}             Short description
+  {ATK3_WINDUP}           Windup — should flow FROM attack 2's recovery
+  {ATK3_APEX}             Apex/peak pose (the wind-up at maximum)
+  {ATK3_STRIKE}           Strike pose (the hardest hit)
+  {ATK3_REACH}            Forward reach (usually the longest)
+  {ATK3_RECOVERY}         Recovery pose (usually the most vulnerable)
+  {ATK3_VULNERABLE}       Why the character is punishable after this attack
+
+  --- ENERGY HINTS (on character body, NOT separate effects) ---
+  {ENERGY_HINT_MILD}      Subtle energy on the character during light attacks
+                          (e.g., "hair tips glow orange #FF6B00")
+  {ENERGY_HINT_INTENSE}   Strong energy during combo finisher
+                          (e.g., "sun mark blazes #FFE44D with solar white")
+  {ENERGY_HINT_OFF}       What energy looks like fading (e.g., "tips return to auburn")
+
+
+================================================================================
+  TEMPLATE — COPY AND FILL
+================================================================================
+
+--- COPY FROM HERE ---
+
+Pixel art sprite sheet of a 3-hit melee combo for a 2D side-scrolling
+fighting game character. This sheet contains 3 attacks organized as 3 rows.
+The 3 attacks form a SEQUENTIAL COMBO — each attack's recovery naturally
+flows into the next attack's windup. {COMBO_FLOW}.
+
+CHARACTER:
+{APPEARANCE_BLOCK}
+
+RENDERING RULES:
+- Strict SIDE VIEW (profile), 90-degree angle. Classic 2D fighting game
+  perspective (Street Fighter, Metal Slug).
+- NOT 3/4 view. NOT front-facing. NOT isometric. Pure flat side profile.
+- Character always faces RIGHT.
+- Semi-chibi anime proportions: head ~1/3 of body height.
+- Character height: ~{CHAR_HEIGHT} within each 64x64 cell.
+- Feet at y=58 (6px from bottom). Center at x=32.
+- 1-pixel outline ({OUTLINE_COLOR}). 2-3 shading levels per color.
+- No anti-aliasing. Hard pixel edges. No dithering.
+
+IMAGE LAYOUT:
+- 6 columns, 3 rows. Each cell is exactly 64x64 pixels.
+- Total image: 384 pixels wide x 192 pixels tall.
+- Transparent background throughout.
+- Each row is one attack in the combo sequence.
+- Empty cells (right side of rows with <6 frames) are fully transparent.
+
+Row 0 (y=0-63)    — 3 frames — ATTACK 1: {ATK1_NAME} ({ATK1_DESC})
+Row 1 (y=64-127)  — 3 frames — ATTACK 2: {ATK2_NAME} ({ATK2_DESC})
+Row 2 (y=128-191) — 4 frames — ATTACK 3: {ATK3_NAME} ({ATK3_DESC})
+
+COMBO CONTEXT:
+This is the "{COMBO_NAME}" — a 3-hit melee combo. {COMBO_STYLE}.
+Total combo damage: {ATK1_DAMAGE} + {ATK2_DAMAGE} + {ATK3_DAMAGE}.
+Each attack escalates in power: light opener → medium follow-up → heavy
+finisher. The CHARACTER POSES should show this escalation — more body
+commitment, wider reach, more dramatic movement with each successive attack.
+
+
+=== ROW 0 (y=0-63): ATTACK 1 — {ATK1_NAME} ===
+3 frames in cells 1-3. Cells 4-6 empty/transparent.
+One-shot. {ATK1_DAMAGE} damage. The OPENER — fast, low commitment.
+
+{ATK1_DESC}. This is the first hit of the combo — the lightest, fastest,
+and least committed. It transitions FROM idle naturally and sets up the
+flow into Attack 2.
+
+Frame 1 (WINDUP):
+{ATK1_WINDUP}
+{KEY_FEATURE} visible, steady state. Feet at y=58. The coiled-spring moment
+before the first strike. The beginning of the combo sequence.
+
+Frame 2 (STRIKE — IMPACT FRAME):
+{ATK1_STRIKE}
+{WEAPON_TYPE} reaches approximately {ATK1_REACH} from the left edge of the
+frame. {ENERGY_HINT_MILD}. {KEY_FEATURE_ATTACK} (mild). This is the IMPACT
+FRAME — where the engine checks for hit collision. The pose should convey
+speed and precision for a light opening attack.
+
+Frame 3 (RECOVERY — FLOWS INTO ATTACK 2):
+{ATK1_RECOVERY}
+{ENERGY_HINT_OFF}. {KEY_FEATURE} returns to steady state. This frame does
+NOT return to idle — it is a TRANSITION toward Attack 2's starting position.
+The body is mid-flow between combo forms. {COMBO_FLOW}.
+
+IMPORTANT — ROW 0:
+- Light, fast, low commitment. Minimal body movement.
+- Frame 3 recovery should look like a DANCE TRANSITION, not a hard stop.
+- {WEAPON_NOTE}
+- {KEY_FEATURE} visible in all 3 frames.
+
+
+=== ROW 1 (y=64-127): ATTACK 2 — {ATK2_NAME} ===
+3 frames in cells 1-3. Cells 4-6 empty/transparent.
+One-shot. {ATK2_DAMAGE} damage. The FOLLOW-UP — more committed than Attack 1.
+
+{ATK2_DESC}. The second hit escalates — more body rotation, wider arc,
+greater reach. The body commits more than Attack 1 but still has a path
+forward into Attack 3.
+
+Frame 1 (WINDUP — FLOWS FROM ATTACK 1):
+{ATK2_WINDUP}
+This starting position should feel like a NATURAL continuation from Attack 1's
+recovery. The weapon/body transitions from where Attack 1 ended into this
+new loading position. {KEY_FEATURE} visible.
+
+Frame 2 (STRIKE — IMPACT FRAME):
+{ATK2_STRIKE}
+{WEAPON_TYPE} reaches approximately {ATK2_REACH} from the left edge. More
+body commitment than Attack 1 — the character steps forward or rotates more.
+{ENERGY_HINT_MILD}. {KEY_FEATURE_ATTACK}. Greater knockback pose — the hit
+feels heavier.
+
+Frame 3 (RECOVERY — FLOWS INTO ATTACK 3):
+{ATK2_RECOVERY}
+This recovery naturally positions the character for Attack 3's windup.
+The weapon/body ends in a position that makes Attack 3's start feel seamless.
+{COMBO_FLOW}.
+
+IMPORTANT — ROW 1:
+- MORE committed than Attack 1 — visibly bigger movement, more rotation.
+- Frame 1 should feel like it naturally follows Attack 1's Frame 3.
+- Frame 3 should naturally lead into Attack 3's Frame 1.
+- {WEAPON_NOTE}
+- {KEY_FEATURE} visible in all 3 frames.
+
+
+=== ROW 2 (y=128-191): ATTACK 3 — {ATK3_NAME} (COMBO FINISHER) ===
+4 frames in cells 1-4. Cells 5-6 empty/transparent.
+One-shot. {ATK3_DAMAGE} damage — the HIGHEST in the combo.
+
+{ATK3_DESC}. The combo climax — maximum power, maximum commitment, maximum
+risk. This is the HEAVIEST attack: the most dramatic pose, widest reach,
+and longest recovery. If it hits, devastating. If it misses, punishable.
+
+Frame 1 (WINDUP — FLOWS FROM ATTACK 2):
+{ATK3_WINDUP}
+The weapon/body transitions from Attack 2's ending into maximum windup.
+{KEY_FEATURE_ATTACK} begins intensifying. {ENERGY_HINT_INTENSE}. The
+character is loading the most powerful strike in the combo.
+
+Frame 2 (APEX — MAXIMUM TENSION):
+{ATK3_APEX}
+The peak of the windup — everything at maximum height/extension before the
+strike descends. Body stretched to maximum. {ENERGY_HINT_INTENSE} at peak.
+This frame is pure TENSION — the promise of devastating impact.
+
+Frame 3 (STRIKE — THE HEAVIEST HIT):
+{ATK3_STRIKE}
+{WEAPON_TYPE} reaches approximately {ATK3_REACH} from the left edge — the
+FARTHEST forward reach in the entire combo. Body lunges forward with total
+commitment. Weight crashes onto the front foot. {ENERGY_HINT_INTENSE} at
+maximum. {KEY_FEATURE_ATTACK} at maximum intensity. This is the single
+most POWERFUL and DYNAMIC attack pose in the basic combo. Every pixel of
+this pose communicates devastating force.
+
+Frame 4 (RECOVERY — VULNERABLE):
+{ATK3_RECOVERY}
+The price of power. {ATK3_VULNERABLE}. {ENERGY_HINT_OFF}. {KEY_FEATURE}
+dims or returns to normal. The character is visibly exhausted, off-balance,
+or over-extended — communicating to the viewer that this is a PUNISH WINDOW.
+The contrast between Frame 3's explosive power and Frame 4's vulnerability
+is the risk/reward core of the combo finisher.
+
+IMPORTANT — ROW 2:
+- This is the HEAVIEST attack — Frame 3 must be the most dramatic and
+  powerful attack pose across all 3 rows.
+- Frame 4's vulnerability is CRITICAL — the character is clearly exposed
+  and unable to act. This communicates the combo's risk/reward.
+- The escalation across all 3 rows should be visually obvious:
+  Row 0 (light) → Row 1 (medium) → Row 2 (heavy, dramatic, dangerous).
+- {WEAPON_NOTE}
+- {KEY_FEATURE} visible in all 4 frames.
+
+COMBO FLOW SUMMARY:
+The 3 attacks read as ONE CONTINUOUS SEQUENCE when played back-to-back:
+  A1 windup → A1 strike → A1 recovery/transition →
+  A2 windup → A2 strike → A2 recovery/transition →
+  A3 windup → A3 apex → A3 STRIKE → A3 vulnerable recovery
+Each row's starting position flows from the previous row's ending position.
+The entire combo tells a story: preparation → escalation → climax → aftermath.
+
+--- END COPY ---
+
+
+================================================================================
+  SLICING GUIDE
+================================================================================
+  magick sheet2.png -crop 384x64+0+0   +repage a3_attack1.png
+  magick sheet2.png -crop 384x64+0+64  +repage a4_attack2.png
+  magick sheet2.png -crop 384x64+0+128 +repage a5_attack3.png
+
+  Trim:
+  magick a3_attack1.png -crop 192x64+0+0 +repage a3_attack1.png  (3 frames)
+  magick a4_attack2.png -crop 192x64+0+0 +repage a4_attack2.png  (3 frames)
+  magick a5_attack3.png -crop 256x64+0+0 +repage a5_attack3.png  (4 frames)
+
+  CHECKLIST:
+  [ ] Side view (NOT 3/4)
+  [ ] {KEY_FEATURE} visible in all 10 frames
+  [ ] Attack escalation visible: light → medium → HEAVY
+  [ ] Combo flow: each row's start connects to previous row's end
+  [ ] Frame 3 of Row 2 = most dramatic pose across all 3 rows
+  [ ] Frame 4 of Row 2 = clearly vulnerable/exhausted
+  [ ] Forward reach increases: {ATK1_REACH} < {ATK2_REACH} < {ATK3_REACH}
+  [ ] No slash trails, fire arcs, or energy effects drawn (engine adds those)
+  [ ] Feet at y=58 in all grounded frames
+  [ ] Transparent background, no color fill leaked
